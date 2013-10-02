@@ -1,8 +1,8 @@
 /********************************************************************
 As of now this program can either read or write to a specified address
 in the onboard EEPROM(24LC02B) using the I2C protocol. The number that SD_COUNTER
-goes up to needs to be changed, and the assignments at the bottom of the file 
-need to switched when switching from reading and writing. 
+goes up to needs to be changed, and the assignments at the bottom of the file
+need to switched when switching from reading and writing.
 ********************************************************************/
 
 
@@ -39,7 +39,7 @@ module I2C_MyNano(
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 //This is keeping track of the rudementary states. These will need to be lumped together using
-//a multibit flag register eventually. 
+//a multibit flag register eventually.
 	SD_COUNTER
 
 );
@@ -49,32 +49,32 @@ module I2C_MyNano(
 
 input CLOCK_50;
 
-output [7:0]  LED;
+output 	[7:0]  	LED;
 
-input [1:0] KEY;
+input 	[1:0] 	KEY;
 
 //really doesnt need to be 4 bits... but im to lazy to change it.. and maybe we need more switches?//
-input [3:0] 	SW;
+input 	[3:0] 	SW;
 
 //////////////////This is for the EEPROM's I2C connections/////////
-output   I2C_SCL;
-inout   	I2C_SDA;
+output   		I2C_SCL;
+inout   		I2C_SDA;
 
 //////////////////Keep track of clocks
 output	[5:0] 	SD_COUNTER;
-output  	[9:0]		COUNT;
+output  [9:0]	COUNT;
 
 //////////////////////Reg/Wire Declarations////////////////////
-wire		reset_n;
+wire			reset_n;
 
-reg 					SCL_CTRL;				//This is used for the clock. ----TEST!!!!!!
-reg		[7:0]		DATAIN;					//This is where the data is stored when reading a byte
-reg					GO;						//This signals the operation to start
-reg		[6:0]		SD_COUNTER;
-reg					SDI;						//place holder for I2C_SDA
-reg					SCL;						//Place holder for I2C_SCL during start/stop
-reg		[9:0]		COUNT;
-reg 		[7:0] 	LEDOUT;					//I think I stopped using this? again too lazy right now to check.
+reg 			SCL_CTRL;				//This is used for the clock. ----TEST!!!!!!
+reg		[7:0]	DATAIN;					//This is where the data is stored when reading a byte
+reg				GO;						//This signals the operation to start
+reg		[6:0]	SD_COUNTER;
+reg				SDI;						//place holder for I2C_SDA
+reg				SCL;						//Place holder for I2C_SCL during start/stop
+reg		[9:0]	COUNT;
+reg 	[7:0] 	LEDOUT;					//I think I stopped using this? again too lazy right now to check.
 
 
 //////////////Structural Coding///////////
@@ -90,7 +90,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
 begin
 	if (!reset_n)
 		GO <= 0;
-	else	
+	else
 		if(!KEY[1])
 			GO <=1;
 end
@@ -105,23 +105,23 @@ begin
 end
 ///////////////////////////////////////////////////////////////////////
 
-//////////////This Allows for one opperation. We will probably need to change this to do continuously, 
+//////////////This Allows for one opperation. We will probably need to change this to do continuously,
 //or maybe just reset it everytime we need to read again?? something to think about.////////
 always @ (posedge COUNT[9] or negedge reset_n)
 begin
 	if(!reset_n)
 		SD_COUNTER <= 6'b0;
 	else
-	begin	
+	begin
 		if(!GO)
 			SD_COUNTER <= 0;
 		else
-		
+
 			/////////////////////////////////This should be 33 for write, 44 for read////////////////
 			//////We will need to work out how to change this on the fly by its self/////////////////
 			if(SD_COUNTER < 44)
 				SD_COUNTER <= SD_COUNTER+1;
-				
+
 	end
 end
 
@@ -130,12 +130,12 @@ end
 always @ (posedge COUNT[9] or negedge reset_n)
 begin
 	if(!reset_n)
-	begin	
+	begin
 		SCL <= 1;
 		SDI <= 1;
 	end
 	else
-	
+
 		///////This Section is for writing, If switch one is to the left////////////////////////
 		//***************************************************************************************
 		if (SW[0])
@@ -147,7 +147,7 @@ begin
 				6'd2		:	SCL <= 0;
 				////////I2C Adress. 8th bit is 0 for write, then 9th is tristate for ACK///////
 				6'd3		:	begin SDI <= 1;SCL_CTRL <=1; end
-				6'd4		:	SDI <= 0; 
+				6'd4		:	SDI <= 0;
 				6'd5		:	SDI <= 1;
 				6'd6		:	SDI <= 0;
 				6'd7		:	SDI <= 0;
@@ -163,7 +163,7 @@ begin
 				6'd16		:	SDI <= 0;
 				6'd17		:	SDI <= 0;
 				6'd18		:	SDI <= 0;
-				6'd19		:	SDI <= 0;		
+				6'd19		:	SDI <= 0;
 				6'd20		:	SDI <= 1'bz;
 				//////////Data to be writen to the adress////////////////
 				6'd21		:	SDI <= 1;
@@ -172,7 +172,7 @@ begin
 				6'd24		:	SDI <= 0;
 				6'd25		:	SDI <= 1;
 				6'd26		:	SDI <= 0;
-				6'd27		:	SDI <= 1;		
+				6'd27		:	SDI <= 1;
 				6'd28		:	SDI <= 0;
 				6'd29		:	begin SDI <= 1'bz;SCL_CTRL <=0; end
 				////////////Stop////////////////
@@ -208,24 +208,24 @@ begin
 					6'd16		:	SDI <= 0;
 					6'd17		:	SDI <= 0;
 					6'd18		:	SDI <= 0;
-					6'd19		:	SDI <= 0;		
+					6'd19		:	SDI <= 0;
 					6'd20		:	begin SDI <= 1'bz; SCL <=1'bz; SCL_CTRL<=0;end
 					//////////Data////////////////
 					/////By Now the Adress should be ready to be read/////////////
 					////Issue another start//////////////////
-					
+
 					6'd21		:	SDI <= 0;
 					6'd22		:	SCL <= 0;
-					//////I2C Adress with read bit/////////				
-					
+					//////I2C Adress with read bit/////////
+
 					6'd23		:	begin SDI <= 1;SCL_CTRL <=1;end
 					6'd24		:	SDI <= 0;
 					6'd25		:	SDI <= 1;
 					6'd26		:	SDI <= 0;
-					6'd27		:	SDI <= 0;		
+					6'd27		:	SDI <= 0;
 					6'd28		:	SDI <= 0;
 					6'd29		:	SDI <= 0;
-					6'd30		:	SDI <= 1;				
+					6'd30		:	SDI <= 1;
 					6'd31		:	SDI <= 1'bz;
 					///////////I dont know why this has to be here?? clock stretching happening??????//////////////
 					6'd32		:		;
@@ -234,12 +234,12 @@ begin
 					6'd34		:	DATAIN[6] <= I2C_SDA ;
 					6'd35		:	DATAIN[5] <= I2C_SDA ;
 					6'd36		:	DATAIN[4] <= I2C_SDA ;
-					6'd37		:	DATAIN[3] <= I2C_SDA ;		
+					6'd37		:	DATAIN[3] <= I2C_SDA ;
 					6'd38		:	DATAIN[2] <= I2C_SDA ;
-					6'd39		:	DATAIN[1] <= I2C_SDA ;	
-					6'd40		:	begin DATAIN[0] <= I2C_SDA ;SCL_CTRL <=0; end				
-					
-					
+					6'd39		:	DATAIN[1] <= I2C_SDA ;
+					6'd40		:	begin DATAIN[0] <= I2C_SDA ;SCL_CTRL <=0; end
+
+
 					////////////Stop////////////////
 					6'd41		:	begin SDI <= 1'b0; SCL <= 1'b1; end
 					6'd42		:	SDI <= 1'b1;
