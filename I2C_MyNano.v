@@ -41,7 +41,22 @@ module I2C_MyNano(
 	AccelZ
 );
 
-//State Conditions for setting up the ADXL345
+AccelerometerDataRegisters	AccelXProbe (
+	.probe (AccelX),
+	.source ()
+	);
+
+AccelerometerDataRegisters	AccelYProbe (
+	.probe ( AccelY ),
+	.source ()
+	);
+
+AccelerometerDataRegisters	AccelZProbe (
+	.probe ( AccelZ ),
+	.source ()
+	);
+
+	//State Conditions for setting up the ADXL345
 localparam ACCEL_ADDR = 7'h1D;					//This is the I2C address of the slave
 
 localparam INTITIALIZE_A1 = 8'd0;
@@ -77,24 +92,24 @@ output  	[9:0]		COUNT;
 wire		reset_n;									//This is assigned to key[0] and used to reset the SD counter for testing
 
 reg		[1:0]		SW = 1;						//read or write flag, 1 for write, 0 for read...
-reg 				SCL_CTRL = 0;				//This is used for the clock. ----TEST!!!!!!
+reg 					SCL_CTRL = 0;				//This is used for the clock. ----TEST!!!!!!
 reg		[7:0]		DATAIN = 0;					//This is where the data is stored when reading a byte
 reg					GO = 0;						//This signals the operation to start
 reg		[6:0]		SD_COUNTER = 0;			//This is used for the casses in the bitwise read and write states
 reg					SDI = 0;						//place holder for I2C_SDA
 reg					SCL = 0;						//Place holder for I2C_SCL during start/stop
 reg		[9:0]		COUNT = 0;					//Used to slow down clock for I2C
-reg 	[7:0] 		LEDOUT = 0;					//I think I stopped using this? again too lazy right now to check.
-reg		[7:0]    	REGADDRESS = 0;			//Address of the register
+reg 		[7:0] 		LEDOUT = 0;					//I think I stopped using this? again too lazy right now to check.
+reg		[7:0]    		REGADDRESS = 0;			//Address of the register
 reg		[6:0]		I2CADDRESS = 0;			//7 bit address of slave
 reg					RW_DIR = 0;					//Read write direction. 0 - Write, 1- Read.
 reg		[7:0]		DATAOUT = 0;				//Data to be sent to slave
 reg		[7:0]		StateControl = 0;					//Flag register. Starts at 0, then thing happen...
 reg					FIRSTPASS =0;
-reg		[7:0]   	RWDELAY = 0;
+reg		[7:0]   		RWDELAY = 0;
 
-reg 				ReadDone = 0;
-reg 				WriteDone = 0;
+reg 					ReadDone = 0;
+reg 					WriteDone = 0;
 
 output reg 	[15:0]		AccelY = 0 /* synthesis preserve */;
 output reg 	[15:0]		AccelX = 0 /* synthesis preserve */;
@@ -296,6 +311,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
 									LEDOUT = DATAIN;
 									end
 								end
+
 			ReadAcceletometerXaxisHB:	//Sixth state should read from the speficified register at REGADDRESS
 								begin
 								if(FIRSTPASS == 0)
@@ -333,6 +349,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
 									LEDOUT = DATAIN;
 									end
 								end
+
 			ReadAcceletometerZaxisHB:	//Sixth state should read from the speficified register at REGADDRESS
 								begin
 								if(FIRSTPASS == 0)
