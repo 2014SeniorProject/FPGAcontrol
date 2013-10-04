@@ -1,0 +1,137 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do I2C_MyNano_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/I2C_MyAccel {C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module I2C_MyNano
+# 
+# Top level modules:
+# 	I2C_MyNano
+# 
+vsim work.I2C_MyNano
+# vsim work.I2C_MyNano 
+# Loading work.I2C_MyNano
+add wave -position insertpoint  \
+sim:/I2C_MyNano/CLOCK_50 \
+sim:/I2C_MyNano/LED \
+sim:/I2C_MyNano/KEY \
+sim:/I2C_MyNano/SW \
+sim:/I2C_MyNano/I2C_SCL \
+sim:/I2C_MyNano/I2C_SDA \
+sim:/I2C_MyNano/SD_COUNTER \
+sim:/I2C_MyNano/COUNT \
+sim:/I2C_MyNano/reset_n \
+sim:/I2C_MyNano/SCL_CTRL \
+sim:/I2C_MyNano/DATAIN \
+sim:/I2C_MyNano/GO \
+sim:/I2C_MyNano/SDI \
+sim:/I2C_MyNano/SCL \
+sim:/I2C_MyNano/LEDOUT
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module I2C_MyNano
+# 
+# Top level modules:
+# 	I2C_MyNano
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module I2C_MyNano
+# 
+# Top level modules:
+# 	I2C_MyNano
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module I2C_MyNano
+# 
+# Top level modules:
+# 	I2C_MyNano
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module I2C_MyNano
+# 
+# Top level modules:
+# 	I2C_MyNano
+restart
+# Loading work.I2C_MyNano
+run
+force -drive {sim:/I2C_MyNano/KEY[1]} 0 0
+run
+force -freeze sim:/I2C_MyNano/CLOCK_50 1 0, 0 {50 ps} -r 100
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": Illegal base specifier in numeric constant.
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": syntax error, unexpected BASE, expecting class
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": Illegal base specifier in numeric constant.
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": syntax error, unexpected BASE, expecting class
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": Illegal base specifier in numeric constant.
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": syntax error, unexpected BASE, expecting class
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": Illegal base specifier in numeric constant.
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": syntax error, unexpected BASE, expecting class
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": Illegal base specifier in numeric constant.
+# ** Error: C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v(1): near "'t": syntax error, unexpected BASE, expecting class
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module I2C_MyNano
+# 
+# Top level modules:
+# 	I2C_MyNano
+run
+force -drive {sim:/I2C_MyNano/KEY[1]} St0 0
+vlog -reportprogress 300 -work work C:/altera/13.0sp1/I2C_MyAccel/I2C_MyNano.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module I2C_MyNano
+# 
+# Top level modules:
+# 	I2C_MyNano
+run

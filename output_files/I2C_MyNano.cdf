@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22F17) Path("C:/altera/13.0sp1/I2C_MyNano/output_files/") File("I2C_MyNano.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE22F17) Path("C:/altera/13.0sp1/I2C_MyAccel/output_files/") File("I2C_MyNano.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
