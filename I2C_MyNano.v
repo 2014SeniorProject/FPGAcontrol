@@ -17,29 +17,12 @@ module I2C_MyNano(
 //|
 //| Local reg/wire declarations
 //|--------------------------------------------
-wire 		[11:0]		AccelX;
-wire 		[11:0]		AccelY;
-wire 		[11:0]		AccelZ;
+wire 		[9:0]		AccelX;
+wire 		[9:0]		AccelY;
+wire 		[9:0]		AccelZ;
 
 wire					IMUDataReady;
 
-//|
-//| Altera in system probes and sources to view the accelerometer output
-//|--------------------------------------------
-AccelerometerDataRegisters  AccelXProbe (
-    .probe (AccelX),
-    .source ()
-    );
-
-AccelerometerDataRegisters  AccelYProbe (
-    .probe (AccelY),
-    .source ()
-    );
-
-AccelerometerDataRegisters  AccelZProbe (
-    .probe (AccelZ),
-    .source ()
-    );
 
 //|
 //| IMU-I2C controller module

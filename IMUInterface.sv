@@ -104,20 +104,18 @@ reg         [7:0]       RWDELAY = 0;
 reg                     ReadDone = 0;
 reg                     WriteDone = 0;
 
-output reg  [12:0]      AccelY = 0;
-output reg  [12:0]      AccelX = 0;
-output reg  [12:0]      AccelZ = 0;
-
-wire                    RWDELAYsource;
+output reg  [9:0]      AccelY = 0;
+output reg  [9:0]      AccelX = 0;
+output reg  [9:0]      AccelZ = 0;
 
 output reg              DataValid = 0;
-reg		  [7:0]	        IdleCount;
+reg		  [7:0]	    IdleCount;
 
 //Structural Coding
 
 assign  reset_n = KEY[0];
 
-assign I2C_SCL = (SCL_CTRL)? ~COUNT[9] : SCL;   //Assign the SCL normal 100khz clk, besides the start/stop conditions
+assign I2C_SCL = (SCL_CTRL)? ~COUNT[7] : SCL;   //Assign the SCL normal 100khz clk, besides the start/stop conditions
 
 assign I2C_SDA = (SCL_CTRL)?((SDI)? 1'bz : 0):SDI;          //Yeah, just assign the placeholder SDI to the SDA line
 
@@ -125,19 +123,15 @@ assign I2C_SDA = (SCL_CTRL)?((SDI)? 1'bz : 0):SDI;          //Yeah, just assign 
 always @ (posedge CLOCK_50) COUNT = COUNT +1;
 
 //This just takes care of our "start operation" button
-always @ (posedge COUNT[9] or negedge reset_n)
+always @ (posedge COUNT[7] or negedge reset_n)
     begin
         if (!reset_n) GO = 0;
         else          GO = 1;
     end
 
-
-//The Clock values will need to be changed as previously mentioned
-always @ (posedge AccelY)  LEDOUT = AccelY[12:4];
-
 //This Allows for one opperation. We will probably need to change this to do continuously,
 //or maybe just reset it everytime we need to read again?? something to think about.
-always @ (posedge COUNT[9] or negedge reset_n)
+always @ (posedge COUNT[7] or negedge reset_n)
     begin
         if(!reset_n)
             SD_COUNTER = 6'b0;
@@ -162,7 +156,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
     end
 
     //I2C Operation, Write
-    always @ (posedge COUNT[9]/* or negedge reset_n*/)
+    always @ (posedge COUNT[7]/* or negedge reset_n*/)
     begin
         if(!reset_n)
 		begin
@@ -234,7 +228,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
                     I2CADDRESS = ACCEL_ADDR;
                     RW_DIR = 0;
                     REGADDRESS = 8'h31; //31
-                    DATAOUT = 8'b0000_1000;
+                    DATAOUT = 8'b0000_0000;
                     FIRSTPASS = 1;
                 end
 
@@ -253,7 +247,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
                     I2CADDRESS = ACCEL_ADDR;
                     RW_DIR = 0;
                     REGADDRESS = 8'h2C; //2c
-                    DATAOUT = 8'h0F;
+                    DATAOUT = 8'b0000_1000; //| 400hz bandwidth
                     FIRSTPASS = 1;
                     end
 
@@ -278,7 +272,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerYaxisLB;
-                    AccelY[11:8] = DATAIN;
+                    AccelY[9:8] = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -316,7 +310,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerXaxisLB;
-                    AccelX[11:8] = DATAIN;
+                    AccelX[9:8] = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -354,7 +348,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerZaxisLB;
-                    AccelZ[11:8] = DATAIN;
+                    AccelZ[9:8] = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -384,7 +378,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
                 ReadDone = 0;
                 WriteDone = 0;
 
-                if(IdleCount > 100)
+                if(IdleCount > IdleWaitTime)
                     begin
                     StateControl = ReadAcceletometerYaxisHB;
                     IdleCount = 0;
