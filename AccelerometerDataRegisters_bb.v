@@ -46,7 +46,7 @@ endmodule
 // Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ENABLE_METASTABILITY STRING "NO"
-// Retrieval info: CONSTANT: INSTANCE_ID STRING "aclx"
+// Retrieval info: CONSTANT: INSTANCE_ID STRING "areg"
 // Retrieval info: CONSTANT: PROBE_WIDTH NUMERIC "12"
 // Retrieval info: CONSTANT: SLD_AUTO_INSTANCE_INDEX STRING "YES"
 // Retrieval info: CONSTANT: SLD_INSTANCE_INDEX NUMERIC "0"

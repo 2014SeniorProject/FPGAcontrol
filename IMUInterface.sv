@@ -27,7 +27,9 @@ module IMUInterface(
 
     AccelX,
     AccelY,
-    AccelZ
+    AccelZ,
+
+    DataValid,
 );
 
 AccelerometerDataRegisters  AccelXProbe (
@@ -61,6 +63,8 @@ localparam ReadAcceletometerXaxisLB = 8'd8;
 localparam ReadAcceletometerZaxisHB = 8'd9;
 localparam ReadAcceletometerZaxisLB = 8'd10;
 
+localparam Idle = 8'd11;
+
 //Just outputs for testing
 output  [7:0]   LED;
 output              G_Sensor_CS_N = 1;      //This is used to set the ADXL345 into I2C mode(PIN_G5)
@@ -79,21 +83,21 @@ inout               I2C_SDA;
 reg      [9:0]       COUNT;
 
 //Reg/Wire Declarations
-wire        reset_n;                                    //This is assigned to key[0] and used to reset the SD counter for testing
+wire        reset_n;                                //This is assigned to key[0] and used to reset the SD counter for testing
 
 reg         [1:0]       SW = 1;                     //read or write flag, 1 for write, 0 for read...
 reg                     SCL_CTRL = 0;               //This is used for the clock. ----TEST!!!!!!
 reg         [7:0]       DATAIN = 0;                 //This is where the data is stored when reading a byte
 reg                     GO = 0;                     //This signals the operation to start
-reg         [6:0]       SD_COUNTER = 0;         //This is used for the casses in the bitwise read and write states
-reg                     SDI = 0;                        //place holder for I2C_SDA
-reg                     SCL = 0;                        //Place holder for I2C_SCL during start/stop
+reg         [6:0]       SD_COUNTER = 0;             //This is used for the casses in the bitwise read and write states
+reg                     SDI = 0;                    //place holder for I2C_SDA
+reg                     SCL = 0;                    //Place holder for I2C_SCL during start/stop
 reg         [7:0]       LEDOUT = 0;                 //I think I stopped using this? again too lazy right now to check.
-reg         [7:0]       REGADDRESS = 0;         //Address of the register
-reg         [6:0]       I2CADDRESS = 0;         //7 bit address of slave
+reg         [7:0]       REGADDRESS = 0;             //Address of the register
+reg         [6:0]       I2CADDRESS = 0;             //7 bit address of slave
 reg                     RW_DIR = 0;                 //Read write direction. 0 - Write, 1- Read.
 reg         [7:0]       DATAOUT = 0;                //Data to be sent to slave
-reg         [7:0]       StateControl = 0;                   //Flag register. Starts at 0, then thing happen...
+reg         [7:0]       StateControl = 0;           //Flag register. Starts at 0, then thing happen...
 reg                     FIRSTPASS =0;
 reg         [7:0]       RWDELAY = 0;
 
@@ -105,6 +109,10 @@ output reg  [12:0]      AccelX = 0;
 output reg  [12:0]      AccelZ = 0;
 
 wire                    RWDELAYsource;
+
+output reg              DataValid = 0;
+reg		  [7:0]	        IdleCount;
+
 //Structural Coding
 
 assign  reset_n = KEY[0];
@@ -142,7 +150,7 @@ always @ (posedge COUNT[9] or negedge reset_n)
                         SD_COUNTER = SD_COUNTER+1;
                 else            //The rest of this stuff is here to bypass the go and reset buttons.
                     begin
-                        if(RWDELAY < RWDELAYsource)
+                        if(RWDELAY < 25)
                             RWDELAY = RWDELAY +1;
                         else
                         begin
@@ -364,9 +372,27 @@ always @ (posedge COUNT[9] or negedge reset_n)
 
                 if(ReadDone)
                     begin
-                    StateControl = ReadAcceletometerYaxisHB;
+                    StateControl = Idle;
                     AccelZ[7:0] = DATAIN;
                     ReadDone = 0;
+                    end
+                end
+
+            Idle:
+                begin
+                DataValid = 1;
+                ReadDone = 0;
+                WriteDone = 0;
+
+                if(IdleCount > 100)
+                    begin
+                    StateControl = ReadAcceletometerYaxisHB;
+                    IdleCount = 0;
+                    DataValid = 0;
+                    end
+                else
+                    begin
+                    IdleCount++;
                     end
                 end
             endcase

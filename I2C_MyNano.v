@@ -21,6 +21,8 @@ wire 		[11:0]		AccelX;
 wire 		[11:0]		AccelY;
 wire 		[11:0]		AccelZ;
 
+wire					IMUDataReady;
+
 //|
 //| Altera in system probes and sources to view the accelerometer output
 //|--------------------------------------------
@@ -51,7 +53,8 @@ IMUInterface(
 	.G_Sensor_CS_N(G_Sensor_CS_N),
 	.AccelX(AccelX),
 	.AccelY(AccelY),
-	.AccelZ(AccelZ)
+	.AccelZ(AccelZ),
+	.DataValid(IMUDataReady)
 	);
 
 endmodule
