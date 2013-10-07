@@ -30,11 +30,18 @@ module IMUInterface(
     AccelZ,
 
     DataValid,
+
+     AccelYHB,
+     AccelXHB,
+     AccelZHB,
+     AccelYLB,
+     AccelXLB,
+     AccelZLB
 );
 
 AccelerometerDataRegisters  AccelXProbe (
     .probe (AccelX),
-    .source (RWDELAYsource)
+    .source ()
     );
 
 AccelerometerDataRegisters  AccelYProbe (
@@ -66,13 +73,13 @@ localparam ReadAcceletometerZaxisLB = 8'd10;
 localparam Idle = 8'd11;
 
 //Just outputs for testing
-output  [7:0]   LED;
+output  [7:0]       LED;
 output              G_Sensor_CS_N = 1;      //This is used to set the ADXL345 into I2C mode(PIN_G5)
 //Normal 50mhz clock
 input               CLOCK_50;
 
 //These two keys are used for starting and reseting the opperations
-input   [1:0]   KEY;
+input   [1:0]       KEY;
 
 //This is for the I2C connections
 output              I2C_SCL;
@@ -100,24 +107,36 @@ reg         [7:0]       DATAOUT = 0;                //Data to be sent to slave
 reg         [7:0]       StateControl = 0;           //Flag register. Starts at 0, then thing happen...
 reg                     FIRSTPASS =0;
 reg         [7:0]       RWDELAY = 0;
+reg         [7:0]       IdleCount = 0;
 
 reg                     ReadDone = 0;
 reg                     WriteDone = 0;
 
-output reg  [9:0]      AccelY = 0;
-output reg  [9:0]      AccelX = 0;
-output reg  [9:0]      AccelZ = 0;
+output reg  [7:0]              AccelYHB;
+output reg  [7:0]              AccelXHB;
+output reg  [7:0]              AccelZHB;
 
-output reg              DataValid = 0;
-reg		  [7:0]	    IdleCount;
+output reg  [7:0]              AccelYLB;
+output reg  [7:0]              AccelXLB;
+output reg  [7:0]              AccelZLB;
+
+output wire [17:0]      AccelY;
+output wire [17:0]      AccelX;
+output wire [17:0]      AccelZ;
+
+output reg             DataValid = 0;
 
 //Structural Coding
 
 assign  reset_n = KEY[0];
 
 assign I2C_SCL = (SCL_CTRL)? ~COUNT[7] : SCL;   //Assign the SCL normal 100khz clk, besides the start/stop conditions
-
 assign I2C_SDA = (SCL_CTRL)?((SDI)? 1'bz : 0):SDI;          //Yeah, just assign the placeholder SDI to the SDA line
+
+
+assign AccelX = {AccelXHB, AccelXLB};
+assign AccelY = {AccelYHB, AccelYLB};
+assign AccelZ = {AccelZHB, AccelZLB};
 
 //The Clock values will need to be changed as previously mentioned
 always @ (posedge CLOCK_50) COUNT = COUNT +1;
@@ -166,7 +185,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
         else
         //Case statements for initializing the ADXL.
         begin
-            case (StateControl)
+           case (StateControl)
             INTITIALIZE_A1: //First state should write 8'h00 to register 8'h2D (DATA RATE/POWER)
                 begin
                 if(FIRSTPASS == 0)
@@ -228,13 +247,12 @@ always @ (posedge COUNT[7] or negedge reset_n)
                     I2CADDRESS = ACCEL_ADDR;
                     RW_DIR = 0;
                     REGADDRESS = 8'h31; //31
-                    DATAOUT = 8'b0000_0000;
+                    DATAOUT = 8'b0000_1000;
                     FIRSTPASS = 1;
                 end
 
                 if(WriteDone)
                     begin
-                    AccelY[7:0] = DATAIN;
                     WriteDone = 0;
                     StateControl = INTITIALIZE_A5;
                     end
@@ -272,7 +290,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerYaxisLB;
-                    AccelY[9:8] = DATAIN;
+                    AccelYHB = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -290,9 +308,8 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerXaxisHB;
-                    AccelY[7:0] = DATAIN;
+                    AccelYLB = DATAIN;
                     ReadDone = 0;
-                    LEDOUT = DATAIN;
                     end
                 end
 
@@ -310,7 +327,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerXaxisLB;
-                    AccelX[9:8] = DATAIN;
+                    AccelXHB = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -328,7 +345,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerZaxisHB;
-                    AccelX[7:0] = DATAIN;
+                    AccelXLB = DATAIN;
                     ReadDone = 0;
                     LEDOUT = DATAIN;
                     end
@@ -348,7 +365,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerZaxisLB;
-                    AccelZ[9:8] = DATAIN;
+                    AccelZHB = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -367,7 +384,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = Idle;
-                    AccelZ[7:0] = DATAIN;
+                    AccelZLB = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -378,7 +395,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 ReadDone = 0;
                 WriteDone = 0;
 
-                if(IdleCount > IdleWaitTime)
+                if(IdleCount > 200)
                     begin
                     StateControl = ReadAcceletometerYaxisHB;
                     IdleCount = 0;
