@@ -30,14 +30,14 @@ reg                 FIRSTPASS =0;
 reg     [7:0]       RWDELAY = 0;
 
 //| Bidirectional controls for SCL and SDA Pins
-assign I2C_SCL = (SCL_CTRL)? ~COUNT[7] : SCL;   //Assign the SCL normal 100khz clk, besides the start/stop conditions
+assign I2C_SCL = (SCL_CTRL)? ~COUNT[9] : SCL;   //Assign the SCL normal 100khz clk, besides the start/stop conditions
 assign I2C_SDA = (SCL_CTRL)?((SDI)? 1'bz : 0):SDI;          //Yeah, just assign the placeholder SDI to the SDA line
 
 //The Clock values will need to be changed as previously mentioned
 always @ (posedge c50m) COUNT = COUNT +1;
 
 //This just takes care of our "start operation" button
-always @ (posedge COUNT[7] or negedge reset_n)
+always @ (posedge COUNT[9] or negedge reset_n)
     begin
         if (!reset_n)
             GO = 0;
@@ -48,7 +48,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
 
 //This Allows for one opperation. We will probably need to change this to do continuously,
 //or maybe just reset it everytime we need to read again?? something to think about.
-always @ (posedge COUNT[7] or negedge reset_n)
+always @ (posedge COUNT[9] or negedge reset_n)
     begin
         if(!reset_n)
             SD_COUNTER = 6'b0;
@@ -73,7 +73,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
     end
 
     //I2C Operation, Write
-    always @ (posedge COUNT[7]/* or negedge reset_n*/)
+    always @ (posedge COUNT[9]/* or negedge reset_n*/)
     begin
         if(!reset_n)
         begin

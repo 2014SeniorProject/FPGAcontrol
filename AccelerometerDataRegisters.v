@@ -40,7 +40,7 @@ module AccelerometerDataRegisters (
 	probe,
 	source);
 
-	input	[11:0]  probe;
+	input	[9:0]  probe;
 	output	[9:0]  source;
 
 	wire [9:0] sub_wire0;
@@ -73,7 +73,7 @@ module AccelerometerDataRegisters (
 	defparam
 		altsource_probe_component.enable_metastability = "NO",
 		altsource_probe_component.instance_id = "areg",
-		altsource_probe_component.probe_width = 12,
+		altsource_probe_component.probe_width = 10,
 		altsource_probe_component.sld_auto_instance_index = "YES",
 		altsource_probe_component.sld_instance_index = 0,
 		altsource_probe_component.source_initial_value = " 0",
@@ -89,14 +89,14 @@ endmodule
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ENABLE_METASTABILITY STRING "NO"
 // Retrieval info: CONSTANT: INSTANCE_ID STRING "areg"
-// Retrieval info: CONSTANT: PROBE_WIDTH NUMERIC "12"
+// Retrieval info: CONSTANT: PROBE_WIDTH NUMERIC "10"
 // Retrieval info: CONSTANT: SLD_AUTO_INSTANCE_INDEX STRING "YES"
 // Retrieval info: CONSTANT: SLD_INSTANCE_INDEX NUMERIC "0"
 // Retrieval info: CONSTANT: SOURCE_INITIAL_VALUE STRING " 0"
 // Retrieval info: CONSTANT: SOURCE_WIDTH NUMERIC "10"
-// Retrieval info: USED_PORT: probe 0 0 12 0 INPUT NODEFVAL "probe[11..0]"
+// Retrieval info: USED_PORT: probe 0 0 10 0 INPUT NODEFVAL "probe[9..0]"
 // Retrieval info: USED_PORT: source 0 0 10 0 OUTPUT NODEFVAL "source[9..0]"
-// Retrieval info: CONNECT: @probe 0 0 12 0 probe 0 0 12 0
+// Retrieval info: CONNECT: @probe 0 0 10 0 probe 0 0 10 0
 // Retrieval info: CONNECT: source 0 0 10 0 @source 0 0 10 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL AccelerometerDataRegisters.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AccelerometerDataRegisters.inc FALSE

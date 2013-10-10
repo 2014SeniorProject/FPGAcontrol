@@ -35,7 +35,7 @@ module AccelerometerDataRegisters (
 	probe,
 	source);
 
-	input	[11:0]  probe;
+	input	[9:0]  probe;
 	output	[9:0]  source;
 
 endmodule
@@ -47,14 +47,14 @@ endmodule
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ENABLE_METASTABILITY STRING "NO"
 // Retrieval info: CONSTANT: INSTANCE_ID STRING "areg"
-// Retrieval info: CONSTANT: PROBE_WIDTH NUMERIC "12"
+// Retrieval info: CONSTANT: PROBE_WIDTH NUMERIC "10"
 // Retrieval info: CONSTANT: SLD_AUTO_INSTANCE_INDEX STRING "YES"
 // Retrieval info: CONSTANT: SLD_INSTANCE_INDEX NUMERIC "0"
 // Retrieval info: CONSTANT: SOURCE_INITIAL_VALUE STRING " 0"
 // Retrieval info: CONSTANT: SOURCE_WIDTH NUMERIC "10"
-// Retrieval info: USED_PORT: probe 0 0 12 0 INPUT NODEFVAL "probe[11..0]"
+// Retrieval info: USED_PORT: probe 0 0 10 0 INPUT NODEFVAL "probe[9..0]"
 // Retrieval info: USED_PORT: source 0 0 10 0 OUTPUT NODEFVAL "source[9..0]"
-// Retrieval info: CONNECT: @probe 0 0 12 0 probe 0 0 12 0
+// Retrieval info: CONNECT: @probe 0 0 10 0 probe 0 0 10 0
 // Retrieval info: CONNECT: source 0 0 10 0 @source 0 0 10 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL AccelerometerDataRegisters.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AccelerometerDataRegisters.inc FALSE

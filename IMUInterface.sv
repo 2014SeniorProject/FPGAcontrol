@@ -10,49 +10,63 @@ need to switched when switching from reading and writing.
 module IMUInterface(
     //This is the system clock that comes in at 50mhz
     CLOCK_50,
-
+	 //////////////////////////////////////////////////
+	 
     //This is a register that is used to show the data that was read from the EEPROM in binary.
     LED,
-
+	 ///////////////////////////////////////////////////////////////////////////////////////////
+	 
     //This is an input from both of the buttons on board the De0-Nano
     KEY,
-
-    //I2C Clock line, goes to the EEPROM right now
+	 /////////////////////////////////////////////////////////////////
+	 
+	 
+    //I2C Clock line to communicate with the slaves
     I2C_SCL,
-
-    //I2C Data Line, goes to the EEPROM rigth now
+	 ///////////////////////////////////////////////
+	 
+    //I2C data line to communicate with the slaves
     I2C_SDA,
-
+	 //////////////////////////////////////////////
+	 
+	 //Input to the accelerometer to turn on I2C mode
     G_Sensor_CS_N,
-
+	 ////////////////////////////////////////////////
+	 
+	 //10 Bit data points for our acceleromter axes
     AccelX,
     AccelY,
     AccelZ,
-
+	 ///////////////////////////////////////////////
+	 
+	 //This bit goes to 1 when we hit the idle state, once all of the registers have been read from
     DataValid,
-
+	 ///////////////////////////////////////////////////////////////////////////////////////////////
+	 
+	  //This is just here for Signaltap data. Can be deleted when we no longer need.
      AccelYHB,
      AccelXHB,
      AccelZHB,
      AccelYLB,
      AccelXLB,
      AccelZLB
+	  //////////////////////////////////////////////////////////////////////////////
 );
 
+//These are test points for the In-System Sources and Probes Editor in Quartus
 AccelerometerDataRegisters  AccelXProbe (
     .probe (AccelX),
     .source ()
     );
-
 AccelerometerDataRegisters  AccelYProbe (
     .probe (AccelY),
     .source ()
     );
-
 AccelerometerDataRegisters  AccelZProbe (
     .probe (AccelZ),
     .source ()
     );
+////////////////////////////////////////////////////////////////////////////////
 
 //State Conditions for setting up the ADXL345
 localparam ACCEL_ADDR = 7'h1D;                  //This is the I2C address of the slave
@@ -63,31 +77,32 @@ localparam INTITIALIZE_A3 = 8'd2;
 localparam INTITIALIZE_A4 = 8'd3;
 localparam INTITIALIZE_A5 = 8'd4;
 
-localparam ReadAcceletometerYaxisHB = 8'd5;
+//We may want to change these eventually to reflect what they are actually doing
+localparam ReadAcceletometerZaxisHB = 8'd5;
 localparam ReadAcceletometerYaxisLB = 8'd6;
-localparam ReadAcceletometerXaxisHB = 8'd7;
+localparam ReadAcceletometerYaxisHB = 8'd7;
 localparam ReadAcceletometerXaxisLB = 8'd8;
-localparam ReadAcceletometerZaxisHB = 8'd9;
+localparam ReadAcceletometerXaxisHB = 8'd9;
 localparam ReadAcceletometerZaxisLB = 8'd10;
+/////////////////////////////////////////////////////////////////////////////////
 
 localparam Idle = 8'd11;
 
-//Just outputs for testing
-output  [7:0]       LED;
-output              G_Sensor_CS_N = 1;      //This is used to set the ADXL345 into I2C mode(PIN_G5)
-//Normal 50mhz clock
-input               CLOCK_50;
 
-//These two keys are used for starting and reseting the opperations
-input   [1:0]       KEY;
+output     	[7:0]       LED;                   		 //Just outputs for testing
+output              G_Sensor_CS_N = 1;      			 //This is used to set the ADXL345 into I2C mode(PIN_G5)
 
-//This is for the I2C connections
-output              I2C_SCL;
-inout               I2C_SDA;
+input               CLOCK_50;								 //Normal 50mhz clock
 
-//Keep track of clocks
-//output    [5:0]   SD_COUNTER;
-reg      [9:0]       COUNT;
+
+input   		[1:0]       KEY;								 //These keys WERE used for starting and reseting the opperations
+
+
+output              I2C_SCL;								 //This is the I2C clock line
+inout               I2C_SDA;								 //This is the I2C data line
+
+
+reg      	[9:0]       COUNT;							 //Keep track of clocks
 
 //Reg/Wire Declarations
 wire        reset_n;                                //This is assigned to key[0] and used to reset the SD counter for testing
@@ -105,12 +120,12 @@ reg         [6:0]       I2CADDRESS = 0;             //7 bit address of slave
 reg                     RW_DIR = 0;                 //Read write direction. 0 - Write, 1- Read.
 reg         [7:0]       DATAOUT = 0;                //Data to be sent to slave
 reg         [7:0]       StateControl = 0;           //Flag register. Starts at 0, then thing happen...
-reg                     FIRSTPASS =0;
-reg         [7:0]       RWDELAY = 0;
-reg         [7:0]       IdleCount = 0;
+reg                     FIRSTPASS =0;					 //This ensures that out states are initialized once each
+reg         [7:0]       RWDELAY = 0;					 //This is used to set a delay between reads and writes
+reg         [7:0]       IdleCount = 0;					 //Keeps track of the time of the Idle state
 
-reg                     ReadDone = 0;
-reg                     WriteDone = 0;
+reg                     ReadDone = 0;					 //Flag to tell when a read cycle has finished
+reg                     WriteDone = 0;					 //Flag to tell when a write cycle has finished
 
 output reg  [7:0]              AccelYHB;
 output reg  [7:0]              AccelXHB;
@@ -178,10 +193,10 @@ always @ (posedge COUNT[7] or negedge reset_n)
     always @ (posedge COUNT[7]/* or negedge reset_n*/)
     begin
         if(!reset_n)
-		begin
+        begin
           SCL = 1;
           SDI = 1;
-		end
+        end
         else
         //Case statements for initializing the ADXL.
         begin
@@ -272,11 +287,11 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(WriteDone)
                     begin
                     WriteDone = 0;
-                    StateControl = ReadAcceletometerYaxisHB;
+                    StateControl = ReadAcceletometerZaxisHB;
                     end
                 end
 
-            ReadAcceletometerYaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
+            ReadAcceletometerZaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
                 begin
                 if(FIRSTPASS == 0)
                     begin
@@ -290,7 +305,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerYaxisLB;
-                    AccelYHB = DATAIN;
+                    AccelZHB = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -307,13 +322,13 @@ always @ (posedge COUNT[7] or negedge reset_n)
                     end
                 if(ReadDone)
                     begin
-                    StateControl = ReadAcceletometerXaxisHB;
+                    StateControl = ReadAcceletometerYaxisHB;
                     AccelYLB = DATAIN;
                     ReadDone = 0;
                     end
                 end
 
-            ReadAcceletometerXaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
+            ReadAcceletometerYaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
                 begin
                 if(FIRSTPASS == 0)
                     begin
@@ -327,7 +342,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerXaxisLB;
-                    AccelXHB = DATAIN;
+                    AccelYHB = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -344,14 +359,13 @@ always @ (posedge COUNT[7] or negedge reset_n)
                     end
                 if(ReadDone)
                     begin
-                    StateControl = ReadAcceletometerZaxisHB;
+                    StateControl = ReadAcceletometerXaxisHB;
                     AccelXLB = DATAIN;
                     ReadDone = 0;
-                    LEDOUT = DATAIN;
                     end
                 end
 
-            ReadAcceletometerZaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
+            ReadAcceletometerXaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
                 begin
                 if(FIRSTPASS == 0)
                     begin
@@ -365,7 +379,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
                 if(ReadDone)
                     begin
                     StateControl = ReadAcceletometerZaxisLB;
-                    AccelZHB = DATAIN;
+                    AccelXHB = DATAIN;
                     ReadDone = 0;
                     end
                 end
@@ -397,7 +411,7 @@ always @ (posedge COUNT[7] or negedge reset_n)
 
                 if(IdleCount > 200)
                     begin
-                    StateControl = ReadAcceletometerYaxisHB;
+                    StateControl = ReadAcceletometerZaxisHB;
                     IdleCount = 0;
                     DataValid = 0;
                     end

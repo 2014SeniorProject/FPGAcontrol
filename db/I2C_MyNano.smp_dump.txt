@@ -1,0 +1,15 @@
+
+State Machine - |I2C_MyNano|IMUInterface:comb_5|StateControl
+Name StateControl.Idle StateControl.ReadAcceletometerZaxisLB StateControl.ReadAcceletometerXaxisHB StateControl.ReadAcceletometerXaxisLB StateControl.ReadAcceletometerYaxisHB StateControl.ReadAcceletometerYaxisLB StateControl.ReadAcceletometerZaxisHB StateControl.INTITIALIZE_A5 StateControl.INTITIALIZE_A4 StateControl.INTITIALIZE_A3 StateControl.INTITIALIZE_A2 StateControl.00000000 
+StateControl.00000000 0 0 0 0 0 0 0 0 0 0 0 0 
+StateControl.INTITIALIZE_A2 0 0 0 0 0 0 0 0 0 0 1 1 
+StateControl.INTITIALIZE_A3 0 0 0 0 0 0 0 0 0 1 0 1 
+StateControl.INTITIALIZE_A4 0 0 0 0 0 0 0 0 1 0 0 1 
+StateControl.INTITIALIZE_A5 0 0 0 0 0 0 0 1 0 0 0 1 
+StateControl.ReadAcceletometerZaxisHB 0 0 0 0 0 0 1 0 0 0 0 1 
+StateControl.ReadAcceletometerYaxisLB 0 0 0 0 0 1 0 0 0 0 0 1 
+StateControl.ReadAcceletometerYaxisHB 0 0 0 0 1 0 0 0 0 0 0 1 
+StateControl.ReadAcceletometerXaxisLB 0 0 0 1 0 0 0 0 0 0 0 1 
+StateControl.ReadAcceletometerXaxisHB 0 0 1 0 0 0 0 0 0 0 0 1 
+StateControl.ReadAcceletometerZaxisLB 0 1 0 0 0 0 0 0 0 0 0 1 
+StateControl.Idle 1 0 0 0 0 0 0 0 0 0 0 1 

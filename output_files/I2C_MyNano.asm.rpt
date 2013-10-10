@@ -1,5 +1,5 @@
 Assembler report for I2C_MyNano
-Thu Oct 03 17:35:45 2013
+Tue Oct 08 15:18:30 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -11,7 +11,7 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: C:/altera/13.0sp1/I2C_MyAccel/output_files/I2C_MyNano.sof
+  6. Assembler Device Options: C:/Users/devin/Desktop/i2c/output_files/I2C_MyNano.sof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Oct 03 17:35:45 2013 ;
+; Assembler Status      ; Successful - Tue Oct 08 15:18:30 2013 ;
 ; Revision Name         ; I2C_MyNano                            ;
 ; Top-level Entity Name ; I2C_MyNano                            ;
 ; Family                ; Cyclone IV E                          ;
@@ -85,27 +85,28 @@ applicable agreement for further details.
 +--------+------------------------+--------------+
 ; Altera ; Signal Tap (6AF7 BCE1) ; Licensed     ;
 ; Altera ; Signal Tap (6AF7 BCEC) ; Licensed     ;
+; Altera ; Signal Tap (6AF8 BCEC) ; Licensed     ;
 +--------+------------------------+--------------+
 
 
-+-----------------------------------------------------------+
-; Assembler Generated Files                                 ;
-+-----------------------------------------------------------+
-; File Name                                                 ;
-+-----------------------------------------------------------+
-; C:/altera/13.0sp1/I2C_MyAccel/output_files/I2C_MyNano.sof ;
-+-----------------------------------------------------------+
++--------------------------------------------------------+
+; Assembler Generated Files                              ;
++--------------------------------------------------------+
+; File Name                                              ;
++--------------------------------------------------------+
+; C:/Users/devin/Desktop/i2c/output_files/I2C_MyNano.sof ;
++--------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/altera/13.0sp1/I2C_MyAccel/output_files/I2C_MyNano.sof ;
-+----------------+--------------------------------------------------------------------+
-; Option         ; Setting                                                            ;
-+----------------+--------------------------------------------------------------------+
-; Device         ; EP4CE22F17C6                                                       ;
-; JTAG usercode  ; 0x001ED3B9                                                         ;
-; Checksum       ; 0x001ED3B9                                                         ;
-+----------------+--------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/devin/Desktop/i2c/output_files/I2C_MyNano.sof ;
++----------------+-----------------------------------------------------------------+
+; Option         ; Setting                                                         ;
++----------------+-----------------------------------------------------------------+
+; Device         ; EP4CE22F17C6                                                    ;
+; JTAG usercode  ; 0x00217ECA                                                      ;
+; Checksum       ; 0x00217ECA                                                      ;
++----------------+-----------------------------------------------------------------+
 
 
 +--------------------+
@@ -114,13 +115,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Oct 03 17:35:43 2013
+    Info: Processing started: Tue Oct 08 15:18:28 2013
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off I2C_MyNano -c I2C_MyNano
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 439 megabytes
-    Info: Processing ended: Thu Oct 03 17:35:45 2013
+    Info: Peak virtual memory: 436 megabytes
+    Info: Processing ended: Tue Oct 08 15:18:30 2013
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
