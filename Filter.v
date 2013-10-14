@@ -8,19 +8,6 @@ output reg [9:0] PWMinput
 
 );
 
-	
-
-AccelerometerDataRegisters  pwmProbe1 (
-   .probe (AccelX),
-   .source ()
-);
-AccelerometerDataRegisters  pwmProbe2 (
-   .probe (PWMinput),
-   .source ()
-);
-
-
-
 reg 	[15:0]	total = 0;
 //reg 	[9:0]		PWMsignal = 0;
 reg	[5:0]		averageCount = 0;
