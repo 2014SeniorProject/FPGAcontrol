@@ -26,7 +26,9 @@ module I2C_MyNano(
 wire 		[9:0]		AccelX;
 wire 		[9:0]		AccelY;
 wire 		[9:0]		AccelZ;
-
+wire 		[9:0]		GyroX;
+wire 		[9:0]		GyroY;
+wire 		[9:0]		GyroZ;
 wire						IMUDataReady;
 wire 		[9:0]		PWMinput;
 
@@ -44,19 +46,20 @@ IMUInterface(
 	.AccelX(AccelX),
 	.AccelY(AccelY),
 	.AccelZ(AccelZ),
+	.GyroX(GyroX),
+	.GyroY(GyroY),
+	.GyroZ(GyroZ),
 	.DataValid(IMUDataReady)
 	);
 
 	Filter(
-	.AccelX(AccelX),
 	.ReadDone(IMUDataReady),
-	.PWMinput(PWMinput)
-	);
-
-	PWM(
-	.CLOCK_50(CLOCK_50),
-	.PWMinput(PWMinput),
-	.PWMout(PWMout)
+	.AccelX(AccelX),
+	.AccelY(AccelY),
+	.AccelZ(AccelZ),
+	.GyroX(GyroX),
+	.GyroY(GyroY),
+	.GyroZ(GyroZ)
 	);
 
 endmodule
