@@ -1,0 +1,550 @@
+Analysis & Synthesis report for I2C_MyNano
+Wed Oct 23 10:13:31 2013
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |I2C_MyNano|IMUInterface:comb_3|StateControl
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: PWMGenerator:AccelXLED
+ 15. Parameter Settings for User Entity Instance: PWMGenerator:AccelYLED
+ 16. Parameter Settings for User Entity Instance: PWMGenerator:AccelZLED
+ 17. Parameter Settings for User Entity Instance: PWMGenerator:GyroXLED
+ 18. Parameter Settings for User Entity Instance: PWMGenerator:GyroYLED
+ 19. Parameter Settings for User Entity Instance: PWMGenerator:GyroZLED
+ 20. Port Connectivity Checks: "IMUInterface:comb_3"
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Oct 23 10:13:31 2013           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; I2C_MyNano                                      ;
+; Top-level Entity Name              ; I2C_MyNano                                      ;
+; Family                             ; Cyclone IV GX                                   ;
+; Total logic elements               ; 575                                             ;
+;     Total combinational functions  ; 496                                             ;
+;     Dedicated logic registers      ; 207                                             ;
+; Total registers                    ; 207                                             ;
+; Total pins                         ; 17                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total GXB Receiver Channel PCS     ; 0                                               ;
+; Total GXB Receiver Channel PMA     ; 0                                               ;
+; Total GXB Transmitter Channel PCS  ; 0                                               ;
+; Total GXB Transmitter Channel PMA  ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; I2C_MyNano         ; I2C_MyNano         ;
+; Family name                                                                ; Cyclone IV GX      ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; On                 ; Off                ;
+; Maximum processors allowed for parallel compilation                        ; All                ;                    ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                             ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------+---------+
+; Source Code/PWM.sv               ; yes             ; User SystemVerilog HDL File  ; //psf/Home/Documents/GithubRepositories/Senior-Project-Repositories/De0-Nano/Source Code/PWM.sv          ;         ;
+; Source Code/IMUInterface.sv      ; yes             ; User SystemVerilog HDL File  ; //psf/Home/Documents/GithubRepositories/Senior-Project-Repositories/De0-Nano/Source Code/IMUInterface.sv ;         ;
+; Source Code/I2C_MyNano.sv        ; yes             ; User SystemVerilog HDL File  ; //psf/Home/Documents/GithubRepositories/Senior-Project-Repositories/De0-Nano/Source Code/I2C_MyNano.sv   ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++--------------------------+------------------------------+
+; Resource                 ; Usage                        ;
++--------------------------+------------------------------+
+; I/O pins                 ; 17                           ;
+; DSP block 9-bit elements ; 0                            ;
+; Maximum fan-out node     ; IMUInterface:comb_3|COUNT[7] ;
+; Maximum fan-out          ; 129                          ;
+; Total fan-out            ; 1974                         ;
+; Average fan-out          ; 2.66                         ;
++--------------------------+------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                     ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+------------------------------------+--------------+
+; Compilation Hierarchy Node  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Library Name ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+------------------------------------+--------------+
+; |I2C_MyNano                 ; 496 (0)           ; 207 (0)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 17   ; 0            ; |I2C_MyNano                        ; work         ;
+;    |IMUInterface:comb_3|    ; 226 (226)         ; 129 (129)    ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |I2C_MyNano|IMUInterface:comb_3    ; work         ;
+;    |PWMGenerator:AccelXLED| ; 47 (47)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |I2C_MyNano|PWMGenerator:AccelXLED ; work         ;
+;    |PWMGenerator:AccelYLED| ; 44 (44)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |I2C_MyNano|PWMGenerator:AccelYLED ; work         ;
+;    |PWMGenerator:AccelZLED| ; 44 (44)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |I2C_MyNano|PWMGenerator:AccelZLED ; work         ;
+;    |PWMGenerator:GyroXLED|  ; 46 (46)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |I2C_MyNano|PWMGenerator:GyroXLED  ; work         ;
+;    |PWMGenerator:GyroYLED|  ; 44 (44)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |I2C_MyNano|PWMGenerator:GyroYLED  ; work         ;
+;    |PWMGenerator:GyroZLED|  ; 45 (45)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |I2C_MyNano|PWMGenerator:GyroZLED  ; work         ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |I2C_MyNano|IMUInterface:comb_3|StateControl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ;
++---------------------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------+
+; Name                                  ; StateControl.INTITIALIZE_G4 ; StateControl.INTITIALIZE_G3 ; StateControl.INTITIALIZE_G2 ; StateControl.INTITIALIZE_G1 ; StateControl.ReadGyroscopeZaxisLB ; StateControl.ReadGyroscopeXaxisHB ; StateControl.ReadGyroscopeXaxisLB ; StateControl.ReadGyroscopeYaxisHB ; StateControl.ReadGyroscopeYaxisLB ; StateControl.ReadGyroscopeZaxisHB ; StateControl.ReadAcceletometerZaxisLB ; StateControl.ReadAcceletometerXaxisHB ; StateControl.ReadAcceletometerXaxisLB ; StateControl.ReadAcceletometerYaxisHB ; StateControl.ReadAcceletometerYaxisLB ; StateControl.ReadAcceletometerZaxisHB ; StateControl.INTITIALIZE_A5 ; StateControl.INTITIALIZE_A4 ; StateControl.INTITIALIZE_A3 ; StateControl.INTITIALIZE_A2 ; StateControl.INTITIALIZE_A1 ; StateControl.00000001 ;
++---------------------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------+
+; StateControl.00000001                 ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 0                     ;
+; StateControl.INTITIALIZE_A1           ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 1                           ; 1                     ;
+; StateControl.INTITIALIZE_A2           ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 1                           ; 0                           ; 1                     ;
+; StateControl.INTITIALIZE_A3           ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 1                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.INTITIALIZE_A4           ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 1                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.INTITIALIZE_A5           ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 1                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadAcceletometerZaxisHB ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 1                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadAcceletometerYaxisLB ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 1                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadAcceletometerYaxisHB ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 1                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadAcceletometerXaxisLB ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 1                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadAcceletometerXaxisHB ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 1                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadAcceletometerZaxisLB ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 1                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadGyroscopeZaxisHB     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 1                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadGyroscopeYaxisLB     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 1                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadGyroscopeYaxisHB     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 1                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadGyroscopeXaxisLB     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 1                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadGyroscopeXaxisHB     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 1                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.ReadGyroscopeZaxisLB     ; 0                           ; 0                           ; 0                           ; 0                           ; 1                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.INTITIALIZE_G1           ; 0                           ; 0                           ; 0                           ; 1                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.INTITIALIZE_G2           ; 0                           ; 0                           ; 1                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.INTITIALIZE_G3           ; 0                           ; 1                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
+; StateControl.INTITIALIZE_G4           ; 1                           ; 0                           ; 0                           ; 0                           ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                 ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                                     ; 0                           ; 0                           ; 0                           ; 0                           ; 0                           ; 1                     ;
++---------------------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+---------------------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+-----------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                       ;
++-----------------------------------------+------------------------------------------------+
+; Register name                           ; Reason for Removal                             ;
++-----------------------------------------+------------------------------------------------+
+; IMUInterface:comb_3|SDI~en              ; Lost fanout                                    ;
+; IMUInterface:comb_3|SCL~en              ; Lost fanout                                    ;
+; IMUInterface:comb_3|DATAOUT[5..7]       ; Merged with IMUInterface:comb_3|DATAOUT[0]     ;
+; IMUInterface:comb_3|DATAOUT[2,4]        ; Merged with IMUInterface:comb_3|DATAOUT[1]     ;
+; IMUInterface:comb_3|REGADDRESS[6,7]     ; Merged with IMUInterface:comb_3|I2CADDRESS[2]  ;
+; IMUInterface:comb_3|I2CADDRESS[1,4]     ; Merged with IMUInterface:comb_3|I2CADDRESS[0]  ;
+; IMUInterface:comb_3|I2CADDRESS[5]       ; Merged with IMUInterface:comb_3|I2CADDRESS[3]  ;
+; PWMGenerator:AccelYLED|CLOCKslow[0]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[0] ;
+; PWMGenerator:AccelZLED|CLOCKslow[0]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[0] ;
+; PWMGenerator:AccelXLED|CLOCKslow[0]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[0] ;
+; PWMGenerator:GyroYLED|CLOCKslow[0]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[0] ;
+; PWMGenerator:GyroXLED|CLOCKslow[0]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[0] ;
+; IMUInterface:comb_3|COUNT[0]            ; Merged with PWMGenerator:GyroZLED|CLOCKslow[0] ;
+; PWMGenerator:AccelZLED|CLOCKslow[1]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[1] ;
+; PWMGenerator:GyroXLED|CLOCKslow[1]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[1] ;
+; PWMGenerator:AccelXLED|CLOCKslow[1]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[1] ;
+; PWMGenerator:AccelYLED|CLOCKslow[1]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[1] ;
+; IMUInterface:comb_3|COUNT[1]            ; Merged with PWMGenerator:GyroZLED|CLOCKslow[1] ;
+; PWMGenerator:GyroYLED|CLOCKslow[1]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[1] ;
+; PWMGenerator:AccelZLED|CLOCKslow[2]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[2] ;
+; IMUInterface:comb_3|COUNT[2]            ; Merged with PWMGenerator:GyroZLED|CLOCKslow[2] ;
+; PWMGenerator:AccelXLED|CLOCKslow[2]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[2] ;
+; PWMGenerator:GyroXLED|CLOCKslow[2]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[2] ;
+; PWMGenerator:GyroYLED|CLOCKslow[2]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[2] ;
+; PWMGenerator:AccelYLED|CLOCKslow[2]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[2] ;
+; PWMGenerator:AccelZLED|CLOCKslow[3]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[3] ;
+; PWMGenerator:AccelXLED|CLOCKslow[3]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[3] ;
+; PWMGenerator:GyroYLED|CLOCKslow[3]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[3] ;
+; PWMGenerator:GyroXLED|CLOCKslow[3]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[3] ;
+; PWMGenerator:AccelYLED|CLOCKslow[3]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[3] ;
+; IMUInterface:comb_3|COUNT[3]            ; Merged with PWMGenerator:GyroZLED|CLOCKslow[3] ;
+; PWMGenerator:AccelZLED|CLOCKslow[4]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[4] ;
+; PWMGenerator:AccelXLED|CLOCKslow[4]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[4] ;
+; PWMGenerator:GyroXLED|CLOCKslow[4]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[4] ;
+; PWMGenerator:GyroYLED|CLOCKslow[4]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[4] ;
+; PWMGenerator:AccelYLED|CLOCKslow[4]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[4] ;
+; IMUInterface:comb_3|COUNT[4]            ; Merged with PWMGenerator:GyroZLED|CLOCKslow[4] ;
+; PWMGenerator:AccelXLED|CLOCKslow[5]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[5] ;
+; IMUInterface:comb_3|COUNT[5]            ; Merged with PWMGenerator:GyroZLED|CLOCKslow[5] ;
+; PWMGenerator:AccelYLED|CLOCKslow[5]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[5] ;
+; PWMGenerator:GyroYLED|CLOCKslow[5]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[5] ;
+; PWMGenerator:AccelZLED|CLOCKslow[5]     ; Merged with PWMGenerator:GyroZLED|CLOCKslow[5] ;
+; PWMGenerator:GyroXLED|CLOCKslow[5]      ; Merged with PWMGenerator:GyroZLED|CLOCKslow[5] ;
+; IMUInterface:comb_3|I2CADDRESS[2]       ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:AccelXLED|COUNT[12..15]    ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:AccelYLED|COUNT[12..15]    ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:AccelZLED|COUNT[12..15]    ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:GyroXLED|COUNT[12..15]     ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:GyroYLED|COUNT[12..15]     ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:GyroZLED|COUNT[12..15]     ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:AccelXLED|COUNT[10,11]     ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:AccelYLED|COUNT[10,11]     ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:AccelZLED|COUNT[10,11]     ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:GyroXLED|COUNT[10,11]      ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:GyroYLED|COUNT[10,11]      ; Stuck at GND due to stuck port data_in         ;
+; PWMGenerator:GyroZLED|COUNT[10,11]      ; Stuck at GND due to stuck port data_in         ;
+; IMUInterface:comb_3|StateControl~24     ; Lost fanout                                    ;
+; IMUInterface:comb_3|StateControl~25     ; Lost fanout                                    ;
+; IMUInterface:comb_3|StateControl~26     ; Lost fanout                                    ;
+; IMUInterface:comb_3|StateControl~27     ; Lost fanout                                    ;
+; IMUInterface:comb_3|StateControl~28     ; Lost fanout                                    ;
+; IMUInterface:comb_3|StateControl~29     ; Lost fanout                                    ;
+; IMUInterface:comb_3|StateControl~30     ; Lost fanout                                    ;
+; IMUInterface:comb_3|StateControl~31     ; Lost fanout                                    ;
+; PWMGenerator:AccelXLED|CLOCKslow[7]     ; Lost fanout                                    ;
+; PWMGenerator:AccelYLED|CLOCKslow[7]     ; Lost fanout                                    ;
+; PWMGenerator:AccelZLED|CLOCKslow[7]     ; Lost fanout                                    ;
+; PWMGenerator:GyroXLED|CLOCKslow[7]      ; Lost fanout                                    ;
+; PWMGenerator:GyroYLED|CLOCKslow[7]      ; Lost fanout                                    ;
+; PWMGenerator:GyroZLED|CLOCKslow[7]      ; Lost fanout                                    ;
+; IMUInterface:comb_3|COUNT[8,9]          ; Lost fanout                                    ;
+; Total Number of Removed Registers = 101 ;                                                ;
++-----------------------------------------+------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                       ;
++----------------------------------+---------------------------+--------------------------------------------------------------------+
+; Register name                    ; Reason for Removal        ; Registers Removed due to This Register                             ;
++----------------------------------+---------------------------+--------------------------------------------------------------------+
+; PWMGenerator:AccelXLED|COUNT[15] ; Stuck at GND              ; PWMGenerator:AccelXLED|COUNT[11], PWMGenerator:AccelXLED|COUNT[10] ;
+;                                  ; due to stuck port data_in ;                                                                    ;
+; PWMGenerator:AccelYLED|COUNT[15] ; Stuck at GND              ; PWMGenerator:AccelYLED|COUNT[11], PWMGenerator:AccelYLED|COUNT[10] ;
+;                                  ; due to stuck port data_in ;                                                                    ;
+; PWMGenerator:AccelZLED|COUNT[15] ; Stuck at GND              ; PWMGenerator:AccelZLED|COUNT[11], PWMGenerator:AccelZLED|COUNT[10] ;
+;                                  ; due to stuck port data_in ;                                                                    ;
+; PWMGenerator:GyroXLED|COUNT[15]  ; Stuck at GND              ; PWMGenerator:GyroXLED|COUNT[11], PWMGenerator:GyroXLED|COUNT[10]   ;
+;                                  ; due to stuck port data_in ;                                                                    ;
+; PWMGenerator:GyroYLED|COUNT[15]  ; Stuck at GND              ; PWMGenerator:GyroYLED|COUNT[11], PWMGenerator:GyroYLED|COUNT[10]   ;
+;                                  ; due to stuck port data_in ;                                                                    ;
+; PWMGenerator:GyroZLED|COUNT[15]  ; Stuck at GND              ; PWMGenerator:GyroZLED|COUNT[11], PWMGenerator:GyroZLED|COUNT[10]   ;
+;                                  ; due to stuck port data_in ;                                                                    ;
++----------------------------------+---------------------------+--------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 207   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 83    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; IMUInterface:comb_3|SW[0]              ; 1       ;
+; IMUInterface:comb_3|intialWait         ; 5       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |I2C_MyNano|IMUInterface:comb_3|IdleCount[6] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |I2C_MyNano|IMUInterface:comb_3|SCL          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |I2C_MyNano|IMUInterface:comb_3|Selector8    ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |I2C_MyNano|IMUInterface:comb_3|Selector4    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |I2C_MyNano|IMUInterface:comb_3|Selector10   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWMGenerator:AccelXLED ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; Offset         ; 0     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWMGenerator:AccelYLED ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; Offset         ; 0     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWMGenerator:AccelZLED ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; Offset         ; 0     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWMGenerator:GyroXLED ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; Offset         ; 0     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWMGenerator:GyroYLED ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; Offset         ; 0     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PWMGenerator:GyroZLED ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; Offset         ; 0     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IMUInterface:comb_3"                                                                                                               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                       ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; AccelX    ; Output ; Warning  ; Output or bidir port (18 bits) is wider than the port expression (10 bits) it drives; bit(s) "AccelX[17..10]" have no fanouts ;
+; AccelY    ; Output ; Warning  ; Output or bidir port (18 bits) is wider than the port expression (10 bits) it drives; bit(s) "AccelY[17..10]" have no fanouts ;
+; AccelZ    ; Output ; Warning  ; Output or bidir port (18 bits) is wider than the port expression (10 bits) it drives; bit(s) "AccelZ[17..10]" have no fanouts ;
+; GyroX     ; Output ; Warning  ; Output or bidir port (18 bits) is wider than the port expression (10 bits) it drives; bit(s) "GyroX[17..10]" have no fanouts  ;
+; GyroY     ; Output ; Warning  ; Output or bidir port (18 bits) is wider than the port expression (10 bits) it drives; bit(s) "GyroY[17..10]" have no fanouts  ;
+; GyroZ     ; Output ; Warning  ; Output or bidir port (18 bits) is wider than the port expression (10 bits) it drives; bit(s) "GyroZ[17..10]" have no fanouts  ;
+; DataValid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                           ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Oct 23 10:13:28 2013
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off I2C_MyNano -c I2C_MyNano
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file source code/sensorfusion.sv
+    Info (12023): Found entity 1: SensorFusion
+Info (12021): Found 1 design units, including 1 entities, in source file source code/pwm.sv
+    Info (12023): Found entity 1: PWMGenerator
+Info (12021): Found 1 design units, including 1 entities, in source file source code/lowpassfilter.sv
+    Info (12023): Found entity 1: LowPassFilter
+Info (12021): Found 1 design units, including 1 entities, in source file source code/imuinterface.sv
+    Info (12023): Found entity 1: IMUInterface
+Info (12021): Found 1 design units, including 1 entities, in source file source code/i2c_mynano.sv
+    Info (12023): Found entity 1: I2C_MyNano
+Info (12021): Found 1 design units, including 1 entities, in source file source code/highpassfilter.sv
+    Info (12023): Found entity 1: HighPassFilter
+Info (12021): Found 1 design units, including 1 entities, in source file source code/assistancealgorithm.sv
+    Info (12023): Found entity 1: AssistanceAlgorithm
+Critical Warning (10846): Verilog HDL Instantiation warning at I2C_MyNano.sv(66): instance has no name
+Info (12127): Elaborating entity "I2C_MyNano" for the top level hierarchy
+Warning (10034): Output port "LED[7..6]" at I2C_MyNano.sv(15) has no driver
+Warning (10034): Output port "PWMout" at I2C_MyNano.sv(26) has no driver
+Warning (10034): Output port "waveFormsPin" at I2C_MyNano.sv(29) has no driver
+Info (12128): Elaborating entity "IMUInterface" for hierarchy "IMUInterface:comb_3"
+Warning (10036): Verilog HDL or VHDL warning at IMUInterface.sv(137): object "RW_RATE" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at IMUInterface.sv(138): object "POWER_CTL" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at IMUInterface.sv(139): object "DataFormat" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at IMUInterface.sv(165): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at IMUInterface.sv(178): truncated value with size 32 to match size of target (10)
+Warning (10034): Output port "G_Sensor_CS_N" at IMUInterface.sv(19) has no driver
+Info (12128): Elaborating entity "PWMGenerator" for hierarchy "PWMGenerator:AccelXLED"
+Warning (10230): Verilog HDL assignment warning at PWM.sv(29): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at PWM.sv(36): truncated value with size 32 to match size of target (16)
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "IMUInterface:comb_3|SDI~0" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "IMUInterface:comb_3|SCL~0" feeding internal logic into a wire
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_10" and its non-tri-state driver.
+Warning (13039): The following bidir pins have no drivers
+    Warning (13040): Bidir "I2C_SCL" has no driver
+    Warning (13040): Bidir "I2C_SDA" has no driver
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "GPIO_10~synth"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LED[6]" is stuck at GND
+    Warning (13410): Pin "LED[7]" is stuck at GND
+    Warning (13410): Pin "G_Sensor_CS_N" is stuck at GND
+    Warning (13410): Pin "PWMout" is stuck at GND
+    Warning (13410): Pin "waveFormsPin" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 18 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY"
+Info (21057): Implemented 610 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21060): Implemented 4 bidirectional pins
+    Info (21061): Implemented 593 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 31 warnings
+    Info: Peak virtual memory: 525 megabytes
+    Info: Processing ended: Wed Oct 23 10:13:31 2013
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+
