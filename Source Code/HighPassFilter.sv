@@ -24,7 +24,9 @@ module HighPassFilter(
   //| Filtered outputs
   output  reg     [9:0]    GyroXOut,
   output  reg     [9:0]    GyroYOut,
-  output  reg     [9:0]    GyroZOut
+  output  reg     [9:0]    GyroZOut,
+	
+	output	reg							 DataReady
   );
 
   //|
@@ -46,6 +48,7 @@ module HighPassFilter(
   //|--------------------------------------------
   always@ (posedge ReadDone)
     begin
+			DataReady = 0;
       GyroXreg[0] = GyroX;
       GyroYreg[0] = GyroY;
       GyroZreg[0] = GyroZ;
@@ -54,6 +57,8 @@ module HighPassFilter(
       GyroXOut = (GCoEf0*GyroXreg[0])+(GCoEf1*GyroXreg[1])+(GCoEf2*GyroXreg[2])+(GCoEf3*GyroXreg[3])+(GCoEf4*GyroXreg[4])+(GCoEf5*GyroXreg[5])+(GCoEf6*GyroXreg[6])+(GCoEf7*GyroXreg[7])+(GCoEf8*GyroXreg[8])+(GCoEf9*GyroXreg[9]);
       GyroYOut = (GCoEf0*GyroYreg[0])+(GCoEf1*GyroYreg[1])+(GCoEf2*GyroYreg[2])+(GCoEf3*GyroYreg[3])+(GCoEf4*GyroYreg[4])+(GCoEf5*GyroYreg[5])+(GCoEf6*GyroYreg[6])+(GCoEf7*GyroYreg[7])+(GCoEf8*GyroYreg[8])+(GCoEf9*GyroYreg[9]);
       GyroZOut = (GCoEf0*GyroZreg[0])+(GCoEf1*GyroZreg[1])+(GCoEf2*GyroZreg[2])+(GCoEf3*GyroZreg[3])+(GCoEf4*GyroZreg[4])+(GCoEf5*GyroZreg[5])+(GCoEf6*GyroZreg[6])+(GCoEf7*GyroZreg[7])+(GCoEf8*GyroZreg[8])+(GCoEf9*GyroZreg[9]);
+			
+			DataReady = 1;
     end
   //| variable length shift register for sensor data
   //|---------------------------------------------------------------

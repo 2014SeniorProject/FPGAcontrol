@@ -38,12 +38,24 @@ module ProjectForward_TOP(
 	wire 		[9:0]		GyroY;
 	wire 		[9:0]		GyroZ;
 
+	//| Filtered Accelerometer
+	wire 		[9:0]		FAccelX;
+	wire 		[9:0]		FAccelY;
+	wire 		[9:0]		FAccelZ;
+
+	//| Filtered Gyroscope
+	wire 		[9:0]		FGyroX;
+	wire 		[9:0]		FGyroY;
+	wire 		[9:0]		FGyroZ;
+	
 	//| IMU data trigger
 	wire						IMUDataReady;
 
 	//| Motor output
 	wire 		[9:0]		PWMinput;
 
+	wire						LowPassDataReady;
+	wire						HighPassDataReady;
 	//|
 	//| IMU-I2C controller module
 	//|--------------------------------------------
@@ -60,12 +72,44 @@ module ProjectForward_TOP(
 	.GyroZ(GyroZ),
 	.DataValid(IMUDataReady)
 	);
+	
+	//|
+	//| IMU Filtering modules
+	//|--------------------------------------------
+	LowPassFilter AccelerometerFilter(
+		.ReadDone(IMUDataReady),
+		
+		.AccelX(AccelX),
+		.AccelY(AccelY),
+		.AccelZ(AccelZ),
+	
+		.AccelXOut(FAccelX),
+		.AccelYOut(FAccelY),
+		.AccelZOut(FAccelZ),
+		
+		.DataReady(LowPassDataReady)
+	);
+	
+	HighPassFilter GyroscopeFilter(
+		.ReadDone(IMUDataReady),
+		
+		.GyroX(GyroX),
+		.GyroY(GyroY),
+		.GyroZ(GyroZ),
+	
+		.GyroXOut(FGyroX),
+		.GyroYOut(FGyroY),
+		.GyroZOut(FGyroZ),
+		
+		.DataReady(HighPassDataReady)
+	);
 
 	//|
 	//| IMU LED visualization
 	//|--------------------------------------------
 	PWMGenerator #(
-		.Offset(0)
+		.Offset(0),
+		.pNegEnable(1)
 	)AccelXLED(
 		.CLOCK_50(CLOCK_50),
 		.PWMinput(AccelX),
@@ -73,7 +117,8 @@ module ProjectForward_TOP(
 		);
 
 		PWMGenerator #(
-		.Offset(0)
+		.Offset(0),
+		.pNegEnable(1)
 	)AccelYLED(
 		.CLOCK_50(CLOCK_50),
 		.PWMinput(AccelY),
@@ -81,7 +126,8 @@ module ProjectForward_TOP(
 		);
 
 		PWMGenerator #(
-		.Offset(0)
+		.Offset(0),
+		.pNegEnable(1)
 	)AccelZLED(
 		.CLOCK_50(CLOCK_50),
 		.PWMinput(AccelZ),
@@ -89,7 +135,8 @@ module ProjectForward_TOP(
 		);
 
 		PWMGenerator #(
-		.Offset(0)
+		.Offset(0),
+		.pNegEnable(1)
 	)GyroXLED(
 		.CLOCK_50(CLOCK_50),
 		.PWMinput(GyroX),
@@ -97,7 +144,8 @@ module ProjectForward_TOP(
 		);
 
 		PWMGenerator #(
-		.Offset(0)
+		.Offset(0),
+		.pNegEnable(1)
 	)GyroYLED(
 		.CLOCK_50(CLOCK_50),
 		.PWMinput(GyroY),
@@ -105,7 +153,8 @@ module ProjectForward_TOP(
 		);
 
 		PWMGenerator #(
-		.Offset(0)
+		.Offset(0),
+		.pNegEnable(1)
 	)GyroZLED(
 		.CLOCK_50(CLOCK_50),
 		.PWMinput(GyroZ),

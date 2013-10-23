@@ -35,7 +35,9 @@ module LowPassFilter(
   //| Filtered outputs
   output  reg     [9:0]    AccelXOut,
   output  reg     [9:0]    AccelYOut,
-  output  reg     [9:0]    AccelZOut
+  output  reg     [9:0]    AccelZOut,
+	
+	output	reg							 DataReady
 );
 
   //|
@@ -50,6 +52,7 @@ module LowPassFilter(
   //|--------------------------------------------
   always@ (posedge ReadDone)
     begin
+			DataReady = 0;
       AccelXreg[0] = AccelX;
       AccelYreg[0] = AccelY;
       AccelZreg[0] = AccelZ;
@@ -58,6 +61,9 @@ module LowPassFilter(
       AccelXOut = (CoEf0*AccelXreg[0])+(CoEf1*AccelXreg[1])+(CoEf2*AccelXreg[2])+(CoEf3*AccelXreg[3])+(CoEf4*AccelXreg[4])+(CoEf5*AccelXreg[5])+(CoEf6*AccelXreg[6])+(CoEf7*AccelXreg[7])+(CoEf8*AccelXreg[8])+(CoEf9*AccelXreg[9]);
       AccelYOut = (CoEf0*AccelYreg[0])+(CoEf1*AccelYreg[1])+(CoEf2*AccelYreg[2])+(CoEf3*AccelYreg[3])+(CoEf4*AccelYreg[4])+(CoEf5*AccelYreg[5])+(CoEf6*AccelYreg[6])+(CoEf7*AccelYreg[7])+(CoEf8*AccelYreg[8])+(CoEf9*AccelYreg[9]);
       AccelZOut = (CoEf0*AccelZreg[0])+(CoEf1*AccelZreg[1])+(CoEf2*AccelZreg[2])+(CoEf3*AccelZreg[3])+(CoEf4*AccelZreg[4])+(CoEf5*AccelZreg[5])+(CoEf6*AccelZreg[6])+(CoEf7*AccelZreg[7])+(CoEf8*AccelZreg[8])+(CoEf9*AccelZreg[9]);
+			
+			//| Generate data valid signal
+			DataReady = 1;
     end
 
   //| variable length shift register for sensor data
