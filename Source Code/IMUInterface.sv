@@ -8,7 +8,7 @@
 //|
 `timescale 10 ns / 1 ns
 
-//`define debug
+`define debug
 
 module IMUInterface(
     input                       CLOCK_50,           //Input clock
@@ -29,34 +29,16 @@ module IMUInterface(
     output  reg                 DataValid
 );
 
-
+//| Altera in system probes for debugging
 `ifdef debug
-//These are test points for the In-System Sources and Probes Editor in Quartus
-readback  AccelXProbe (
-    .probe (GyroX),
-    .source ()
-    );
-readback  AccelYProbe (
-    .probe (GyroY),
-    .source ()
-    );
-readback  AccelZProbe (
-    .probe (GyroZ),
-    .source ()
-    );
+	//These are test points for the In-System Sources and Probes Editor in Quartus
+	IMUReadback  IMUGyroXProbe (GyroX);
+	IMUReadback  IMUGyroYProbe (GyroY);
+	IMUReadback  IMUGyroZProbe (GyroZ);
 
-AccelSettingtReadback  RW_RATEProbe (
-    .probe (RW_RATE),
-    .source ()
-    );
-AccelSettingtReadback  POWER_CTLProbe (
-    .probe (POWER_CTL),
-    .source ()
-    );
-AccelSettingtReadback  DataFormatProbe (
-    .probe (DataFormat),
-    .source ()
-    );
+	IMUReadback  IMUAccelXProbe (AccelX);
+	IMUReadback  IMUAccelYProbe (AccelY);
+	IMUReadback  IMUAccelZProbe (AccelZ);
 `endif
 
 //| Sensor module I2C bus addresses
