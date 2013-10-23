@@ -19,9 +19,12 @@ module PWMGenerator(
 	//| start running smoothly. This will depend on the cycle time of the PWM.
 	parameter 		Offset = 250;
 
+	parameter			pNegEnable = 0; //allows the module to be used as LED indicators
+
 	//| These deal with the timing of the PWM output. CLOCKslow slows down
 	reg 	[7:0]		CLOCKslow =0;
 	reg 	[15:0] 	COUNT = 0;
+	reg		[9:0]		Setting = 0;
 
 	//| Clock divider for output signal
 	always @ (posedge CLOCK_50)
@@ -32,16 +35,26 @@ module PWMGenerator(
 
 	//| Output signal generator
 	always @(posedge CLOCKslow[6])
-	begin
-	    COUNT = COUNT + 1;
-		 if(PWMinput > 12)
-		 begin
-			 if(COUNT < PWMinput + Offset)
-				PWMout=1;
-			 else
-				PWMout=0;
-		 end
-		 else PWMout = 0;
-	    if(COUNT>=530)COUNT=0;
-	end
+		begin
+			//increment output generator
+			COUNT = COUNT + 1;
+
+			//|If negatives are enabled, invert two's complement input
+			casex({pNegEnable, PWMinput[9]})
+			2'b0x:  Setting = PWMinput;
+			2'b10:  Setting = PWMinput;
+			2'b11:	Setting = ~PWMinput +1;
+			endcase
+
+			//| Generate output signal
+			if(Setting > 12) //disable output if setting is low enough
+				begin
+					if(COUNT < Setting + Offset)PWMout=1;
+					else PWMout=0;
+				end
+			else PWMout = 0;
+
+			//| Reset counter at overflow
+			if(COUNT>=530)COUNT=0;
+		end
 endmodule
