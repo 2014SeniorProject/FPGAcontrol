@@ -56,6 +56,7 @@ module ProjectForward_TOP(
 
 	wire						LowPassDataReady;
 	wire						HighPassDataReady;
+	
 	//|
 	//| IMU-I2C controller module
 	//|--------------------------------------------
@@ -104,9 +105,27 @@ module ProjectForward_TOP(
 		.DataReady(HighPassDataReady)
 	);
 
+	SensorFusion InclanationCalculator(
+		.DataReady(HighPassDataReady && LowPassDataReady),
+		.Accel1(AccelY),
+		.Accel2(AccelZ),
+		.Gyro(FAccelY),
+
+		.resolvedAngle(PWMinput)
+  );
+	
 	//|
 	//| IMU LED visualization
 	//|--------------------------------------------
+		PWMGenerator #(
+		.Offset(0),
+		.pNegEnable(1)
+	)AccelAngleLED(
+		.CLOCK_50(CLOCK_50),
+		.PWMinput(PWMinput),
+		.PWMout(LED[7])
+		);
+		
 	PWMGenerator #(
 		.Offset(0),
 		.pNegEnable(1)

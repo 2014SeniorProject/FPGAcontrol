@@ -8,7 +8,7 @@
 //|
 `timescale 10 ns / 1 ns
 
-`define debug
+//`define debug
 
 module IMUInterface(
     input                       CLOCK_50,           //Input clock
@@ -143,7 +143,7 @@ reg         [7:0]       GyroZLB;
 //|-------------------------------------------------------------------------------------------------
 assign  reset_n = 1'b1;
 
-assign I2C_SCL = (SCL_CTRL)? ~COUNT[7] : SCL;
+assign I2C_SCL = (SCL_CTRL)? ~COUNT[6] : SCL;
 assign I2C_SDA = (SCL_CTRL)?((SDI)? 1'bz : 0):SDI;
 
 assign AccelX = {AccelXHB, AccelXLB};
@@ -160,7 +160,7 @@ assign GyroZ = {GyroZHB, GyroZLB};
 always @ (posedge CLOCK_50) COUNT = COUNT +1;
 
 //I2C Operation, Write
-always @ (posedge COUNT[7])
+always @ (posedge COUNT[6])
 begin
     //Hold lines high
     if(!reset_n)

@@ -13,7 +13,7 @@ module SensorFusion(
   //| Local registers and wires
   //|--------------------------------------------
   reg   [9:0]   Angle = 0;
-  reg   [9:0]   AccelerometerAngle =0;
+  reg   [9:0]   AccelerometerAngle = 0;
 
   //|
   //| Main logic
@@ -24,12 +24,12 @@ module SensorFusion(
       //| Divide magnitudes for inverse tangent function
       AccelerometerAngle = Accel1/Accel2;
 
-      //| Taylor series expansion for inverse tangent
-      AccelerometerAngle = AccelerometerAngle - (AccelerometerAngle^3)/3;
+      //| Taylor series for inverse tangent
+      AccelerometerAngle = AccelerometerAngle - (AccelerometerAngle^3)/3 + (AccelerometerAngle^5)/5 - (AccelerometerAngle^7)/7 + (AccelerometerAngle^9)/9;
 
       Angle = ((98)*(Angle + (Gyro/195)*SampleTime))/100 + ((20)*(AccelerometerAngle))/1000;
     end
+		
+	IMUFusionReadback	IMUFusionReadback (.probe(Angle));
 
-	SensorFusionProbe	SensorFusionProbe_inst (.probe(Angle));
-
-endmodule
+	endmodule
