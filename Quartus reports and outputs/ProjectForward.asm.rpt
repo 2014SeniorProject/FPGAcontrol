@@ -1,5 +1,5 @@
 Assembler report for ProjectForward
-Wed Oct 23 11:10:11 2013
+Tue Oct 29 14:35:22 2013
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Oct 23 11:10:11 2013 ;
+; Assembler Status      ; Successful - Tue Oct 29 14:35:22 2013 ;
 ; Revision Name         ; ProjectForward                        ;
 ; Top-level Entity Name ; ProjectForward_TOP                    ;
 ; Family                ; Cyclone IV E                          ;
@@ -85,7 +85,6 @@ applicable agreement for further details.
 ; Vendor ; IP Core Name           ; License Type ;
 +--------+------------------------+--------------+
 ; Altera ; Signal Tap (6AF7 BCE1) ; Licensed     ;
-; Altera ; Signal Tap (6AF7 BCEC) ; Licensed     ;
 +--------+------------------------+--------------+
 
 
@@ -104,8 +103,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                                                                                              ;
 +----------------+--------------------------------------------------------------------------------------------------------------------------------------+
 ; Device         ; EP4CE22F17C6                                                                                                                         ;
-; JTAG usercode  ; 0x00312B73                                                                                                                           ;
-; Checksum       ; 0x00312B73                                                                                                                           ;
+; JTAG usercode  ; 0x00195AAF                                                                                                                           ;
+; Checksum       ; 0x00195AAF                                                                                                                           ;
 +----------------+--------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -115,13 +114,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Oct 23 11:10:09 2013
+    Info: Processing started: Tue Oct 29 14:35:20 2013
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off ProjectForward -c ProjectForward
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 443 megabytes
-    Info: Processing ended: Wed Oct 23 11:10:11 2013
+    Info: Peak virtual memory: 427 megabytes
+    Info: Processing ended: Tue Oct 29 14:35:22 2013
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

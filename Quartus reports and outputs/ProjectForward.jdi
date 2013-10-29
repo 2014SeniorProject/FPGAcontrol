@@ -1,13 +1,13 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="3977bf68ce22215be9d6"/>
+    <hash md5_digest_80b="f2f3f632ee1370f52b3f"/>
   </project>
   <file_info>
     <file device="EP4CE22F17C6" path="ProjectForward.sof" usercode="0xFFFFFFFF"/>
   </file_info>
-  <hub_info hub_ir_width="8" ir_width="8" node_addr_width="3" node_count="7"/>
+  <hub_info hub_ir_width="4" ir_width="4" node_addr_width="1" node_count="1"/>
   <node_info>
-    <node hpath="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|altsource_probe:altsource_probe_component" instance_id="0" mfg_id="110" node_id="9" sld_node_info="0x486E00" version="0">
+    <node hpath="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|altsource_probe:altsource_probe_component" instance_id="0" mfg_id="110" node_id="9" sld_node_info="0x486E00" version="0">
       <parameters>
         <parameter name="lpm_type" type="string" value="altsource_probe"/>
         <parameter name="lpm_hint" type="string" value="UNUSED"/>
@@ -15,360 +15,48 @@
         <parameter name="sld_instance_index" type="dec" value="0"/>
         <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
         <parameter name="sld_ir_width" type="dec" value="4"/>
-        <parameter name="instance_id" type="string" value="IMUD"/>
+        <parameter name="instance_id" type="string" value="IMUF"/>
         <parameter name="probe_width" type="dec" value="10"/>
         <parameter name="source_width" type="dec" value="0"/>
         <parameter name="source_initial_value" type="string" value=" 0"/>
         <parameter name="enable_metastability" type="string" value="NO"/>
       </parameters>
       <inputs>
-        <port name="probe[0]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[0]"/>
-        <port name="probe[1]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[1]"/>
-        <port name="probe[2]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[2]"/>
-        <port name="probe[3]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[3]"/>
-        <port name="probe[4]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[4]"/>
-        <port name="probe[5]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[5]"/>
-        <port name="probe[6]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[6]"/>
-        <port name="probe[7]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[7]"/>
-        <port name="probe[8]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[8]"/>
-        <port name="probe[9]" source="IMUInterface:IMU|IMUReadback:IMUGyroXProbe|probe[9]"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ena"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_3_"/>
+        <port name="probe[0]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[0]"/>
+        <port name="probe[1]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[1]"/>
+        <port name="probe[2]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[2]"/>
+        <port name="probe[3]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[3]"/>
+        <port name="probe[4]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[4]"/>
+        <port name="probe[5]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[5]"/>
+        <port name="probe[6]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[6]"/>
+        <port name="probe[7]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[7]"/>
+        <port name="probe[8]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[8]"/>
+        <port name="probe[9]" source="SensorFusion:InclanationCalculator|IMUFusionReadback:IMUFusionReadback|probe[9]"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_raw_tck" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_tdi" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_usr1" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_cdr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_sdr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_udr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_cir" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_uir" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_tlr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_clrn" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ena" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ena"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_0_" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_1_" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_2_" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_3_" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_3_"/>
       </inputs>
       <outputs>
         <port name="source[0]"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_tdo"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_tdo"/>
       </outputs>
-    </node>
-    <node hpath="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|altsource_probe:altsource_probe_component" instance_id="1" mfg_id="110" node_id="9" sld_node_info="0x486E01" version="0">
-      <parameters>
-        <parameter name="lpm_type" type="string" value="altsource_probe"/>
-        <parameter name="lpm_hint" type="string" value="UNUSED"/>
-        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
-        <parameter name="sld_instance_index" type="dec" value="0"/>
-        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
-        <parameter name="sld_ir_width" type="dec" value="4"/>
-        <parameter name="instance_id" type="string" value="IMUD"/>
-        <parameter name="probe_width" type="dec" value="10"/>
-        <parameter name="source_width" type="dec" value="0"/>
-        <parameter name="source_initial_value" type="string" value=" 0"/>
-        <parameter name="enable_metastability" type="string" value="NO"/>
-      </parameters>
-      <inputs>
-        <port name="probe[0]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[0]"/>
-        <port name="probe[1]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[1]"/>
-        <port name="probe[2]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[2]"/>
-        <port name="probe[3]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[3]"/>
-        <port name="probe[4]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[4]"/>
-        <port name="probe[5]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[5]"/>
-        <port name="probe[6]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[6]"/>
-        <port name="probe[7]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[7]"/>
-        <port name="probe[8]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[8]"/>
-        <port name="probe[9]" source="IMUInterface:IMU|IMUReadback:IMUGyroYProbe|probe[9]"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ena"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_3_"/>
-      </inputs>
-      <outputs>
-        <port name="source[0]"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_tdo"/>
-      </outputs>
-    </node>
-    <node hpath="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|altsource_probe:altsource_probe_component" instance_id="2" mfg_id="110" node_id="9" sld_node_info="0x486E02" version="0">
-      <parameters>
-        <parameter name="lpm_type" type="string" value="altsource_probe"/>
-        <parameter name="lpm_hint" type="string" value="UNUSED"/>
-        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
-        <parameter name="sld_instance_index" type="dec" value="0"/>
-        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
-        <parameter name="sld_ir_width" type="dec" value="4"/>
-        <parameter name="instance_id" type="string" value="IMUD"/>
-        <parameter name="probe_width" type="dec" value="10"/>
-        <parameter name="source_width" type="dec" value="0"/>
-        <parameter name="source_initial_value" type="string" value=" 0"/>
-        <parameter name="enable_metastability" type="string" value="NO"/>
-      </parameters>
-      <inputs>
-        <port name="probe[0]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[0]"/>
-        <port name="probe[1]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[1]"/>
-        <port name="probe[2]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[2]"/>
-        <port name="probe[3]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[3]"/>
-        <port name="probe[4]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[4]"/>
-        <port name="probe[5]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[5]"/>
-        <port name="probe[6]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[6]"/>
-        <port name="probe[7]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[7]"/>
-        <port name="probe[8]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[8]"/>
-        <port name="probe[9]" source="IMUInterface:IMU|IMUReadback:IMUGyroZProbe|probe[9]"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ena"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_3_"/>
-      </inputs>
-      <outputs>
-        <port name="source[0]"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_tdo"/>
-      </outputs>
-    </node>
-    <node hpath="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|altsource_probe:altsource_probe_component" instance_id="3" mfg_id="110" node_id="9" sld_node_info="0x486E03" version="0">
-      <parameters>
-        <parameter name="lpm_type" type="string" value="altsource_probe"/>
-        <parameter name="lpm_hint" type="string" value="UNUSED"/>
-        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
-        <parameter name="sld_instance_index" type="dec" value="0"/>
-        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
-        <parameter name="sld_ir_width" type="dec" value="4"/>
-        <parameter name="instance_id" type="string" value="IMUD"/>
-        <parameter name="probe_width" type="dec" value="10"/>
-        <parameter name="source_width" type="dec" value="0"/>
-        <parameter name="source_initial_value" type="string" value=" 0"/>
-        <parameter name="enable_metastability" type="string" value="NO"/>
-      </parameters>
-      <inputs>
-        <port name="probe[0]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[0]"/>
-        <port name="probe[1]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[1]"/>
-        <port name="probe[2]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[2]"/>
-        <port name="probe[3]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[3]"/>
-        <port name="probe[4]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[4]"/>
-        <port name="probe[5]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[5]"/>
-        <port name="probe[6]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[6]"/>
-        <port name="probe[7]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[7]"/>
-        <port name="probe[8]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[8]"/>
-        <port name="probe[9]" source="IMUInterface:IMU|IMUReadback:IMUAccelXProbe|probe[9]"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ena"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_3_"/>
-      </inputs>
-      <outputs>
-        <port name="source[0]"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_tdo"/>
-      </outputs>
-    </node>
-    <node hpath="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|altsource_probe:altsource_probe_component" instance_id="4" mfg_id="110" node_id="9" sld_node_info="0x486E04" version="0">
-      <parameters>
-        <parameter name="lpm_type" type="string" value="altsource_probe"/>
-        <parameter name="lpm_hint" type="string" value="UNUSED"/>
-        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
-        <parameter name="sld_instance_index" type="dec" value="0"/>
-        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
-        <parameter name="sld_ir_width" type="dec" value="4"/>
-        <parameter name="instance_id" type="string" value="IMUD"/>
-        <parameter name="probe_width" type="dec" value="10"/>
-        <parameter name="source_width" type="dec" value="0"/>
-        <parameter name="source_initial_value" type="string" value=" 0"/>
-        <parameter name="enable_metastability" type="string" value="NO"/>
-      </parameters>
-      <inputs>
-        <port name="probe[0]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[0]"/>
-        <port name="probe[1]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[1]"/>
-        <port name="probe[2]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[2]"/>
-        <port name="probe[3]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[3]"/>
-        <port name="probe[4]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[4]"/>
-        <port name="probe[5]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[5]"/>
-        <port name="probe[6]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[6]"/>
-        <port name="probe[7]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[7]"/>
-        <port name="probe[8]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[8]"/>
-        <port name="probe[9]" source="IMUInterface:IMU|IMUReadback:IMUAccelYProbe|probe[9]"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ena"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_3_"/>
-      </inputs>
-      <outputs>
-        <port name="source[0]"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_tdo"/>
-      </outputs>
-    </node>
-    <node hpath="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|altsource_probe:altsource_probe_component" instance_id="5" mfg_id="110" node_id="9" sld_node_info="0x486E05" version="0">
-      <parameters>
-        <parameter name="lpm_type" type="string" value="altsource_probe"/>
-        <parameter name="lpm_hint" type="string" value="UNUSED"/>
-        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
-        <parameter name="sld_instance_index" type="dec" value="0"/>
-        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
-        <parameter name="sld_ir_width" type="dec" value="4"/>
-        <parameter name="instance_id" type="string" value="IMUD"/>
-        <parameter name="probe_width" type="dec" value="10"/>
-        <parameter name="source_width" type="dec" value="0"/>
-        <parameter name="source_initial_value" type="string" value=" 0"/>
-        <parameter name="enable_metastability" type="string" value="NO"/>
-      </parameters>
-      <inputs>
-        <port name="probe[0]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[0]"/>
-        <port name="probe[1]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[1]"/>
-        <port name="probe[2]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[2]"/>
-        <port name="probe[3]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[3]"/>
-        <port name="probe[4]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[4]"/>
-        <port name="probe[5]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[5]"/>
-        <port name="probe[6]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[6]"/>
-        <port name="probe[7]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[7]"/>
-        <port name="probe[8]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[8]"/>
-        <port name="probe[9]" source="IMUInterface:IMU|IMUReadback:IMUAccelZProbe|probe[9]"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ena"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_3_"/>
-      </inputs>
-      <outputs>
-        <port name="source[0]"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_tdo"/>
-      </outputs>
-    </node>
-    <node hpath="sld_signaltap:auto_signaltap_0" instance_id="0" mfg_id="110" node_id="0" sld_node_info="0x30006E00" version="6">
-      <parameters>
-        <parameter name="lpm_type" type="string" value="sld_signaltap"/>
-        <parameter name="sld_node_info" type="unknown" value="805334528"/>
-        <parameter name="SLD_IP_VERSION" type="dec" value="6"/>
-        <parameter name="SLD_IP_MINOR_VERSION" type="dec" value="0"/>
-        <parameter name="SLD_COMMON_IP_VERSION" type="dec" value="0"/>
-        <parameter name="sld_data_bits" type="unknown" value="136"/>
-        <parameter name="sld_trigger_bits" type="unknown" value="136"/>
-        <parameter name="SLD_NODE_CRC_BITS" type="dec" value="32"/>
-        <parameter name="sld_node_crc_hiword" type="unknown" value="13994"/>
-        <parameter name="sld_node_crc_loword" type="unknown" value="63614"/>
-        <parameter name="SLD_INCREMENTAL_ROUTING" type="dec" value="0"/>
-        <parameter name="sld_sample_depth" type="unknown" value="2048"/>
-        <parameter name="sld_segment_size" type="unknown" value="2048"/>
-        <parameter name="SLD_RAM_BLOCK_TYPE" type="string" value="AUTO"/>
-        <parameter name="sld_state_bits" type="unknown" value="11"/>
-        <parameter name="sld_buffer_full_stop" type="unknown" value="1"/>
-        <parameter name="SLD_MEM_ADDRESS_BITS" type="dec" value="7"/>
-        <parameter name="SLD_DATA_BIT_CNTR_BITS" type="dec" value="4"/>
-        <parameter name="sld_trigger_level" type="unknown" value="1"/>
-        <parameter name="sld_trigger_in_enabled" type="unknown" value="0"/>
-        <parameter name="SLD_HPS_TRIGGER_IN_ENABLED" type="dec" value="0"/>
-        <parameter name="SLD_HPS_TRIGGER_OUT_ENABLED" type="dec" value="0"/>
-        <parameter name="SLD_HPS_EVENT_ENABLED" type="dec" value="0"/>
-        <parameter name="SLD_HPS_EVENT_ID" type="dec" value="0"/>
-        <parameter name="sld_advanced_trigger_entity" type="unknown" value="basic,1,"/>
-        <parameter name="sld_trigger_level_pipeline" type="unknown" value="1"/>
-        <parameter name="sld_enable_advanced_trigger" type="unknown" value="0"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_1" type="string" value="NONE"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_2" type="string" value="NONE"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_3" type="string" value="NONE"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_4" type="string" value="NONE"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_5" type="string" value="NONE"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_6" type="string" value="NONE"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_7" type="string" value="NONE"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_8" type="string" value="NONE"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_9" type="string" value="NONE"/>
-        <parameter name="SLD_ADVANCED_TRIGGER_10" type="string" value="NONE"/>
-        <parameter name="sld_inversion_mask_length" type="unknown" value="570"/>
-        <parameter name="sld_inversion_mask" type="unknown" value="000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
-        <parameter name="sld_power_up_trigger" type="unknown" value="0"/>
-        <parameter name="SLD_STATE_FLOW_MGR_ENTITY" type="string" value="state_flow_mgr_entity.vhd"/>
-        <parameter name="sld_state_flow_use_generated" type="unknown" value="0"/>
-        <parameter name="sld_current_resource_width" type="unknown" value="1"/>
-        <parameter name="sld_attribute_mem_mode" type="unknown" value="OFF"/>
-        <parameter name="sld_storage_qualifier_bits" type="unknown" value="136"/>
-        <parameter name="sld_storage_qualifier_gap_record" type="unknown" value="1"/>
-        <parameter name="sld_storage_qualifier_mode" type="unknown" value="TRANSITIONAL"/>
-        <parameter name="SLD_STORAGE_QUALIFIER_ENABLE_ADVANCED_CONDITION" type="dec" value="0"/>
-        <parameter name="sld_storage_qualifier_inversion_mask_length" type="unknown" value="137"/>
-        <parameter name="SLD_STORAGE_QUALIFIER_ADVANCED_CONDITION_ENTITY" type="string" value="basic"/>
-        <parameter name="SLD_STORAGE_QUALIFIER_PIPELINE" type="dec" value="0"/>
-      </parameters>
-      <inputs/>
-      <outputs/>
     </node>
   </node_info>
 </sld_project_info>
