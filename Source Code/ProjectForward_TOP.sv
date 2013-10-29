@@ -20,7 +20,11 @@ module ProjectForward_TOP(
 
 	output						G_Sensor_CS_N,	//CS line for accelerometer held high for I2C mode
 	output 		wire 		PWMout,
-	output 		wire 		waveFormsPin
+	output 		wire 		waveFormsPin,
+	
+	
+	output wire tx,		//Cell phone transmiting 
+	input wire rx			//Cell phone receiving 
 
 );
 
@@ -56,6 +60,14 @@ module ProjectForward_TOP(
 
 	wire						LowPassDataReady;
 	wire						HighPassDataReady;
+	
+	//| Cell phone communication
+	wire transmit;
+	wire received; 
+	wire is_receiving;
+	wire is_transmitting;
+	wire [7:0] tx_byte;
+	wire [7:0] rx_byte;
 	
 	//|
 	//| IMU-I2C controller module
@@ -179,6 +191,37 @@ module ProjectForward_TOP(
 		.PWMinput(GyroZ),
 		.PWMout(LED[5])
 		);
+		
+		//|
+		//| Cell phone communication 
+		//|---------------------------------------------
+	wireless(
+		.key(KEY),
+		.clk(CLOCK_50),   
+		.transmit(transmit), // Signal to transmit
+		.tx_byte(tx_byte), // Byte to transmit
+		.received(received), // Indicated that a byte has been received.
+		.rx_byte(rx_byte), // Byte received
+		.is_receiving(is_receiving), // Low when receive line is idle.
+		.is_transmitting(is_transmitting), // Low when transmit line is idle.
+		.xAxis(AccelX[7:0])
+		);
+
+	uart(
+		.clk(CLOCK_50),
+		.rx(rx),
+		.tx(tx),
+		.transmit(transmit), // Signal to transmit
+		.tx_byte(tx_byte), // Byte to transmit
+		.received(received), // Indicated that a byte has been received.
+		.rx_byte(rx_byte), // Byte received
+		.is_receiving(is_receiving), // Low when receive line is idle.
+		.is_transmitting(is_transmitting) // Low when transmit line is idle.
+		);
+		
+		
+		
+		
 endmodule
 
 
