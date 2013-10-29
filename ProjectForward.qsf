@@ -375,6 +375,12 @@ set_global_assignment -name PROJECT_OUTPUT_DIRECTORY "\\\\psf\\Home\\Documents\\
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE "Quartus reports and outputs/IMUSignalTap.stp"
+set_location_assignment PIN_F13 -to GPIO_10
+set_location_assignment PIN_T15 -to GPIO_11
+set_global_assignment -name SLD_FILE "//psf/Home/Documents/GithubRepositories/Senior-Project-Repositories/De0-Nano/Quartus reports and outputs/IMUSignalTap_auto_stripped.stp"
+set_global_assignment -name VERILOG_FILE "Altera debugging tools/IMUFusionReadback.v"
 set_global_assignment -name VERILOG_FILE "Altera debugging tools/IMUReadback.v"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/ProjectForward_TOP.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SensorFusion.sv"
@@ -383,11 +389,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/LowPassFilter.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/IMUInterface.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/HighPassFilter.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/AssistanceAlgorithm.sv"
-set_global_assignment -name ENABLE_SIGNALTAP OFF
-set_global_assignment -name USE_SIGNALTAP_FILE "Quartus reports and outputs/IMUSignalTap.stp"
 set_global_assignment -name SIGNALTAP_FILE "Quartus reports and outputs/IMUSignalTap.stp"
-set_location_assignment PIN_F13 -to GPIO_10
-set_location_assignment PIN_T15 -to GPIO_11
-set_global_assignment -name SLD_FILE "//psf/Home/Documents/GithubRepositories/Senior-Project-Repositories/De0-Nano/Quartus reports and outputs/IMUSignalTap_auto_stripped.stp"
 set_global_assignment -name SOURCE_FILE "Altera debugging tools/IMUReadback.spf"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
