@@ -2,44 +2,61 @@
 parameter width = 10;           //number of filter samples - works out to be 1s at our current data rate
 
 //| Matlab generated FIR filter coefficients
-localparam GCoEf0 = 16'hfda5;
-localparam GCoEf1 = 16'h0e32;
-localparam GCoEf2 = 16'hd54b;
-localparam GCoEf3 = 16'h52ed;
-localparam GCoEf4 = 16'h8e58;
-localparam GCoEf5 = 16'h71a8;
-localparam GCoEf6 = 16'had13;
-localparam GCoEf7 = 16'h2ab5;
-localparam GCoEf8 = 16'hf1ce;
-localparam GCoEf9 = 16'h025b;
+localparam signed GCoEf0 = 16'hfda5;
+localparam signed GCoEf1 = 16'h0e32;
+localparam signed GCoEf2 = 16'hd54b;
+localparam signed GCoEf3 = 16'h52ed;
+localparam signed GCoEf4 = 16'h8e58;
+localparam signed GCoEf5 = 16'h71a8;
+localparam signed GCoEf6 = 16'had13;
+localparam signed GCoEf7 = 16'h2ab5;
+localparam signed GCoEf8 = 16'hf1ce;
+localparam signed GCoEf9 = 16'h025b;
 
 module HighPassFilter(
   input                    ReadDone,        //module runs off this as it's clock.
 
   //| IMU inputs
-  input   wire    [9:0]    GyroX,
-  input   wire    [9:0]    GyroY,
-  input   wire    [9:0]    GyroZ,
+  input   wire 		signed   [9:0]    GyroX,
+  input   wire   	signed   [9:0]    GyroY,
+  input   wire   	signed	 [9:0]    GyroZ,
 
   //| Filtered outputs
-  output  reg     [9:0]    GyroXOut,
-  output  reg     [9:0]    GyroYOut,
-  output  reg     [9:0]    GyroZOut,
+  output  reg     signed   [9:0]    GyroXOut,
+  output  reg     signed   [9:0]    GyroYOut,
+  output  reg     signed   [9:0]    GyroZOut,
 	
-	output	reg							 DataReady
+	output	reg				DataReady
   );
-
+// AccelSettingtReadback  gyaxis (
+//    .probe (GyroX),
+//    .source ()
+//    );
+//  AccelSettingtReadback  gxaxis (
+//    .probe (GyroX),
+//    .source ()
+//    );
+//	  AccelSettingtReadback  gzaxis (
+//    .probe (GyroZ),
+//    .source ()
+//    );
+//	 	  AccelSettingtReadback  fgzaxis (
+//    .probe (GyroXOut),
+//    .source ()
+//    );
+  
+  
   //|
   //| Local register and wire instansiations
   //|--------------------------------------------
 
-  reg    [9:0]      GyroXreg[width-1:0];
-  reg    [9:0]      GyroYreg[width-1:0];
-  reg    [9:0]      GyroZreg[width-1:0];
+  reg    signed 	[9:0]      GyroXreg[width-1:0];
+  reg    signed	[9:0]      GyroYreg[width-1:0];
+  reg    signed	[9:0]      GyroZreg[width-1:0];
 
-  reg    [32:0]     GyroXSum; //need to prove this register size is always valid
-  reg    [32:0]     GyroYSum;
-  reg    [32:0]     GyroZSum;
+  reg    signed 	[32:0]     GyroXSum; //need to prove this register size is always valid
+  reg    signed	[32:0]     GyroYSum;
+  reg    signed 	[32:0]     GyroZSum = 0;
 
   reg    [7:0]      z = 0;
 
@@ -75,4 +92,11 @@ module HighPassFilter(
           end
       end
     endgenerate
+	 
+	 
+	/* 
+	 always@(posedge ReadDone)
+		 begin
+			GyroXSum = GyroXSum + GyroX/10;
+		 end*/
 endmodule

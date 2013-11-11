@@ -1,0 +1,968 @@
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="debd3ee53ce1265b5585"/>
+  </project>
+  <file_info>
+    <file device="EP4CE22F17C6" path="I2C_MyNano.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+  <hub_info hub_ir_width="8" ir_width="8" node_addr_width="5" node_count="16"/>
+  <node_info>
+    <node hpath="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|altsource_probe:altsource_probe_component" instance_id="0" mfg_id="110" node_id="9" sld_node_info="0x486E00" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACLY"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[0]"/>
+        <port name="probe[1]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[1]"/>
+        <port name="probe[2]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[2]"/>
+        <port name="probe[3]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[3]"/>
+        <port name="probe[4]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[4]"/>
+        <port name="probe[5]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[5]"/>
+        <port name="probe[6]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[6]"/>
+        <port name="probe[7]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[7]"/>
+        <port name="probe[8]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[8]"/>
+        <port name="probe[9]" source="IMUInterface:IMU|AccelProbeY:IMUGyroXProbe|probe[9]"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ena"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.IMU_IMUGyroXProbe_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|altsource_probe:altsource_probe_component" instance_id="1" mfg_id="110" node_id="9" sld_node_info="0x486E01" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACLY"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[0]"/>
+        <port name="probe[1]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[1]"/>
+        <port name="probe[2]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[2]"/>
+        <port name="probe[3]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[3]"/>
+        <port name="probe[4]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[4]"/>
+        <port name="probe[5]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[5]"/>
+        <port name="probe[6]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[6]"/>
+        <port name="probe[7]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[7]"/>
+        <port name="probe[8]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[8]"/>
+        <port name="probe[9]" source="IMUInterface:IMU|AccelProbeY:IMUGyroYProbe|probe[9]"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ena"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.IMU_IMUGyroYProbe_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|altsource_probe:altsource_probe_component" instance_id="2" mfg_id="110" node_id="9" sld_node_info="0x486E02" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACLY"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[0]"/>
+        <port name="probe[1]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[1]"/>
+        <port name="probe[2]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[2]"/>
+        <port name="probe[3]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[3]"/>
+        <port name="probe[4]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[4]"/>
+        <port name="probe[5]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[5]"/>
+        <port name="probe[6]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[6]"/>
+        <port name="probe[7]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[7]"/>
+        <port name="probe[8]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[8]"/>
+        <port name="probe[9]" source="IMUInterface:IMU|AccelProbeY:IMUGyroZProbe|probe[9]"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ena"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.IMU_IMUGyroZProbe_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|altsource_probe:altsource_probe_component" instance_id="3" mfg_id="110" node_id="9" sld_node_info="0x486E03" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACLY"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[0]"/>
+        <port name="probe[1]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[1]"/>
+        <port name="probe[2]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[2]"/>
+        <port name="probe[3]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[3]"/>
+        <port name="probe[4]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[4]"/>
+        <port name="probe[5]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[5]"/>
+        <port name="probe[6]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[6]"/>
+        <port name="probe[7]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[7]"/>
+        <port name="probe[8]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[8]"/>
+        <port name="probe[9]" source="IMUInterface:IMU|AccelProbeY:IMUAccelXProbe|probe[9]"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ena"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.IMU_IMUAccelXProbe_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|altsource_probe:altsource_probe_component" instance_id="4" mfg_id="110" node_id="9" sld_node_info="0x486E04" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACLY"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[0]"/>
+        <port name="probe[1]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[1]"/>
+        <port name="probe[2]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[2]"/>
+        <port name="probe[3]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[3]"/>
+        <port name="probe[4]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[4]"/>
+        <port name="probe[5]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[5]"/>
+        <port name="probe[6]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[6]"/>
+        <port name="probe[7]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[7]"/>
+        <port name="probe[8]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[8]"/>
+        <port name="probe[9]" source="IMUInterface:IMU|AccelProbeY:IMUAccelYProbe|probe[9]"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ena"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.IMU_IMUAccelYProbe_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|altsource_probe:altsource_probe_component" instance_id="5" mfg_id="110" node_id="9" sld_node_info="0x486E05" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACLY"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[0]"/>
+        <port name="probe[1]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[1]"/>
+        <port name="probe[2]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[2]"/>
+        <port name="probe[3]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[3]"/>
+        <port name="probe[4]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[4]"/>
+        <port name="probe[5]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[5]"/>
+        <port name="probe[6]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[6]"/>
+        <port name="probe[7]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[7]"/>
+        <port name="probe[8]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[8]"/>
+        <port name="probe[9]" source="IMUInterface:IMU|AccelProbeY:IMUAccelZProbe|probe[9]"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_tdi" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_usr1" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_clrn" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ena" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ena"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.IMU_IMUAccelZProbe_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|altsource_probe:altsource_probe_component" instance_id="6" mfg_id="110" node_id="9" sld_node_info="0x486E06" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACSE"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[0]"/>
+        <port name="probe[1]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[1]"/>
+        <port name="probe[2]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[2]"/>
+        <port name="probe[3]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[3]"/>
+        <port name="probe[4]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[4]"/>
+        <port name="probe[5]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[5]"/>
+        <port name="probe[6]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[6]"/>
+        <port name="probe[7]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[7]"/>
+        <port name="probe[8]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[8]"/>
+        <port name="probe[9]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:xaxis|probe[9]"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_raw_tck" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_tdi" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_usr1" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_cdr" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_sdr" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_udr" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_cir" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_uir" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_tlr" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_clrn" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ena" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ena"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_in_0_" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_in_1_" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_in_2_" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_in_3_" source="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.AccelerometerFilter_xaxis_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|altsource_probe:altsource_probe_component" instance_id="7" mfg_id="110" node_id="9" sld_node_info="0x486E07" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACSE"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[0]"/>
+        <port name="probe[1]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[1]"/>
+        <port name="probe[2]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[2]"/>
+        <port name="probe[3]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[3]"/>
+        <port name="probe[4]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[4]"/>
+        <port name="probe[5]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[5]"/>
+        <port name="probe[6]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[6]"/>
+        <port name="probe[7]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[7]"/>
+        <port name="probe[8]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[8]"/>
+        <port name="probe[9]" source="LowPassFilter:AccelerometerFilter|AccelSettingtReadback:fxaxis|probe[9]"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_raw_tck" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_tdi" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_usr1" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_cdr" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_sdr" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_udr" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_cir" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_uir" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_tlr" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_clrn" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ena" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ena"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_in_0_" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_in_1_" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_in_2_" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_in_3_" source="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.AccelerometerFilter_fxaxis_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|altsource_probe:altsource_probe_component" instance_id="8" mfg_id="110" node_id="9" sld_node_info="0x486E08" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACSE"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[0]"/>
+        <port name="probe[1]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[1]"/>
+        <port name="probe[2]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[2]"/>
+        <port name="probe[3]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[3]"/>
+        <port name="probe[4]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[4]"/>
+        <port name="probe[5]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[5]"/>
+        <port name="probe[6]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[6]"/>
+        <port name="probe[7]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[7]"/>
+        <port name="probe[8]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[8]"/>
+        <port name="probe[9]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:angle1|probe[9]"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_raw_tck" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_tdi" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_usr1" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_cdr" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_sdr" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_udr" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_cir" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_uir" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_tlr" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_clrn" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ena" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ena"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_in_0_" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_in_1_" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_in_2_" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_in_3_" source="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.InclanationCalculator_angle1_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|altsource_probe:altsource_probe_component" instance_id="9" mfg_id="110" node_id="9" sld_node_info="0x486E09" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACSE"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[0]"/>
+        <port name="probe[1]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[1]"/>
+        <port name="probe[2]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[2]"/>
+        <port name="probe[3]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[3]"/>
+        <port name="probe[4]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[4]"/>
+        <port name="probe[5]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[5]"/>
+        <port name="probe[6]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[6]"/>
+        <port name="probe[7]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[7]"/>
+        <port name="probe[8]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[8]"/>
+        <port name="probe[9]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:gyro|probe[9]"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_raw_tck" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_tdi" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_usr1" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_cdr" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_sdr" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_udr" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_cir" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_uir" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_tlr" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_clrn" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ena" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ena"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_in_0_" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_in_1_" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_in_2_" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_in_3_" source="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.InclanationCalculator_gyro_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|altsource_probe:altsource_probe_component" instance_id="10" mfg_id="110" node_id="9" sld_node_info="0x486E0A" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACSE"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[0]"/>
+        <port name="probe[1]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[1]"/>
+        <port name="probe[2]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[2]"/>
+        <port name="probe[3]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[3]"/>
+        <port name="probe[4]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[4]"/>
+        <port name="probe[5]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[5]"/>
+        <port name="probe[6]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[6]"/>
+        <port name="probe[7]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[7]"/>
+        <port name="probe[8]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[8]"/>
+        <port name="probe[9]" source="SensorFusion:InclanationCalculator|AccelSettingtReadback:IMUFusionReadback|probe[9]"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_raw_tck" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_tdi" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_usr1" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_cdr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_sdr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_udr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_cir" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_uir" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_tlr" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_clrn" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ena" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ena"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_0_" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_1_" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_2_" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_3_" source="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.InclanationCalculator_IMUFusionReadback_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|altsource_probe:altsource_probe_component" instance_id="11" mfg_id="110" node_id="9" sld_node_info="0x486E0B" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACSE"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[0]"/>
+        <port name="probe[1]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[1]"/>
+        <port name="probe[2]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[2]"/>
+        <port name="probe[3]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[3]"/>
+        <port name="probe[4]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[4]"/>
+        <port name="probe[5]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[5]"/>
+        <port name="probe[6]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[6]"/>
+        <port name="probe[7]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[7]"/>
+        <port name="probe[8]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[8]"/>
+        <port name="probe[9]" source="AssistanceAlgorithm:Assist|AccelSettingtReadback:pwmout|probe[9]"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_raw_tck" source="jtag.bp.Assist_pwmout_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_tdi" source="jtag.bp.Assist_pwmout_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_usr1" source="jtag.bp.Assist_pwmout_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_cdr" source="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_sdr" source="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_udr" source="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_cir" source="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_uir" source="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_tlr" source="jtag.bp.Assist_pwmout_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_clrn" source="jtag.bp.Assist_pwmout_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_ena" source="jtag.bp.Assist_pwmout_altsource_probe_component_ena"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_ir_in_0_" source="jtag.bp.Assist_pwmout_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_ir_in_1_" source="jtag.bp.Assist_pwmout_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_ir_in_2_" source="jtag.bp.Assist_pwmout_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_ir_in_3_" source="jtag.bp.Assist_pwmout_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.Assist_pwmout_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|altsource_probe:altsource_probe_component" instance_id="12" mfg_id="110" node_id="9" sld_node_info="0x486E0C" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACSE"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[0]"/>
+        <port name="probe[1]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[1]"/>
+        <port name="probe[2]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[2]"/>
+        <port name="probe[3]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[3]"/>
+        <port name="probe[4]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[4]"/>
+        <port name="probe[5]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[5]"/>
+        <port name="probe[6]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[6]"/>
+        <port name="probe[7]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[7]"/>
+        <port name="probe[8]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[8]"/>
+        <port name="probe[9]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:keycheck|probe[9]"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_raw_tck" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_tdi" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_usr1" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_cdr" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_sdr" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_udr" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_cir" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_uir" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_tlr" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_clrn" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ena" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ena"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_in_0_" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_in_1_" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_in_2_" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_in_3_" source="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.CellPhoneProtocol_keycheck_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|altsource_probe:altsource_probe_component" instance_id="13" mfg_id="110" node_id="9" sld_node_info="0x486E0D" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACSE"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[0]"/>
+        <port name="probe[1]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[1]"/>
+        <port name="probe[2]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[2]"/>
+        <port name="probe[3]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[3]"/>
+        <port name="probe[4]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[4]"/>
+        <port name="probe[5]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[5]"/>
+        <port name="probe[6]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[6]"/>
+        <port name="probe[7]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[7]"/>
+        <port name="probe[8]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[8]"/>
+        <port name="probe[9]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:rxcheck|probe[9]"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_raw_tck" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_tdi" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_usr1" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_cdr" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_sdr" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_udr" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_cir" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_uir" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_tlr" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_clrn" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ena" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ena"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_in_0_" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_in_1_" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_in_2_" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_in_3_" source="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.CellPhoneProtocol_rxcheck_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|altsource_probe:altsource_probe_component" instance_id="14" mfg_id="110" node_id="9" sld_node_info="0x486E0E" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="ACSE"/>
+        <parameter name="probe_width" type="dec" value="10"/>
+        <parameter name="source_width" type="dec" value="10"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[0]"/>
+        <port name="probe[1]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[1]"/>
+        <port name="probe[2]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[2]"/>
+        <port name="probe[3]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[3]"/>
+        <port name="probe[4]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[4]"/>
+        <port name="probe[5]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[5]"/>
+        <port name="probe[6]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[6]"/>
+        <port name="probe[7]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[7]"/>
+        <port name="probe[8]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[8]"/>
+        <port name="probe[9]" source="wireless:CellPhoneProtocol|AccelSettingtReadback:txcheck|probe[9]"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_raw_tck" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_tdi" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_usr1" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_cdr" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_sdr" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_udr" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_cir" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_uir" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_tlr" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_clrn" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ena" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ena"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_in_0_" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_in_1_" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_in_2_" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_in_3_" source="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="source[8]"/>
+        <port name="source[9]"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.CellPhoneProtocol_txcheck_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="sld_signaltap:auto_signaltap_0" instance_id="0" mfg_id="110" node_id="0" sld_node_info="0x30006E00" version="6">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="sld_signaltap"/>
+        <parameter name="sld_node_info" type="unknown" value="805334528"/>
+        <parameter name="SLD_IP_VERSION" type="dec" value="6"/>
+        <parameter name="SLD_IP_MINOR_VERSION" type="dec" value="0"/>
+        <parameter name="SLD_COMMON_IP_VERSION" type="dec" value="0"/>
+        <parameter name="sld_data_bits" type="unknown" value="28"/>
+        <parameter name="sld_trigger_bits" type="unknown" value="28"/>
+        <parameter name="SLD_NODE_CRC_BITS" type="dec" value="32"/>
+        <parameter name="sld_node_crc_hiword" type="unknown" value="23982"/>
+        <parameter name="sld_node_crc_loword" type="unknown" value="7913"/>
+        <parameter name="SLD_INCREMENTAL_ROUTING" type="dec" value="0"/>
+        <parameter name="sld_sample_depth" type="unknown" value="8192"/>
+        <parameter name="sld_segment_size" type="unknown" value="8192"/>
+        <parameter name="SLD_RAM_BLOCK_TYPE" type="string" value="AUTO"/>
+        <parameter name="sld_state_bits" type="unknown" value="11"/>
+        <parameter name="sld_buffer_full_stop" type="unknown" value="1"/>
+        <parameter name="SLD_MEM_ADDRESS_BITS" type="dec" value="7"/>
+        <parameter name="SLD_DATA_BIT_CNTR_BITS" type="dec" value="4"/>
+        <parameter name="sld_trigger_level" type="unknown" value="1"/>
+        <parameter name="sld_trigger_in_enabled" type="unknown" value="0"/>
+        <parameter name="SLD_HPS_TRIGGER_IN_ENABLED" type="dec" value="0"/>
+        <parameter name="SLD_HPS_TRIGGER_OUT_ENABLED" type="dec" value="0"/>
+        <parameter name="SLD_HPS_EVENT_ENABLED" type="dec" value="0"/>
+        <parameter name="SLD_HPS_EVENT_ID" type="dec" value="0"/>
+        <parameter name="sld_advanced_trigger_entity" type="unknown" value="basic,1,"/>
+        <parameter name="sld_trigger_level_pipeline" type="unknown" value="1"/>
+        <parameter name="sld_enable_advanced_trigger" type="unknown" value="0"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_1" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_2" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_3" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_4" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_5" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_6" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_7" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_8" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_9" type="string" value="NONE"/>
+        <parameter name="SLD_ADVANCED_TRIGGER_10" type="string" value="NONE"/>
+        <parameter name="sld_inversion_mask_length" type="unknown" value="140"/>
+        <parameter name="sld_inversion_mask" type="unknown" value="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
+        <parameter name="sld_power_up_trigger" type="unknown" value="0"/>
+        <parameter name="SLD_STATE_FLOW_MGR_ENTITY" type="string" value="state_flow_mgr_entity.vhd"/>
+        <parameter name="sld_state_flow_use_generated" type="unknown" value="0"/>
+        <parameter name="sld_current_resource_width" type="unknown" value="1"/>
+        <parameter name="sld_attribute_mem_mode" type="unknown" value="OFF"/>
+        <parameter name="sld_storage_qualifier_bits" type="unknown" value="28"/>
+        <parameter name="sld_storage_qualifier_gap_record" type="unknown" value="1"/>
+        <parameter name="sld_storage_qualifier_mode" type="unknown" value="TRANSITIONAL"/>
+        <parameter name="SLD_STORAGE_QUALIFIER_ENABLE_ADVANCED_CONDITION" type="dec" value="0"/>
+        <parameter name="sld_storage_qualifier_inversion_mask_length" type="unknown" value="29"/>
+        <parameter name="SLD_STORAGE_QUALIFIER_ADVANCED_CONDITION_ENTITY" type="string" value="basic"/>
+        <parameter name="SLD_STORAGE_QUALIFIER_PIPELINE" type="dec" value="0"/>
+      </parameters>
+      <inputs/>
+      <outputs/>
+    </node>
+  </node_info>
+</sld_project_info>

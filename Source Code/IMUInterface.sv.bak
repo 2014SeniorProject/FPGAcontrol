@@ -29,34 +29,16 @@ module IMUInterface(
     output  reg                 DataValid
 );
 
-
+//| Altera in system probes for debugging
 `ifdef debug
-//These are test points for the In-System Sources and Probes Editor in Quartus
-readback  AccelXProbe (
-    .probe (GyroX),
-    .source ()
-    );
-readback  AccelYProbe (
-    .probe (GyroY),
-    .source ()
-    );
-readback  AccelZProbe (
-    .probe (GyroZ),
-    .source ()
-    );
+	//These are test points for the In-System Sources and Probes Editor in Quartus
+	IMUReadback  IMUGyroXProbe (GyroX);
+	IMUReadback  IMUGyroYProbe (GyroY);
+	IMUReadback  IMUGyroZProbe (GyroZ);
 
-AccelSettingtReadback  RW_RATEProbe (
-    .probe (RW_RATE),
-    .source ()
-    );
-AccelSettingtReadback  POWER_CTLProbe (
-    .probe (POWER_CTL),
-    .source ()
-    );
-AccelSettingtReadback  DataFormatProbe (
-    .probe (DataFormat),
-    .source ()
-    );
+	IMUReadback  IMUAccelXProbe (AccelX);
+	IMUReadback  IMUAccelYProbe (AccelY);
+	IMUReadback  IMUAccelZProbe (AccelZ);
 `endif
 
 //| Sensor module I2C bus addresses
@@ -74,6 +56,7 @@ localparam INTITIALIZE_A2 = 8'd3;
 localparam INTITIALIZE_A3 = 8'd4;
 localparam INTITIALIZE_A4 = 8'd5;
 localparam INTITIALIZE_A5 = 8'd6;
+localparam INTITIALIZE_A6 = 8'd26;
 
 //| Accelerometer initialization states
 localparam INTITIALIZE_G1 = 8'd22;
@@ -161,7 +144,7 @@ reg         [7:0]       GyroZLB;
 //|-------------------------------------------------------------------------------------------------
 assign  reset_n = 1'b1;
 
-assign I2C_SCL = (SCL_CTRL)? ~COUNT[7] : SCL;
+assign I2C_SCL = (SCL_CTRL)? ~COUNT[6] : SCL;
 assign I2C_SDA = (SCL_CTRL)?((SDI)? 1'bz : 0):SDI;
 
 assign AccelX = {AccelXHB, AccelXLB};
@@ -178,7 +161,7 @@ assign GyroZ = {GyroZHB, GyroZLB};
 always @ (posedge CLOCK_50) COUNT = COUNT +1;
 
 //I2C Operation, Write
-always @ (posedge COUNT[7])
+always @ (posedge COUNT[6])
 begin
     //Hold lines high
     if(!reset_n)
@@ -286,6 +269,26 @@ begin
                 SD_COUNTER = 0;
                 REGADDRESS = 8'h2C; //2c
                 DATAOUT = 8'b0000_1000; //| 400hz bandwidth
+                FIRSTPASS = 1;
+                end
+
+            if(WriteDone)
+                begin
+                WriteDone = 0;
+                StateControl = INTITIALIZE_G1;
+                FIRSTPASS =0;
+                end
+            end
+				
+				INTITIALIZE_A6: //Fifth state should write 8'h0F to register 8'h2C
+            begin
+            if(FIRSTPASS == 0)
+                begin
+                I2CADDRESS = ACCEL_ADDR;
+                RW_DIR = 0;
+                SD_COUNTER = 0;
+                REGADDRESS = 8'h38; //2c
+                DATAOUT = 8'b1000_1000; //| 400hz bandwidth
                 FIRSTPASS = 1;
                 end
 

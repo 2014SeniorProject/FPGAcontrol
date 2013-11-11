@@ -1,0 +1,45 @@
+
+State Machine - |I2C_MyNano|uart:Bluetooth|tx_state
+Name tx_state.TX_IDLE tx_state.TX_DELAY_RESTART tx_state.TX_SENDING 
+tx_state.TX_IDLE 0 0 0 
+tx_state.TX_SENDING 1 0 1 
+tx_state.TX_DELAY_RESTART 1 1 0 
+
+State Machine - |I2C_MyNano|uart:Bluetooth|recv_state
+Name recv_state.RX_RECEIVED recv_state.RX_ERROR recv_state.RX_DELAY_RESTART recv_state.RX_CHECK_STOP recv_state.RX_READ_BITS recv_state.RX_CHECK_START recv_state.RX_IDLE 
+recv_state.RX_IDLE 0 0 0 0 0 0 0 
+recv_state.RX_CHECK_START 0 0 0 0 0 1 1 
+recv_state.RX_READ_BITS 0 0 0 0 1 0 1 
+recv_state.RX_CHECK_STOP 0 0 0 1 0 0 1 
+recv_state.RX_DELAY_RESTART 0 0 1 0 0 0 1 
+recv_state.RX_ERROR 0 1 0 0 0 0 1 
+recv_state.RX_RECEIVED 1 0 0 0 0 0 1 
+
+State Machine - |I2C_MyNano|IMUInterface:IMU|StateControl
+Name StateControl.INTITIALIZE_A6 StateControl.INTITIALIZE_G4 StateControl.INTITIALIZE_G3 StateControl.INTITIALIZE_G2 StateControl.INTITIALIZE_G1 StateControl.ReadGyroscopeZaxisLB StateControl.ReadGyroscopeXaxisHB StateControl.ReadGyroscopeXaxisLB StateControl.ReadGyroscopeYaxisHB StateControl.ReadGyroscopeYaxisLB StateControl.ReadGyroscopeZaxisHB StateControl.ReadAcceletometerZaxisLB StateControl.ReadAcceletometerXaxisHB StateControl.ReadAcceletometerXaxisLB StateControl.ReadAcceletometerYaxisHB StateControl.ReadAcceletometerYaxisLB StateControl.ReadAcceletometerZaxisHB StateControl.ReadbackDataFormat StateControl.ReadbackPOWER_CTL StateControl.ReadbackRW_RATE StateControl.INTITIALIZE_A5 StateControl.INTITIALIZE_A4 StateControl.INTITIALIZE_A3 StateControl.INTITIALIZE_A2 StateControl.INTITIALIZE_A1 StateControl.00000001 
+StateControl.00000001 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+StateControl.INTITIALIZE_A1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+StateControl.INTITIALIZE_A2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+StateControl.INTITIALIZE_A3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+StateControl.INTITIALIZE_A4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+StateControl.INTITIALIZE_A5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+StateControl.ReadbackRW_RATE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+StateControl.ReadbackPOWER_CTL 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+StateControl.ReadbackDataFormat 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+StateControl.ReadAcceletometerZaxisHB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+StateControl.ReadAcceletometerYaxisLB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadAcceletometerYaxisHB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadAcceletometerXaxisLB 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadAcceletometerXaxisHB 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadAcceletometerZaxisLB 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadGyroscopeZaxisHB 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadGyroscopeYaxisLB 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadGyroscopeYaxisHB 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadGyroscopeXaxisLB 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadGyroscopeXaxisHB 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.ReadGyroscopeZaxisLB 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.INTITIALIZE_G1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.INTITIALIZE_G2 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.INTITIALIZE_G3 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.INTITIALIZE_G4 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+StateControl.INTITIALIZE_A6 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
