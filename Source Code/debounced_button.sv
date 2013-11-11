@@ -21,7 +21,7 @@ module debounced_button(
     always @(posedge c50M)
         begin
             if (Button)
-                Clkbuffer = Clkbuffer++;
+                Clkbuffer = Clkbuffer + 1;
             else
             begin
                 Clkbuffer = 17'b0;
