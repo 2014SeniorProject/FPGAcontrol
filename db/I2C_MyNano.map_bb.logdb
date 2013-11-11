@@ -1,5 +1,0 @@
-v1
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,SensorFusion:InclanationCalculator|lpm_mult:Mult1|mult_78t:auto_generated|mac_out2,
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,SensorFusion:InclanationCalculator|lpm_mult:Mult0|mult_88t:auto_generated|mac_out2,
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,SensorFusion:InclanationCalculator|lpm_mult:Mult1|mult_78t:auto_generated|mac_out4,
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,SensorFusion:InclanationCalculator|lpm_mult:Mult0|mult_88t:auto_generated|mac_out4,

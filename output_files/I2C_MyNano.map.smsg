@@ -1,3 +1,0 @@
-Info (10281): Verilog HDL Declaration information at SensorFusion.sv(20): object "Gyro" differs only in case from object "gyro" in the same scope
-Warning (10268): Verilog HDL information at LowPassFilterAverage.sv(59): always construct contains both blocking and non-blocking assignments
-Info (10281): Verilog HDL Declaration information at AssistanceAlgorithm.sv(24): object "PWMOut" differs only in case from object "pwmout" in the same scope
