@@ -6,3 +6,9 @@
 *.kpt
 *.tdf
 *.ddb
+*.hdb
+*.html
+*.hif
+*.hsd
+*.qmsg
+*.db_info
