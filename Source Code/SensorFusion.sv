@@ -28,10 +28,10 @@ module SensorFusion(
 	//| Sources and Probes used specifically for debugging the angle resolving process
 	//|--------------------------------------------------------------------------  
 	`ifdef debug
-		AccelSettingtReadback  angle1 (.probe (Accel1));
-		AccelSettingtReadback  gyro (.probe (Gyro));
-		AccelSettingtReadback	IMUFusionReadback (.probe(Angle));
-		reg  signed [9:0]		gyroCoef;
+//		AccelSettingtReadback  angle1 (.probe (Accel1));
+//		AccelSettingtReadback  gyro (.probe (Gyro));
+//		AccelSettingtReadback	IMUFusionReadback (.probe(Angle));
+//		reg  signed [9:0]		gyroCoef;
 	`endif
 
 

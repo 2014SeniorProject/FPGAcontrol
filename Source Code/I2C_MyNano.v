@@ -17,10 +17,9 @@ module I2C_MyNano(
 
 	output 		[7:0]		LED,				//This is a register that is used to show the data that was read from the EEPROM in binary.
 
-	inout			wire 		GPIO_10,		//IMU I2C Clock line
-	inout			wire		GPIO_11,		//IMU I2C Data Line
+	inout			wire 		IMU_SCL,		//IMU I2C Clock line
+	inout			wire		IMU_SDA,		//IMU I2C Data Line
 
-	output						G_Sensor_CS_N,	//CS line for accelerometer held high for I2C mode
 	output 		wire 		PWMout,
 	output 		wire 		waveFormsPin,
 	
@@ -28,7 +27,23 @@ module I2C_MyNano(
 	input			wire		blips,
 	
 	output 		wire 		tx,		//Cell phone transmiting 
-	input 		wire	 	rx			//Cell phone receiving 
+	input 		wire	 	rx,			//Cell phone receiving 
+	
+	input			wire		leftBlinker,		//buttons in
+	input			wire		rightBlinker,		//buttons in
+	input			wire		headLight,			//buttons in
+	input			wire		horn,						//buttons in
+	
+	input			wire		brakes,					
+	
+	output		wire		leftBlinkerOut,	
+	output		wire		rightBlinkerOut,
+	output		wire		headLightOut,
+	output		wire		brakeLightOut,
+	
+	input			wire		cadence,
+	
+	output		[7:0]		DACout
 );
 
 	//|
@@ -71,16 +86,23 @@ module I2C_MyNano(
 	wire 						is_transmitting;
 	wire 		[7:0] 	tx_byte;
 	wire 		[7:0] 	rx_byte;
-
+	
+	wire 		[7:0]		RPMnumber;
 	wire 		[7:0] 	speed;
 	wire 		[7:0] 	PWMOutput;
 	
 	wire		[7:0]		heartRateCap;
 	reg 		[7:0]		initialHeartCap =200;
-	wire 		[9:0]		RPM;
+	
+	//| Debounced button inputs
+	wire						DBleftBlinker;
+	wire						DBrightBlinker;
+	wire						DBheadLight;
+	wire						DBhorn;
 	
 	
 	assign waveFormsPin = PWMout;
+	assign headLightOut = DBheadLight;
 	
 	
 	always@(heartRateCap)
@@ -91,9 +113,8 @@ module I2C_MyNano(
 	//|--------------------------------------------
 	IMUInterface IMU(
 		.CLOCK_50(CLOCK_50),
-		.I2C_SCL(GPIO_10),
-		.I2C_SDA(GPIO_11),
-		.G_Sensor_CS_N(G_Sensor_CS_N),
+		.I2C_SCL(IMU_SCL),
+		.I2C_SDA(IMU_SDA),
 		.AccelX(AccelX),
 		.AccelY(AccelY),
 		.AccelZ(AccelZ),
@@ -129,9 +150,11 @@ module I2C_MyNano(
   AssistanceAlgorithm Assist(
 		.clk(CLOCK_50),	
 		.resolvedAngle(PWMinput),
-		//.HeartRate(heartRate),			Commented for testing
+		.HeartRate(heartRate),			//Commented for testing
 		.HeartRateCap(initialHeartCap),   
-		.PWMOut(PWMOutput)  
+		.PWMOut(PWMOutput),
+		.cadence(cadence),
+		.brake(brakes)
   );
   
   motorPWMGenerator motorController(
@@ -144,7 +167,61 @@ module I2C_MyNano(
 	RPM rpmCalc (
 		.rpm(),
 		.clk50M(CLOCK_50),
-		.blips(blips)
+		.blips(blips),
+		.rpmPhone(RPMnumber)
+	);
+	
+	soundramp	HornOut (
+		.c50M(CLOCK_50),
+		.Button(horn),
+		.OutputToDAC(DACout)
+	);
+	
+	//|
+	//| Debounce all of the incoming Buttons
+	//|-------------------------------------------
+	debounced_button RightBlinker(
+		.c50M(CLOCK_50),
+		.Button(rightBlinker),
+		.ButtonOut(DBrightBlinker)		
+	);
+	
+	debounced_button LeftBlinker(
+		.c50M(CLOCK_50),
+		.Button(leftBlinker),
+		.ButtonOut(DBleftBlinker)		
+	); 
+	
+	debounced_button HeadLight(
+		.c50M(CLOCK_50),
+		.Button(headLight),
+		.ButtonOut(DBheadLight)		
+	); 
+	
+	debounced_button Horn(
+		.c50M(CLOCK_50),
+		.Button(horn),
+		.ButtonOut(DBhorn)		
+	); 
+	
+	//| 
+	//| Light controls
+	//|--------------------------------------------
+	
+	blinker blinkerControls(
+		.c50M(CLOCK_50),
+		.leftBlink(DBleftBlinker),
+		.rightBlink(DBrightBlinker),
+		.rightBlinkerOut(rightBlinkerOut),
+		.leftBlinkerOut(leftBlinkerOut)
+	);
+	
+	
+	BrakeLightController(
+		.c50M(CLOCK_50),
+		.brakeActive(brakes),
+		.headLightActive(headLightOut),
+		.brakePWM(brakeLightOut)
 	);
 	
 	
@@ -225,10 +302,10 @@ module I2C_MyNano(
 		.rx_byte(rx_byte), // Byte received
 		.is_receiving(is_receiving), // Low when receive line is idle.
 		.is_transmitting(is_transmitting), // Low when transmit line is idle.
-		.heartRate(120),
+		.heartRate(heartRate),
 		.heartCap(heartRateCap),
 		.resolvedAngle(PWMinput),
-		.speed(20)
+		.speed(RPMnumber)
 	);
 
 	uart	Bluetooth(

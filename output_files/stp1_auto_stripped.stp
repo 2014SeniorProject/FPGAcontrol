@@ -1,0 +1,484 @@
+<session jtag_chain="USB-Blaster [USB-0]" jtag_device="@1: EP3C25/EP4CE22 (0x020F30DD)" sof_file="I2C_MyNano.sof">
+  <display_tree gui_logging_enabled="1">
+    <display_branch instance="auto_signaltap_0" log="log: 2013/11/19 08:43:08  #0" signal_set="signal_set: 2013/11/19 08:40:32  #0" trigger="trigger: 2013/11/19 08:40:32  #1"/>
+  </display_tree>
+  <instance entity_name="sld_signaltap" is_auto_node="yes" is_expanded="true" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
+    <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
+    <signal_set is_expanded="true" name="signal_set: 2013/11/19 08:40:32  #0">
+      <clock name="CLOCK_50" polarity="posedge" tap_mode="classic"/>
+      <config ram_type="M4K" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="8192" trigger_in_enable="no" trigger_out_enable="no"/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[0]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[1]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[2]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[3]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[4]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[5]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[6]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[7]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[8]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[9]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[0]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[1]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[2]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[3]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[4]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[5]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[6]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[7]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[8]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[9]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[0]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[10]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[11]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[12]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[13]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[14]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[15]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[16]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[17]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[18]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[19]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[1]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[20]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[21]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[22]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[23]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[24]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[25]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[26]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[27]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[28]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[29]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[2]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[30]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[31]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[32]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[3]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[4]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[5]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[6]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[7]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[8]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[9]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[0]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[1]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[2]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[3]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[4]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[5]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[6]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[7]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[8]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[9]" tap_mode="classic"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[0]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[1]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[2]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[3]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[4]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[5]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[6]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[7]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[8]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[9]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[0]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[1]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[2]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[3]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[4]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[5]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[6]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[7]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[8]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[9]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[0]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[10]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[11]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[12]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[13]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[14]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[15]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[16]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[17]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[18]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[19]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[1]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[20]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[21]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[22]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[23]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[24]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[25]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[26]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[27]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[28]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[29]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[2]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[30]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[31]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[32]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[3]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[4]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[5]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[6]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[7]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[8]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[9]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[0]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[1]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[2]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[3]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[4]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[5]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[6]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[7]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[8]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[9]" tap_mode="classic"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[0]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[1]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[2]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[3]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[4]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[5]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[6]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[7]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[8]" tap_mode="classic"/>
+          <wire name="LowPassFilter:AccelerometerFilter|AccelX[9]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[0]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[1]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[2]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[3]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[4]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[5]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[6]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[7]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[8]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Accel1[9]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[0]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[10]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[11]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[12]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[13]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[14]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[15]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[16]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[17]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[18]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[19]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[1]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[20]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[21]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[22]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[23]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[24]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[25]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[26]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[27]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[28]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[29]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[2]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[30]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[31]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[32]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[3]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[4]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[5]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[6]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[7]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[8]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Angle[9]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[0]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[1]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[2]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[3]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[4]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[5]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[6]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[7]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[8]" tap_mode="classic"/>
+          <wire name="SensorFusion:InclanationCalculator|Gyro[9]" tap_mode="classic"/>
+        </storage_qualifier_input_vec>
+      </signal_vec>
+      <presentation>
+        <unified_setup_data_view>
+          <node name="SensorFusion:InclanationCalculator|Accel1" order="msb_to_lsb" radix="signed_dec" type="combinatorial">
+            <node data_index="19" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[9]" storage_index="19" tap_mode="classic" trigger_index="19" type="combinatorial"/>
+            <node data_index="18" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[8]" storage_index="18" tap_mode="classic" trigger_index="18" type="combinatorial"/>
+            <node data_index="17" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[7]" storage_index="17" tap_mode="classic" trigger_index="17" type="combinatorial"/>
+            <node data_index="16" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[6]" storage_index="16" tap_mode="classic" trigger_index="16" type="combinatorial"/>
+            <node data_index="15" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[5]" storage_index="15" tap_mode="classic" trigger_index="15" type="combinatorial"/>
+            <node data_index="14" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[4]" storage_index="14" tap_mode="classic" trigger_index="14" type="combinatorial"/>
+            <node data_index="13" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[3]" storage_index="13" tap_mode="classic" trigger_index="13" type="combinatorial"/>
+            <node data_index="12" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[2]" storage_index="12" tap_mode="classic" trigger_index="12" type="combinatorial"/>
+            <node data_index="11" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[1]" storage_index="11" tap_mode="classic" trigger_index="11" type="combinatorial"/>
+            <node data_index="10" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[0]" storage_index="10" tap_mode="classic" trigger_index="10" type="combinatorial"/>
+          </node>
+          <node name="SensorFusion:InclanationCalculator|Angle" order="msb_to_lsb" radix="signed_dec" type="register">
+            <node data_index="45" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[32]" storage_index="45" tap_mode="classic" trigger_index="45" type="register"/>
+            <node data_index="44" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[31]" storage_index="44" tap_mode="classic" trigger_index="44" type="register"/>
+            <node data_index="43" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[30]" storage_index="43" tap_mode="classic" trigger_index="43" type="register"/>
+            <node data_index="41" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[29]" storage_index="41" tap_mode="classic" trigger_index="41" type="register"/>
+            <node data_index="40" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[28]" storage_index="40" tap_mode="classic" trigger_index="40" type="register"/>
+            <node data_index="39" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[27]" storage_index="39" tap_mode="classic" trigger_index="39" type="register"/>
+            <node data_index="38" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[26]" storage_index="38" tap_mode="classic" trigger_index="38" type="register"/>
+            <node data_index="37" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[25]" storage_index="37" tap_mode="classic" trigger_index="37" type="register"/>
+            <node data_index="36" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[24]" storage_index="36" tap_mode="classic" trigger_index="36" type="register"/>
+            <node data_index="35" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[23]" storage_index="35" tap_mode="classic" trigger_index="35" type="register"/>
+            <node data_index="34" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[22]" storage_index="34" tap_mode="classic" trigger_index="34" type="register"/>
+            <node data_index="33" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[21]" storage_index="33" tap_mode="classic" trigger_index="33" type="register"/>
+            <node data_index="32" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[20]" storage_index="32" tap_mode="classic" trigger_index="32" type="register"/>
+            <node data_index="30" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[19]" storage_index="30" tap_mode="classic" trigger_index="30" type="register"/>
+            <node data_index="29" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[18]" storage_index="29" tap_mode="classic" trigger_index="29" type="register"/>
+            <node data_index="28" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[17]" storage_index="28" tap_mode="classic" trigger_index="28" type="register"/>
+            <node data_index="27" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[16]" storage_index="27" tap_mode="classic" trigger_index="27" type="register"/>
+            <node data_index="26" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[15]" storage_index="26" tap_mode="classic" trigger_index="26" type="register"/>
+            <node data_index="25" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[14]" storage_index="25" tap_mode="classic" trigger_index="25" type="register"/>
+            <node data_index="24" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[13]" storage_index="24" tap_mode="classic" trigger_index="24" type="register"/>
+            <node data_index="23" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[12]" storage_index="23" tap_mode="classic" trigger_index="23" type="register"/>
+            <node data_index="22" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[11]" storage_index="22" tap_mode="classic" trigger_index="22" type="register"/>
+            <node data_index="21" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[10]" storage_index="21" tap_mode="classic" trigger_index="21" type="register"/>
+            <node data_index="52" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[9]" storage_index="52" tap_mode="classic" trigger_index="52" type="register"/>
+            <node data_index="51" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[8]" storage_index="51" tap_mode="classic" trigger_index="51" type="register"/>
+            <node data_index="50" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[7]" storage_index="50" tap_mode="classic" trigger_index="50" type="register"/>
+            <node data_index="49" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[6]" storage_index="49" tap_mode="classic" trigger_index="49" type="register"/>
+            <node data_index="48" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[5]" storage_index="48" tap_mode="classic" trigger_index="48" type="register"/>
+            <node data_index="47" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[4]" storage_index="47" tap_mode="classic" trigger_index="47" type="register"/>
+            <node data_index="46" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[3]" storage_index="46" tap_mode="classic" trigger_index="46" type="register"/>
+            <node data_index="42" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[2]" storage_index="42" tap_mode="classic" trigger_index="42" type="register"/>
+            <node data_index="31" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[1]" storage_index="31" tap_mode="classic" trigger_index="31" type="register"/>
+            <node data_index="20" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[0]" storage_index="20" tap_mode="classic" trigger_index="20" type="register"/>
+          </node>
+          <node name="SensorFusion:InclanationCalculator|Gyro" order="msb_to_lsb" radix="signed_dec" type="combinatorial">
+            <node data_index="62" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[9]" storage_index="62" tap_mode="classic" trigger_index="62" type="combinatorial"/>
+            <node data_index="61" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[8]" storage_index="61" tap_mode="classic" trigger_index="61" type="combinatorial"/>
+            <node data_index="60" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[7]" storage_index="60" tap_mode="classic" trigger_index="60" type="combinatorial"/>
+            <node data_index="59" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[6]" storage_index="59" tap_mode="classic" trigger_index="59" type="combinatorial"/>
+            <node data_index="58" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[5]" storage_index="58" tap_mode="classic" trigger_index="58" type="combinatorial"/>
+            <node data_index="57" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[4]" storage_index="57" tap_mode="classic" trigger_index="57" type="combinatorial"/>
+            <node data_index="56" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[3]" storage_index="56" tap_mode="classic" trigger_index="56" type="combinatorial"/>
+            <node data_index="55" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[2]" storage_index="55" tap_mode="classic" trigger_index="55" type="combinatorial"/>
+            <node data_index="54" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[1]" storage_index="54" tap_mode="classic" trigger_index="54" type="combinatorial"/>
+            <node data_index="53" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[0]" storage_index="53" tap_mode="classic" trigger_index="53" type="combinatorial"/>
+          </node>
+          <node name="LowPassFilter:AccelerometerFilter|AccelX" order="msb_to_lsb" radix="signed_dec" type="combinatorial">
+            <node data_index="9" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[9]" storage_index="9" tap_mode="classic" trigger_index="9" type="combinatorial"/>
+            <node data_index="8" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[8]" storage_index="8" tap_mode="classic" trigger_index="8" type="combinatorial"/>
+            <node data_index="7" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[7]" storage_index="7" tap_mode="classic" trigger_index="7" type="combinatorial"/>
+            <node data_index="6" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[6]" storage_index="6" tap_mode="classic" trigger_index="6" type="combinatorial"/>
+            <node data_index="5" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[5]" storage_index="5" tap_mode="classic" trigger_index="5" type="combinatorial"/>
+            <node data_index="4" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[4]" storage_index="4" tap_mode="classic" trigger_index="4" type="combinatorial"/>
+            <node data_index="3" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[3]" storage_index="3" tap_mode="classic" trigger_index="3" type="combinatorial"/>
+            <node data_index="2" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[2]" storage_index="2" tap_mode="classic" trigger_index="2" type="combinatorial"/>
+            <node data_index="1" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[1]" storage_index="1" tap_mode="classic" trigger_index="1" type="combinatorial"/>
+            <node data_index="0" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[0]" storage_index="0" tap_mode="classic" trigger_index="0" type="combinatorial"/>
+          </node>
+        </unified_setup_data_view>
+        <data_view>
+          <bus name="SensorFusion:InclanationCalculator|Accel1" order="msb_to_lsb" radix="signed_dec" type="combinatorial">
+            <net data_index="19" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[9]" storage_index="19" tap_mode="classic" trigger_index="19" type="combinatorial"/>
+            <net data_index="18" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[8]" storage_index="18" tap_mode="classic" trigger_index="18" type="combinatorial"/>
+            <net data_index="17" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[7]" storage_index="17" tap_mode="classic" trigger_index="17" type="combinatorial"/>
+            <net data_index="16" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[6]" storage_index="16" tap_mode="classic" trigger_index="16" type="combinatorial"/>
+            <net data_index="15" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[5]" storage_index="15" tap_mode="classic" trigger_index="15" type="combinatorial"/>
+            <net data_index="14" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[4]" storage_index="14" tap_mode="classic" trigger_index="14" type="combinatorial"/>
+            <net data_index="13" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[3]" storage_index="13" tap_mode="classic" trigger_index="13" type="combinatorial"/>
+            <net data_index="12" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[2]" storage_index="12" tap_mode="classic" trigger_index="12" type="combinatorial"/>
+            <net data_index="11" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[1]" storage_index="11" tap_mode="classic" trigger_index="11" type="combinatorial"/>
+            <net data_index="10" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[0]" storage_index="10" tap_mode="classic" trigger_index="10" type="combinatorial"/>
+          </bus>
+          <bus name="SensorFusion:InclanationCalculator|Angle" order="msb_to_lsb" radix="signed_dec" type="register">
+            <net data_index="45" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[32]" storage_index="45" tap_mode="classic" trigger_index="45" type="register"/>
+            <net data_index="44" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[31]" storage_index="44" tap_mode="classic" trigger_index="44" type="register"/>
+            <net data_index="43" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[30]" storage_index="43" tap_mode="classic" trigger_index="43" type="register"/>
+            <net data_index="41" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[29]" storage_index="41" tap_mode="classic" trigger_index="41" type="register"/>
+            <net data_index="40" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[28]" storage_index="40" tap_mode="classic" trigger_index="40" type="register"/>
+            <net data_index="39" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[27]" storage_index="39" tap_mode="classic" trigger_index="39" type="register"/>
+            <net data_index="38" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[26]" storage_index="38" tap_mode="classic" trigger_index="38" type="register"/>
+            <net data_index="37" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[25]" storage_index="37" tap_mode="classic" trigger_index="37" type="register"/>
+            <net data_index="36" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[24]" storage_index="36" tap_mode="classic" trigger_index="36" type="register"/>
+            <net data_index="35" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[23]" storage_index="35" tap_mode="classic" trigger_index="35" type="register"/>
+            <net data_index="34" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[22]" storage_index="34" tap_mode="classic" trigger_index="34" type="register"/>
+            <net data_index="33" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[21]" storage_index="33" tap_mode="classic" trigger_index="33" type="register"/>
+            <net data_index="32" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[20]" storage_index="32" tap_mode="classic" trigger_index="32" type="register"/>
+            <net data_index="30" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[19]" storage_index="30" tap_mode="classic" trigger_index="30" type="register"/>
+            <net data_index="29" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[18]" storage_index="29" tap_mode="classic" trigger_index="29" type="register"/>
+            <net data_index="28" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[17]" storage_index="28" tap_mode="classic" trigger_index="28" type="register"/>
+            <net data_index="27" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[16]" storage_index="27" tap_mode="classic" trigger_index="27" type="register"/>
+            <net data_index="26" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[15]" storage_index="26" tap_mode="classic" trigger_index="26" type="register"/>
+            <net data_index="25" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[14]" storage_index="25" tap_mode="classic" trigger_index="25" type="register"/>
+            <net data_index="24" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[13]" storage_index="24" tap_mode="classic" trigger_index="24" type="register"/>
+            <net data_index="23" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[12]" storage_index="23" tap_mode="classic" trigger_index="23" type="register"/>
+            <net data_index="22" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[11]" storage_index="22" tap_mode="classic" trigger_index="22" type="register"/>
+            <net data_index="21" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[10]" storage_index="21" tap_mode="classic" trigger_index="21" type="register"/>
+            <net data_index="52" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[9]" storage_index="52" tap_mode="classic" trigger_index="52" type="register"/>
+            <net data_index="51" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[8]" storage_index="51" tap_mode="classic" trigger_index="51" type="register"/>
+            <net data_index="50" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[7]" storage_index="50" tap_mode="classic" trigger_index="50" type="register"/>
+            <net data_index="49" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[6]" storage_index="49" tap_mode="classic" trigger_index="49" type="register"/>
+            <net data_index="48" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[5]" storage_index="48" tap_mode="classic" trigger_index="48" type="register"/>
+            <net data_index="47" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[4]" storage_index="47" tap_mode="classic" trigger_index="47" type="register"/>
+            <net data_index="46" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[3]" storage_index="46" tap_mode="classic" trigger_index="46" type="register"/>
+            <net data_index="42" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[2]" storage_index="42" tap_mode="classic" trigger_index="42" type="register"/>
+            <net data_index="31" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[1]" storage_index="31" tap_mode="classic" trigger_index="31" type="register"/>
+            <net data_index="20" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[0]" storage_index="20" tap_mode="classic" trigger_index="20" type="register"/>
+          </bus>
+          <bus name="SensorFusion:InclanationCalculator|Gyro" order="msb_to_lsb" radix="signed_dec" type="combinatorial">
+            <net data_index="62" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[9]" storage_index="62" tap_mode="classic" trigger_index="62" type="combinatorial"/>
+            <net data_index="61" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[8]" storage_index="61" tap_mode="classic" trigger_index="61" type="combinatorial"/>
+            <net data_index="60" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[7]" storage_index="60" tap_mode="classic" trigger_index="60" type="combinatorial"/>
+            <net data_index="59" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[6]" storage_index="59" tap_mode="classic" trigger_index="59" type="combinatorial"/>
+            <net data_index="58" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[5]" storage_index="58" tap_mode="classic" trigger_index="58" type="combinatorial"/>
+            <net data_index="57" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[4]" storage_index="57" tap_mode="classic" trigger_index="57" type="combinatorial"/>
+            <net data_index="56" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[3]" storage_index="56" tap_mode="classic" trigger_index="56" type="combinatorial"/>
+            <net data_index="55" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[2]" storage_index="55" tap_mode="classic" trigger_index="55" type="combinatorial"/>
+            <net data_index="54" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[1]" storage_index="54" tap_mode="classic" trigger_index="54" type="combinatorial"/>
+            <net data_index="53" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[0]" storage_index="53" tap_mode="classic" trigger_index="53" type="combinatorial"/>
+          </bus>
+          <bus name="LowPassFilter:AccelerometerFilter|AccelX" order="msb_to_lsb" radix="signed_dec" type="combinatorial">
+            <net data_index="9" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[9]" storage_index="9" tap_mode="classic" trigger_index="9" type="combinatorial"/>
+            <net data_index="8" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[8]" storage_index="8" tap_mode="classic" trigger_index="8" type="combinatorial"/>
+            <net data_index="7" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[7]" storage_index="7" tap_mode="classic" trigger_index="7" type="combinatorial"/>
+            <net data_index="6" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[6]" storage_index="6" tap_mode="classic" trigger_index="6" type="combinatorial"/>
+            <net data_index="5" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[5]" storage_index="5" tap_mode="classic" trigger_index="5" type="combinatorial"/>
+            <net data_index="4" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[4]" storage_index="4" tap_mode="classic" trigger_index="4" type="combinatorial"/>
+            <net data_index="3" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[3]" storage_index="3" tap_mode="classic" trigger_index="3" type="combinatorial"/>
+            <net data_index="2" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[2]" storage_index="2" tap_mode="classic" trigger_index="2" type="combinatorial"/>
+            <net data_index="1" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[1]" storage_index="1" tap_mode="classic" trigger_index="1" type="combinatorial"/>
+            <net data_index="0" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[0]" storage_index="0" tap_mode="classic" trigger_index="0" type="combinatorial"/>
+          </bus>
+        </data_view>
+        <setup_view>
+          <bus name="SensorFusion:InclanationCalculator|Accel1" order="msb_to_lsb" radix="signed_dec" type="combinatorial">
+            <net data_index="19" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[9]" storage_index="19" tap_mode="classic" trigger_index="19" type="combinatorial"/>
+            <net data_index="18" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[8]" storage_index="18" tap_mode="classic" trigger_index="18" type="combinatorial"/>
+            <net data_index="17" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[7]" storage_index="17" tap_mode="classic" trigger_index="17" type="combinatorial"/>
+            <net data_index="16" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[6]" storage_index="16" tap_mode="classic" trigger_index="16" type="combinatorial"/>
+            <net data_index="15" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[5]" storage_index="15" tap_mode="classic" trigger_index="15" type="combinatorial"/>
+            <net data_index="14" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[4]" storage_index="14" tap_mode="classic" trigger_index="14" type="combinatorial"/>
+            <net data_index="13" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[3]" storage_index="13" tap_mode="classic" trigger_index="13" type="combinatorial"/>
+            <net data_index="12" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[2]" storage_index="12" tap_mode="classic" trigger_index="12" type="combinatorial"/>
+            <net data_index="11" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[1]" storage_index="11" tap_mode="classic" trigger_index="11" type="combinatorial"/>
+            <net data_index="10" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Accel1[0]" storage_index="10" tap_mode="classic" trigger_index="10" type="combinatorial"/>
+          </bus>
+          <bus name="SensorFusion:InclanationCalculator|Angle" order="msb_to_lsb" radix="signed_dec" type="register">
+            <net data_index="45" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[32]" storage_index="45" tap_mode="classic" trigger_index="45" type="register"/>
+            <net data_index="44" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[31]" storage_index="44" tap_mode="classic" trigger_index="44" type="register"/>
+            <net data_index="43" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[30]" storage_index="43" tap_mode="classic" trigger_index="43" type="register"/>
+            <net data_index="41" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[29]" storage_index="41" tap_mode="classic" trigger_index="41" type="register"/>
+            <net data_index="40" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[28]" storage_index="40" tap_mode="classic" trigger_index="40" type="register"/>
+            <net data_index="39" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[27]" storage_index="39" tap_mode="classic" trigger_index="39" type="register"/>
+            <net data_index="38" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[26]" storage_index="38" tap_mode="classic" trigger_index="38" type="register"/>
+            <net data_index="37" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[25]" storage_index="37" tap_mode="classic" trigger_index="37" type="register"/>
+            <net data_index="36" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[24]" storage_index="36" tap_mode="classic" trigger_index="36" type="register"/>
+            <net data_index="35" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[23]" storage_index="35" tap_mode="classic" trigger_index="35" type="register"/>
+            <net data_index="34" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[22]" storage_index="34" tap_mode="classic" trigger_index="34" type="register"/>
+            <net data_index="33" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[21]" storage_index="33" tap_mode="classic" trigger_index="33" type="register"/>
+            <net data_index="32" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[20]" storage_index="32" tap_mode="classic" trigger_index="32" type="register"/>
+            <net data_index="30" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[19]" storage_index="30" tap_mode="classic" trigger_index="30" type="register"/>
+            <net data_index="29" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[18]" storage_index="29" tap_mode="classic" trigger_index="29" type="register"/>
+            <net data_index="28" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[17]" storage_index="28" tap_mode="classic" trigger_index="28" type="register"/>
+            <net data_index="27" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[16]" storage_index="27" tap_mode="classic" trigger_index="27" type="register"/>
+            <net data_index="26" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[15]" storage_index="26" tap_mode="classic" trigger_index="26" type="register"/>
+            <net data_index="25" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[14]" storage_index="25" tap_mode="classic" trigger_index="25" type="register"/>
+            <net data_index="24" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[13]" storage_index="24" tap_mode="classic" trigger_index="24" type="register"/>
+            <net data_index="23" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[12]" storage_index="23" tap_mode="classic" trigger_index="23" type="register"/>
+            <net data_index="22" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[11]" storage_index="22" tap_mode="classic" trigger_index="22" type="register"/>
+            <net data_index="21" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[10]" storage_index="21" tap_mode="classic" trigger_index="21" type="register"/>
+            <net data_index="52" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[9]" storage_index="52" tap_mode="classic" trigger_index="52" type="register"/>
+            <net data_index="51" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[8]" storage_index="51" tap_mode="classic" trigger_index="51" type="register"/>
+            <net data_index="50" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[7]" storage_index="50" tap_mode="classic" trigger_index="50" type="register"/>
+            <net data_index="49" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[6]" storage_index="49" tap_mode="classic" trigger_index="49" type="register"/>
+            <net data_index="48" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[5]" storage_index="48" tap_mode="classic" trigger_index="48" type="register"/>
+            <net data_index="47" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[4]" storage_index="47" tap_mode="classic" trigger_index="47" type="register"/>
+            <net data_index="46" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[3]" storage_index="46" tap_mode="classic" trigger_index="46" type="register"/>
+            <net data_index="42" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[2]" storage_index="42" tap_mode="classic" trigger_index="42" type="register"/>
+            <net data_index="31" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[1]" storage_index="31" tap_mode="classic" trigger_index="31" type="register"/>
+            <net data_index="20" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Angle[0]" storage_index="20" tap_mode="classic" trigger_index="20" type="register"/>
+          </bus>
+          <bus name="SensorFusion:InclanationCalculator|Gyro" order="msb_to_lsb" radix="signed_dec" type="combinatorial">
+            <net data_index="62" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[9]" storage_index="62" tap_mode="classic" trigger_index="62" type="combinatorial"/>
+            <net data_index="61" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[8]" storage_index="61" tap_mode="classic" trigger_index="61" type="combinatorial"/>
+            <net data_index="60" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[7]" storage_index="60" tap_mode="classic" trigger_index="60" type="combinatorial"/>
+            <net data_index="59" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[6]" storage_index="59" tap_mode="classic" trigger_index="59" type="combinatorial"/>
+            <net data_index="58" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[5]" storage_index="58" tap_mode="classic" trigger_index="58" type="combinatorial"/>
+            <net data_index="57" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[4]" storage_index="57" tap_mode="classic" trigger_index="57" type="combinatorial"/>
+            <net data_index="56" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[3]" storage_index="56" tap_mode="classic" trigger_index="56" type="combinatorial"/>
+            <net data_index="55" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[2]" storage_index="55" tap_mode="classic" trigger_index="55" type="combinatorial"/>
+            <net data_index="54" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[1]" storage_index="54" tap_mode="classic" trigger_index="54" type="combinatorial"/>
+            <net data_index="53" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="false" is_trigger_input="true" name="SensorFusion:InclanationCalculator|Gyro[0]" storage_index="53" tap_mode="classic" trigger_index="53" type="combinatorial"/>
+          </bus>
+          <bus name="LowPassFilter:AccelerometerFilter|AccelX" order="msb_to_lsb" radix="signed_dec" type="combinatorial">
+            <net data_index="9" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[9]" storage_index="9" tap_mode="classic" trigger_index="9" type="combinatorial"/>
+            <net data_index="8" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[8]" storage_index="8" tap_mode="classic" trigger_index="8" type="combinatorial"/>
+            <net data_index="7" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[7]" storage_index="7" tap_mode="classic" trigger_index="7" type="combinatorial"/>
+            <net data_index="6" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[6]" storage_index="6" tap_mode="classic" trigger_index="6" type="combinatorial"/>
+            <net data_index="5" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[5]" storage_index="5" tap_mode="classic" trigger_index="5" type="combinatorial"/>
+            <net data_index="4" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[4]" storage_index="4" tap_mode="classic" trigger_index="4" type="combinatorial"/>
+            <net data_index="3" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[3]" storage_index="3" tap_mode="classic" trigger_index="3" type="combinatorial"/>
+            <net data_index="2" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[2]" storage_index="2" tap_mode="classic" trigger_index="2" type="combinatorial"/>
+            <net data_index="1" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[1]" storage_index="1" tap_mode="classic" trigger_index="1" type="combinatorial"/>
+            <net data_index="0" is_data_input="true" is_node_valid="true" is_storage_input="true" is_transition_enabled="true" is_trigger_input="true" name="LowPassFilter:AccelerometerFilter|AccelX[0]" storage_index="0" tap_mode="classic" trigger_index="0" type="combinatorial"/>
+          </bus>
+        </setup_view>
+        <trigger_in_editor/>
+        <trigger_out_editor/>
+      </presentation>
+      <trigger CRC="8640DBD9" attribute_mem_mode="false" gap_record="true" is_expanded="true" name="trigger: 2013/11/19 08:40:32  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="2048" storage_mode="transitional" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
+        <power_up_trigger position="pre" storage_qualifier_disabled="no"/>
+        <events use_custom_flow_control="no">
+          <level enabled="yes" name="condition1" type="basic">
+            <power_up enabled="yes">
+            </power_up>
+            <op_node/>
+          </level>
+        </events>
+        <storage_qualifier_events>
+          <transitional>111111111100000000000000000000000000000000000000000000000000000
+            <pwr_up_transitional>111111111111111111111111111111111111111111111111111111111111111</pwr_up_transitional>
+          </transitional>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+        </storage_qualifier_events>
+      </trigger>
+    </signal_set>
+    <position_info>
+      <single attribute="active tab" value="0"/>
+      <single attribute="data horizontal scroll position" value="167"/>
+      <single attribute="data vertical scroll position" value="0"/>
+      <single attribute="zoom level denominator" value="1"/>
+      <single attribute="zoom level numerator" value="16"/>
+      <single attribute="zoom offset denominator" value="2"/>
+      <single attribute="zoom offset numerator" value="16297"/>
+    </position_info>
+  </instance>
+  <mnemonics/>
+  <static_plugin_mnemonics/>
+  <global_info>
+    <single attribute="active instance" value="0"/>
+    <single attribute="config widget visible" value="1"/>
+    <single attribute="data log widget visible" value="1"/>
+    <single attribute="hierarchy widget visible" value="1"/>
+    <single attribute="instance widget visible" value="1"/>
+    <single attribute="jtag widget visible" value="1"/>
+    <multi attribute="frame size" size="2" value="1920,1017"/>
+    <multi attribute="jtag widget size" size="2" value="398,120"/>
+  </global_info>
+</session>

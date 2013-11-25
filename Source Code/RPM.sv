@@ -11,9 +11,10 @@
 //`include "timescale.sv"
 
 module RPM(
-	output 	reg 	[9:0] 	rpm =0,
+	output 	reg 	[15:0] 	rpm =0,
 	input 	wire 					clk50M,
-	input 	wire 					blips
+	input 	wire 					blips,
+	output 	wire	[7:0]		rpmPhone
 );
 
 	parameter clkspeed = 50000000; 								//parameter to set the incoming clock's frequency
@@ -25,13 +26,46 @@ module RPM(
 	reg [32:0] 	numerator=0;       								//numerator of the dimensional analysis equation
 	reg [31:0]	denominator=0;     								//denominator of the dimensional analysis equation
 	reg					firstPass = 0;
+	reg	[15:0]	speed = 0;
+	
+	reg [15:0]  numOfBlips = 0;
+	
+	AccelSettingtReadback  rpmdata (
+		.probe (rpm),
+		.source ()
+		);
+			AccelSettingtReadback  rpmdata1 (
+		.probe (speed),
+		.source ()
+		);
 
-
+		
+		
+		
+				
 	//	clock counter, always counts at posedge of the clock,
 	//	gets reset on posedge of blips
 	always @(posedge clk50M)
 		begin
-			clkcount = clkcount +1;
+			clkcount++;
+			
+			if(blips && !firstPass) 
+				begin 
+					numOfBlips++;
+					firstPass = 1;
+				end
+			
+			if (!blips) firstPass = 0;
+			
+			if(clkcount == 50000000)
+				begin
+					rpm = numOfBlips*60/80;
+					numOfBlips = 0;
+					clkcount = 0;
+				end
+				
+				rpmPhone = rpm/2;
+			/*clkcount = clkcount +1;
 
 			//	stores and resets count when motor controller sends in blips,
 			//	a square wave with period equal to pole changes/seconds,
@@ -53,6 +87,8 @@ module RPM(
 				end
 
 				if (!blips) firstPass = 0;
+				//speed = rpm*3*26*60/63360;
+				rpmPhone = rpm/4;  */				
 		end
 
 endmodule

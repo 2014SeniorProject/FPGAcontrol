@@ -58,18 +58,18 @@ module uart(
 	parameter TX_DELAY_RESTART = 2;
 
 	`ifdef debug
-		AccelSettingtReadback  rxByte (
-			.probe (tx_data),
-			.source ()
-		);
-		AccelSettingtReadback  receive (
-			.probe (transmit),
-			.source ()
-		);
-		AccelSettingtReadback  tramint (
-			.probe (is_transmitting),
-			.source ()
-		);
+//		AccelSettingtReadback  rxByte (
+//			.probe (tx_data),
+//			.source ()
+//		);
+//		AccelSettingtReadback  receive (
+//			.probe (transmit),
+//			.source ()
+//		);
+//		AccelSettingtReadback  tramint (
+//			.probe (is_transmitting),
+//			.source ()
+//		);
 	`endif
 
 

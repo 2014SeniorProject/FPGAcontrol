@@ -17,19 +17,33 @@ module AssistanceAlgorithm(
 	//| IMU Inputs 	
 	input 	wire	signed 	[9:0] 	resolvedAngle, 
 	//| Biometric Inputs
-	//input  	wire				[7:0]		HeartRate= 0,
+	input  	wire					[7:0]		HeartRate,
 	input  	wire					[7:0]		HeartRateCap, 
 	//| Motor output
-	output 	reg   signed 	[9:0]   PWMOut
+	output 	reg   signed 	[9:0]   PWMOut,
+	
+	input 	wire									cadence,
+	input		wire									brake
 );
 	
-AccelSettingtReadback  pwmout (
+	
+AccelSettingtReadback  pwmoutput (
 	.probe (PWMOut),
-	.source(HeartRate)
+ );
+
+AccelSettingtReadback  BRAKE (
+	.probe (brake),
+ );
+ AccelSettingtReadback  CADENCE (
+	.probe (cadence),
+ );
+ 
+  AccelSettingtReadback  HEARTRATE (
+	.probe (HeartRate),
  );
 	//For testing only
 	
-	reg				[7:0]		HeartRate;
+	//reg				[7:0]		HeartRate;
 	//|
 	//| Local reg/wire declarations
 	//|--------------------------------------------
@@ -50,8 +64,12 @@ AccelSettingtReadback  pwmout (
 	 
 	always @ (posedge clk)
 		begin
-			if(offset > 0)	PWMOut = Angle + offset; 	//If the heart rate is higher than the set cap, 
-			else PWMOut = Angle;											//then add some power to it scaled with the difference.
-			if (PWMOut < 0) PWMOut = 0; 	//If the PWMOut is going to be negative, then just send a 0 
-	end																//to turn off the signa to the motor
+			if(~brake && cadence)
+				begin
+					if(offset > 0)	PWMOut = Angle + offset; 	//If the heart rate is higher than the set cap, 
+					else PWMOut = Angle;											//then add some power to it scaled with the difference.
+					if (PWMOut < 0) PWMOut = 0; 	//If the PWMOut is going to be negative, then just send a 0 
+				end
+			else PWMOut = 0;
+		end																//to turn off the signa to the motor
 endmodule

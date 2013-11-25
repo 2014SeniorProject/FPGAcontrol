@@ -18,7 +18,6 @@ module IMUInterface(
 	inout                       I2C_SCL,            //
 	inout                       I2C_SDA,
 
-	output                      G_Sensor_CS_N,
 
 	output  wire    [17:0]      AccelX,
 	output  wire    [17:0]      AccelY,
@@ -34,15 +33,15 @@ module IMUInterface(
 	//| Altera in system probes for debugging
 	`ifdef debug
 		//These are test points for the In-System Sources and Probes Editor in Quartus
-		AccelProbeY  IMUGyroXProbe (GyroX);
-		AccelProbeY  IMUGyroYProbe (GyroY);
-		AccelProbeY  IMUGyroZProbe (GyroZ);
-
-		AccelProbeY  IMUAccelXProbe (AccelX);
-		AccelProbeY  IMUAccelYProbe (AccelY);
-		AccelProbeY  IMUAccelZProbe (AccelZ);
-		
-		//| Debug readback data registers
+//		AccelProbeY  IMUGyroXProbe (GyroX);
+//		AccelProbeY  IMUGyroYProbe (GyroY);
+//		AccelProbeY  IMUGyroZProbe (GyroZ);
+//
+//		AccelProbeY  IMUAccelXProbe (AccelX);
+//		AccelProbeY  IMUAccelYProbe (AccelY);
+//		AccelProbeY  IMUAccelZProbe (AccelZ);
+//		
+//		//| Debug readback data registers
 		reg         [7:0]       RW_RATE = 0;
 		reg         [7:0]       POWER_CTL = 0;
 		reg         [7:0]       DataFormat = 0;
@@ -322,7 +321,7 @@ module IMUInterface(
 									RW_DIR = 0;
 									SD_COUNTER = 0;
 									REGADDRESS = 8'd21; //2c
-									DATAOUT = 8'hFF;
+									DATAOUT = 8'h04;
 									FIRSTPASS = 1;
 									end
 

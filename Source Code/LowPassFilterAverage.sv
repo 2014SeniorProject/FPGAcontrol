@@ -34,8 +34,8 @@ module LowPassFilter(
 );
 
 	`ifdef debug
-		AccelSettingtReadback  xaxis (.probe (AccelX));
-		AccelSettingtReadback  fxaxis (.probe (AccelXOut));
+//		AccelSettingtReadback  xaxis (.probe (AccelX));
+//		AccelSettingtReadback  fxaxis (.probe (AccelXOut));
 	`endif
 
 	//|

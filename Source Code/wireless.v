@@ -47,19 +47,19 @@ module wireless(
 	//| Sources and Probes used specifically for debugging the wireless protol
 	//|--------------------------------------------------------------------------
 	`ifdef debug
-		AccelSettingtReadback  keycheck (
-		.probe (resolvedAngle),
-		.source ()
-		);
-
-		AccelSettingtReadback  rxcheck (
-		.probe (heartCap),
-		.source ()
-		);
-		AccelSettingtReadback  txcheck (
-		.probe (wheelSize),
-		.source ()
-		);
+//		AccelSettingtReadback  keycheck (
+//		.probe (resolvedAngle),
+//		.source ()
+//		);
+//
+//		AccelSettingtReadback  rxcheck (
+//		.probe (heartCap),
+//		.source ()
+//		);
+//		AccelSettingtReadback  txcheck (
+//		.probe (wheelSize),
+//		.source ()
+//		);
 	`endif
 
 	always@(posedge clk)
