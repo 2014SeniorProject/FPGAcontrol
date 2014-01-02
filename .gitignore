@@ -12,3 +12,12 @@
 *.hsd
 *.qmsg
 *.db_info
+*.sdo
+*.xrf
+*.vo
+*.dpi
+*.sft
+*.amdb
+*.dpi
+*.rcfdb
+*.ammdb
