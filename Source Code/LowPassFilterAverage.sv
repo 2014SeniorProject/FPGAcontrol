@@ -1,3 +1,23 @@
+//| Distributed under the MIT licence.
+//|
+//| Permission is hereby granted, free of charge, to any person obtaining a copy
+//| of this software and associated documentation files (the "Software"), to deal
+//| in the Software without restriction, including without limitation the rights
+//| to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//| copies of the Software, and to permit persons to whom the Software is
+//| furnished to do so, subject to the following conditions:
+//|
+//| The above copyright notice and this permission notice shall be included in
+//| all copies or substantial portions of the Software.
+//|
+//| THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//| IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//| FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//| AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//| LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//| OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//| THE SOFTWARE.
+//| =========================================================================================
 //|     IMU Data filtering module for CSUS Senior Design
 //|
 //|     Author: Ben Smith
@@ -29,7 +49,7 @@ module LowPassFilter(
 	output  reg    signed [9:0]    AccelXOut,
 	output  reg    signed [9:0]    AccelYOut,
 	output  reg    signed [9:0]    AccelZOut,
-	
+
 	output	reg										 DataReady
 );
 
@@ -44,14 +64,14 @@ module LowPassFilter(
 	reg   signed 	[9:0]    	AccelXreg[FilterLength-1:0];
 	reg		signed 	[9:0]   	AccelYreg[FilterLength-1:0];
 	reg		signed 	[9:0]    	AccelZreg[FilterLength-1:0];
-		
+
 	reg 	signed 	[32:0]  	AccelXSum; //need to prove this register size is always valid
 	reg 	signed 	[32:0]  	AccelYSum;
 	reg 	signed 	[32:0]  	AccelZSum;
 
 	reg		 	  		[9:0]			z = 0;
 
-		 
+
 
 	//|
 	//| Structual coding
@@ -102,5 +122,5 @@ module LowPassFilter(
 				end
 		end
 	endgenerate
-	
+
 endmodule

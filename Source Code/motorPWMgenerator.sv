@@ -1,3 +1,23 @@
+//| Distributed under the MIT licence.
+//|
+//| Permission is hereby granted, free of charge, to any person obtaining a copy
+//| of this software and associated documentation files (the "Software"), to deal
+//| in the Software without restriction, including without limitation the rights
+//| to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//| copies of the Software, and to permit persons to whom the Software is
+//| furnished to do so, subject to the following conditions:
+//|
+//| The above copyright notice and this permission notice shall be included in
+//| all copies or substantial portions of the Software.
+//|
+//| THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//| IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//| FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//| AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//| LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//| OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//| THE SOFTWARE.
+//| =========================================================================================
 //|     PWM generator module for CSUS Senior Design
 //|
 //|     Author: David Larribas
@@ -22,7 +42,7 @@ module motorPWMGenerator(
 	//| This is an offset for the PWM output. The motor requires around 60% duty cycle to
 	//| start running smoothly. This will depend on the cycle time of the PWM.
 	parameter 		Offset = 250;
-	
+
 
 	//| These deal with the timing of the PWM output. CLOCKslow slows down
 	reg 		[3:0]		CLOCKslow =0;
@@ -30,7 +50,7 @@ module motorPWMGenerator(
 
 	//| Clock divider for output signal
 	always @ (posedge CLOCK_50) CLOCKslow= CLOCKslow + 4'd1;
-		
+
 
 	//| Output signal generator
 	always @(posedge CLOCKslow[3])
@@ -42,8 +62,8 @@ module motorPWMGenerator(
 			if(PWMinput > 0)
 				if(COUNT < PWMinput + Offset)PWMout=1;
 				else PWMout=0;
-			else PWMout=0;	
-			
+			else PWMout=0;
+
 
 			//| Reset counter at overflow
 			if(COUNT>=530)COUNT=0;

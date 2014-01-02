@@ -1,3 +1,23 @@
+//| Distributed under the MIT licence.
+//|
+//| Permission is hereby granted, free of charge, to any person obtaining a copy
+//| of this software and associated documentation files (the "Software"), to deal
+//| in the Software without restriction, including without limitation the rights
+//| to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//| copies of the Software, and to permit persons to whom the Software is
+//| furnished to do so, subject to the following conditions:
+//|
+//| The above copyright notice and this permission notice shall be included in
+//| all copies or substantial portions of the Software.
+//|
+//| THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//| IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//| FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//| AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//| LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//| OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//| THE SOFTWARE.
+//| =========================================================================================
 //|     Top Level module for CSUS Senior Design
 //|
 //|     Author: Ben Smith and Devin Moore
@@ -22,27 +42,27 @@ module I2C_MyNano(
 
 	output 		wire 		PWMout,
 	output 		wire 		waveFormsPin,
-	
+
 	input 		[7:0]		heartRate,
 	input			wire		blips,
-	
-	output 		wire 		tx,		//Cell phone transmiting 
-	input 		wire	 	rx,			//Cell phone receiving 
-	
+
+	output 		wire 		tx,		//Cell phone transmiting
+	input 		wire	 	rx,			//Cell phone receiving
+
 	input			wire		leftBlinker,		//buttons in
 	input			wire		rightBlinker,		//buttons in
 	input			wire		headLight,			//buttons in
 	input			wire		horn,						//buttons in
-	
-	input			wire		brakes,					
-	
-	output		wire		leftBlinkerOut,	
+
+	input			wire		brakes,
+
+	output		wire		leftBlinkerOut,
 	output		wire		rightBlinkerOut,
 	output		wire		headLightOut,
 	output		wire		brakeLightOut,
-	
+
 	input			wire		cadence,
-	
+
 	output		[7:0]		DACout
 );
 
@@ -81,33 +101,33 @@ module I2C_MyNano(
 
 	//| Cell phone communication
 	wire 						transmit;
-	wire 						received; 
+	wire 						received;
 	wire 						is_receiving;
 	wire 						is_transmitting;
 	wire 		[7:0] 	tx_byte;
 	wire 		[7:0] 	rx_byte;
-	
+
 	wire 		[7:0]		RPMnumber;
 	wire 		[7:0] 	speed;
 	wire 		[7:0] 	PWMOutput;
-	
+
 	wire		[7:0]		heartRateCap;
 	reg 		[7:0]		initialHeartCap =200;
-	
+
 	//| Debounced button inputs
 	wire						DBleftBlinker;
 	wire						DBrightBlinker;
 	wire						DBheadLight;
 	wire						DBhorn;
-	
-	
+
+
 	assign waveFormsPin = PWMout;
 	assign headLightOut = DBheadLight;
-	
-	
+
+
 	always@(heartRateCap)
 	initialHeartCap = heartRateCap;
-	
+
 	//|
 	//| IMU-I2C controller module
 	//|--------------------------------------------
@@ -123,21 +143,21 @@ module I2C_MyNano(
 		.GyroZ(GyroZ),
 		.DataValid(IMUDataReady)
 	);
-	
+
 	//|
 	//| IMU Filtering modules
 	//|--------------------------------------------
 	LowPassFilter AccelerometerFilter(
-		.ReadDone(IMUDataReady),		
+		.ReadDone(IMUDataReady),
 		.AccelX(AccelX),
 		.AccelY(AccelY),
-		.AccelZ(AccelZ),	
+		.AccelZ(AccelZ),
 		.AccelXOut(FAccelX),
 		.AccelYOut(FAccelY),
-		.AccelZOut(FAccelZ),		
+		.AccelZOut(FAccelZ),
 		.DataReady(LowPassDataReady)
 	);
-	
+
 
 	SensorFusion InclanationCalculator(
 		.DataReady(IMUDataReady),
@@ -146,68 +166,68 @@ module I2C_MyNano(
 		.Gyro(GyroY),
 		.resolvedAngle(PWMinput)
   );
-  
+
   AssistanceAlgorithm Assist(
-		.clk(CLOCK_50),	
+		.clk(CLOCK_50),
 		.resolvedAngle(PWMinput),
 		.HeartRate(heartRate),			//Commented for testing
-		.HeartRateCap(initialHeartCap),   
+		.HeartRateCap(initialHeartCap),
 		.PWMOut(PWMOutput),
 		.cadence(cadence),
 		.brake(brakes)
   );
-  
+
   motorPWMGenerator motorController(
 		.CLOCK_50(CLOCK_50),
 		.PWMinput(PWMOutput),
 		.PWMout(PWMout)
-	
+
 	);
-	
+
 	RPM rpmCalc (
 		.rpm(),
 		.clk50M(CLOCK_50),
 		.blips(blips),
 		.rpmPhone(RPMnumber)
 	);
-	
+
 	soundramp	HornOut (
 		.c50M(CLOCK_50),
 		.Button(horn),
 		.OutputToDAC(DACout)
 	);
-	
+
 	//|
 	//| Debounce all of the incoming Buttons
 	//|-------------------------------------------
 	debounced_button RightBlinker(
 		.c50M(CLOCK_50),
 		.Button(rightBlinker),
-		.ButtonOut(DBrightBlinker)		
+		.ButtonOut(DBrightBlinker)
 	);
-	
+
 	debounced_button LeftBlinker(
 		.c50M(CLOCK_50),
 		.Button(leftBlinker),
-		.ButtonOut(DBleftBlinker)		
-	); 
-	
+		.ButtonOut(DBleftBlinker)
+	);
+
 	debounced_button HeadLight(
 		.c50M(CLOCK_50),
 		.Button(headLight),
-		.ButtonOut(DBheadLight)		
-	); 
-	
+		.ButtonOut(DBheadLight)
+	);
+
 	debounced_button Horn(
 		.c50M(CLOCK_50),
 		.Button(horn),
-		.ButtonOut(DBhorn)		
-	); 
-	
-	//| 
+		.ButtonOut(DBhorn)
+	);
+
+	//|
 	//| Light controls
 	//|--------------------------------------------
-	
+
 	blinker blinkerControls(
 		.c50M(CLOCK_50),
 		.leftBlink(DBleftBlinker),
@@ -215,16 +235,16 @@ module I2C_MyNano(
 		.rightBlinkerOut(rightBlinkerOut),
 		.leftBlinkerOut(leftBlinkerOut)
 	);
-	
-	
+
+
 	BrakeLightController(
 		.c50M(CLOCK_50),
 		.brakeActive(brakes),
 		.headLightActive(headLightOut),
 		.brakePWM(brakeLightOut)
 	);
-	
-	
+
+
 	//|
 	//| IMU LED visualization
 	//|--------------------------------------------
@@ -236,7 +256,7 @@ module I2C_MyNano(
 		.PWMinput(PWMinput),
 		.PWMout(LED[7])
 	);
-		
+
 	PWMGenerator #(
 		.Offset(0),
 		.pNegEnable(1)
@@ -290,12 +310,12 @@ module I2C_MyNano(
 		.PWMinput(GyroZ),
 		.PWMout(LED[5])
 	);
-		
+
 	//|
-	//| Cell phone communication 
+	//| Cell phone communication
 	//|---------------------------------------------
 	wireless CellPhoneProtocol(
-		.clk(CLOCK_50),   
+		.clk(CLOCK_50),
 		.transmit(transmit), // Signal to transmit
 		.tx_byte(tx_byte), // Byte to transmit
 		.received(received), // Indicated that a byte has been received.

@@ -1,3 +1,23 @@
+//| Distributed under the MIT licence.
+//|
+//| Permission is hereby granted, free of charge, to any person obtaining a copy
+//| of this software and associated documentation files (the "Software"), to deal
+//| in the Software without restriction, including without limitation the rights
+//| to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//| copies of the Software, and to permit persons to whom the Software is
+//| furnished to do so, subject to the following conditions:
+//|
+//| The above copyright notice and this permission notice shall be included in
+//| all copies or substantial portions of the Software.
+//|
+//| THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//| IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//| FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//| AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//| LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//| OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//| THE SOFTWARE.
+//| =========================================================================================
 
 parameter width = 10;           //number of filter samples - works out to be 1s at our current data rate
 
@@ -25,7 +45,7 @@ module HighPassFilter(
   output  reg     signed   [9:0]    GyroXOut,
   output  reg     signed   [9:0]    GyroYOut,
   output  reg     signed   [9:0]    GyroZOut,
-	
+
 	output	reg				DataReady
   );
 // AccelSettingtReadback  gyaxis (
@@ -44,8 +64,8 @@ module HighPassFilter(
 //    .probe (GyroXOut),
 //    .source ()
 //    );
-  
-  
+
+
   //|
   //| Local register and wire instansiations
   //|--------------------------------------------
@@ -74,7 +94,7 @@ module HighPassFilter(
       GyroXOut = (GCoEf0*GyroXreg[0])+(GCoEf1*GyroXreg[1])+(GCoEf2*GyroXreg[2])+(GCoEf3*GyroXreg[3])+(GCoEf4*GyroXreg[4])+(GCoEf5*GyroXreg[5])+(GCoEf6*GyroXreg[6])+(GCoEf7*GyroXreg[7])+(GCoEf8*GyroXreg[8])+(GCoEf9*GyroXreg[9]);
       GyroYOut = (GCoEf0*GyroYreg[0])+(GCoEf1*GyroYreg[1])+(GCoEf2*GyroYreg[2])+(GCoEf3*GyroYreg[3])+(GCoEf4*GyroYreg[4])+(GCoEf5*GyroYreg[5])+(GCoEf6*GyroYreg[6])+(GCoEf7*GyroYreg[7])+(GCoEf8*GyroYreg[8])+(GCoEf9*GyroYreg[9]);
       GyroZOut = (GCoEf0*GyroZreg[0])+(GCoEf1*GyroZreg[1])+(GCoEf2*GyroZreg[2])+(GCoEf3*GyroZreg[3])+(GCoEf4*GyroZreg[4])+(GCoEf5*GyroZreg[5])+(GCoEf6*GyroZreg[6])+(GCoEf7*GyroZreg[7])+(GCoEf8*GyroZreg[8])+(GCoEf9*GyroZreg[9]);
-			
+
 			DataReady = 1;
     end
   //| variable length shift register for sensor data
@@ -92,9 +112,9 @@ module HighPassFilter(
           end
       end
     endgenerate
-	 
-	 
-	/* 
+
+
+	/*
 	 always@(posedge ReadDone)
 		 begin
 			GyroXSum = GyroXSum + GyroX/10;

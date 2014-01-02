@@ -1,3 +1,23 @@
+//| Distributed under the MIT licence.
+//|
+//| Permission is hereby granted, free of charge, to any person obtaining a copy
+//| of this software and associated documentation files (the "Software"), to deal
+//| in the Software without restriction, including without limitation the rights
+//| to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//| copies of the Software, and to permit persons to whom the Software is
+//| furnished to do so, subject to the following conditions:
+//|
+//| The above copyright notice and this permission notice shall be included in
+//| all copies or substantial portions of the Software.
+//|
+//| THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//| IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//| FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//| AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//| LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//| OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//| THE SOFTWARE.
+//| =========================================================================================
 //|     RPM Calculator
 //|
 //|     Authors: Michael Frith
@@ -27,9 +47,9 @@ module RPM(
 	reg [31:0]	denominator=0;     								//denominator of the dimensional analysis equation
 	reg					firstPass = 0;
 	reg	[15:0]	speed = 0;
-	
+
 	reg [15:0]  numOfBlips = 0;
-	
+
 	AccelSettingtReadback  rpmdata (
 		.probe (rpm),
 		.source ()
@@ -39,31 +59,31 @@ module RPM(
 		.source ()
 		);
 
-		
-		
-		
-				
+
+
+
+
 	//	clock counter, always counts at posedge of the clock,
 	//	gets reset on posedge of blips
 	always @(posedge clk50M)
 		begin
 			clkcount++;
-			
-			if(blips && !firstPass) 
-				begin 
+
+			if(blips && !firstPass)
+				begin
 					numOfBlips++;
 					firstPass = 1;
 				end
-			
+
 			if (!blips) firstPass = 0;
-			
+
 			if(clkcount == 50000000)
 				begin
 					rpm = numOfBlips*60/80;
 					numOfBlips = 0;
 					clkcount = 0;
 				end
-				
+
 				rpmPhone = rpm/2;
 			/*clkcount = clkcount +1;
 
@@ -88,7 +108,7 @@ module RPM(
 
 				if (!blips) firstPass = 0;
 				//speed = rpm*3*26*60/63360;
-				rpmPhone = rpm/4;  */				
+				rpmPhone = rpm/4;  */
 		end
 
 endmodule
