@@ -36,6 +36,7 @@
 //| Uncomment the `include "timescale.sv" to run a simulation.
 //`include "debug.sv"
 //`include "timescale.sv"
+`define debug
 
 module IMUInterface(
 	input                       CLOCK_50,           //Input clock
@@ -57,16 +58,14 @@ module IMUInterface(
 
 	//| Altera in system probes for debugging
 	`ifdef debug
-		//These are test points for the In-System Sources and Probes Editor in Quartus
-//		AccelProbeY  IMUGyroXProbe (GyroX);
-//		AccelProbeY  IMUGyroYProbe (GyroY);
-//		AccelProbeY  IMUGyroZProbe (GyroZ);
-//
-//		AccelProbeY  IMUAccelXProbe (AccelX);
-//		AccelProbeY  IMUAccelYProbe (AccelY);
-//		AccelProbeY  IMUAccelZProbe (AccelZ);
-//
-//		//| Debug readback data registers
+		IMUData	IMUGyroX(.probe (AccelX));
+		IMUData	IMUGyroY(.probe (AccelY));
+		IMUData	IMUGyroZ(.probe (AccelZ));
+
+		IMUData	IMUAccX(.probe (GyroX));
+		IMUData	IMUAccY(.probe (GyroY));
+		IMUData	IMUAccZ(.probe (GyroZ));
+
 		reg         [7:0]       RW_RATE = 0;
 		reg         [7:0]       POWER_CTL = 0;
 		reg         [7:0]       DataFormat = 0;
@@ -143,7 +142,7 @@ module IMUInterface(
 	reg                     intialWait = 1;
 	reg                     ReadDone = 0;				//Flag to tell when a read cycle has finished
 	reg                     WriteDone = 0;				//Flag to tell when a write cycle has finished
-	reg				        			SCL_CTRL = 0;
+	reg				        SCL_CTRL = 0;
 
 
 
@@ -191,22 +190,23 @@ module IMUInterface(
 			//counter for I2C byte level transmitter
 			if(!GO) SD_COUNTER = 0;
 			else    SD_COUNTER++;
+
 			begin
-				 case (StateControl)
+				case (StateControl)
 					//| Acceleromter initializtion states
 					//|-----------------------------------------------------------------------------------------
 					INTITIALIZE_A1: //First state should write 8'h00 to register 8'h2D (DATA RATE/POWER)
+						begin
+						if(FIRSTPASS == 0)
 							begin
-							if(FIRSTPASS == 0)
-									begin
-						GO=1;
-									SD_COUNTER = 0;
-									I2CADDRESS = ACCEL_ADDR;
-									RW_DIR = 0;
-									REGADDRESS = 8'h2D; //2d
-									DATAOUT = 8'h00;
-									FIRSTPASS = 1;
-									end
+								GO=1;
+								SD_COUNTER = 0;
+								I2CADDRESS = ACCEL_ADDR;
+								RW_DIR = 0;
+								REGADDRESS = 8'h2D; //2d
+								DATAOUT = 8'h00;
+								FIRSTPASS = 1;
+							end
 
 							if(WriteDone)
 									begin
@@ -401,351 +401,342 @@ module IMUInterface(
 					//| Acceleromter debug readback states
 					//|-----------------------------------------------------------------------------------------
 					`ifdef debug
-					ReadbackDataFormat:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
-									SD_COUNTER = 0;
-									I2CADDRESS = ACCEL_ADDR;
-									RW_DIR = 0;
-									REGADDRESS = 8'h31;
-									FIRSTPASS = 1;
-									end
+						ReadbackDataFormat:   //Sixth state should read from the speficified register at REGADDRESS
+								begin
+								if(FIRSTPASS == 0)
+										begin
+										SW[0] = 0;
+										SD_COUNTER = 0;
+										I2CADDRESS = ACCEL_ADDR;
+										RW_DIR = 0;
+										REGADDRESS = 8'h31;
+										FIRSTPASS = 1;
+										end
 
-							if(ReadDone)
-									begin
-									StateControl = ReadbackPOWER_CTL;
-									DataFormat = DATAIN;
-									FIRSTPASS =0;
-									ReadDone = 0;
-									end
-							end
+								if(ReadDone)
+										begin
+										StateControl = ReadbackPOWER_CTL;
+										DataFormat = DATAIN;
+										FIRSTPASS =0;
+										ReadDone = 0;
+										end
+								end
 
-					ReadbackPOWER_CTL:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
-									SD_COUNTER = 0;
-									I2CADDRESS = ACCEL_ADDR;
-									RW_DIR = 0;
-									REGADDRESS = 8'h2D;
-									FIRSTPASS = 1;
-									end
+						ReadbackPOWER_CTL:   //Sixth state should read from the speficified register at REGADDRESS
+								begin
+								if(FIRSTPASS == 0)
+										begin
+										SW[0] = 0;
+										SD_COUNTER = 0;
+										I2CADDRESS = ACCEL_ADDR;
+										RW_DIR = 0;
+										REGADDRESS = 8'h2D;
+										FIRSTPASS = 1;
+										end
 
-							if(ReadDone)
-									begin
-									StateControl = ReadbackRW_RATE;
-									POWER_CTL = DATAIN;
-									ReadDone = 0;
-									FIRSTPASS =0;
-									end
-							end
+								if(ReadDone)
+										begin
+										StateControl = ReadbackRW_RATE;
+										POWER_CTL = DATAIN;
+										ReadDone = 0;
+										FIRSTPASS =0;
+										end
+								end
 
-					ReadbackRW_RATE:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
-									SD_COUNTER = 0;
-									I2CADDRESS = ACCEL_ADDR;
-									RW_DIR = 0;
-									REGADDRESS = 8'h2C;
-									FIRSTPASS = 1;
-									end
+						ReadbackRW_RATE:   //Sixth state should read from the speficified register at REGADDRESS
+								begin
+								if(FIRSTPASS == 0)
+										begin
+										SW[0] = 0;
+										SD_COUNTER = 0;
+										I2CADDRESS = ACCEL_ADDR;
+										RW_DIR = 0;
+										REGADDRESS = 8'h2C;
+										FIRSTPASS = 1;
+										end
 
-							if(ReadDone)
-									begin
-									StateControl = ReadAcceletometerXaxisLB;
-									RW_RATE = DATAIN;
-									ReadDone = 0;
-									FIRSTPASS =0;
-									end
-							end
+								if(ReadDone)
+										begin
+										StateControl = ReadAcceletometerXaxisLB;
+										RW_RATE = DATAIN;
+										ReadDone = 0;
+										FIRSTPASS =0;
+										end
+								end
 					`endif
 
 					//| Accelerometer data read states
 					//|-----------------------------------------------------------------------------------------
 					ReadAcceletometerXaxisLB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
+								begin
 									SW[0] = 0;
 									SD_COUNTER = 0;
 									I2CADDRESS = ACCEL_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd50;
 									FIRSTPASS = 1;
-									end
+								end
 
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadAcceletometerXaxisHB;
 									AccelXLB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
-							end
+								end
+						end
 
 					ReadAcceletometerXaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
+								begin
 									SW[0] = 0;
 									SD_COUNTER = 0;
 									I2CADDRESS = ACCEL_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd51;
 									FIRSTPASS = 1;
-									end
+								end
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadAcceletometerYaxisLB;
 									AccelXHB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
-							end
+								end
+						end
 
 					ReadAcceletometerYaxisLB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
+								begin
 									SW[0] = 0;
 									SD_COUNTER = 0;
 									I2CADDRESS = ACCEL_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd52;
 									FIRSTPASS = 1;
-									end
+								end
 
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadAcceletometerYaxisHB;
 									AccelYLB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
-							end
+								end
+						end
 
 					ReadAcceletometerYaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
+								begin
 									SW[0] = 0;
 									SD_COUNTER = 0;
 									I2CADDRESS = ACCEL_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd53;
 									FIRSTPASS = 1;
-									end
+								end
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadAcceletometerZaxisLB;
 									AccelYHB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
-							end
+								end
+						end
 
 					ReadAcceletometerZaxisLB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
+								begin
 									SD_COUNTER = 0;
 									I2CADDRESS = ACCEL_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd54;
 									FIRSTPASS = 1;
-									end
-
+								end
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadAcceletometerZaxisHB;
 									AccelZLB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS= 0;
-									end
-							end
+								end
+						end
 
 					ReadAcceletometerZaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
+								begin
 									SD_COUNTER = 0;
 									I2CADDRESS = ACCEL_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd55;
 									FIRSTPASS = 1;
-									end
+								end
 
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadGyroscopeXaxisLB;
 									AccelZHB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
-							end
+								end
+						end
 
 					//| Gyroscope data read states
 					//|-----------------------------------------------------------------------------------------
 					ReadGyroscopeXaxisLB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
+								begin
 									SD_COUNTER = 0;
 									I2CADDRESS = Gyro_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd30;
 									FIRSTPASS = 1;
-									end
+								end
 
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadGyroscopeXaxisHB;
 									GyroXLB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
-							end
+								end
+						end
 
 					ReadGyroscopeXaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
+								begin
 									SD_COUNTER = 0;
 									I2CADDRESS = Gyro_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd29;
 									FIRSTPASS = 1;
-									end
+								end
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadGyroscopeYaxisLB;
 									GyroXHB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
-							end
+								end
+						end
 
 					ReadGyroscopeYaxisLB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
+								begin
 									SD_COUNTER = 0;
 									I2CADDRESS = Gyro_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd32;
 									FIRSTPASS = 1;
-									end
+								end
 
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadGyroscopeYaxisHB;
 									GyroYLB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
+								end
 							end
 
 					ReadGyroscopeYaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
+								begin
 									SD_COUNTER = 0;
 									I2CADDRESS = Gyro_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd31;
 									FIRSTPASS = 1;
-									end
+								end
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadGyroscopeZaxisLB;
 									GyroYHB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
-							end
+								end
+						end
 
 					ReadGyroscopeZaxisLB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
+								begin
 									SD_COUNTER = 0;
 									I2CADDRESS = Gyro_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd34;
 									FIRSTPASS = 1;
-									end
+								end
 
 							if(ReadDone)
-									begin
+								begin
 									StateControl = ReadGyroscopeZaxisHB;
 									GyroZLB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS= 0;
-									end
-							end
+								end
+						end
 
 					ReadGyroscopeZaxisHB:   //Sixth state should read from the speficified register at REGADDRESS
-							begin
+						begin
 							if(FIRSTPASS == 0)
-									begin
-									SW[0] = 0;
+								begin
 									SD_COUNTER = 0;
 									I2CADDRESS = Gyro_ADDR;
 									RW_DIR = 0;
 									REGADDRESS = 8'd33;
 									FIRSTPASS = 1;
-									end
+								end
 
 							if(ReadDone)
-									begin
+								begin
 									StateControl = Idle;
 									GyroZHB = DATAIN;
 									ReadDone = 0;
 									FIRSTPASS =0;
-									end
+								end
 							end
 
 					//| Idle state
 					//|-----------------------------------------------------------------------------------------
 					Idle:
-							begin
+						begin
 							GO = 0;
 							DataValid = 1;
 							ReadDone = 0;
 							WriteDone = 0;
 
 							if(IdleCount > 200)
-									begin
+								begin
 									if(intialWait == 0)
-											begin
+										begin
 											StateControl = ReadAcceletometerXaxisLB;
 											IdleCount = 0;
 											DataValid = 0;
 											GO = 1;
-											end
+										end
 									else
-											begin
+										begin
 											StateControl = INTITIALIZE_A1;
 											intialWait = 0;
-											end
-									end
+										end
+								end
 							else
-									begin
+								begin
 									IdleCount++;
-									end
-							end
+								end
+						end
 					endcase
 
 
@@ -753,7 +744,7 @@ module IMUInterface(
 			//|---------------------------------------------------------------------------------------------
 			if (StateControl != Idle)
 				begin
-					if (SW[0])      //This acts as a flag to determine if it needs to read or write
+					if (RW_DIR)      //This acts as a flag to determine if it needs to read or write
 						begin
 							case (SD_COUNTER)
 								6'd0        : begin SDI =1; SCL = 1; SCL_CTRL =0; end
