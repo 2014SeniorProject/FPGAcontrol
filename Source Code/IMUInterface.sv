@@ -26,6 +26,11 @@
 //|     and Invensense HTG-3200 gyroscope. Both sensors require initialization that is handled
 //|     by this module the XYZ axis are read back for both modules
 //|
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
+//|
+//| =========================================================================================
 
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
 //| Uncomment the `include "timescale.sv" to run a simulation.

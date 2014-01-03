@@ -26,6 +26,11 @@
 //|     motor thrust to assist the rider.
 //|
 //|
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
+//|
+//| =========================================================================================
 
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
 //| Uncomment the `include "timescale.sv" to run a simulation.
@@ -40,7 +45,7 @@ module AssistanceAlgorithm(
 	input  	wire			[7:0]	HeartRate,
 	input  	wire			[7:0]	HeartRateCap,
 	//| Motor output
-	output 	reg   signed 	[9:0]   PWMOut,
+	output 	reg   	signed 	[9:0]   PWMOut,
 
 	input 	wire					cadence,
 	input	wire					brake
@@ -72,7 +77,7 @@ AccelSettingtReadback  BRAKE (
 
 	assign Angle = resolvedAngle;
 	assign offset = (HeartRate - HeartRateCap);		//Calculate the heart rate difference
-																								//between real and cap
+													//between real and cap
 
 	//| State machine control
 	//|--------------------------------------------
@@ -87,9 +92,9 @@ AccelSettingtReadback  BRAKE (
 			if(~brake && cadence)
 				begin
 					if(offset > 0)	PWMOut = Angle + offset; 	//If the heart rate is higher than the set cap,
-					else PWMOut = Angle;											//then add some power to it scaled with the difference.
-					if (PWMOut < 0) PWMOut = 0; 	//If the PWMOut is going to be negative, then just send a 0
+					else PWMOut = Angle;						//then add some power to it scaled with the difference.
+					if (PWMOut < 0) PWMOut = 0; 				//If the PWMOut is going to be negative, then just send a 0
 				end
 			else PWMOut = 0;
-		end																//to turn off the signa to the motor
+		end														//to turn off the signa to the motor
 endmodule

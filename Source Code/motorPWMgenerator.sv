@@ -26,7 +26,11 @@
 //|			control the bicycle's motor. It it parametized to include a variable offset
 //|			that can adjust the floor of the modules response.
 //|
-
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
+//|
+//| =========================================================================================
 
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
 //| Uncomment the `include "timescale.sv" to run a simulation.

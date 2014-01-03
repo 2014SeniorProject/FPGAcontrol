@@ -25,7 +25,11 @@
 //| 		This module will prevent a hardware button's switching behavior
 //|			from being registered as multiple button presses.
 //|
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
 //|
+//| =========================================================================================
 module debounced_button(
     input wire c50M,
     input wire Button,

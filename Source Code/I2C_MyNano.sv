@@ -26,6 +26,11 @@
 //|			control the motor, communicate with the cellphone application, and the various
 //|			sensors required to perform it's tasks.
 //|
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
+//|
+//| =========================================================================================
 
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
 //| Uncomment the `include "timescale.sv" to run a simulation.
@@ -33,37 +38,37 @@
 //`include "timescale.sv"
 
 module I2C_MyNano(
-	input							CLOCK_50,		//This is the system clock that comes in at 50mhz
+	input						CLOCK_50,		//This is the system clock that comes in at 50mhz
 
-	output 		[7:0]		LED,				//This is a register that is used to show the data that was read from the EEPROM in binary.
+	output 			[7:0]		LED,				//This is a register that is used to show the data that was read from the EEPROM in binary.
 
-	inout			wire 		IMU_SCL,		//IMU I2C Clock line
-	inout			wire		IMU_SDA,		//IMU I2C Data Line
+	inout	wire 				IMU_SCL,		//IMU I2C Clock line
+	inout	wire				IMU_SDA,		//IMU I2C Data Line
 
-	output 		wire 		PWMout,
-	output 		wire 		waveFormsPin,
+	output 	wire 				PWMout,
+	output 	wire 				waveFormsPin,
 
-	input 		[7:0]		heartRate,
-	input			wire		blips,
+	input 			[7:0]		heartRate,
+	input 	wire				blips,
 
-	output 		wire 		tx,		//Cell phone transmiting
-	input 		wire	 	rx,			//Cell phone receiving
+	output 	wire 				tx,		//Cell phone transmiting
+	input 	wire		 		rx,			//Cell phone receiving
 
-	input			wire		leftBlinker,		//buttons in
-	input			wire		rightBlinker,		//buttons in
-	input			wire		headLight,			//buttons in
-	input			wire		horn,						//buttons in
+	input	wire				leftBlinker,		//buttons in
+	input	wire				rightBlinker,		//buttons in
+	input	wire				headLight,			//buttons in
+	input	wire				horn,						//buttons in
 
-	input			wire		brakes,
+	input	wire				brakes,
 
-	output		wire		leftBlinkerOut,
-	output		wire		rightBlinkerOut,
-	output		wire		headLightOut,
-	output		wire		brakeLightOut,
+	output	wire				leftBlinkerOut,
+	output	wire				rightBlinkerOut,
+	output	wire				headLightOut,
+	output	wire				brakeLightOut,
 
-	input			wire		cadence,
+	input	wire				cadence,
 
-	output		[7:0]		DACout
+	output			[7:0]		DACout
 );
 
 	//|
@@ -71,30 +76,30 @@ module I2C_MyNano(
 	//|--------------------------------------------
 
 	//| Accelerometer
-	wire 		[9:0]		AccelX;
-	wire 		[9:0]		AccelY;
-	wire 		[9:0]		AccelZ;
+	wire 		[9:0]			AccelX;
+	wire 		[9:0]			AccelY;
+	wire 		[9:0]			AccelZ;
 
 	//| Gyroscope
-	wire 		[9:0]		GyroX;
-	wire 		[9:0]		GyroY;
-	wire 		[9:0]		GyroZ;
+	wire 		[9:0]			GyroX;
+	wire 		[9:0]			GyroY;
+	wire 		[9:0]			GyroZ;
 
 	//| Filtered Accelerometer
-	wire 		[9:0]		FAccelX;
-	wire 		[9:0]		FAccelY;
-	wire 		[9:0]		FAccelZ;
+	wire 		[9:0]			FAccelX;
+	wire 		[9:0]			FAccelY;
+	wire 		[9:0]			FAccelZ;
 
 	//| Filtered Gyroscope
-	wire 		[9:0]		FGyroX;
-	wire 		[9:0]		FGyroY;
-	wire 		[9:0]		FGyroZ;
+	wire 		[9:0]			FGyroX;
+	wire 		[9:0]			FGyroY;
+	wire 		[9:0]			FGyroZ;
 
 	//| IMU data trigger
 	wire						IMUDataReady;
 
 	//| Motor output
-	wire 		[9:0]		PWMinput;
+	wire 		[9:0]			PWMinput;
 
 	wire						LowPassDataReady;
 	wire						HighPassDataReady;
@@ -104,15 +109,15 @@ module I2C_MyNano(
 	wire 						received;
 	wire 						is_receiving;
 	wire 						is_transmitting;
-	wire 		[7:0] 	tx_byte;
-	wire 		[7:0] 	rx_byte;
+	wire 		[7:0] 			tx_byte;
+	wire 		[7:0] 			rx_byte;
 
-	wire 		[7:0]		RPMnumber;
-	wire 		[7:0] 	speed;
-	wire 		[7:0] 	PWMOutput;
+	wire 		[7:0]			RPMnumber;
+	wire 		[7:0] 			speed;
+	wire 		[7:0] 			PWMOutput;
 
-	wire		[7:0]		heartRateCap;
-	reg 		[7:0]		initialHeartCap =200;
+	wire		[7:0]			heartRateCap;
+	reg 		[7:0]			initialHeartCap =200;
 
 	//| Debounced button inputs
 	wire						DBleftBlinker;
@@ -145,7 +150,7 @@ module I2C_MyNano(
 	);
 
 	//|
-	//| IMU Filtering modules
+	//| IMU processing modules
 	//|--------------------------------------------
 	LowPassFilter AccelerometerFilter(
 		.ReadDone(IMUDataReady),
@@ -165,9 +170,12 @@ module I2C_MyNano(
 		.Accel2(FGyroY),
 		.Gyro(GyroY),
 		.resolvedAngle(PWMinput)
-  );
+	);
 
-  AssistanceAlgorithm Assist(
+	//|
+	//| Assistance calculation
+	//|--------------------------------------------
+	AssistanceAlgorithm Assist(
 		.clk(CLOCK_50),
 		.resolvedAngle(PWMinput),
 		.HeartRate(heartRate),			//Commented for testing
@@ -175,15 +183,18 @@ module I2C_MyNano(
 		.PWMOut(PWMOutput),
 		.cadence(cadence),
 		.brake(brakes)
-  );
+	);
 
-  motorPWMGenerator motorController(
+	motorPWMGenerator motorController(
 		.CLOCK_50(CLOCK_50),
 		.PWMinput(PWMOutput),
 		.PWMout(PWMout)
 
 	);
 
+	//|
+	//| Motor RPM calculation
+	//|--------------------------------------------
 	RPM rpmCalc (
 		.rpm(),
 		.clk50M(CLOCK_50),
@@ -191,6 +202,9 @@ module I2C_MyNano(
 		.rpmPhone(RPMnumber)
 	);
 
+	//|
+	//| Horn Controller
+	//|--------------------------------------------
 	soundramp	HornOut (
 		.c50M(CLOCK_50),
 		.Button(horn),
@@ -227,7 +241,6 @@ module I2C_MyNano(
 	//|
 	//| Light controls
 	//|--------------------------------------------
-
 	blinker blinkerControls(
 		.c50M(CLOCK_50),
 		.leftBlink(DBleftBlinker),

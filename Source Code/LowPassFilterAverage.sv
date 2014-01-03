@@ -29,6 +29,11 @@
 //| 		The filter is implemented by a shift register that is created using the genvar construct.
 //|			All of the values in the register are averaged and loaded into the output registers every
 //|			clock cycle.
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
+//|
+//| =========================================================================================
 
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
 //| Uncomment the `include "timescale.sv" to run a simulation.

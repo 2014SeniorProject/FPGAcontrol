@@ -18,6 +18,19 @@
 //| OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //| THE SOFTWARE.
 //| =========================================================================================
+//|     Brake light controller for Team 3 CSUS senior project
+//|
+//|     Authors: Devin Moore and Ben Smith
+//|
+//|     This module dims the brake light to 50% for "off" when the headlight is on otherwise
+//|     it operates as a normal brake light.
+//|
+//|
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
+//|
+//| =========================================================================================
 module BrakeLightController(
   input   wire    brakeActive,
   input   wire    headlightActive,

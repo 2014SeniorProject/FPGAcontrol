@@ -18,15 +18,22 @@
 //| OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //| THE SOFTWARE.
 //| =========================================================================================
-//| Module to blink control a blinker
+//|     Turn signal blinker module for CSUS Senior Design
 //|
-//|	Author: Devin Moore
+//|     Authors: Devin Moore and Ben Smith
 //|
-
+//|     This module generates a half second period square wave when the right or left blink
+//|		input goes high.
+//|
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
+//|
+//| =========================================================================================
 module blinker (
-input		wire	c50M,
-input		wire	rightBlink,				//Debounced input for blinker
-input		wire	leftBlink,
+input	wire	c50M,
+input	wire	rightBlink,				//Debounced input for blinker
+input	wire	leftBlink,
 output	wire	rightBlinkerOut,
 output 	wire	leftBlinkerOut
 );

@@ -18,6 +18,19 @@
 //| OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //| THE SOFTWARE.
 //| =========================================================================================
+//|     IMU Interface module for CSUS Senior Design
+//|
+//|     Authors: Devin Moore and Ben Smith
+//|
+//|     This module communicates on an I2C bus at 400 khz to an Analog devices ADXL345 accelerometer
+//|     and Invensense HTG-3200 gyroscope. Both sensors require initialization that is handled
+//|     by this module the XYZ axis are read back for both modules
+//|
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
+//|
+//| =========================================================================================
 
 parameter width = 10;           //number of filter samples - works out to be 1s at our current data rate
 
@@ -71,11 +84,11 @@ module HighPassFilter(
   //|--------------------------------------------
 
   reg    signed 	[9:0]      GyroXreg[width-1:0];
-  reg    signed	[9:0]      GyroYreg[width-1:0];
-  reg    signed	[9:0]      GyroZreg[width-1:0];
+  reg    signed	  [9:0]      GyroYreg[width-1:0];
+  reg    signed	  [9:0]      GyroZreg[width-1:0];
 
   reg    signed 	[32:0]     GyroXSum; //need to prove this register size is always valid
-  reg    signed	[32:0]     GyroYSum;
+  reg    signed	  [32:0]     GyroYSum;
   reg    signed 	[32:0]     GyroZSum = 0;
 
   reg    [7:0]      z = 0;

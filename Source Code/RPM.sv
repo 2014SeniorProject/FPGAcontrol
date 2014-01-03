@@ -24,6 +24,11 @@
 //|
 //|     This module calculates the RPM of the electric motor.
 //|
+//| =========================================================================================
+//| Revision History
+//| 1/2/14  BS  added MIT License.
+//|
+//| =========================================================================================
 
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
 //| Uncomment the `include "timescale.sv" to run a simulation.
@@ -31,9 +36,9 @@
 //`include "timescale.sv"
 
 module RPM(
-	output 	reg 	[15:0] 	rpm =0,
-	input 	wire 					clk50M,
-	input 	wire 					blips,
+	output 	reg 	[15:0] 		rpm =0,
+	input 	wire 				clk50M,
+	input 	wire 				blips,
 	output 	wire	[7:0]		rpmPhone
 );
 
@@ -45,7 +50,7 @@ module RPM(
 	reg [31:0] 	clkstore=0;        								//register to store the clock counter while maths happen
 	reg [32:0] 	numerator=0;       								//numerator of the dimensional analysis equation
 	reg [31:0]	denominator=0;     								//denominator of the dimensional analysis equation
-	reg					firstPass = 0;
+	reg			firstPass = 0;
 	reg	[15:0]	speed = 0;
 
 	reg [15:0]  numOfBlips = 0;
@@ -54,14 +59,10 @@ module RPM(
 		.probe (rpm),
 		.source ()
 		);
-			AccelSettingtReadback  rpmdata1 (
+	AccelSettingtReadback  rpmdata1 (
 		.probe (speed),
 		.source ()
 		);
-
-
-
-
 
 	//	clock counter, always counts at posedge of the clock,
 	//	gets reset on posedge of blips
