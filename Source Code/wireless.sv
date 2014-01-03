@@ -41,7 +41,7 @@
 `include "timescale.sv"
 
 module wireless(
-  	input 					k, 				// The master clock for this module
+  	input 					clk, 				// The master clock for this module
 	output 	reg 			transmit, 		// Signal to transmit
 	output 	reg 	[7:0] 	tx_byte, 		// Byte to transmit
 	input 					received, 		// Indicated that a byte has been received.
