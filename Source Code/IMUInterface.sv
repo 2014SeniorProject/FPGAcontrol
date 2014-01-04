@@ -234,7 +234,7 @@ module IMUInterface(
 					INTITIALIZE_G1: if(SingleByteWrite(Gyro_ADDR, 8'h62, 8'h00)) StateControl = INTITIALIZE_G2;//Fouth state should write 8'h04 to register 8'h31 (FORMAT)
 					INTITIALIZE_G2: if(SingleByteWrite(Gyro_ADDR, 8'h21, 8'h04)) StateControl = INTITIALIZE_G3;//Fifth state should write 8'h0F to register 8'h2C
 					INTITIALIZE_G3: if(SingleByteWrite(Gyro_ADDR, 8'h22, 8'h1E)) StateControl = INTITIALIZE_G4;//Fifth state should write 8'h0F to register 8'h2C
-					INTITIALIZE_G4: if(SingleByteWrite(Gyro_ADDR, 8'h23, 8'h00)) StateControl = INTITIALIZE_G2;//Fifth state should write 8'h0F to register 8'h2C
+					INTITIALIZE_G4: if(SingleByteWrite(Gyro_ADDR, 8'h23, 8'h00)) StateControl = ReadAcceletometerXaxisLB;//Fifth state should write 8'h0F to register 8'h2C
 
 					//| Acceleromter debug readback states
 					//|-----------------------------------------------------------------------------------------

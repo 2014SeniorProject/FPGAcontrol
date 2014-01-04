@@ -64,8 +64,8 @@ set_location_assignment PIN_A11 -to LED[3]
 set_location_assignment PIN_B13 -to LED[2]
 set_location_assignment PIN_A13 -to LED[1]
 set_location_assignment PIN_A15 -to LED[0]
-set_global_assignment -name ENABLE_SIGNALTAP OFF
-set_global_assignment -name USE_SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name ENABLE_SIGNALTAP ON
+set_global_assignment -name USE_SIGNALTAP_FILE output_files/output_files/stp1.stp
 set_location_assignment PIN_G5 -to G_Sensor_CS_N
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
@@ -104,31 +104,6 @@ set_location_assignment PIN_D12 -to rightBlinker
 set_location_assignment PIN_C9 -to brakes
 set_location_assignment PIN_F9 -to cadence
 set_location_assignment PIN_C11 -to headLight
-set_global_assignment -name VERILOG_FILE "Source Code/BrakeLightController.v"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/soundramp.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/debounced_button.sv"
-set_global_assignment -name VERILOG_FILE "Source Code/UART.v"
-set_global_assignment -name VERILOG_FILE "Source Code/AccelSettingtReadback_bb.v"
-set_global_assignment -name VERILOG_FILE "Source Code/wireless.v"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SensorFusion.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/RPM.sv"
-set_global_assignment -name VERILOG_FILE "Source Code/PWM.v"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/LowPassFilterAverage.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/IMUInterface.sv"
-set_global_assignment -name VERILOG_FILE "Source Code/I2C_MyNano.v"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/AssistanceAlgorithm.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/debug.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/AccelProbeY.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/AccelProbeX.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/AccelProbeZ.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/GyroProbeX.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/GyroProbeY.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/GyroProbeZ.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/timescale.sv"
-set_global_assignment -name SOURCE_FILE output_files/Spf2.spf
-set_global_assignment -name SOURCE_FILE output_files/Spf1.spf
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/motorPWMgenerator.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/blinkerControl.sv"
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to leftBlinkerOut
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to leftBlinkerOut
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rightBlinkerOut
@@ -177,5 +152,30 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to waveFormsPin
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to G_Sensor_CS_N
-set_global_assignment -name SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/wireless.sv"
+set_global_assignment -name VERILOG_FILE "Source Code/uart.v"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/timescale.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/soundramp.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SensorFusion.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/RPM.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/PWM.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/motorPWMgenerator.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/mikeshit.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/LowPassFilterAverage.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/IMUInterface.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/I2CByteController.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/I2C_MyNano.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/HighPassFilter.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/GyroProbeZ.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/GyroProbeY.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/GyroProbeX.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/debug.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/debounced_button.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/BrakeLightController.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/blinkerControl.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/AssistanceAlgorithm.sv"
+set_global_assignment -name VERILOG_FILE "Source Code/AccelSettingtReadback_bb.v"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/AccelProbeZ.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/AccelProbeY.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/AccelProbeX.sv"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

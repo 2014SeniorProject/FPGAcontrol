@@ -1,0 +1,8 @@
+Warning (10268): Verilog HDL information at LowPassFilterAverage.sv(84): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at I2C_MyNano.sv(58): object "rightBlinker" differs only in case from object "RightBlinker" in the same scope
+Info (10281): Verilog HDL Declaration information at I2C_MyNano.sv(57): object "leftBlinker" differs only in case from object "LeftBlinker" in the same scope
+Info (10281): Verilog HDL Declaration information at I2C_MyNano.sv(59): object "headLight" differs only in case from object "HeadLight" in the same scope
+Info (10281): Verilog HDL Declaration information at I2C_MyNano.sv(60): object "horn" differs only in case from object "Horn" in the same scope
+Info (10281): Verilog HDL Declaration information at AssistanceAlgorithm.sv(52): object "brake" differs only in case from object "BRAKE" in the same scope
+Info (10281): Verilog HDL Declaration information at AssistanceAlgorithm.sv(50): object "cadence" differs only in case from object "CADENCE" in the same scope
+Info (10281): Verilog HDL Declaration information at AssistanceAlgorithm.sv(45): object "HeartRate" differs only in case from object "HEARTRATE" in the same scope
