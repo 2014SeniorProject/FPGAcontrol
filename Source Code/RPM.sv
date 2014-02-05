@@ -55,14 +55,14 @@ module RPM(
 
 	reg [15:0]  numOfBlips = 0;
 
-	AccelSettingtReadback  rpmdata (
-		.probe (rpm),
-		.source ()
-		);
-	AccelSettingtReadback  rpmdata1 (
-		.probe (speed),
-		.source ()
-		);
+//	AccelSettingtReadback  rpmdata (
+//		.probe (rpm),
+//		.source ()
+//		);
+//	AccelSettingtReadback  rpmdata1 (
+//		.probe (speed),
+//		.source ()
+//		);
 
 	//	clock counter, always counts at posedge of the clock,
 	//	gets reset on posedge of blips
