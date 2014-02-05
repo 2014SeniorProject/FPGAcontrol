@@ -48,12 +48,11 @@ module I2C_MyNano(
 	output 	wire 				PWMout,
 	output 	wire 				waveFormsPin,
 
-	input 			[7:0]		heartRate,
 	input 	wire				blips,
 
 	output 	wire 				tx,		//Cell phone transmiting
-	input 	wire		 		rx,			//Cell phone receiving
-
+	input 	wire		 		rx,		//Cell phone receiving
+	
 	input	wire				leftBlinker,		//buttons in
 	input	wire				rightBlinker,		//buttons in
 	input	wire				headLight,			//buttons in
@@ -68,7 +67,33 @@ module I2C_MyNano(
 
 	input	wire				cadence,
 
-	output			[7:0]		DACout
+	output			[7:0]		DACout,
+	
+	//SDRAM
+	output		    [12:0]		DRAM_ADDR,
+	output		     [1:0]		DRAM_BA,
+	output		          		DRAM_CAS_N,
+	output		          		DRAM_CKE,
+	output		          		DRAM_CLK,
+	output		          		DRAM_CS_N,
+	inout 		    [15:0]		DRAM_DQ,
+	output		     [1:0]		DRAM_DQM,
+	output		          		DRAM_RAS_N,
+	output		          		DRAM_WE_N,
+	
+	//ANT UART
+	output 	wire 				ANT_tx,		//Cell phone transmiting
+	input 	wire		 		ANT_rx,		//Cell phone receiving
+	//ANT Configuration
+	output	wire	[2:0]		ANT_BaudRate,
+	output	wire				ANT_nTest,
+	output	wire				ANT_nReset,
+	output	wire				ANT_nSuspend,
+	output	wire				ANT_Sleep,
+	output	wire				ANT_PortSelect,
+	output	wire				ANT_RequestToSend,
+	output	wire				ANT_Reserved1,
+	output	wire				ANT_Reserved2
 );
 
 	//|
@@ -125,11 +150,21 @@ module I2C_MyNano(
 	wire						DBheadLight;
 	wire						DBhorn;
 
-
+	//|
+    //| ANT device assignments
+	//|--------------------------------------------
+    assign ANT_BaudRate = 3'b0;
+    assign ANT_nTest = 1'b0;
+    assign ANT_nReset = 1'b1;
+    assign ANT_nSuspend = 1'b1;
+    assign ANT_Sleep = 1'b0;
+    assign ANT_PortSelect = 1'b0;
+    assign ANT_Reserved1 = 1'b0;
+    assign ANT_Reserved2 = 1'b0;
+	
 	assign waveFormsPin = PWMout;
 	assign headLightOut = DBheadLight;
-
-
+	
 	always@(heartRateCap)
 	initialHeartCap = heartRateCap;
 
@@ -250,7 +285,7 @@ module I2C_MyNano(
 	);
 
 
-	BrakeLightController(
+	BrakeLightController BrakeLightController(
 		.c50M(CLOCK_50),
 		.brakeActive(brakes),
 		.headLightActive(headLightOut),
@@ -352,6 +387,43 @@ module I2C_MyNano(
 		.is_receiving(is_receiving), // Low when receive line is idle.
 		.is_transmitting(is_transmitting) // Low when transmit line is idle.
 	);
+	
+	//NIOS II CPU
+	CPU u0 (
+        .clk_clk      (c50m),      	//   clk.clk
+		
+		//Parallel data busses
+        .accx_export  (AccelX),  	//  accx.export
+        .accy_export  (AccelY),  	//  accy.export
+        .accz_export  (AccelZ),  	//  accz.export
+        .gyroy_export (GyroX), 		// gyroy.export
+        .gyrox_export (GyroY), 		// gyrox.export
+        .gyroz_export (GyroZ),  	// gyroz.export
+		
+		//SDRAM connections
+		.sdram_addr   (DRAM_ADDR),   // sdram.addr
+        .sdram_ba     (DRAM_BA),     //      .ba
+        .sdram_cas_n  (DRAM_CAS_N),  //      .cas_n
+        .sdram_cke    (DRAM_CKE),    //      .cke
+		.sdram_cs_n   (DRAM_CS_N),   //      .cs_n
+        .sdram_dq     (DRAM_DQ),     //      .dq
+        .sdram_dqm    (DRAM_DQM),    //      .dqm
+        .sdram_ras_n  (DRAM_RAS_N),  //      .ras_n
+        .sdram_we_n   (DRAM_WE_N),   //     .we_n
+		
+		.antuart_rxd  (ANT_rx),  	 // antuart.rxd
+        .antuart_txd  (ANT_tx)   	 //        .txd
+    );
+
+	PLL	PLL_inst (
+		.areset ( ),
+		.inclk0 ( CLOCK_50 ),
+		.c0 ( c50m ),
+		.c1 ( DRAM_CLK ),
+		.c2 (),
+		.locked ()
+	);
+
 endmodule
 
 

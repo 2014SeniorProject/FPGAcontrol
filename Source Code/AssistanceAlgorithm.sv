@@ -52,20 +52,20 @@ module AssistanceAlgorithm(
 );
 
 
-AccelSettingtReadback  pwmoutput (
-	.probe (PWMOut),
- );
-
-AccelSettingtReadback  BRAKE (
-	.probe (brake),
- );
- AccelSettingtReadback  CADENCE (
-	.probe (cadence),
- );
-
-  AccelSettingtReadback  HEARTRATE (
-	.probe (HeartRate),
- );
+//AccelSettingtReadback  pwmoutput (
+//	.probe (PWMOut),
+// );
+//
+//AccelSettingtReadback  BRAKE (
+//	.probe (brake),
+// );
+// AccelSettingtReadback  CADENCE (
+//	.probe (cadence),
+// );
+//
+//  AccelSettingtReadback  HEARTRATE (
+//	.probe (HeartRate),
+// );
 	//For testing only
 
 	//reg				[7:0]		HeartRate;

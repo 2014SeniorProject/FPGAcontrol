@@ -179,6 +179,34 @@ module IMUInterface(
 	assign GyroZ = {GyroZHB, GyroZLB};
 
 	//|
+	//| Device Read and Write Functions
+	//|-------------------------------------------------------------------------------------------------
+
+	//| Function: single byte write will return 1 when completed, otherwise zero. This is meant to allow this
+	//| function to be called multiple times while the operation complete
+	function bit SingleByteWrite([6:0] BusAddress, [7:0] RegisterAddress, toWrite);
+		if(FIRSTPASS == 0)
+			begin
+				GO = 1;
+				SD_COUNTER = 0;
+				I2CADDRESS = BusAddress;
+				RW_DIR = 0;
+				REGADDRESS = RegisterAddress;
+				DATAOUT = toWrite;
+				FIRSTPASS = 1;
+			end
+
+		if(WriteDone)
+			begin
+				WriteDone = 0;
+				FIRSTPASS = 0;
+				return 1;
+			end
+		else
+			return 0;
+	endfunction
+
+	//|
 	//| Structural coding
 	//|-------------------------------------------------------------------------------------------------
 	always @ (posedge CLOCK_50) COUNT = COUNT + 8'd1;
@@ -195,208 +223,18 @@ module IMUInterface(
 				case (StateControl)
 					//| Acceleromter initializtion states
 					//|-----------------------------------------------------------------------------------------
-					INTITIALIZE_A1: //First state should write 8'h00 to register 8'h2D (DATA RATE/POWER)
-						begin
-						if(FIRSTPASS == 0)
-							begin
-								GO=1;
-								SD_COUNTER = 0;
-								I2CADDRESS = ACCEL_ADDR;
-								RW_DIR = 0;
-								REGADDRESS = 8'h2D; //2d
-								DATAOUT = 8'h00;
-								FIRSTPASS = 1;
-							end
-
-							if(WriteDone)
-									begin
-									StateControl = INTITIALIZE_A2;
-									WriteDone = 0;
-									FIRSTPASS =0;
-									end
-							end
-
-					INTITIALIZE_A2: //Second state should write 8'h16 to register 8'h2D (DATA RATE/POWER)
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									I2CADDRESS = ACCEL_ADDR;
-									RW_DIR = 0;
-									SD_COUNTER = 0;
-									REGADDRESS = 8'h2D; //2d
-									DATAOUT = 8'h16;    //16
-									FIRSTPASS = 1;
-									end
-
-							if(WriteDone)
-									begin
-									WriteDone = 0;
-									StateControl = INTITIALIZE_A3;
-									FIRSTPASS =0;
-									end
-							end
-
-					INTITIALIZE_A3: //Third state should write 8'h08 to register 8'h2D  (DATA RATE/POWER)
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									I2CADDRESS = ACCEL_ADDR;
-									RW_DIR = 0;
-									SD_COUNTER = 0;
-									REGADDRESS = 8'h2D; //2d
-									DATAOUT = 8'h08;
-									FIRSTPASS = 1;
-									end
-
-							if(WriteDone)
-									begin
-									WriteDone = 0;
-									StateControl = INTITIALIZE_A4;
-									FIRSTPASS =0;
-									end
-							end
-
-					INTITIALIZE_A4: //Fouth state should write 8'h04 to register 8'h31 (FORMAT)
-							begin
-							if(FIRSTPASS == 0)
-							begin
-									I2CADDRESS = ACCEL_ADDR;
-									RW_DIR = 0;
-									SD_COUNTER = 0;
-									REGADDRESS = 8'h31; //31
-									DATAOUT = 8'b0000_1000;
-									FIRSTPASS = 1;
-							end
-
-							if(WriteDone)
-									begin
-									WriteDone = 0;
-									StateControl = INTITIALIZE_A5;
-									FIRSTPASS =0;
-									end
-							end
-
-					INTITIALIZE_A5: //Fifth state should write 8'h0F to register 8'h2C
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									I2CADDRESS = ACCEL_ADDR;
-									RW_DIR = 0;
-									SD_COUNTER = 0;
-									REGADDRESS = 8'h2C; //2c
-									DATAOUT = 8'b0000_1000; //| 400hz bandwidth
-									FIRSTPASS = 1;
-									end
-
-							if(WriteDone)
-									begin
-									WriteDone = 0;
-									StateControl = INTITIALIZE_G1;
-									FIRSTPASS =0;
-									end
-							end
-
-					INTITIALIZE_A6: //Fifth state should write 8'h0F to register 8'h2C
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									I2CADDRESS = ACCEL_ADDR;
-									RW_DIR = 0;
-									SD_COUNTER = 0;
-									REGADDRESS = 8'h38; //2c
-									DATAOUT = 8'b1000_1011; //| 400hz bandwidth
-									FIRSTPASS = 1;
-									end
-
-							if(WriteDone)
-									begin
-									WriteDone = 0;
-									StateControl = INTITIALIZE_G1;
-									FIRSTPASS =0;
-									end
-							end
+					INTITIALIZE_A1: if(SingleByteWrite(ACCEL_ADDR, 8'h2D, 8'h00)) StateControl = INTITIALIZE_A2;//First state should write 8'h00 to register 8'h2D (DATA RATE/POWER)
+					INTITIALIZE_A2: if(SingleByteWrite(ACCEL_ADDR, 8'h2D, 8'h16)) StateControl = INTITIALIZE_A3;//Second state should write 8'h16 to register 8'h2D (DATA RATE/POWER)
+					INTITIALIZE_A3: if(SingleByteWrite(ACCEL_ADDR, 8'h2D, 8'h08)) StateControl = INTITIALIZE_A4;//Third state should write 8'h08 to register 8'h2D  (DATA RATE/POWER)
+					INTITIALIZE_A4: if(SingleByteWrite(ACCEL_ADDR, 8'h31, 8'h08)) StateControl = INTITIALIZE_A5;//Fouth state should write 8'h04 to register 8'h31 (FORMAT)
+					INTITIALIZE_A5: if(SingleByteWrite(ACCEL_ADDR, 8'h2C, 8'h08)) StateControl = INTITIALIZE_G1;//Fifth state should write 8'h0F to register 8'h2C
 
 					//| Gyroscope initializtion states
 					//|-----------------------------------------------------------------------------------------
-					INTITIALIZE_G1: //Fouth state should write 8'h04 to register 8'h31 (FORMAT)
-							begin
-							if(FIRSTPASS == 0)
-							begin
-									I2CADDRESS = Gyro_ADDR;
-									RW_DIR = 0;
-									SD_COUNTER = 0;
-									REGADDRESS = 8'd62; //31
-									DATAOUT = 8'h0;
-									FIRSTPASS = 1;
-							end
-
-							if(WriteDone)
-									begin
-									WriteDone = 0;
-									StateControl = INTITIALIZE_G2;
-									FIRSTPASS =0;
-									end
-							end
-
-					INTITIALIZE_G2: //Fifth state should write 8'h0F to register 8'h2C
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									I2CADDRESS = Gyro_ADDR;
-									RW_DIR = 0;
-									SD_COUNTER = 0;
-									REGADDRESS = 8'd21; //2c
-									DATAOUT = 8'h04;
-									FIRSTPASS = 1;
-									end
-
-							if(WriteDone)
-									begin
-									WriteDone = 0;
-									StateControl = INTITIALIZE_G3;
-									FIRSTPASS =0;
-									end
-							end
-
-					INTITIALIZE_G3: //Fifth state should write 8'h0F to register 8'h2C
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									I2CADDRESS = Gyro_ADDR;
-									RW_DIR = 0;
-									SD_COUNTER = 0;
-									REGADDRESS = 8'd22; //2c
-									DATAOUT = 8'h1E;
-									FIRSTPASS = 1;
-									end
-
-							if(WriteDone)
-									begin
-									WriteDone = 0;
-									StateControl = INTITIALIZE_G4;
-									FIRSTPASS =0;
-									end
-							end
-
-							INTITIALIZE_G4: //Fifth state should write 8'h0F to register 8'h2C
-							begin
-							if(FIRSTPASS == 0)
-									begin
-									I2CADDRESS = Gyro_ADDR;
-									RW_DIR = 0;
-									SD_COUNTER = 0;
-									REGADDRESS = 8'd23; //2c
-									DATAOUT = 8'b0000_0000;
-									FIRSTPASS = 1;
-									end
-
-							if(WriteDone)
-									begin
-									WriteDone = 0;
-									StateControl = ReadAcceletometerXaxisLB;
-									FIRSTPASS =0;
-									end
-							end
+					INTITIALIZE_G1: if(SingleByteWrite(Gyro_ADDR, 8'h62, 8'h00)) StateControl = INTITIALIZE_G2;//Fouth state should write 8'h04 to register 8'h31 (FORMAT)
+					INTITIALIZE_G2: if(SingleByteWrite(Gyro_ADDR, 8'h21, 8'h04)) StateControl = INTITIALIZE_G3;//Fifth state should write 8'h0F to register 8'h2C
+					INTITIALIZE_G3: if(SingleByteWrite(Gyro_ADDR, 8'h22, 8'h1E)) StateControl = INTITIALIZE_G4;//Fifth state should write 8'h0F to register 8'h2C
+					INTITIALIZE_G4: if(SingleByteWrite(Gyro_ADDR, 8'h23, 8'h00)) StateControl = ReadAcceletometerXaxisLB;//Fifth state should write 8'h0F to register 8'h2C
 
 					//| Acceleromter debug readback states
 					//|-----------------------------------------------------------------------------------------
@@ -559,6 +397,7 @@ module IMUInterface(
 									REGADDRESS = 8'd54;
 									FIRSTPASS = 1;
 								end
+
 							if(ReadDone)
 								begin
 									StateControl = ReadAcceletometerZaxisHB;

@@ -1,0 +1,11 @@
+Info (10281): Verilog HDL Declaration information at CPU_mm_interconnect_0_id_router_009.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at CPU_mm_interconnect_0_id_router_009.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at CPU_mm_interconnect_0_id_router.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at CPU_mm_interconnect_0_id_router.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at CPU_mm_interconnect_0_addr_router.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at CPU_mm_interconnect_0_addr_router.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
+Warning (10268): Verilog HDL information at LowPassFilterAverage.sv(84): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at I2C_MyNano.sv(57): object "rightBlinker" differs only in case from object "RightBlinker" in the same scope
+Info (10281): Verilog HDL Declaration information at I2C_MyNano.sv(56): object "leftBlinker" differs only in case from object "LeftBlinker" in the same scope
+Info (10281): Verilog HDL Declaration information at I2C_MyNano.sv(58): object "headLight" differs only in case from object "HeadLight" in the same scope
+Info (10281): Verilog HDL Declaration information at I2C_MyNano.sv(59): object "horn" differs only in case from object "Horn" in the same scope
