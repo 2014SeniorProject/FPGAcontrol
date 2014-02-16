@@ -38,21 +38,26 @@
 //`include "timescale.sv"
 
 module SmartBike_TOP(
-	input						CLOCK_50,		//This is the system clock that comes in at 50mhz
+	input						CLOCK_50,
 
-	output 			[7:0]		LED,				//This is a register that is used to show the data that was read from the EEPROM in binary.
+	output 			[7:0]		LED,
 
+	//IMU I2C
 	inout	wire 				IMU_SCL,		//IMU I2C Clock line
 	inout	wire				IMU_SDA,		//IMU I2C Data Line
-
+	
+	//Motor controller outputs
 	output 	wire 				PWMout,
 	output 	wire 				waveFormsPin,
 
+	//RPM Calculation
 	input 	wire				blips,
 
+	//Cellphone Communication
 	output 	wire 				tx,		//Cell phone transmiting
 	input 	wire		 		rx,		//Cell phone receiving
 	
+	//Safety Systems
 	input	wire				leftBlinker,		//buttons in
 	input	wire				rightBlinker,		//buttons in
 	input	wire				headLight,			//buttons in
@@ -65,8 +70,10 @@ module SmartBike_TOP(
 	output	wire				headLightOut,
 	output	wire				brakeLightOut,
 
+	//User's pedal cadence input
 	input	wire				cadence,
-
+	
+	//DAC output
 	output			[7:0]		DACout,
 	
 	//SDRAM
@@ -84,6 +91,7 @@ module SmartBike_TOP(
 	//ANT UART
 	output 	wire 				ANT_tx,		//Cell phone transmiting
 	input 	wire		 		ANT_rx,		//Cell phone receiving
+	
 	//ANT Configuration
 	output	wire	[2:0]		ANT_BaudRate,
 	output	wire				ANT_nTest,
@@ -93,7 +101,14 @@ module SmartBike_TOP(
 	output	wire				ANT_PortSelect,
 	output	wire				ANT_RequestToSend,
 	output	wire				ANT_Reserved1,
-	output	wire				ANT_Reserved2
+	output	wire				ANT_Reserved2,
+	
+	//| ADC I/O
+	output	wire				ADC_CS_N,
+	output  wire				ADC_SADDR,
+	output  wire				ADC_SCLK,
+	input   wire				ADC_SDAT
+	
 );
 
 	//|
@@ -126,6 +141,7 @@ module SmartBike_TOP(
 	//| Motor output
 	wire 		[9:0]			PWMinput;
 
+	//| Dataready signals from filters
 	wire						LowPassDataReady;
 	wire						HighPassDataReady;
 
@@ -150,23 +166,24 @@ module SmartBike_TOP(
 	wire						DBheadLight;
 	wire						DBhorn;
 
+
 	//|
     //| ANT device assignments
 	//|--------------------------------------------
-    assign ANT_BaudRate = 3'b0;
-    assign ANT_nTest = 1'b0;
-    assign ANT_nReset = 1'b1;
-    assign ANT_nSuspend = 1'b1;
-    assign ANT_Sleep = 1'b0;
-    assign ANT_PortSelect = 1'b0;
-    assign ANT_Reserved1 = 1'b0;
-    assign ANT_Reserved2 = 1'b0;
+    assign ANT_BaudRate 	= 3'b0;
+    assign ANT_nTest 		= 1'b0;
+    assign ANT_nReset 		= 1'b1;
+    assign ANT_nSuspend 	= 1'b1;
+    assign ANT_Sleep 	  	= 1'b0;
+    assign ANT_PortSelect 	= 1'b0;
+    assign ANT_Reserved1	= 1'b0;
+    assign ANT_Reserved2 	= 1'b0;
 	
 	assign waveFormsPin = PWMout;
 	assign headLightOut = DBheadLight;
 	
 	always@(heartRateCap)
-	initialHeartCap = heartRateCap;
+		initialHeartCap = heartRateCap;
 
 	//|
 	//| IMU-I2C controller module
@@ -230,12 +247,12 @@ module SmartBike_TOP(
 	//|
 	//| Motor RPM calculation
 	//|--------------------------------------------
-	RPM rpmCalc (
-		.rpm(),
-		.clk50M(CLOCK_50),
-		.blips(blips),
-		.rpmPhone(RPMnumber)
-	);
+//	RPM rpmCalc (
+//		.rpm(),
+//		.clk50M(CLOCK_50),
+//		.blips(blips),
+//		.rpmPhone(RPMnumber)
+//	);
 
 	//|
 	//| Horn Controller
@@ -359,6 +376,16 @@ module SmartBike_TOP(
 		.PWMout(LED[5])
 	);
 
+	ADC_CTRL ADC(
+		.c1m(ADC_CLK),
+		
+		.SPI_IN(ADC_SDAT),
+		.CS_n(ADC_CS_N),
+		.SCLK_OUT(ADC_SCLK),
+		.Data_OUT(ADC_SADDR)
+	);
+	
+	
 	//|
 	//| Cell phone communication
 	//|---------------------------------------------
@@ -420,7 +447,7 @@ module SmartBike_TOP(
 		.inclk0 ( CLOCK_50 ),
 		.c0 ( c50m ),
 		.c1 ( DRAM_CLK ),
-		.c2 (),
+		.c2 ( ADC_CLK),
 		.locked ()
 	);
 

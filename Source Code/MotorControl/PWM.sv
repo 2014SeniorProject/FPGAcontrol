@@ -51,7 +51,7 @@ module PWMGenerator(
 
 	//| These deal with the timing of the PWM output. CLOCKslow slows down
 	reg 		[7:0]		CLOCKslow =0;
-	reg 		[15:0] 	COUNT = 0;
+	reg 		[15:0] 		COUNT = 0;
 	reg			[9:0]		Setting = 0;
 
 	//| Clock divider for output signal

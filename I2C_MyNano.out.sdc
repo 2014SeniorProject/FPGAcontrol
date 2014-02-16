@@ -19,7 +19,7 @@
 ## PROGRAM "Quartus II"
 ## VERSION "Version 13.1.2 Build 173 01/15/2014 SJ Web Edition"
 
-## DATE    "Sat Feb 01 17:35:20 2014"
+## DATE    "Sat Feb 15 22:27:53 2014"
 
 ##
 ## DEVICE  "EP4CE22F17C6"
@@ -40,12 +40,16 @@ set_time_format -unit ns -decimal_places 3
 
 create_clock -name {altera_reserved_tck} -period 100.000 -waveform { 0.000 50.000 } [get_ports {altera_reserved_tck}]
 create_clock -name {CLOCK_50} -period 20.000 -waveform { 0.000 10.000 } [get_ports {CLOCK_50}]
+create_clock -name {IMUDataValid} -period 10000.000 -waveform { 0.000 5000.000 } [get_nets {IMU|DataValid}]
 
 
 #**************************************************************
 # Create Generated Clock
 #**************************************************************
 
+create_generated_clock -name {PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]} -source [get_pins {PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {CLOCK_50} [get_pins {PLL_inst|altpll_component|auto_generated|pll1|clk[0]}] 
+create_generated_clock -name {PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[1]} -source [get_pins {PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -phase -54.000 -master_clock {CLOCK_50} [get_pins {PLL_inst|altpll_component|auto_generated|pll1|clk[1]}] 
+create_generated_clock -name {PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]} -source [get_pins {PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 50 -master_clock {CLOCK_50} [get_pins {PLL_inst|altpll_component|auto_generated|pll1|clk[2]}] 
 
 
 #**************************************************************
@@ -58,14 +62,14 @@ create_clock -name {CLOCK_50} -period 20.000 -waveform { 0.000 10.000 } [get_por
 # Set Clock Uncertainty
 #**************************************************************
 
-set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.020  
-set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.020  
-set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.020  
-set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.020  
 set_clock_uncertainty -rise_from [get_clocks {CLOCK_50}] -rise_to [get_clocks {CLOCK_50}]  0.100  
 set_clock_uncertainty -rise_from [get_clocks {CLOCK_50}] -fall_to [get_clocks {CLOCK_50}]  0.100  
 set_clock_uncertainty -fall_from [get_clocks {CLOCK_50}] -rise_to [get_clocks {CLOCK_50}]  0.100  
 set_clock_uncertainty -fall_from [get_clocks {CLOCK_50}] -fall_to [get_clocks {CLOCK_50}]  0.100  
+set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.020  
 
 
 #**************************************************************
@@ -84,6 +88,10 @@ set_clock_uncertainty -fall_from [get_clocks {CLOCK_50}] -fall_to [get_clocks {C
 # Set Clock Groups
 #**************************************************************
 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
 set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
 set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
 
@@ -105,8 +113,6 @@ set_false_path -from [get_registers {*|alt_jtag_atlantic:*|write_valid}]
 set_false_path -from [get_registers {*|alt_jtag_atlantic:*|rdata[*]}] -to [get_registers {*|alt_jtag_atlantic*|td_shift[*]}]
 set_false_path -from [get_registers {*|alt_jtag_atlantic:*|rvalid}] -to [get_registers {*|alt_jtag_atlantic*|td_shift[*]}]
 set_false_path -to [get_keepers {*altera_std_synchronizer:*|din_s1}]
-set_false_path -from [get_keepers {altera_reserved_tdi}] -to [get_keepers {pzdyqx*}]
-set_false_path -to [get_pins -nocase -compatibility_mode {*|alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn}]
 set_false_path -from [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_nios2_oci_break:the_CPU_nios2_qsys_0_nios2_oci_break|break_readreg*}] -to [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|CPU_nios2_qsys_0_jtag_debug_module_tck:the_CPU_nios2_qsys_0_jtag_debug_module_tck|*sr*}]
 set_false_path -from [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_nios2_oci_debug:the_CPU_nios2_qsys_0_nios2_oci_debug|*resetlatch}] -to [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|CPU_nios2_qsys_0_jtag_debug_module_tck:the_CPU_nios2_qsys_0_jtag_debug_module_tck|*sr[33]}]
 set_false_path -from [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_nios2_oci_debug:the_CPU_nios2_qsys_0_nios2_oci_debug|monitor_ready}] -to [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|CPU_nios2_qsys_0_jtag_debug_module_tck:the_CPU_nios2_qsys_0_jtag_debug_module_tck|*sr[0]}]
@@ -115,9 +121,7 @@ set_false_path -from [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oc
 set_false_path -from [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|CPU_nios2_qsys_0_jtag_debug_module_tck:the_CPU_nios2_qsys_0_jtag_debug_module_tck|*sr*}] -to [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|CPU_nios2_qsys_0_jtag_debug_module_sysclk:the_CPU_nios2_qsys_0_jtag_debug_module_sysclk|*jdo*}]
 set_false_path -from [get_keepers {sld_hub:*|irf_reg*}] -to [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|CPU_nios2_qsys_0_jtag_debug_module_sysclk:the_CPU_nios2_qsys_0_jtag_debug_module_sysclk|ir*}]
 set_false_path -from [get_keepers {sld_hub:*|sld_shadow_jsm:shadow_jsm|state[1]}] -to [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_nios2_oci_debug:the_CPU_nios2_qsys_0_nios2_oci_debug|monitor_go}]
-set_false_path -from [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_nios2_oci_break:the_CPU_nios2_qsys_0_nios2_oci_break|dbrk_hit?_latch}] -to [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|CPU_nios2_qsys_0_jtag_debug_module_tck:the_CPU_nios2_qsys_0_jtag_debug_module_tck|*sr*}]
-set_false_path -from [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_nios2_oci_break:the_CPU_nios2_qsys_0_nios2_oci_break|trigbrktype}] -to [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|CPU_nios2_qsys_0_jtag_debug_module_tck:the_CPU_nios2_qsys_0_jtag_debug_module_tck|*sr*}]
-set_false_path -from [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_nios2_oci_break:the_CPU_nios2_qsys_0_nios2_oci_break|trigger_state}] -to [get_keepers {*CPU_nios2_qsys_0:*|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|CPU_nios2_qsys_0_jtag_debug_module_tck:the_CPU_nios2_qsys_0_jtag_debug_module_tck|*sr*}]
+set_false_path -to [get_pins -nocase -compatibility_mode {*|alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn}]
 
 
 #**************************************************************
