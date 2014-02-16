@@ -3,20 +3,19 @@
  <debug showDebugMenu="0" />
  <systemtable>
   <columns>
-   <connections preferredWidth="111" />
+   <connections preferredWidth="47" />
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
  <clocktable>
   <columns>
-   <clockname preferredWidth="183" />
-   <clocksource preferredWidth="183" />
-   <frequency preferredWidth="163" />
+   <clockname preferredWidth="355" />
+   <clocksource preferredWidth="355" />
+   <frequency preferredWidth="335" />
   </columns>
  </clocktable>
- <window width="1936" height="1186" x="-8" y="-8" />
- <library
-   expandedCategories="Project,Library,Library/Peripherals/Microcontroller Peripherals,Library/Peripherals" />
+ <window width="1920" height="1130" x="0" y="0" />
+ <library expandedCategories="Library,Project" />
  <generation
    path="//psf/Home/Documents/GithubRepositories/FPGAcontrol/CPU_Generation"
    block_symbol_file="0" />
