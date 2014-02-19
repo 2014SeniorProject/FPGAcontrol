@@ -45,7 +45,7 @@ module SmartBike_TOP(
 	//IMU I2C
 	inout	wire 				IMU_SCL,		//IMU I2C Clock line
 	inout	wire				IMU_SDA,		//IMU I2C Data Line
-	
+
 	//Motor controller outputs
 	output 	wire 				PWMout,
 	output 	wire 				waveFormsPin,
@@ -56,7 +56,7 @@ module SmartBike_TOP(
 	//Cellphone Communication
 	output 	wire 				tx,		//Cell phone transmiting
 	input 	wire		 		rx,		//Cell phone receiving
-	
+
 	//Safety Systems
 	input	wire				leftBlinker,		//buttons in
 	input	wire				rightBlinker,		//buttons in
@@ -72,10 +72,10 @@ module SmartBike_TOP(
 
 	//User's pedal cadence input
 	input	wire				cadence,
-	
+
 	//DAC output
 	output			[7:0]		DACout,
-	
+
 	//SDRAM
 	output		    [12:0]		DRAM_ADDR,
 	output		     [1:0]		DRAM_BA,
@@ -87,11 +87,11 @@ module SmartBike_TOP(
 	output		     [1:0]		DRAM_DQM,
 	output		          		DRAM_RAS_N,
 	output		          		DRAM_WE_N,
-	
+
 	//ANT UART
 	output 	wire 				ANT_tx,		//Cell phone transmiting
 	input 	wire		 		ANT_rx,		//Cell phone receiving
-	
+
 	//ANT Configuration
 	output	wire	[2:0]		ANT_BaudRate,
 	output	wire				ANT_nTest,
@@ -102,13 +102,13 @@ module SmartBike_TOP(
 	output	wire				ANT_RequestToSend,
 	output	wire				ANT_Reserved1,
 	output	wire				ANT_Reserved2,
-	
+
 	//| ADC I/O
 	output	wire				ADC_CS_N,
 	output  wire				ADC_SADDR,
 	output  wire				ADC_SCLK,
 	input   wire				ADC_SDAT
-	
+
 );
 
 	//|
@@ -166,7 +166,9 @@ module SmartBike_TOP(
 	wire						DBheadLight;
 	wire						DBhorn;
 
-
+	//| ADC data
+	logic   	[11:0]    		adc_data[6:0];
+	
 	//|
     //| ANT device assignments
 	//|--------------------------------------------
@@ -178,10 +180,10 @@ module SmartBike_TOP(
     assign ANT_PortSelect 	= 1'b0;
     assign ANT_Reserved1	= 1'b0;
     assign ANT_Reserved2 	= 1'b0;
-	
+
 	assign waveFormsPin = PWMout;
 	assign headLightOut = DBheadLight;
-	
+
 	always@(heartRateCap)
 		initialHeartCap = heartRateCap;
 
@@ -204,7 +206,9 @@ module SmartBike_TOP(
 	//|
 	//| IMU processing modules
 	//|--------------------------------------------
-	LowPassFilter AccelerometerFilter(
+	LowPassFilterAverage #(
+		.FilterLength(50)
+	)AccelerometerFilter(
 		.ReadDone(IMUDataReady),
 		.AccelX(AccelX),
 		.AccelY(AccelY),
@@ -247,12 +251,12 @@ module SmartBike_TOP(
 	//|
 	//| Motor RPM calculation
 	//|--------------------------------------------
-//	RPM rpmCalc (
-//		.rpm(),
-//		.clk50M(CLOCK_50),
-//		.blips(blips),
-//		.rpmPhone(RPMnumber)
-//	);
+	RPM rpmCalc (
+		.rpm(),
+		.clk50M(c1m),
+		.blips(blips),
+		.rpmPhone(RPMnumber)
+	);
 
 	//|
 	//| Horn Controller
@@ -378,19 +382,21 @@ module SmartBike_TOP(
 
 	ADC_CTRL ADC(
 		.c1m(ADC_CLK),
-		
+
 		.SPI_IN(ADC_SDAT),
 		.CS_n(ADC_CS_N),
 		.SCLK_OUT(ADC_SCLK),
-		.Data_OUT(ADC_SADDR)
+		.Data_OUT(ADC_SADDR),
+
+		.adc_data(adc_data)
 	);
-	
-	
+
+
 	//|
 	//| Cell phone communication
 	//|---------------------------------------------
 	wireless CellPhoneProtocol(
-		.clk(CLOCK_50),
+		.clk(c50m),
 		.transmit(transmit), // Signal to transmit
 		.tx_byte(tx_byte), // Byte to transmit
 		.received(received), // Indicated that a byte has been received.
@@ -400,11 +406,12 @@ module SmartBike_TOP(
 		.heartRate(heartRate),
 		.heartCap(heartRateCap),
 		.resolvedAngle(PWMinput),
-		.speed(RPMnumber)
+		.speed(RPMnumber),
+		.ADC(adc_data[0])
 	);
 
 	uart	Bluetooth(
-		.clk(CLOCK_50),
+		.clk(c50m),
 		.rx(rx),
 		.tx(tx),
 		.transmit(transmit), // Signal to transmit
@@ -414,19 +421,11 @@ module SmartBike_TOP(
 		.is_receiving(is_receiving), // Low when receive line is idle.
 		.is_transmitting(is_transmitting) // Low when transmit line is idle.
 	);
-	
+
 	//NIOS II CPU
 	CPU u0 (
         .clk_clk      (c50m),      	//   clk.clk
-		
-		//Parallel data busses
-        .accx_export  (AccelX),  	//  accx.export
-        .accy_export  (AccelY),  	//  accy.export
-        .accz_export  (AccelZ),  	//  accz.export
-        .gyroy_export (GyroX), 		// gyroy.export
-        .gyrox_export (GyroY), 		// gyrox.export
-        .gyroz_export (GyroZ),  	// gyroz.export
-		
+
 		//SDRAM connections
 		.sdram_addr   (DRAM_ADDR),   // sdram.addr
         .sdram_ba     (DRAM_BA),     //      .ba
@@ -436,18 +435,21 @@ module SmartBike_TOP(
         .sdram_dq     (DRAM_DQ),     //      .dq
         .sdram_dqm    (DRAM_DQM),    //      .dqm
         .sdram_ras_n  (DRAM_RAS_N),  //      .ras_n
-        .sdram_we_n   (DRAM_WE_N),   //     .we_n
-		
+        .sdram_we_n   (DRAM_WE_N),   //      .we_n
+
 		.antuart_rxd  (ANT_rx),  	 // antuart.rxd
-        .antuart_txd  (ANT_tx)   	 //        .txd
+        .antuart_txd  (ANT_tx),   	 //        .txds
+
+		.heartrateoutput_export (heartRate)
     );
 
 	PLL	PLL_inst (
 		.areset ( ),
-		.inclk0 ( CLOCK_50 ),
-		.c0 ( c50m ),
-		.c1 ( DRAM_CLK ),
-		.c2 ( ADC_CLK),
+		.inclk0 (CLOCK_50),
+		.c0 (c50m),
+		.c1 (DRAM_CLK),
+		.c2 (ADC_CLK),
+		.c3 (c100k),
 		.locked ()
 	);
 

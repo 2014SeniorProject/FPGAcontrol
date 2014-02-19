@@ -41,7 +41,8 @@
 //`include "timescale.sv"
 
 module wireless(
-  	input 					clk, 				// The master clock for this module
+  	input 					clk, 			// The master clock for this module
+
 	output 	reg 			transmit, 		// Signal to transmit
 	output 	reg 	[7:0] 	tx_byte, 		// Byte to transmit
 	input 					received, 		// Indicated that a byte has been received.
@@ -49,9 +50,12 @@ module wireless(
 	input 					is_receiving,	// Low when receive line is idle.
 	input 					is_transmitting,// Low when transmit line is idle.
 	input 					recv_error, 	// Indicates error in receiving packet.
+
 	input 			[7:0]	heartRate,
 	input			[9:0]	resolvedAngle,
 	input			[7:0]	speed,
+	input			[11:0]	ADC,
+
 	output 	reg		[7:0]	wheelSize,
 	output  reg		[7:0]	heartCap = 200
 );
@@ -61,11 +65,14 @@ module wireless(
 	localparam SEND_ANGLE_SIGN = 10'd2;
 	localparam SEND_ANGLE_VALUE = 10'd3;
 	localparam SEND_SPEED = 10'd4;
+	localparam SEND_ADCL = 10'd7;
+	localparam SEND_ADCH = 10'd8;
+
 	localparam INIT_HEART = 10'd5;
 	localparam INIT_WHEEL = 10'd6;
+
 	localparam SET_HEART = 10'b10xxxxxxxx;
 	localparam SET_WHEEL = 10'b01xxxxxxxx;
-
 
 	reg				 initialize_heart = 1'b0;
 	reg				 initialize_wheel = 1'b0;
@@ -135,11 +142,19 @@ module wireless(
 							end
 						SET_WHEEL:
 							begin
-							  wheelSize = rx_byte;
+							  	wheelSize = rx_byte;
 								initialize_wheel = 1'b0;
 								tx_byte = 8'd1;
 							end
-						default: 		//If there is an error in the blue tooth transmission, just send back a 0.
+						SEND_ADCL:
+							begin
+								tx_byte = ADC[7:0];
+							end
+						SEND_ADCH:
+							begin
+							  	tx_byte = {4'd0, ADC[11:8]};
+							end
+						default: 		//If there is an error in the bluetooth transmission, just send back a 0.
 								tx_byte = 8'd0;
 					endcase
 

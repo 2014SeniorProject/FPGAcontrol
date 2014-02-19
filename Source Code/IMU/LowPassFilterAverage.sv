@@ -40,10 +40,8 @@
 //`include "debug.sv"
 //`include "timescale.sv"
 
-parameter FilterLength = 200;			//number of filter samples - works out to be 1s at our current data rate
-
-module LowPassFilter(
-	input 				  				 ReadDone,				//module runs off this as it's clock.
+module LowPassFilterAverage(
+	input 				  			ReadDone,				//module runs off this as it's clock.
 
 	//| IMU inputs
 	input   wire   signed [9:0]    AccelX,
@@ -57,6 +55,9 @@ module LowPassFilter(
 
 	output	reg										 DataReady
 );
+
+	
+	parameter FilterLength = 200;			//number of filter samples - works out to be 1s at our current data rate
 
 	`ifdef debug
 //		AccelSettingtReadback  xaxis (.probe (AccelX));

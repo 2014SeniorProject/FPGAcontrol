@@ -14,8 +14,9 @@
    <frequency preferredWidth="335" />
   </columns>
  </clocktable>
- <window width="1920" height="1130" x="0" y="0" />
- <library expandedCategories="Project,Library" />
+ <window width="1440" height="774" x="0" y="0" />
+ <library
+   expandedCategories="Library/Peripherals/Microcontroller Peripherals,Library/Peripherals,Library,Project" />
  <generation
    path="//psf/Home/Documents/GithubRepositories/FPGAcontrol/CPU_Generation"
    block_symbol_file="0" />

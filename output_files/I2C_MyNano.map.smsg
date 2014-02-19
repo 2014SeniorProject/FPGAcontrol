@@ -1,5 +1,4 @@
-Warning (10268): Verilog HDL information at ADC_CTRL.sv(43): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at LowPassFilterAverage.sv(84): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at LowPassFilterAverage.sv(85): always construct contains both blocking and non-blocking assignments
 Info (10281): Verilog HDL Declaration information at SmartBike_TOP.sv(62): object "rightBlinker" differs only in case from object "RightBlinker" in the same scope
 Info (10281): Verilog HDL Declaration information at SmartBike_TOP.sv(61): object "leftBlinker" differs only in case from object "LeftBlinker" in the same scope
 Info (10281): Verilog HDL Declaration information at SmartBike_TOP.sv(63): object "headLight" differs only in case from object "HeadLight" in the same scope
@@ -8,5 +7,5 @@ Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_addr_
 Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_addr_router.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
 Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_id_router.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
 Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_id_router.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
-Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_id_router_009.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
-Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_id_router_009.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_id_router_003.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
+Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_id_router_003.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope

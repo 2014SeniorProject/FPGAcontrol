@@ -9,13 +9,13 @@
  </systemtable>
  <clocktable>
   <columns>
-   <clockname preferredWidth="355" />
-   <clocksource preferredWidth="355" />
-   <frequency preferredWidth="335" />
+   <clockname preferredWidth="266" />
+   <clocksource preferredWidth="266" />
+   <frequency preferredWidth="251" />
   </columns>
  </clocktable>
- <window width="1920" height="1130" x="0" y="0" />
- <library expandedCategories="Library,Project" />
+ <window width="1440" height="774" x="0" y="0" />
+ <library expandedCategories="Project,Library" />
  <generation
    path="//psf/Home/Documents/GithubRepositories/FPGAcontrol/CPU_Generation"
    block_symbol_file="0" />
