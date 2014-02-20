@@ -72,8 +72,8 @@ VCCIO8                       : A1        : power  :                   : 2.5V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : A2        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A3        :        :                   :         : 8         :                
 rx                           : A4        : input  : 2.5 V             :         : 8         : Y              
-DACout[1]                    : A5        : output : 2.5 V             :         : 8         : N              
-DACout[6]                    : A6        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A5        :        :                   :         : 8         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : A6        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A7        :        :                   :         : 8         :                
 GND+                         : A8        :        :                   :         : 8         :                
 ADC_SDAT                     : A9        : input  : 2.5 V             :         : 7         : Y              
@@ -89,8 +89,8 @@ GND                          : B2        : gnd    :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : B3        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B4        :        :                   :         : 8         :                
 tx                           : B5        : output : 2.5 V             :         : 8         : Y              
-DACout[3]                    : B6        : output : 2.5 V             :         : 8         : N              
-DACout[2]                    : B7        : output : 2.5 V             :         : 8         : N              
+headLight                    : B6        : input  : 2.5 V             :         : 8         : N              
+brakes                       : B7        : input  : 2.5 V             :         : 8         : N              
 GND+                         : B8        :        :                   :         : 8         :                
 GND+                         : B9        :        :                   :         : 7         :                
 ADC_SADDR                    : B10       : output : 2.5 V             :         : 7         : Y              
@@ -99,13 +99,13 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : B12       :        :                   :      
 LED[2]                       : B13       : output : 2.5 V             :         : 7         : Y              
 ADC_SCLK                     : B14       : output : 2.5 V             :         : 7         : Y              
 GND                          : B15       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B16       :        :                   :         : 6         :                
+DACout[0]                    : B16       : output : 2.5 V             :         : 6         : N              
 ~ALTERA_ASDO_DATA1~ / RESERVED_INPUT_WITH_WEAK_PULLUP : C1        : input  : 2.5 V             :         : 1         : N              
 DRAM_WE_N                    : C2        : output : 2.5 V             :         : 1         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : C3        :        :                   :         : 8         :                
 VCCIO8                       : C4        : power  :                   : 2.5V    : 8         :                
 GND                          : C5        : gnd    :                   :         :           :                
-DACout[4]                    : C6        : output : 2.5 V             :         : 8         : N              
+brakeLightOut                : C6        : output : 2.5 V             :         : 8         : N              
 VCCIO8                       : C7        : power  :                   : 2.5V    : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C8        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C9        :        :                   :         : 7         :                
@@ -113,9 +113,9 @@ VCCIO7                       : C10       : power  :                   : 2.5V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : C11       :        :                   :         : 7         :                
 GND                          : C12       : gnd    :                   :         :           :                
 VCCIO7                       : C13       : power  :                   : 2.5V    : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C14       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C15       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C16       :        :                   :         : 6         :                
+DACout[7]                    : C14       : output : 2.5 V             :         : 7         : N              
+DACout[2]                    : C15       : output : 2.5 V             :         : 6         : N              
+DACout[1]                    : C16       : output : 2.5 V             :         : 6         : N              
 LED[4]                       : D1        : output : 2.5 V             :         : 1         : Y              
 ~ALTERA_FLASH_nCE_nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : D2        : input  : 2.5 V             :         : 1         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : D3        :        :                   :         : 8         :                
@@ -127,19 +127,19 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : D8        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : D9        :        :                   :         : 7         :                
 GND                          : D10       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D11       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D12       :        :                   :         : 7         :                
+DACout[4]                    : D12       : output : 2.5 V             :         : 7         : N              
 VCCD_PLL2                    : D13       : power  :                   : 1.2V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D14       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D15       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D16       :        :                   :         : 6         :                
+leftBlinker                  : D14       : input  : 2.5 V             :         : 7         : N              
+horn                         : D15       : input  : 2.5 V             :         : 6         : N              
+DACout[6]                    : D16       : output : 2.5 V             :         : 6         : N              
 GND+                         : E1        :        :                   :         : 1         :                
 GND                          : E2        : gnd    :                   :         :           :                
 VCCIO1                       : E3        : power  :                   : 2.5V    : 1         :                
 GND                          : E4        : gnd    :                   :         :           :                
 GNDA3                        : E5        : gnd    :                   :         :           :                
-horn                         : E6        : input  : 2.5 V             :         : 8         : N              
-DACout[7]                    : E7        : output : 2.5 V             :         : 8         : N              
-DACout[0]                    : E8        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E6        :        :                   :         : 8         :                
+headLightOut                 : E7        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E8        :        :                   :         : 8         :                
 ANT_BaudRate[2]              : E9        : output : 2.5 V             :         : 7         : Y              
 PWMout                       : E10       : output : 2.5 V             :         : 7         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : E11       :        :                   :         : 7         :                
@@ -155,14 +155,14 @@ nSTATUS                      : F4        :        :                   :         
 VCCA3                        : F5        : power  :                   : 2.5V    :           :                
 GND                          : F6        : gnd    :                   :         :           :                
 VCCINT                       : F7        : power  :                   : 1.2V    :           :                
-DACout[5]                    : F8        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F8        :        :                   :         : 8         :                
 ANT_BaudRate[1]              : F9        : output : 2.5 V             :         : 7         : Y              
 GND                          : F10       : gnd    :                   :         :           :                
 VCCINT                       : F11       : power  :                   : 1.2V    :           :                
 VCCA2                        : F12       : power  :                   : 2.5V    :           :                
 IMU_SCL                      : F13       : bidir  : 2.5 V             :         : 6         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : F14       :        :                   :         : 6         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F15       :        :                   :         : 6         :                
+DACout[5]                    : F14       : output : 2.5 V             :         : 6         : N              
+DACout[3]                    : F15       : output : 2.5 V             :         : 6         : N              
 ~ALTERA_nCEO~ / RESERVED_OUTPUT_OPEN_DRAIN : F16       : output : 2.5 V             :         : 6         : N              
 DRAM_DQ[1]                   : G1        : bidir  : 2.5 V             :         : 1         : Y              
 DRAM_DQ[0]                   : G2        : bidir  : 2.5 V             :         : 1         : Y              
@@ -179,7 +179,7 @@ MSEL2                        : G12       :        :                   :         
 GND                          : G13       : gnd    :                   :         :           :                
 VCCIO6                       : G14       : power  :                   : 2.5V    : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : G15       :        :                   :         : 6         :                
-rightBlinker                 : G16       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G16       :        :                   :         : 6         :                
 ~ALTERA_DCLK~                : H1        : output : 2.5 V             :         : 1         : N              
 ~ALTERA_DATA0~ / RESERVED_INPUT_WITH_WEAK_PULLUP : H2        : input  : 2.5 V             :         : 1         : N              
 altera_reserved_tck          : H3        : input  : 2.5 V             :         : 1         : N              
@@ -210,8 +210,8 @@ GND                          : J11       : gnd    :                   :         
 VCCINT                       : J12       : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J13       :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J14       :        :                   :         : 5         :                
-brakes                       : J15       : input  : 2.5 V             :         : 5         : N              
-brakeLightOut                : J16       : output : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : J15       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : J16       :        :                   :         : 5         :                
 DRAM_DQ[15]                  : K1        : bidir  : 2.5 V             :         : 2         : Y              
 DRAM_DQ[4]                   : K2        : bidir  : 2.5 V             :         : 2         : Y              
 VCCIO2                       : K3        : power  :                   : 2.5V    : 2         :                
@@ -226,8 +226,8 @@ VCCINT                       : K11       : power  :                   : 1.2V    
 GND                          : K12       : gnd    :                   :         :           :                
 GND                          : K13       : gnd    :                   :         :           :                
 VCCIO5                       : K14       : power  :                   : 2.5V    : 5         :                
-headLight                    : K15       : input  : 2.5 V             :         : 5         : N              
-headLightOut                 : K16       : output : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K15       :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : K16       :        :                   :         : 5         :                
 DRAM_CAS_N                   : L1        : output : 2.5 V             :         : 2         : Y              
 DRAM_RAS_N                   : L2        : output : 2.5 V             :         : 2         : Y              
 LED[7]                       : L3        : output : 2.5 V             :         : 2         : Y              
@@ -286,7 +286,7 @@ VCCIO3                       : P7        : power  :                   : 2.5V    
 DRAM_ADDR[4]                 : P8        : output : 2.5 V             :         : 3         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : P9        :        :                   :         : 4         :                
 VCCIO4                       : P10       : power  :                   : 2.5V    : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : P11       :        :                   :         : 4         :                
+rightBlinker                 : P11       : input  : 2.5 V             :         : 4         : N              
 GND                          : P12       : gnd    :                   :         :           :                
 VCCIO4                       : P13       : power  :                   : 2.5V    : 4         :                
 ANT_nReset                   : P14       : output : 2.5 V             :         : 4         : Y              
@@ -301,13 +301,13 @@ DRAM_DQM[0]                  : R6        : output : 2.5 V             :         
 DRAM_DQ[7]                   : R7        : bidir  : 2.5 V             :         : 3         : Y              
 CLOCK_50                     : R8        : input  : 2.5 V             :         : 3         : Y              
 GND+                         : R9        :        :                   :         : 4         :                
-leftBlinkerOut               : R10       : output : 2.5 V             :         : 4         : N              
+rightBlinkerOut              : R10       : output : 2.5 V             :         : 4         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : R11       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : R12       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : R13       :        :                   :         : 4         :                
 ANT_rx                       : R14       : input  : 2.5 V             :         : 4         : Y              
 GND                          : R15       : gnd    :                   :         :           :                
-leftBlinker                  : R16       : input  : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : R16       :        :                   :         : 5         :                
 VCCIO3                       : T1        : power  :                   : 2.5V    : 3         :                
 DRAM_DQ[9]                   : T2        : bidir  : 2.5 V             :         : 3         : Y              
 DRAM_DQ[10]                  : T3        : bidir  : 2.5 V             :         : 3         : Y              
@@ -317,8 +317,8 @@ DRAM_ADDR[7]                 : T6        : output : 2.5 V             :         
 DRAM_ADDR[5]                 : T7        : output : 2.5 V             :         : 3         : Y              
 GND+                         : T8        :        :                   :         : 3         :                
 GND+                         : T9        :        :                   :         : 4         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : T10       :        :                   :         : 4         :                
-rightBlinkerOut              : T11       : output : 2.5 V             :         : 4         : N              
+leftBlinkerOut               : T10       : output : 2.5 V             :         : 4         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : T11       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : T12       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : T13       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : T14       :        :                   :         : 4         :                

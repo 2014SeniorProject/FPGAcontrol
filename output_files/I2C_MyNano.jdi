@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="092eaac8c418524271bc"/>
+    <hash md5_digest_80b="aeb81c2b7e6e3d41ff09"/>
   </project>
   <file_info>
     <file device="EP4CE22F17C6" path="I2C_MyNano.sof" usercode="0xFFFFFFFF"/>
@@ -515,7 +515,7 @@
   <sld_infos>
     <sld_info hpath="CPU:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME CPU HAS_SOPCINFO 1 GENERATION_ID 1392834688"/>
+        <assignment_value text="QSYS_NAME CPU HAS_SOPCINFO 1 GENERATION_ID 1392858520"/>
       </assignment_values>
       <parameters/>
     </sld_info>

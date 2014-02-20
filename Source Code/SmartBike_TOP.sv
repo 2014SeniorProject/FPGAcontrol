@@ -168,7 +168,7 @@ module SmartBike_TOP(
 
 	//| ADC data
 	logic   	[11:0]    		adc_data[6:0];
-	
+
 	//|
     //| ANT device assignments
 	//|--------------------------------------------
@@ -231,6 +231,9 @@ module SmartBike_TOP(
 	//|
 	//| Assistance calculation
 	//|--------------------------------------------
+	MotorControl MCA(
+
+		);
 //	AssistanceAlgorithm Assist(
 //		.clk(CLOCK_50),
 //		.resolvedAngle(PWMinput),
@@ -261,7 +264,7 @@ module SmartBike_TOP(
 	//|
 	//| Horn Controller
 	//|--------------------------------------------
-	soundramp	HornOut (
+	sounsdramp	HornOut (
 		.c50M(CLOCK_50),
 		.Button(horn),
 		.OutputToDAC(DACout)
