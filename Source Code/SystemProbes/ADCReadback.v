@@ -1,7 +1,7 @@
 // megafunction wizard: %In-System Sources and Probes%
 // GENERATION: STANDARD
 // VERSION: WM1.0
-// MODULE: altsource_probe 
+// MODULE: altsource_probe
 
 // ============================================================
 // File Name: ADCReadback.v
@@ -19,17 +19,17 @@
 
 
 //Copyright (C) 1991-2014 Altera Corporation
-//Your use of Altera Corporation's design tools, logic functions 
-//and other software and tools, and its AMPP partner logic 
-//functions, and any output files from any of the foregoing 
-//(including device programming or simulation files), and any 
-//associated documentation or information are expressly subject 
-//to the terms and conditions of the Altera Program License 
-//Subscription Agreement, Altera MegaCore Function License 
-//Agreement, or other applicable license agreement, including, 
-//without limitation, that your use is for the sole purpose of 
-//programming logic devices manufactured by Altera and sold by 
-//Altera or its authorized distributors.  Please refer to the 
+//Your use of Altera Corporation's design tools, logic functions
+//and other software and tools, and its AMPP partner logic
+//functions, and any output files from any of the foregoing
+//(including device programming or simulation files), and any
+//associated documentation or information are expressly subject
+//to the terms and conditions of the Altera Program License
+//Subscription Agreement, Altera MegaCore Function License
+//Agreement, or other applicable license agreement, including,
+//without limitation, that your use is for the sole purpose of
+//programming logic devices manufactured by Altera and sold by
+//Altera or its authorized distributors.  Please refer to the
 //applicable agreement for further details.
 
 
@@ -40,7 +40,7 @@ module ADCReadback (
 	probe,
 	source);
 
-	input	[11:0]  probe;
+	input	[7:0]  probe;
 	output	  source;
 
 	wire  sub_wire0;
@@ -73,7 +73,7 @@ module ADCReadback (
 	defparam
 		altsource_probe_component.enable_metastability = "NO",
 		altsource_probe_component.instance_id = "NONE",
-		altsource_probe_component.probe_width = 12,
+		altsource_probe_component.probe_width = 8,
 		altsource_probe_component.sld_auto_instance_index = "YES",
 		altsource_probe_component.sld_instance_index = 0,
 		altsource_probe_component.source_initial_value = " 0",
@@ -89,7 +89,7 @@ endmodule
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ENABLE_METASTABILITY STRING "NO"
 // Retrieval info: CONSTANT: INSTANCE_ID STRING "NONE"
-// Retrieval info: CONSTANT: PROBE_WIDTH NUMERIC "12"
+// Retrieval info: CONSTANT: PROBE_WIDTH NUMERIC "8"
 // Retrieval info: CONSTANT: SLD_AUTO_INSTANCE_INDEX STRING "YES"
 // Retrieval info: CONSTANT: SLD_INSTANCE_INDEX NUMERIC "0"
 // Retrieval info: CONSTANT: SOURCE_INITIAL_VALUE STRING " 0"

@@ -233,13 +233,15 @@ module SmartBike_TOP(
 	//|--------------------------------------------
 	MotorControl MCA(
 			.c50m(CLOCK_50),
+			.c20k(c20k),
+
 			.Roll(),
 			.Pitch(),
 			.HeartRate(HeartRate),
 			.HeartRateSetPoint(heartRateCap),
 
 			.ThrottleTest(adc_data[1]),
-
+			.PWMClock(PWMClock),
 			.PhaseWireVoltage(adc_data[0]),
 
 			.MotorControlPWM(PWMout)
@@ -460,6 +462,15 @@ module SmartBike_TOP(
 		.locked ()
 	);
 
+	PLL2 PLL_inst2 (
+		.areset ( ),
+		.inclk0 (CLOCK_50),
+		.c0 (PWMClock),
+		.c1 (c20k),
+		.c2 (),
+		.c3 (),
+		.locked ()
+	);
 endmodule
 
 

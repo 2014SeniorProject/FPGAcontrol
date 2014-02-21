@@ -16,9 +16,6 @@ module ADC_CTRL (
 	assign  CS_n        = 1'b0;
 	assign  SCLK_OUT    = c1m;
 
-	ADCReadback ADCReadback_inst0 (.probe ( adc_data[0] ));
-	ADCReadback ADCReadback_inst1 (.probe ( adc_data[1] ));
-
 	always@(posedge c1m)
 	    begin
 	        cont    <=  cont + 3'b001;

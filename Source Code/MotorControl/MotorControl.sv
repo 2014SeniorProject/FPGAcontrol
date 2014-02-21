@@ -1,6 +1,6 @@
 module MotorControl(
     input   logic           c50m,
-
+    input   logic           c20k,
     //| IMU inputs
     input   logic   [11:0]  Roll,
     input   logic   [11:0]  Pitch,
@@ -10,7 +10,7 @@ module MotorControl(
     input   logic   [7:0]   HeartRateSetPoint,
 
     input   logic   [11:0]  ThrottleTest,
-
+	input 	logic			PWMClock,
     //| Motor electrical inputs
     input   logic   [11:0]  PhaseWireVoltage,
 
@@ -36,18 +36,18 @@ module MotorControl(
     //| It will require significant testing and modification. The primary idea is
     //| to measure current as voltage across a sense resistor.
     CurrentControl CC(
+        .c20k(c20k),
         .AssistanceRequirement(ThrottleTest),
         .PhaseWireVoltage(PhaseWireVoltage),
         .MotorSignal(MotorSignal)
     );
-	ADCReadback ADCReadback_inst2 (.probe( MotorSignal ));
 
     //| This is a pretty simple module that will convert the requested duty cycle
     //| from the current control module into a percentage duty cycle signal for the
     //| ESC's speed setting input. There are a few adjustments for the PWM -> setting
     //| transfer function
     motorPWMgenerator MotorPWMController(
-        .CLOCK_50(CLOCK_50),
+        .PWMClock(PWMClock),
         .PWMinput(MotorSignal),
         .PWMout(MotorControlPWM)
     );
