@@ -232,8 +232,19 @@ module SmartBike_TOP(
 	//| Assistance calculation
 	//|--------------------------------------------
 	MotorControl MCA(
+			.c50m(CLOCK_50),
+			.Roll(),
+			.Pitch(),
+			.HeartRate(HeartRate),
+			.HeartRateSetPoint(heartRateCap),
 
+			.ThrottleTest(adc_data[1]),
+
+			.PhaseWireVoltage(adc_data[0]),
+
+			.MotorControlPWM(PWMout)
 		);
+
 //	AssistanceAlgorithm Assist(
 //		.clk(CLOCK_50),
 //		.resolvedAngle(PWMinput),
@@ -243,13 +254,6 @@ module SmartBike_TOP(
 //		.cadence(cadence),
 //		.brake(brakes)
 //	);
-
-	motorPWMGenerator motorController(
-		.CLOCK_50(CLOCK_50),
-		.PWMinput(PWMOutput),
-		.PWMout(PWMout)
-
-	);
 
 	//|
 	//| Motor RPM calculation
@@ -264,7 +268,7 @@ module SmartBike_TOP(
 	//|
 	//| Horn Controller
 	//|--------------------------------------------
-	sounsdramp	HornOut (
+	soundramp	HornOut (
 		.c50M(CLOCK_50),
 		.Button(horn),
 		.OutputToDAC(DACout)
@@ -443,7 +447,7 @@ module SmartBike_TOP(
 		.antuart_rxd  (ANT_rx),  	 // antuart.rxd
         .antuart_txd  (ANT_tx),   	 //        .txds
 
-		.heartrateoutput_export (heartRate)
+		//.heartrateoutput_export (HeartRate)
     );
 
 	PLL	PLL_inst (

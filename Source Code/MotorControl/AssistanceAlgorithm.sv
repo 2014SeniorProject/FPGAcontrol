@@ -49,7 +49,7 @@ module AssistanceAlgorithm(
 	input  	wire			[7:0]	HeartRateSetPoint,  //User entered rate on cellphone
 
 	//| Motor output
-	output 	wire   	signed 	[9:0]   PWMOut,				//PWM to drive motor
+	output 	wire   	signed 	[9:0]   AssistanceRequirement,				//PWM to drive motor
 
 	input 	wire					cadence,
 	input	wire					brake
@@ -71,36 +71,6 @@ module AssistanceAlgorithm(
 	//| core calculation logic, rate is constant and set by heart rate from ANT+ module
 	always @ (posedge HeartRate)
 		begin
-			PIDOutput = IntegralCalc(HeartRate) + porportionCalc(HeartRateSetPoint);
-			//there should be something here to handle extended dropouts I think
+
 		end
-
-	//| "I" calculate the integral value for current time stamp and store a history of 10 values
-	function int IntegralCalc(input reg [7:0] HeartRate);
-		int 			HeartRateIntegral;
-		logic 	[7:0] 	HeartRateChain[10];
-
-		for(int i = 2; i < 10; i++)
-			begin
-				HeartRateChain[0] = HeartRate;  // Set lowest bit to new heart rate
-				HeartRateChain[i] = HeartRateChain[i-1];	// shift data down delay chain
-			end
-
-		for(int i = 1; i < 10; i++)
-			begin
-				HeartRateIntegral += HeartRateChain[i] - HeartRateChain[i-1];  //calcualte the discrete integral
-			end
-
-		return HeartRateIntegral*IntegralConstant;
-	endfunction
-
-	//| "P" Calculate the porportional value
-	function int porportionCalc(reg HeartRateSetPoint);
-		int PorportionOutput;
-		int MeasuredError;
-
-		MeasuredError = HeartRateSetPoint-HeartRate;
-
-		return PorportionOutput*PorportionConstant;
-	endfunction
 endmodule

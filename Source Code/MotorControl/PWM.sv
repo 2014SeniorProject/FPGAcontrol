@@ -47,7 +47,7 @@ module PWMGenerator(
 	//| This is an offset for the PWM output. The motor requires around 60% duty cycle to
 	//| start running smoothly. This will depend on the cycle time of the PWM.
 	parameter 		Offset = 250;
-	parameter			pNegEnable = 0; //allows the module to be used as LED indicators
+	parameter		pNegEnable = 0; //allows the module to be used as LED indicators
 
 	//| These deal with the timing of the PWM output. CLOCKslow slows down
 	reg 		[7:0]		CLOCKslow =0;

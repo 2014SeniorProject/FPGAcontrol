@@ -37,10 +37,10 @@
 //`include "debug.sv"
 //`include "timescale.sv"
 
-module motorPWMGenerator(
-	input 								CLOCK_50, 	//| Clock of 50mhz from the De0-Nano Board
+module motorPWMgenerator(
+	input 					CLOCK_50, 		//| Clock of 50mhz from the De0-Nano Board
 	input 	wire 	[9:0] 	PWMinput,		//| 10 Bit input from the filter module. Depends on the accelerometer data.
-	output 	reg 					PWMout			//| The PWM output the the Motor Controller.
+	output 	reg 			PWMout			//| The PWM output the the Motor Controller.
 );
 
 	//| This is an offset for the PWM output. The motor requires around 60% duty cycle to
@@ -50,10 +50,10 @@ module motorPWMGenerator(
 
 	//| These deal with the timing of the PWM output. CLOCKslow slows down
 	reg 		[3:0]		CLOCKslow =0;
-	reg 		[15:0] 	COUNT = 0;
+	reg 		[15:0] 		COUNT = 0;
 
 	//| Clock divider for output signal
-	always @ (posedge CLOCK_50) CLOCKslow= CLOCKslow + 4'd1;
+	always @ (posedge CLOCK_50) CLOCKslow = CLOCKslow + 4'd1;
 
 
 	//| Output signal generator
@@ -64,10 +64,9 @@ module motorPWMGenerator(
 
 			//|If PWM input is a positive value, then send signal to motor.
 			if(PWMinput > 0)
-				if(COUNT < PWMinput + Offset)PWMout=1;
+				if(COUNT < PWMinput + Offset) PWMout=1;
 				else PWMout=0;
 			else PWMout=0;
-
 
 			//| Reset counter at overflow
 			if(COUNT>=530)COUNT=0;

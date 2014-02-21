@@ -66,7 +66,7 @@ set_global_assignment -name USE_SIGNALTAP_FILE stp1.stp
 set_location_assignment PIN_G5 -to G_Sensor_CS_N
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_location_assignment PIN_E10 -to PWMout
+set_location_assignment PIN_B12 -to PWMout
 set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_location_assignment PIN_F13 -to IMU_SCL
@@ -239,6 +239,9 @@ set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
 set_global_assignment -name OPTIMIZE_HOLD_TIMING "IO PATHS AND MINIMUM TPD PATHS"
 set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING OFF
 set_global_assignment -name FITTER_EFFORT "FAST FIT"
+set_global_assignment -name VERILOG_FILE "Source Code/SystemProbes/PWMSet.v"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/MotorControl/MotorControl.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/MotorControl/CurrentControl.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/IMU/LowPassFilterAverage.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/DataGathering/ADC_CTRL.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SafetySystems/BrakeLightController.sv"
