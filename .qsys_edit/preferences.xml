@@ -15,7 +15,7 @@
   </columns>
  </clocktable>
  <window width="1440" height="774" x="0" y="0" />
- <library expandedCategories="Library,Project" />
+ <library expandedCategories="Project,Library" />
  <generation
    path="//psf/Home/Documents/GithubRepositories/FPGAcontrol/CPU_Generation"
    block_symbol_file="0" />
