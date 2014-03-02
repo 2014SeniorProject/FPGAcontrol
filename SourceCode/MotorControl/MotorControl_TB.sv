@@ -1,3 +1,0 @@
-module MotorControl_TB(
-
-    );
