@@ -15,7 +15,8 @@
   </columns>
  </clocktable>
  <window width="1440" height="774" x="0" y="0" />
- <library expandedCategories="Project,Library" />
+ <library
+   expandedCategories="Library/Qsys Interconnect/AXI Interface,Project,Library/Peripherals/Multiprocessor Coordination,Library,Library/Configuration &amp; Programming,Library/Qsys Interconnect,Library/Verification/Simulation,Library/Qsys Interconnect/Tri-State Components,Library/Qsys Interconnect/Interrupt,Library/Peripherals/Microcontroller Peripherals,Library/Verification,Library/PLL,Library/Window Bridge,Library/Qsys Interconnect/Memory-Mapped,Library/Qsys Interconnect/AHB,Library/Verification/Debug &amp; Performance,Library/Peripherals" />
  <generation
    path="//psf/Home/Documents/GithubRepositories/FPGAcontrol/CPU_Generation"
    block_symbol_file="0" />

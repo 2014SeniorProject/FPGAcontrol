@@ -1,0 +1,107 @@
+<session jtag_chain="USB-Blaster [USB-0]" jtag_device="@1: EP3C25/EP4CE22 (0x020F30DD)">
+  <display_attributes is_max_probe_read_interval="1" is_write_immediate="1" probe_read_interval="1" probe_read_interval_units="s"/>
+  <instance enable_logging="true" entity_name="" is_auto_node="true" name="">
+    <node_ip_info instance_id="0" mfg_id="110" node_id="9" version="0"/>
+    <sources/>
+    <probes>
+      <probe name="probe[0]"/>
+      <probe name="probe[1]"/>
+      <probe name="probe[2]"/>
+      <probe name="probe[3]"/>
+      <probe name="probe[4]"/>
+      <probe name="probe[5]"/>
+      <probe name="probe[6]"/>
+      <probe name="probe[7]"/>
+    </probes>
+    <view>
+      <view_node expanded="false" group_name="PhaseWireVoltage" index="0" lsb_to_msb="false" node_type="probe" radix="line_unsigned" view_type="group_header"/>
+      <view_node expanded="true" index="7" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="6" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="5" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="4" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="3" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="2" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="1" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="0" node_type="probe" view_type="group_member"/>
+    </view>
+    <log data="B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4" max_size="32" size="32" time="5B7B0135000000005B7B0135000000005B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000009B7B013500000000" width="8"/>
+  </instance>
+  <instance enable_logging="true" entity_name="" is_auto_node="true" name="">
+    <node_ip_info instance_id="1" mfg_id="110" node_id="9" version="0"/>
+    <sources/>
+    <probes>
+      <probe name="probe[0]"/>
+      <probe name="probe[1]"/>
+      <probe name="probe[2]"/>
+      <probe name="probe[3]"/>
+      <probe name="probe[4]"/>
+      <probe name="probe[5]"/>
+      <probe name="probe[6]"/>
+      <probe name="probe[7]"/>
+    </probes>
+    <view>
+      <view_node expanded="false" group_name="Assistance" index="0" lsb_to_msb="false" node_type="probe" radix="line_unsigned" view_type="group_header"/>
+      <view_node expanded="true" index="7" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="6" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="5" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="4" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="3" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="2" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="1" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="0" node_type="probe" view_type="group_member"/>
+    </view>
+    <log data="3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F" max_size="32" size="32" time="5B7B0135000000005B7B0135000000005B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000009B7B013500000000" width="8"/>
+  </instance>
+  <instance enable_logging="true" entity_name="" is_auto_node="true" name="">
+    <node_ip_info instance_id="2" mfg_id="110" node_id="9" version="0"/>
+    <sources/>
+    <probes>
+      <probe name="probe[0]"/>
+      <probe name="probe[1]"/>
+      <probe name="probe[2]"/>
+      <probe name="probe[3]"/>
+      <probe name="probe[4]"/>
+      <probe name="probe[5]"/>
+      <probe name="probe[6]"/>
+      <probe name="probe[7]"/>
+    </probes>
+    <view>
+      <view_node expanded="false" group_name="DeltaTorque" index="0" lsb_to_msb="false" node_type="probe" radix="line_twos_complement" view_type="group_header"/>
+      <view_node expanded="true" index="7" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="6" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="5" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="4" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="3" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="2" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="1" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="0" node_type="probe" view_type="group_member"/>
+    </view>
+    <log data="8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A8A" max_size="32" size="32" time="5B7B0135000000005B7B0135000000005B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000009B7B013500000000" width="8"/>
+  </instance>
+  <instance enable_logging="true" entity_name="" is_auto_node="true" name="">
+    <node_ip_info instance_id="3" mfg_id="110" node_id="9" version="0"/>
+    <sources/>
+    <probes>
+      <probe name="probe[0]"/>
+      <probe name="probe[1]"/>
+      <probe name="probe[2]"/>
+      <probe name="probe[3]"/>
+      <probe name="probe[4]"/>
+      <probe name="probe[5]"/>
+      <probe name="probe[6]"/>
+      <probe name="probe[7]"/>
+    </probes>
+    <view>
+      <view_node expanded="false" group_name="MotorOutput" index="0" lsb_to_msb="false" node_type="probe" radix="line_unsigned" view_type="group_header"/>
+      <view_node expanded="true" index="7" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="6" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="5" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="4" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="3" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="2" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="1" node_type="probe" view_type="group_member"/>
+      <view_node expanded="true" index="0" node_type="probe" view_type="group_member"/>
+    </view>
+    <log data="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" max_size="32" size="32" time="5B7B0135000000005B7B0135000000005B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000006B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000007B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000008B7B0135000000009B7B013500000000" width="8"/>
+  </instance>
+</session>

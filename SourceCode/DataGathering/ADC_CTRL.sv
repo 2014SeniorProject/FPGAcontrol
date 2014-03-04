@@ -16,14 +16,6 @@ module ADC_CTRL (
 	assign  CS_n        = 1'b0;
 	assign  SCLK_OUT    = c1m;
 
-	ADCReadback ADCReadback_inst0 (.probe ( adc_data[0] ));
-	ADCReadback ADCReadback_inst1 (.probe ( adc_data[1] ));
-	ADCReadback ADCReadback_inst2 (.probe ( adc_data[2] ));
-	ADCReadback ADCReadback_inst3 (.probe ( adc_data[3] ));
-	ADCReadback ADCReadback_inst4 (.probe ( adc_data[4] ));
-	ADCReadback ADCReadback_inst5 (.probe ( adc_data[5] ));
-	ADCReadback ADCReadback_inst6 (.probe ( adc_data[6] ));
-
 	always@(posedge c1m)
 	    begin
 	        cont    <=  cont + 3'b001;
@@ -49,7 +41,7 @@ module ADC_CTRL (
 	always@(posedge c1m)
 	    begin
 	        case(m_cont)
-	        4'd01: adc_data[ADC_channel] <= (adc_data[ADC_channel]*98 + adc_dataIN[11:0]*2)/100;
+	        4'd01: adc_data[ADC_channel] <= (98*adc_data[ADC_channel] + 2*adc_dataIN[11:0])/100;
 	        // shift data in
 	        4'd03: adc_dataIN[11]   <=  SPI_IN;
 	        4'd04: adc_dataIN[10]   <=  SPI_IN;
