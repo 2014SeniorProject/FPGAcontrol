@@ -46,10 +46,9 @@ set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
-set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT NONE -section_id eda_simulation
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVCMOS"
 set_location_assignment PIN_E1 -to KEY[1]
 set_location_assignment PIN_J15 -to KEY[0]
 set_location_assignment PIN_R8 -to CLOCK_50
@@ -66,7 +65,7 @@ set_global_assignment -name USE_SIGNALTAP_FILE stp1.stp
 set_location_assignment PIN_G5 -to G_Sensor_CS_N
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_location_assignment PIN_E10 -to PWMout
+set_location_assignment PIN_B12 -to PWMout
 set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_location_assignment PIN_F13 -to IMU_SCL
@@ -76,13 +75,13 @@ set_location_assignment PIN_T15 -to IMU_SDA
 # ADC
 #============================================================
 set_location_assignment PIN_A10 -to ADC_CS_N
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ADC_CS_N
 set_location_assignment PIN_B10 -to ADC_SADDR
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_SADDR
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ADC_SADDR
 set_location_assignment PIN_B14 -to ADC_SCLK
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ADC_SCLK
 set_location_assignment PIN_A9 -to ADC_SDAT
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ADC_SDAT
 
 #============================================================
 # SDRAM
@@ -145,85 +144,85 @@ set_location_assignment PIN_M10 -to ANT_Sleep
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name IO_STANDARD "2.5 V" -to leftBlinkerOut
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to leftBlinkerOut
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to leftBlinkerOut
-set_instance_assignment -name IO_STANDARD "2.5 V" -to rightBlinkerOut
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to rightBlinkerOut
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to rightBlinkerOut
-set_instance_assignment -name IO_STANDARD "2.5 V" -to headLightOut
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to headLightOut
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to headLightOut
-set_instance_assignment -name IO_STANDARD "2.5 V" -to brakeLightOut
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to brakeLightOut
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to brakeLightOut
-set_instance_assignment -name IO_STANDARD "2.5 V" -to PWMout
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DACout[7]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DACout[6]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DACout[5]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DACout[4]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DACout[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DACout[2]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DACout[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DACout[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to IMU_SCL
-set_instance_assignment -name IO_STANDARD "2.5 V" -to IMU_SDA
-set_instance_assignment -name IO_STANDARD "2.5 V" -to LED[7]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to LED[6]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to LED[5]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to LED[4]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to LED[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to LED[2]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to LED[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to LED[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to blips
-set_instance_assignment -name IO_STANDARD "2.5 V" -to brakes
-set_instance_assignment -name IO_STANDARD "2.5 V" -to cadence
-set_instance_assignment -name IO_STANDARD "2.5 V" -to headLight
-set_instance_assignment -name IO_STANDARD "2.5 V" -to horn
-set_instance_assignment -name IO_STANDARD "2.5 V" -to leftBlinker
-set_instance_assignment -name IO_STANDARD "2.5 V" -to rightBlinker
-set_instance_assignment -name IO_STANDARD "2.5 V" -to rx
-set_instance_assignment -name IO_STANDARD "2.5 V" -to tx
-set_instance_assignment -name IO_STANDARD "2.5 V" -to waveFormsPin
-set_instance_assignment -name IO_STANDARD "2.5 V" -to KEY[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to KEY[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to G_Sensor_CS_N
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_BA[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_BA[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQM[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQM[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_RAS_N
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_CAS_N
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_CKE
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_CLK
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_WE_N
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_CS_N
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[2]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[4]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[5]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[6]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[7]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[8]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[9]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[10]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[11]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[12]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[13]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[14]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_DQ[15]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[2]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[4]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[5]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[6]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[7]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[8]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[9]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[10]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[11]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DRAM_ADDR[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to PWMout
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DACout[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DACout[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DACout[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DACout[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DACout[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DACout[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DACout[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DACout[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to IMU_SCL
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to IMU_SDA
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to LED[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to LED[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to LED[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to LED[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to LED[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to LED[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to LED[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to LED[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to blips
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to brakes
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to cadence
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to headLight
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to horn
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to leftBlinker
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to rightBlinker
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to rx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to tx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to waveFormsPin
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to KEY[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to G_Sensor_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_BA[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_BA[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQM[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQM[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_RAS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_CAS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_CKE
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_WE_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_DQ[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to DRAM_ADDR[12]
 set_location_assignment PIN_A4 -to rx
 set_location_assignment PIN_B5 -to tx
 set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC ON
@@ -239,28 +238,83 @@ set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
 set_global_assignment -name OPTIMIZE_HOLD_TIMING "IO PATHS AND MINIMUM TPD PATHS"
 set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING OFF
 set_global_assignment -name FITTER_EFFORT "FAST FIT"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/IMU/LowPassFilterAverage.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/DataGathering/ADC_CTRL.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SafetySystems/BrakeLightController.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SafetySystems/soundramp.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SafetySystems/SoundGenerator.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SafetySystems/debounced_button.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SafetySystems/blinkerControl.sv"
-set_global_assignment -name QIP_FILE "Source Code/NIOS/PLL.qip"
-set_global_assignment -name QSYS_FILE "Source Code/NIOS/CPU.qsys"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/MotorControl/PWM.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/MotorControl/motorPWMgenerator.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/MotorControl/AssistanceAlgorithm.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/IMU/SensorFusion.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/IMU/IMUInterface.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/IMU/HighPassFilter.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/DataGathering/RPM.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/CellPhoneCommunication/wireless.sv"
-set_global_assignment -name VERILOG_FILE "Source Code/CellPhoneCommunication/uart.v"
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_NCE_PIN OFF
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name RESERVE_DATA0_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DATA1_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_FLASH_NCE_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DCLK_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_location_assignment PIN_C1 -to epcs_sdo
+set_location_assignment PIN_D2 -to epcs_sce
+set_location_assignment PIN_H1 -to epcs_dclk
+set_location_assignment PIN_H2 -to epcs_data0
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_BaudRate[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to epcs_sdo
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to epcs_sce
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to epcs_dclk
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to epcs_data0
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to altera_reserved_tms
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to altera_reserved_tdo
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to altera_reserved_tdi
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to altera_reserved_tck
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to CLOCK_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_tx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_rx
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_nTest
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_nSuspend
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_nReset
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_Sleep
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_Reserved2
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_Reserved1
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_RequestToSend
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_PortSelect
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_BaudRate[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_BaudRate[1]
+set_global_assignment -name QIP_FILE SourceCode/SystemProbes/PWMSet.qip
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SystemProbes/GyroProbeZ.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SystemProbes/GyroProbeY.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SystemProbes/GyroProbeX.sv
+set_global_assignment -name QIP_FILE SourceCode/SystemProbes/ADCReadback.qip
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SystemProbes/AccelProbeZ.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SystemProbes/AccelProbeY.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SystemProbes/AccelProbeX.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SafetySystems/soundramp.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SafetySystems/SoundGenerator.sv
+set_global_assignment -name QIP_FILE SourceCode/SafetySystems/PLL.qip
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SafetySystems/debounced_button.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SafetySystems/BrakeLightController.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SafetySystems/blinkerControl.sv
+set_global_assignment -name QIP_FILE SourceCode/NIOS/PLL.qip
+set_global_assignment -name QSYS_FILE SourceCode/NIOS/CPU.qsys
+set_global_assignment -name SOURCE_FILE SourceCode/NIOS/CPU.cmp
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/MotorControl/PWM.sv
+set_global_assignment -name QIP_FILE SourceCode/MotorControl/PLL2.qip
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/MotorControl/motorPWMgenerator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/MotorControl/MotorControl.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/MotorControl/CurrentControl.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/MotorControl/AssistanceAlgorithm.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/IMU/SensorFusion.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/IMU/LowPassFilterAverage.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/IMU/IMUInterface.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/IMU/HighPassFilter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/DataGathering/RPM.sv
+set_global_assignment -name QIP_FILE SourceCode/DataGathering/PLL.qip
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/DataGathering/LowPassFilterADC.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/DataGathering/ADC_CTRL.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/CellPhoneCommunication/wireless.sv
+set_global_assignment -name VERILOG_FILE SourceCode/CellPhoneCommunication/uart.v
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/timescale.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SmartBike_TOP.sv
 set_global_assignment -name SDC_FILE I2C_MyNano.out.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/timescale.sv"
-set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SmartBike_TOP.sv"
 set_global_assignment -name SIGNALTAP_FILE stp1.stp
-set_global_assignment -name QIP_FILE "Source Code/SystemProbes/ADCReadback.qip"
 set_global_assignment -name SOURCE_FILE Spf1.spf
+set_global_assignment -name SOURCE_FILE SourceCode/SystemProbes/Spf3.spf
+set_global_assignment -name SOURCE_FILE output_files/Spf4.spf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
