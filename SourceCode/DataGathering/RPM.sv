@@ -36,24 +36,24 @@
 //`include "timescale.sv"
 
 module RPM(
-	output 	reg 	[15:0] 		rpm =0,
-	input 	wire 				clk50M,
-	input 	wire 				blips,
-	output 	wire	[7:0]		rpmPhone
+	input 	 					clk50M,
+	input 	 					blips,
+	output 	logic 	[15:0] 		rpm =0,
+	output 			[7:0]		rpmPhone
 );
 
 	parameter clkspeed = 50000000; 								//parameter to set the incoming clock's frequency
 	parameter motor_pole_count = 16; 							//parameter to set the motor's pole count
 	parameter internal_gear_reduction_ratio = 5; 	//if motor is internally geared, set the appropriate x:1 ratio here, x being filled in
 
-	reg [31:0] 	clkcount=0;        								//initialize the clock counter at zero
-	reg [31:0] 	clkstore=0;        								//register to store the clock counter while maths happen
-	reg [32:0] 	numerator=0;       								//numerator of the dimensional analysis equation
-	reg [31:0]	denominator=0;     								//denominator of the dimensional analysis equation
-	reg			firstPass = 0;
-	reg	[15:0]	speed = 0;
+	logic 	[31:0] 	clkcount=0;        								//initialize the clock counter at zero
+	logic 	[31:0] 	clkstore=0;        								//register to store the clock counter while maths happen
+	logic 	[32:0] 	numerator=0;       								//numerator of the dimensional analysis equation
+	logic 	[31:0]	denominator=0;     								//denominator of the dimensional analysis equation
+	logic			firstPass = 0;
+	logic	[15:0]	speed = 0;
 
-	reg [15:0]  numOfBlips = 0;
+	logic 	[15:0]  numOfBlips = 0;
 
 //	AccelSettingtReadback  rpmdata (
 //		.probe (rpm),

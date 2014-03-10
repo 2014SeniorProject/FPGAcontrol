@@ -1,42 +1,45 @@
-localparam byte PorportionalityConstant = 8'sd010;
+`define DEBUG
+
+localparam byte PorportionalityConstant = 8'sd01;
 
 module CurrentControl(
     input           c20k,
     input   [11:0]  AssistanceRequirement,
     input   [11:0]  PhaseWireVoltage,
 
-    output  [7:0]   MotorSignal
+    output  [11:0]   MotorSignal
 );
 
-    logic  			[9:0]	AssistanceAdjusted;
-    logic  		 	[9:0]	ADCAdjustedReading;
-    logic  	signed 	[9:0]	DeltaTorque;
+    logic  			[11:0]	AssistanceAdjusted;
+    logic  		 	[11:0]	ADCAdjustedReading;
+    logic  	signed 	[11:0]	DeltaTorque;
 
-	logic	[14:0] 			clkCount;
-	logic	[2:0]			MotorState;
-	
-    assign ADCAdjustedReading = (PhaseWireVoltage)>>4;
-    assign AssistanceAdjusted = (AssistanceRequirement>>4)-63;
+	logic	        [14:0] 	clkCount;
+	logic	        [2:0]	MotorState;
+
+    assign ADCAdjustedReading = PhaseWireVoltage;
+    assign AssistanceAdjusted = AssistanceRequirement;
     assign DeltaTorque = signed'({1'b0, AssistanceAdjusted}) - signed'({ 1'b0, ADCAdjustedReading});
-	
-    ADCReadback ADCReadback_inst0 (.probe (ADCAdjustedReading));
-    ADCReadback ADCReadback_inst1 (.probe (AssistanceAdjusted));
-	ADCReadback ADCReadback_inst2 (.probe (DeltaTorque));
-    ADCReadback ADCReadback_inst3 (.probe (MotorSignal));
-	ADCReadback ADCReadback_inst4 (.probe (MotorState));
 
-	always @(posedge c20k)
-    clkCount++;
+	//|Debug Systems and Probes
+	`ifdef DEBUG 
+    CurrentControlProbe cc1(ADCAdjustedReading);
+	CurrentControlProbe cc2(DeltaTorque);
+    CurrentControlProbe cc3(MotorSignal);
+	CurrentControlProbe cc4(MotorState);
+	`endif
 	
-	assign MotorState = {AssistanceAdjusted > 8'd10, signed'({1'b0,MotorSignal})+DeltaTorque > 10'sd0255, signed'({1'b0,MotorSignal})+DeltaTorque < 10'sd00};
+	always @(posedge c20k) clkCount++;
 
-	always @(posedge clkCount[6])
+	assign MotorState = {AssistanceAdjusted > 16'd03, signed'({1'b0,MotorSignal})+DeltaTorque > 16'sd04096, signed'({1'b0,MotorSignal})+DeltaTorque < 16'sd00};
+
+	always @(posedge clkCount[4])
 		begin
 		   casex(MotorState)
 				3'b100 :MotorSignal <= signed'({1'b0,MotorSignal}) + (DeltaTorque/PorportionalityConstant);
-				3'b110 :MotorSignal <= 8'd255;
-				3'b101 :MotorSignal <= 8'd0;
-				default:MotorSignal <= 8'd0;
+				3'b110 :MotorSignal <= 12'd4095;
+				3'b101 :MotorSignal <= 12'd0;
+				default:MotorSignal <= 12'd0;
 			endcase
 		end
 endmodule

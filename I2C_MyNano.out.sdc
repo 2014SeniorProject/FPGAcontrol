@@ -19,7 +19,7 @@
 ## PROGRAM "Quartus II"
 ## VERSION "Version 13.1.2 Build 173 01/15/2014 SJ Web Edition"
 
-## DATE    "Sat Feb 15 22:27:53 2014"
+## DATE    "Fri Mar 07 14:39:21 2014"
 
 ##
 ## DEVICE  "EP4CE22F17C6"
@@ -40,7 +40,6 @@ set_time_format -unit ns -decimal_places 3
 
 create_clock -name {altera_reserved_tck} -period 100.000 -waveform { 0.000 50.000 } [get_ports {altera_reserved_tck}]
 create_clock -name {CLOCK_50} -period 20.000 -waveform { 0.000 10.000 } [get_ports {CLOCK_50}]
-create_clock -name {IMUDataValid} -period 10000.000 -waveform { 0.000 5000.000 } [get_nets {IMU|DataValid}]
 
 
 #**************************************************************
@@ -50,6 +49,7 @@ create_clock -name {IMUDataValid} -period 10000.000 -waveform { 0.000 5000.000 }
 create_generated_clock -name {PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]} -source [get_pins {PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {CLOCK_50} [get_pins {PLL_inst|altpll_component|auto_generated|pll1|clk[0]}] 
 create_generated_clock -name {PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[1]} -source [get_pins {PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -phase -54.000 -master_clock {CLOCK_50} [get_pins {PLL_inst|altpll_component|auto_generated|pll1|clk[1]}] 
 create_generated_clock -name {PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]} -source [get_pins {PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 50 -master_clock {CLOCK_50} [get_pins {PLL_inst|altpll_component|auto_generated|pll1|clk[2]}] 
+create_generated_clock -name {PLL3:PLL_inst3|altpll:altpll_component|PLL3_altpll:auto_generated|wire_pll1_clk[0]} -source [get_pins {PLL_inst3|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 71 -divide_by 7704 -master_clock {CLOCK_50} [get_pins {PLL_inst3|altpll_component|auto_generated|pll1|clk[0]}] 
 
 
 #**************************************************************
@@ -88,6 +88,7 @@ set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -fall_to [ge
 # Set Clock Groups
 #**************************************************************
 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
 set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
 set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
 set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 

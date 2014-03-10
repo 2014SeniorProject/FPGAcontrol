@@ -8,10 +8,10 @@
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -19,27 +19,26 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-// 
+//
 
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
 //| Uncomment the `include "timescale.sv" to run a simulation.
 //`include "debug.sv"
-//`include "timescale.sv"	
-
+//`include "timescale.sv"
 module uart(
 	input 				clk, // The master clock for this module
 	input 				rst, // Synchronous reset.
 	input 				rx, // Incoming serial line
 	output 				tx, // Outgoing serial line
 	input 				transmit, // Signal to transmit
-	input 	[7:0] tx_byte, // Byte to transmit
+	input 	[7:0] 		tx_byte, // Byte to transmit
 	output 				received, // Indicated that a byte has been received.
-	output 	[7:0] rx_byte, // Byte received
+	output 	[7:0] 		rx_byte, // Byte received
 	output 				is_receiving, // Low when receive line is idle.
 	output 				is_transmitting, // Low when transmit line is idle.
 	output 				recv_error // Indicates error in receiving packet.
 );
-	
+
 	parameter CLOCK_DIVIDE = 10'd109; //1302 clock rate (50Mhz) / (baud rate (9600) * 4)
 	// States for the receiving state machine.
 	// These are just constants, not parameters to override.
@@ -101,7 +100,7 @@ module uart(
 			recv_state = RX_IDLE;
 			tx_state = TX_IDLE;
 		end
-		
+
 		// The clk_divider counter counts down from
 		// the CLOCK_DIVIDE constant. Whenever it
 		// reaches 0, 1/16 of the bit period has elapsed.
@@ -117,13 +116,13 @@ module uart(
 			tx_clk_divider = CLOCK_DIVIDE;
 			tx_countdown = tx_countdown - 6'd1;
 		end
-		
+
 		// Receive state machine
 		case (recv_state)
 			RX_IDLE: begin
 				// A low pulse on the receive line indicates the start of data.
 				if (!rx) begin
-					// Wait half the period - should resume in the middle of this first pulse.		 
+					// Wait half the period - should resume in the middle of this first pulse.
 					rx_clk_divider = CLOCK_DIVIDE;
 					rx_countdown = 2;
 					recv_state = RX_CHECK_START;
@@ -134,7 +133,7 @@ module uart(
 					// Check the pulse is still there
 					if (!rx) begin
 						// Pulse still there - good
-						// Wait the bit period to resume half-way through the first bit. 
+						// Wait the bit period to resume half-way through the first bit.
 						rx_countdown = 4;
 						rx_bits_remaining = 8;
 						recv_state = RX_READ_BITS;
@@ -147,7 +146,7 @@ module uart(
 			RX_READ_BITS: begin
 				if (!rx_countdown) begin
 					// Should be half-way through a bit pulse here.
-					// Read this bit in, wait for the next if we have more to get. 
+					// Read this bit in, wait for the next if we have more to get.
 					rx_data = {rx, rx_data[7:1]};
 					rx_countdown = 4;
 					rx_bits_remaining = rx_bits_remaining - 4'd1;
@@ -183,7 +182,7 @@ module uart(
 				recv_state = RX_IDLE;
 			end
 		endcase
-		
+
 		// Transmit state machine
 		case (tx_state)
 			TX_IDLE: begin

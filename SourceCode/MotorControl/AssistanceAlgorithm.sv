@@ -32,45 +32,45 @@
 //|
 //| =========================================================================================
 
-//| Uncomment the `include "debug.sv" to enter debug mode on this module.
-//| Uncomment the `include "timescale.sv" to run a simulation.
-//`include "debug.sv"
-//`include "timescale.sv"
+`define debug
 
 module AssistanceAlgorithm(
-	input  	wire                	clk,
+	input  	                	clk,
 
 	//| IMU Inputs
-	input 	wire	signed 	[9:0] 	resolvedRoll,		//Have we fallen over?
-	input 	wire	signed 	[9:0] 	resolvedPitch,		//Have we flipped over backwards
+	input 		signed 	[9:0] 	ResolvedRoll,			//Have we fallen over?
+	input 		signed 	[9:0] 	ResolvedPitch,			//Have we flipped over backwards
 
 	//| Biometric Inputs
-	input  	wire			[7:0]	HeartRate,			//current user's heart rate
-	input  	wire			[7:0]	HeartRateSetPoint,  //User entered rate on cellphone
+	input  				[7:0]	HeartRate,				//current user's heart rate
+	input  				[7:0]	HeartRateSetPoint,  	//User entered rate on cellphone
 
 	//| Motor output
-	output 	wire   	signed 	[9:0]   AssistanceRequirement,				//PWM to drive motor
+	output 	   	signed 	[12:0]   AssistanceRequirement,	//signal to current control module, kinda like torque
 
-	input 	wire					cadence,
-	input	wire					brake
+	input 						cadence,
+	input						brake
 );
 
-	//|
-	//| Local reg/wire declarations
-	//|----------------------------------------------------------------------------------------
-	parameter PorportionConstant = 1;
-	parameter IntegralConstant = 1;
+	//| Assistance calculation
+	logic 		signed 	[9:0]	deltaHR;
+	logic		signed  [9:0]	PitchAssist;
+	logic 				[12:0] 	AssistanceCalc;
+	//| tuning parameters
+	logic				[7:0]	HRMultiplier = 4;
+	logic				[7:0]	Inclanationdivisor = 2;
 
-	//|
-	//| Heart Rate PID ()
-	//|----------------------------------------------------------------------------------------
-	logic 	[7:0]	PIDOutput;
+	`ifdef DEBUG 
+	//AssistanceAlg i0 (.probe(deltaHR), .source(HRMultiplier));
+	//AssistanceAlg i1 (.probe (ResolvedPitch), .source(Inclanationdivisor));
+	//AssistanceAlg i2 (.probe (AssistanceRequirement));
+	`endif
+	
+	assign PitchAssist = (ResolvedPitch[9]!=1'b1)?ResolvedPitch:10'b0; //do not use pitch if it is negative
+	assign AssistanceRequirement = (AssistanceCalc[9] != 1'b1)?AssistanceCalc:13'b0; //output zero if assistance calc is negative
 
-	//| need external module to control motor output behavior(LPF and such)
+	assign deltaHR = (signed'({1'b0,HeartRate}) - signed'({1'b0,HeartRateSetPoint}))*signed'({1'b0,HRMultiplier}); // maximum expected difference heart rate 50bpm, send full assistance
 
-	//| core calculation logic, rate is constant and set by heart rate from ANT+ module
-	always @ (posedge HeartRate)
-		begin
+	assign AssistanceCalc = deltaHR + signed'({1'b0,PitchAssist/Inclanationdivisor});
 
-		end
 endmodule

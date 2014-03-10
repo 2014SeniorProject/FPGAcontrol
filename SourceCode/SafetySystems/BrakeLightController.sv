@@ -32,10 +32,10 @@
 //|
 //| =========================================================================================
 module BrakeLightController(
-  input   wire    brakeActive,
-  input   wire    headLightActive,
-  input   wire    c50M,
-  output  wire    brakePWM
+  input           brakeActive,
+  input           headLightActive,
+  input           c50M,
+  output          brakePWM
 );
 
   //|

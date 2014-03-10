@@ -43,111 +43,85 @@ module SmartBike_TOP(
 	output 			[7:0]		LED,
 
 	//IMU I2C
-	inout	wire 				IMU_SCL,		//IMU I2C Clock line
-	inout	wire				IMU_SDA,		//IMU I2C Data Line
+	inout		 				IMU_SCL,		//IMU I2C Clock line
+	inout						IMU_SDA,		//IMU I2C Data Line
 
 	//Motor controller outputs
-	output 	wire 				PWMout,
-	output 	wire 				waveFormsPin,
+	output 		 				PWMout,
+	output 		 				waveFormsPin,
 
 	//RPM Calculation
-	input 	wire				blips,
+	input 						blips,
 
 	//Cellphone Communication
-	output 	wire 				tx,		//Cell phone transmiting
-	input 	wire		 		rx,		//Cell phone receiving
+	output 		 				tx,		//Cell phone transmiting
+	input 				 		rx,		//Cell phone receiving
 
 	//Safety Systems
-	input	wire				leftBlinker,		//buttons in
-	input	wire				rightBlinker,		//buttons in
-	input	wire				headLight,			//buttons in
-	input	wire				horn,						//buttons in
+	input						leftBlinker,		//buttons in
+	input						rightBlinker,		//buttons in
+	input						headLight,			//buttons in
+	input						horn,				//buttons in
 
-	input	wire				brakes,
+	input						brakes,
 
-	output	wire				leftBlinkerOut,
-	output	wire				rightBlinkerOut,
-	output	wire				headLightOut,
-	output	wire				brakeLightOut,
+	output						leftBlinkerOut,
+	output						rightBlinkerOut,
+	output						headLightOut,
+	output						brakeLightOut,
 
 	//User's pedal cadence input
-	input	wire				cadence,
+	input						cadence,
 
 	//DAC output
 	output			[7:0]		DACout,
 
 	//SDRAM
 	output		    [12:0]		DRAM_ADDR,
-	output		     [1:0]		DRAM_BA,
+	output		    [1:0]		DRAM_BA,
 	output		          		DRAM_CAS_N,
 	output		          		DRAM_CKE,
 	output		          		DRAM_CLK,
 	output		          		DRAM_CS_N,
 	inout 		    [15:0]		DRAM_DQ,
-	output		     [1:0]		DRAM_DQM,
+	output		    [1:0]		DRAM_DQM,
 	output		          		DRAM_RAS_N,
 	output		          		DRAM_WE_N,
 
 	//ANT UART
-	output 	wire 				ANT_tx,		//Cell phone transmiting
-	input 	wire		 		ANT_rx,		//Cell phone receiving
+	output 		 				ANT_tx,		//Cell phone transmiting
+	input 				 		ANT_rx,		//Cell phone receiving
 
 	//ANT Configuration
-	output	wire	[2:0]		ANT_BaudRate,
-	output	wire				ANT_nTest,
-	output	wire				ANT_nReset,
-	output	wire				ANT_nSuspend,
-	output	wire				ANT_Sleep,
-	output	wire				ANT_PortSelect,
-	output	wire				ANT_RequestToSend,
-	output	wire				ANT_Reserved1,
-	output	wire				ANT_Reserved2,
+	output			[2:0]		ANT_BaudRate,
+	output						ANT_nTest,
+	output						ANT_nReset,
+	output						ANT_nSuspend,
+	output						ANT_Sleep,
+	output						ANT_PortSelect,
+	output						ANT_RequestToSend,
+	output						ANT_Reserved1,
+	output						ANT_Reserved2,
 
 	//| ADC I/O
-	output	wire				ADC_CS_N,
-	output  wire				ADC_SADDR,
-	output  wire				ADC_SCLK,
-	input   wire				ADC_SDAT,
-	
-	input 	wire				epcs_dclk,
-	input 	wire				epcs_sce, 
-	input 	wire				epcs_sdo, 
-    output 	wire				epcs_data0
+	output						ADC_CS_N,
+	output  					ADC_SADDR,
+	output  					ADC_SCLK,
+	input   					ADC_SDAT,
+
+	output 						epcs_dclk,
+	output 						epcs_sce,
+	output 						epcs_sdo,
+    input 						epcs_data0
 );
 
 	//|
-	//| Local reg/wire declarations
+	//| Local net declarations
 	//|--------------------------------------------
-
-	//| Accelerometer
-	wire 		[9:0]			AccelX;
-	wire 		[9:0]			AccelY;
-	wire 		[9:0]			AccelZ;
-
-	//| Gyroscope
-	wire 		[9:0]			GyroX;
-	wire 		[9:0]			GyroY;
-	wire 		[9:0]			GyroZ;
-
-	//| Filtered Accelerometer
-	wire 		[9:0]			FAccelX;
-	wire 		[9:0]			FAccelY;
-	wire 		[9:0]			FAccelZ;
-
-	//| Filtered Gyroscope
-	wire 		[9:0]			FGyroX;
-	wire 		[9:0]			FGyroY;
-	wire 		[9:0]			FGyroZ;
-
-	//| IMU data trigger
-	wire						IMUDataReady;
 
 	//| Motor output
 	wire 		[9:0]			PWMinput;
-
-	//| Dataready signals from filters
-	wire						LowPassDataReady;
-	wire						HighPassDataReady;
+	wire		[7:0]			HeartRateTemp; 
 
 	//| Cell phone communication
 	wire 						transmit;
@@ -162,20 +136,17 @@ module SmartBike_TOP(
 	wire 		[7:0] 			PWMOutput;
 
 	wire		[7:0]			HeartRate;
-	wire		[7:0]			heartRateCap;
-	reg 		[7:0]			initialHeartCap =200;
-
-	//| Debounced button inputs
-	wire						DBleftBlinker;
-	wire						DBrightBlinker;
-	wire						DBheadLight;
-	wire						DBhorn;
+	logic		[7:0]			heartRateCap = 200;
 
 	//| ADC data
 	logic   	[11:0]    		adc_data[6:0];
 
+	//| IMU data
+	wire 		[9:0]			ResolvedPitch;
+	wire 		[9:0]			ResolvedRoll;
+
 	//|
-    //| ANT device assignments
+  	//| ANT device assignments
 	//|--------------------------------------------
     assign ANT_BaudRate 	= 3'b0;
     assign ANT_nTest 		= 1'b0;
@@ -187,69 +158,58 @@ module SmartBike_TOP(
     assign ANT_Reserved2 	= 1'b0;
 
 	assign waveFormsPin = PWMout;
-	assign headLightOut = DBheadLight;
-
-	always@(heartRateCap)
-		initialHeartCap = heartRateCap;
 
 	//|
-	//| IMU-I2C controller module
-	//|--------------------------------------------
-	IMUInterface IMU(
+	//|	Obtain accelerometer data and output resolved angles
+	//|---------------------------------------------
+	IMUCalculations IMUCalc(
+	//| Inputs
+		.CLOCK_50(CLOCK_50),           //Input clock
+
+    	.I2C_SCL(IMU_SCL),            //I2C Clock Signal
+    	.I2C_SDA(IMU_SDA),            //I2C Data Signal
+
+    	.ResolvedPitch(ResolvedPitch),      //Inclination data
+    	.ResolvedRoll(ResolvedRoll),        //Side to side angle
+		.LED(LED)
+    );
+
+	//|
+	//| Control the lighting systems and sound system for safety
+	//|---------------------------------------------
+	SafetyControls Safety(
+		//| Inputs
 		.CLOCK_50(CLOCK_50),
-		.I2C_SCL(IMU_SCL),
-		.I2C_SDA(IMU_SDA),
-		.AccelX(AccelX),
-		.AccelY(AccelY),
-		.AccelZ(AccelZ),
-		.GyroX(GyroX),
-		.GyroY(GyroY),
-		.GyroZ(GyroZ),
-		.DataValid(IMUDataReady)
+		.leftBlinker(leftBlinker),
+		.rightBlinker(rightBlinker),
+		.headLight(headLight),
+		.horn(horn),
+		.brakes(brakes),
+		//| Outputs
+		.leftBlinkerOut(leftBlinkerOut),
+		.rightBlinkerOut(rightBlinkerOut),
+		.headLightOut(headLightOut),
+		.brakeLightOut(brakeLightOut),
+		.DACout(DACout)
 	);
 
-	//|
-	//| IMU processing modules
-	//|--------------------------------------------
-	LowPassFilterAverage #(
-		.FilterLength(50)
-	)AccelerometerFilter(
-		.ReadDone(IMUDataReady),
-		.AccelX(AccelX),
-		.AccelY(AccelY),
-		.AccelZ(AccelZ),
-		.AccelXOut(FAccelX),
-		.AccelYOut(FAccelY),
-		.AccelZOut(FAccelZ),
-		.DataReady(LowPassDataReady)
-	);
-
-
-	SensorFusion InclanationCalculator(
-		.DataReady(IMUDataReady),
-		.Accel1(FAccelX),
-		.Accel2(FGyroY),
-		.Gyro(GyroY),
-		.resolvedAngle(PWMinput)
-	);
 
 	//|
 	//| Assistance calculation
 	//|--------------------------------------------
 	MotorControl MCA(
-			.c50m(CLOCK_50),
-			.c20k(c20k),
-
-			.Roll(),
-			.Pitch(),
-			.HeartRate(HeartRate),
-			.HeartRateSetPoint(heartRateCap),
-
-			.ThrottleTest(adc_data[1]),
-			.PWMClock(PWMClock),
-			.PhaseWireVoltage(adc_data[0]),
-
-			.MotorControlPWM(PWMout)
+		//| Inputs
+		.c50m(CLOCK_50),
+		.c20k(c20k),
+		.ResolvedRoll(ResolvedRoll),
+		.ResolvedPitch(ResolvedPitch),
+		.HeartRate(HeartRate),
+		.HeartRateSetPoint(heartRateCap),
+		.ThrottleTest(adc_data[1]),
+		.PWMClock(PWMClock),
+		.PhaseWireVoltage(adc_data[0]),
+		//| Outputs
+		.MotorControlPWM(PWMout)
 		);
 
 	//|
@@ -262,127 +222,6 @@ module SmartBike_TOP(
 		.rpmPhone(RPMnumber)
 	);
 
-	//|
-	//| Horn Controller
-	//|--------------------------------------------
-	soundramp	HornOut (
-		.c50M(CLOCK_50),
-		.Button(horn),
-		.OutputToDAC(DACout)
-	);
-
-	//|
-	//| Debounce all of the incoming Buttons
-	//|-------------------------------------------
-	debounced_button RightBlinker(
-		.c50M(CLOCK_50),
-		.Button(rightBlinker),
-		.ButtonOut(DBrightBlinker)
-	);
-
-	debounced_button LeftBlinker(
-		.c50M(CLOCK_50),
-		.Button(leftBlinker),
-		.ButtonOut(DBleftBlinker)
-	);
-
-	debounced_button HeadLight(
-		.c50M(CLOCK_50),
-		.Button(headLight),
-		.ButtonOut(DBheadLight)
-	);
-
-	debounced_button Horn(
-		.c50M(CLOCK_50),
-		.Button(horn),
-		.ButtonOut(DBhorn)
-	);
-
-	//|
-	//| Light controls
-	//|--------------------------------------------
-	blinker blinkerControls(
-		.c50M(CLOCK_50),
-		.leftBlink(DBleftBlinker),
-		.rightBlink(DBrightBlinker),
-		.rightBlinkerOut(rightBlinkerOut),
-		.leftBlinkerOut(leftBlinkerOut)
-	);
-
-
-	BrakeLightController BrakeLightController(
-		.c50M(CLOCK_50),
-		.brakeActive(brakes),
-		.headLightActive(headLightOut),
-		.brakePWM(brakeLightOut)
-	);
-
-
-	//|
-	//| IMU LED visualization
-	//|--------------------------------------------
-	PWMGenerator #(
-		.Offset(0),
-		.pNegEnable(1)
-	)AccelAngleLED(
-		.CLOCK_50(CLOCK_50),
-		.PWMinput(PWMinput),
-		.PWMout(LED[7])
-	);
-
-	PWMGenerator #(
-		.Offset(0),
-		.pNegEnable(1)
-	)AccelXLED(
-		.CLOCK_50(CLOCK_50),
-		.PWMinput(AccelX),
-		.PWMout(LED[0])
-	);
-
-	PWMGenerator #(
-		.Offset(0),
-		.pNegEnable(1)
-	)AccelYLED(
-		.CLOCK_50(CLOCK_50),
-		.PWMinput(AccelY),
-		.PWMout(LED[1])
-	);
-
-	PWMGenerator #(
-		.Offset(0),
-		.pNegEnable(1)
-	)AccelZLED(
-		.CLOCK_50(CLOCK_50),
-		.PWMinput(AccelZ),
-		.PWMout(LED[2])
-	);
-
-	PWMGenerator #(
-		.Offset(0),
-		.pNegEnable(1)
-	)GyroXLED(
-		.CLOCK_50(CLOCK_50),
-		.PWMinput(GyroX),
-		.PWMout(LED[3])
-	);
-
-	PWMGenerator #(
-		.Offset(0),
-		.pNegEnable(1)
-	)GyroYLED(
-		.CLOCK_50(CLOCK_50),
-		.PWMinput(GyroY),
-		.PWMout(LED[4])
-	);
-
-	PWMGenerator #(
-		.Offset(0),
-		.pNegEnable(1)
-	)GyroZLED(
-		.CLOCK_50(CLOCK_50),
-		.PWMinput(GyroZ),
-		.PWMout(LED[5])
-	);
 
 	ADC_CTRL ADC(
 		.c1m(ADC_CLK),
@@ -401,29 +240,14 @@ module SmartBike_TOP(
 	//|---------------------------------------------
 	wireless CellPhoneProtocol(
 		.clk(c50m),
-		.transmit(transmit), // Signal to transmit
-		.tx_byte(tx_byte), // Byte to transmit
-		.received(received), // Indicated that a byte has been received.
-		.rx_byte(rx_byte), // Byte received
-		.is_receiving(is_receiving), // Low when receive line is idle.
-		.is_transmitting(is_transmitting), // Low when transmit line is idle.
+		.tx(tx),
+		.rx(rx),
 		.heartRate(HeartRate),
+		.UARTclk(UARTclk),
 		.heartCap(heartRateCap),
-		.resolvedAngle(PWMinput),
+		.ResolvedAngle(ResolvedPitch),
 		.speed(RPMnumber),
 		.ADC(adc_data[0])
-	);
-
-	uart	Bluetooth(
-		.clk(c50m),
-		.rx(rx),
-		.tx(tx),
-		.transmit(transmit), // Signal to transmit
-		.tx_byte(tx_byte), // Byte to transmit
-		.received(received), // Indicated that a byte has been received.
-		.rx_byte(rx_byte), // Byte received
-		.is_receiving(is_receiving), // Low when receive line is idle.
-		.is_transmitting(is_transmitting) // Low when transmit line is idle.
 	);
 
 	//NIOS II CPU
@@ -444,14 +268,18 @@ module SmartBike_TOP(
 		.antuart_rxd  (ANT_rx),  	 // antuart.rxd
         .antuart_txd  (ANT_tx),   	 //        .txds
 
-		.heartrateoutput_export (HeartRate),
-		
-		.epcsio_dclk            (epcs_dclk),            //          epcsio.dclk
-        .epcsio_sce             (epcs_sce),             //                .sce
-        .epcsio_sdo             (epcs_sdo),             //                .sdo
-        .epcsio_data0           (epcs_data0) 
+		.heartrateoutput_export (HeartRateTemp),
+				 
+		.epcsio_dclk  (epcs_dclk),            //          epcsio.dclk
+        .epcsio_sce   (epcs_sce),             //                .sce
+        .epcsio_sdo   (epcs_sdo),             //                .sdo
+        .epcsio_data0 (epcs_data0)
     );
-
+	
+	always @(HeartRateTemp) begin
+		if (c20k > 0) HeartRate <= HeartRateTemp;
+	end
+	
 	PLL	PLL_inst (
 		.areset ( ),
 		.inclk0 (CLOCK_50),
@@ -471,6 +299,7 @@ module SmartBike_TOP(
 		.c3 (),
 		.locked ()
 	);
+	
 endmodule
 
 

@@ -31,14 +31,14 @@
 //|
 //| =========================================================================================
 module debounced_button(
-    input wire c50M,
-    input wire Button,
-    output reg ButtonOut =0
+    input              c50M,
+    input              Button,
+    output logic       ButtonOut =0
     );
 
 		//| Local reg/wire declarations
 		//|--------------------------------------------
-    reg [16:0] Clkbuffer = 0;
+    logic   [16:0] Clkbuffer = 0;
 
 		//| Debounce logic
 		//|--------------------------------------------
@@ -52,9 +52,9 @@ module debounced_button(
                 ButtonOut = 0;
             end
             if (Clkbuffer == 17'b1)
-                begin
+            begin
                 Clkbuffer = 17'b1;
                 ButtonOut = 1;
-                end
+            end
         end
 endmodule

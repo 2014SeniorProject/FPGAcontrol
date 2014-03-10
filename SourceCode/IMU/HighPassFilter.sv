@@ -50,16 +50,16 @@ module HighPassFilter(
   input                    ReadDone,        //module runs off this as it's clock.
 
   //| IMU inputs
-  input   wire 		signed   [9:0]    GyroX,
-  input   wire   	signed   [9:0]    GyroY,
-  input   wire   	signed	 [9:0]    GyroZ,
+  input  	        	signed   [9:0]    GyroX,
+  input           	signed   [9:0]    GyroY,
+  input           	signed	 [9:0]    GyroZ,
 
   //| Filtered outputs
-  output  reg     signed   [9:0]    GyroXOut,
-  output  reg     signed   [9:0]    GyroYOut,
-  output  reg     signed   [9:0]    GyroZOut,
+  output  logic     signed   [9:0]    GyroXOut,
+  output  logic     signed   [9:0]    GyroYOut,
+  output  logic     signed   [9:0]    GyroZOut,
 
-	output	reg				DataReady
+	output	logic			DataReady
   );
 // AccelSettingtReadback  gyaxis (
 //    .probe (GyroX),
@@ -83,15 +83,15 @@ module HighPassFilter(
   //| Local register and wire instansiations
   //|--------------------------------------------
 
-  reg    signed 	[9:0]      GyroXreg[width-1:0];
-  reg    signed	  [9:0]      GyroYreg[width-1:0];
-  reg    signed	  [9:0]      GyroZreg[width-1:0];
+  logic    signed 	[9:0]      GyroXreg[width-1:0];
+  logic    signed	  [9:0]      GyroYreg[width-1:0];
+  logic    signed	  [9:0]      GyroZreg[width-1:0];
 
-  reg    signed 	[32:0]     GyroXSum; //need to prove this register size is always valid
-  reg    signed	  [32:0]     GyroYSum;
-  reg    signed 	[32:0]     GyroZSum = 0;
+  logic    signed 	[32:0]     GyroXSum; //need to prove this register size is always valid
+  logic    signed	  [32:0]     GyroYSum;
+  logic    signed 	[32:0]     GyroZSum = 0;
 
-  reg    [7:0]      z = 0;
+  logic    [7:0]      z = 0;
 
   //|
   //| Filter construction

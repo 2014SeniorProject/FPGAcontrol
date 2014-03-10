@@ -29,7 +29,6 @@
 //|         The filter is implemented by a shift register that is created using the genvar construct.
 //|         All of the values in the register are averaged and loaded into the output registers every
 //|         clock cycle.
-
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
 //| Uncomment the `include "timescale.sv" to run a simulation.
 //`include "debug.sv"
@@ -39,20 +38,20 @@ parameter FilterLength = 200;           //number of filter samples - works out t
 
 module LowPassFilterADC(
     //|Data input
-    input   wire   signed [9:0]    DataIn,
+    input           signed [9:0]    DataIn,
 
     //| Filtered outputs
-    output  reg    signed [9:0]    DataOut
+    output  logic   signed [9:0]    DataOut
 );
 
     //|
     //| Local register and wire declarations
     //|---------------------------------------------------------------
-    reg     signed  [9:0]       FilterReg[FilterLength-1:0];
+    logic    signed  [9:0]      FilterReg[FilterLength-1:0];
 
-    reg     signed  [64:0]      DataSum; //need to prove this register size is always valid
+    logic    signed  [64:0]     DataSum; //need to prove this register size is always valid
 
-    reg              [9:0]      z = 0;
+    logic            [9:0]      z = 0;
 
 
 

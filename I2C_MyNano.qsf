@@ -42,7 +42,7 @@ set_global_assignment -name TOP_LEVEL_ENTITY SmartBike_TOP
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:42:27  SEPTEMBER 26, 2013"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
-set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ./output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
@@ -237,11 +237,11 @@ set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
 set_global_assignment -name OPTIMIZE_HOLD_TIMING "IO PATHS AND MINIMUM TPD PATHS"
 set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING OFF
-set_global_assignment -name FITTER_EFFORT "FAST FIT"
+set_global_assignment -name FITTER_EFFORT "AUTO FIT"
 set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
 set_global_assignment -name ENABLE_NCE_PIN OFF
 set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
-set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
 set_global_assignment -name RESERVE_DATA0_AFTER_CONFIGURATION "USE AS REGULAR IO"
 set_global_assignment -name RESERVE_DATA1_AFTER_CONFIGURATION "USE AS REGULAR IO"
@@ -251,10 +251,16 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
-set_location_assignment PIN_C1 -to epcs_sdo
-set_location_assignment PIN_D2 -to epcs_sce
-set_location_assignment PIN_H1 -to epcs_dclk
-set_location_assignment PIN_H2 -to epcs_data0
+
+#set_location_assignment PIN_C1 -to epcs_sdo
+#set_location_assignment PIN_D2 -to epcs_sce
+#set_location_assignment PIN_H1 -to epcs_dclk
+#set_location_assignment PIN_H2 -to epcs_data0
+
+#============================================================
+# EPCS
+#============================================================
+
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_BaudRate[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to epcs_sdo
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to epcs_sce
@@ -277,6 +283,21 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_RequestToSend
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_PortSelect
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_BaudRate[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to ANT_BaudRate[1]
+set_global_assignment -name CYCLONEIII_CONFIGURATION_DEVICE EPCS64
+set_global_assignment -name CYCLONEIII_CONFIGURATION_SCHEME "ACTIVE SERIAL"
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION ON
+set_location_assignment PIN_H2 -to epcs_data0
+set_location_assignment PIN_H1 -to epcs_dclk
+set_location_assignment PIN_D2 -to epcs_sce
+set_location_assignment PIN_C1 -to epcs_sdo
+set_global_assignment -name VERILOG_FILE SourceCode/SystemProbes/PWMSet.v
+set_global_assignment -name VERILOG_FILE SourceCode/SystemProbes/CurrentControlProbe.v
+set_global_assignment -name VERILOG_FILE SourceCode/SystemProbes/CellPhoneProbe.v
+set_global_assignment -name VERILOG_FILE SourceCode/SystemProbes/AssistanceAlg.v
+set_global_assignment -name VERILOG_FILE SourceCode/SystemProbes/ADCReadback.v
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/IMU/IMUCalculations.sv
+set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SafetySystems/SafetyControls.sv
 set_global_assignment -name QIP_FILE SourceCode/SystemProbes/PWMSet.qip
 set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SystemProbes/GyroProbeZ.sv
 set_global_assignment -name SYSTEMVERILOG_FILE SourceCode/SystemProbes/GyroProbeY.sv
@@ -317,4 +338,11 @@ set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_global_assignment -name SOURCE_FILE Spf1.spf
 set_global_assignment -name SOURCE_FILE SourceCode/SystemProbes/Spf3.spf
 set_global_assignment -name SOURCE_FILE output_files/Spf4.spf
+set_global_assignment -name SOURCE_FILE db/I2C_MyNano.cmp.rdb
+set_global_assignment -name QIP_FILE CurrentControlProbe.qip
+set_global_assignment -name QIP_FILE AssistanceAlg.qip
+set_global_assignment -name QIP_FILE CellPhoneProbe.qip
+set_global_assignment -name QIP_FILE SourceCode/DataGathering/PLL3.qip
+set_global_assignment -name QIP_FILE SourceCode/DataGathering/PLL3_bb.qip
+set_global_assignment -name QIP_FILE SourceCode/CellPhoneCommunication/PLL3.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

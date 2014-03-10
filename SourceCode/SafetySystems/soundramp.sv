@@ -32,14 +32,14 @@
 //|
 //| =========================================================================================
 module soundramp(
-    input 	wire 				c50M,
-    input 	wire 				Button,
-    output 	reg [7:0] 	OutputToDAC=0
+        input 	 				c50M,
+        input 	 				Button,
+        output 	logic   [7:0] 	OutputToDAC=0
     );
 
 	//| Local reg/wire declarations
 	//|--------------------------------------------
-    reg [7:0] clkbuffer = 0;
+    logic   [7:0]   clkbuffer = 0;
 
 	//| Clock divider
 	//|--------------------------------------------
