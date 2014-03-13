@@ -41,10 +41,10 @@ module CurrentControlProbe (
 	source);
 
 	input	[11:0]  probe;
-	output	  source;
+	output	[7:0]  source;
 
-	wire  sub_wire0;
-	wire  source = sub_wire0;
+	wire [7:0] sub_wire0;
+	wire [7:0] source = sub_wire0[7:0];
 
 	altsource_probe	altsource_probe_component (
 				.probe (probe),
@@ -77,7 +77,7 @@ module CurrentControlProbe (
 		altsource_probe_component.sld_auto_instance_index = "YES",
 		altsource_probe_component.sld_instance_index = 0,
 		altsource_probe_component.source_initial_value = " 0",
-		altsource_probe_component.source_width = 0;
+		altsource_probe_component.source_width = 8;
 
 
 endmodule
@@ -93,11 +93,11 @@ endmodule
 // Retrieval info: CONSTANT: SLD_AUTO_INSTANCE_INDEX STRING "YES"
 // Retrieval info: CONSTANT: SLD_INSTANCE_INDEX NUMERIC "0"
 // Retrieval info: CONSTANT: SOURCE_INITIAL_VALUE STRING " 0"
-// Retrieval info: CONSTANT: SOURCE_WIDTH NUMERIC "0"
+// Retrieval info: CONSTANT: SOURCE_WIDTH NUMERIC "8"
 // Retrieval info: USED_PORT: probe 0 0 12 0 INPUT NODEFVAL "probe[11..0]"
-// Retrieval info: USED_PORT: source 0 0 0 0 OUTPUT NODEFVAL "source"
+// Retrieval info: USED_PORT: source 0 0 8 0 OUTPUT NODEFVAL "source[7..0]"
 // Retrieval info: CONNECT: @probe 0 0 12 0 probe 0 0 12 0
-// Retrieval info: CONNECT: source 0 0 0 0 @source 0 0 0 0
+// Retrieval info: CONNECT: source 0 0 8 0 @source 0 0 8 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL CurrentControlProbe.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL CurrentControlProbe.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL CurrentControlProbe.cmp FALSE

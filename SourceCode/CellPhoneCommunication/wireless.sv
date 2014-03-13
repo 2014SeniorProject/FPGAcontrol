@@ -53,6 +53,7 @@ module wireless(
 	output 	logic	[7:0]	wheelSize,
 	output  logic	[7:0]	heartCap = 200
 );
+	
 	//|
 	//| Parameters for the case statements.
 	//| -----------------------------------------
@@ -92,7 +93,10 @@ module wireless(
 	//|--------------------------------------------------------------------------
 	CellPhoneProbe i0(rx_byte);
 	CellPhoneProbe i1(tx_byte);
-
+	CellPhoneProbe i2(wheelSize);
+	CellPhoneProbe i3(heartCap);
+	CellPhoneProbe i4(speed);
+	
 	always@(posedge clk)
 		begin
 			//| Once a byte has been received from the cell phone, the received bit will be high for one

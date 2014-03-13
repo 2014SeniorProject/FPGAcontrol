@@ -38,54 +38,52 @@
 module RPM(
 	input 	 					clk50M,
 	input 	 					blips,
-	output 	logic 	[15:0] 		rpm =0,
-	output 			[7:0]		rpmPhone
+	output 	logic 	[15:0] 		rpm
 );
 
-	parameter clkspeed = 50000000; 								//parameter to set the incoming clock's frequency
-	parameter motor_pole_count = 16; 							//parameter to set the motor's pole count
-	parameter internal_gear_reduction_ratio = 5; 	//if motor is internally geared, set the appropriate x:1 ratio here, x being filled in
-
-	logic 	[31:0] 	clkcount=0;        								//initialize the clock counter at zero
-	logic 	[31:0] 	clkstore=0;        								//register to store the clock counter while maths happen
-	logic 	[32:0] 	numerator=0;       								//numerator of the dimensional analysis equation
-	logic 	[31:0]	denominator=0;     								//denominator of the dimensional analysis equation
-	logic			firstPass = 0;
-	logic	[15:0]	speed = 0;
-
-	logic 	[15:0]  numOfBlips = 0;
-
-//	AccelSettingtReadback  rpmdata (
-//		.probe (rpm),
-//		.source ()
-//		);
-//	AccelSettingtReadback  rpmdata1 (
-//		.probe (speed),
-//		.source ()
-//		);
-
+	//parameter clkspeed = 50_000_000; 								//parameter to set the incoming clock's frequency
+	//parameter motor_pole_count = 16; 							//parameter to set the motor's pole count
+	//parameter internal_gear_reduction_ratio = 5; 	//if motor is internally geared, set the appropriate x:1 ratio here, x being filled in
+	
+	logic			blips_d1, blips_d2;
+	logic	[8:0]	BlipCoutner;
+	logic	[25:0]	BlipTimer;
+	logic			ResetBlipCounter;
+	logic			PosedgeBlip;
+	
+	RPMProbe u1(rpm);
+	RPMProbe u2(BlipCoutner);
+	
+	assign PosedgeBlip = blips_d1 && !blips_d2;
+	
 	//	clock counter, always counts at posedge of the clock,
 	//	gets reset on posedge of blips
-	always @(posedge clk50M)
-		begin
-			clkcount++;
-
-			if(blips && !firstPass)
-				begin
-					numOfBlips++;
-					firstPass = 1;
-				end
-
-			if (!blips) firstPass = 0;
-
-			if(clkcount == 50000000)
-				begin
-					rpm = numOfBlips*60/80;
-					numOfBlips = 0;
-					clkcount = 0;
-				end
-
-				rpmPhone = rpm/2;
+	always @(posedge clk50M) begin
+		blips_d1 <= blips;
+		blips_d2 <= blips_d1;
+		
+		if(BlipTimer < 50_000_000) begin
+			BlipTimer++;
+			ResetBlipCounter <= 0;
+		end
+		else begin
+			rpm <= (BlipCoutner*3)/8;
+			ResetBlipCounter <= 1'b1;
+			BlipTimer <= 0;
+		end
+	end
+	
+	always@(posedge PosedgeBlip, posedge ResetBlipCounter) begin
+		if(ResetBlipCounter == 1)begin
+			//rpm = (BlipCoutner*3)/8;
+			BlipCoutner = 0;
+		end
+		else begin
+			BlipCoutner++;
+		end
+	end
+	
+		
 			/*clkcount = clkcount +1;
 
 			//	stores and resets count when motor controller sends in blips,
@@ -110,6 +108,6 @@ module RPM(
 				if (!blips) firstPass = 0;
 				//speed = rpm*3*26*60/63360;
 				rpmPhone = rpm/4;  */
-		end
+		
 
 endmodule

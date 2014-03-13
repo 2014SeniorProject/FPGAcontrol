@@ -75,7 +75,7 @@ module ADC_CTRL (
 	always@(posedge c1m)
 	    begin
 	        case(m_cont)
-	        4'd01: adc_data[ADC_channel] <= (98*adc_data[ADC_channel] + 2*adc_dataIN[11:0])/100;
+	        4'd01: adc_data[ADC_channel] <= (78*adc_data[ADC_channel] + 22*adc_dataIN[11:0])/100;
 	        // shift data in
 	        4'd03: adc_dataIN[11]   <=  SPI_IN;
 	        4'd04: adc_dataIN[10]   <=  SPI_IN;

@@ -31,13 +31,6 @@
 //| 1/2/14  BS  added MIT License.
 //|
 //| =========================================================================================
-
-//| Uncomment the `include "debug.sv" to enter debug mode on this module.
-//| Uncomment the `include "timescale.sv" to run a simulation.
-//`include "debug.sv"
-//`include "timescale.sv"
-
-
 module MotorControl(
     input               c50m,
     input               c20k,
@@ -54,15 +47,19 @@ module MotorControl(
 	input 				PWMClock,
     input               cadence,
 
+	input				MotorModeSelect,
+	
     //| Motor electrical inputs
     input       [11:0]  PhaseWireVoltage,
 
     //| motor control outputs
-    output             MotorControlPWM
+    output             	MotorControlPWM
 );
 
-    wire        [11:0]   MotorSignal;
-    wire        [11:0]   AssistanceRequirement;
+    wire        [11:0]  MotorSignal;
+	wire        [11:0]  MotorSignalSafety;
+    wire        [11:0]  AssistanceRequirement;
+	wire        [11:0]  MotorCurrentSetting;
 
     //| This module takes in information about the user's current biometric state
     //| and prefrences. It then calculates an amount of assistance that they should
@@ -77,6 +74,8 @@ module MotorControl(
         .brake()
     );
 
+	//assign MotorCurrentSetting = (MotorModeSelect)?AssistanceRequirement:ThrottleTest; //allows override of assistance algorthmn to use twist throttle
+	
     //| This module attempts to infer torque from a number of system measurements.
     //| It will require significant testing and modification. The primary idea is
     //| to measure current as voltage across a sense resistor.
@@ -86,7 +85,9 @@ module MotorControl(
         .PhaseWireVoltage(PhaseWireVoltage),
         .MotorSignal(MotorSignal)
     );
-
+	
+	//assign MotorSignalSafety = (ResolvedPitch > 45 degrees && ResolvedRoll > 45degrees) ? MotorSignal : 1'b0; //turns motor signal off is roll or pitch is too large.
+	
     //| This is a pretty simple module that will convert the requested duty cycle
     //| from the current control module into a percentage duty cycle signal for the
     //| ESC's speed setting input. There are a few adjustments for the PWM -> setting

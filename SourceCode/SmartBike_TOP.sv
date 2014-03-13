@@ -109,10 +109,13 @@ module SmartBike_TOP(
 	output  					ADC_SCLK,
 	input   					ADC_SDAT,
 
+	//| EPCS configuration pins
 	output 						epcs_dclk,
 	output 						epcs_sce,
 	output 						epcs_sdo,
-    input 						epcs_data0
+    input 						epcs_data0,
+	
+	input 						MotorModeSelectSwitch
 );
 
 	//|
@@ -208,6 +211,7 @@ module SmartBike_TOP(
 		.ThrottleTest(adc_data[1]),
 		.PWMClock(PWMClock),
 		.PhaseWireVoltage(adc_data[0]),
+		.MotorModeSelect(MotorModeSelectSwitch),
 		//| Outputs
 		.MotorControlPWM(PWMout)
 		);
@@ -216,10 +220,9 @@ module SmartBike_TOP(
 	//| Motor RPM calculation
 	//|--------------------------------------------
 	RPM rpmCalc (
-		.rpm(),
-		.clk50M(c1m),
-		.blips(blips),
-		.rpmPhone(RPMnumber)
+		.rpm(RPMnumber),
+		.clk50M(CLOCK_50),
+		.blips(blips)
 	);
 
 
@@ -268,7 +271,7 @@ module SmartBike_TOP(
 		.antuart_rxd  (ANT_rx),  	 // antuart.rxd
         .antuart_txd  (ANT_tx),   	 //        .txds
 
-		.heartrateoutput_export (HeartRateTemp),
+		.heartrateoutput_export (HeartRate),
 				 
 		.epcsio_dclk  (epcs_dclk),            //          epcsio.dclk
         .epcsio_sce   (epcs_sce),             //                .sce
@@ -276,18 +279,12 @@ module SmartBike_TOP(
         .epcsio_data0 (epcs_data0)
     );
 	
-	always @(HeartRateTemp) begin
-		if (c20k > 0) HeartRate <= HeartRateTemp;
-	end
-	
 	PLL	PLL_inst (
 		.areset ( ),
 		.inclk0 (CLOCK_50),
 		.c0 (c50m),
 		.c1 (DRAM_CLK),
 		.c2 (ADC_CLK),
-		.c3 (c100k),
-		.locked ()
 	);
 
 	PLL2 PLL_inst2 (
@@ -295,9 +292,6 @@ module SmartBike_TOP(
 		.inclk0 (CLOCK_50),
 		.c0 (PWMClock),
 		.c1 (c20k),
-		.c2 (),
-		.c3 (),
-		.locked ()
 	);
 	
 endmodule

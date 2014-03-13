@@ -108,7 +108,7 @@ module IMUCalculations (
     //| Passes them through a digital low pass filter to remove unwanted noise.
     //|---------------------------------------------
         LowPassFilterAverage #(
-        .FilterLength(150)
+        .FilterLength(100)
     )AccelerometerFilter(
         //| Inputs
         .ReadDone(IMUDataReady),

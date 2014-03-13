@@ -46,31 +46,30 @@ module AssistanceAlgorithm(
 	input  				[7:0]	HeartRateSetPoint,  	//User entered rate on cellphone
 
 	//| Motor output
-	output 	   	signed 	[12:0]   AssistanceRequirement,	//signal to current control module, kinda like torque
+	output 	   		 	[12:0]  AssistanceRequirement,	//signal to current control module, kinda like torque
 
 	input 						cadence,
 	input						brake
 );
-
-	//| Assistance calculation
-	logic 		signed 	[9:0]	deltaHR;
-	logic		signed  [9:0]	PitchAssist;
-	logic 				[12:0] 	AssistanceCalc;
 	//| tuning parameters
-	logic				[7:0]	HRMultiplier = 4;
-	logic				[7:0]	Inclanationdivisor = 2;
+	localparam HRMultiplier	=12'd40;
+	localparam Inclanationdivisor = 7'd2;
+	
+	//| Assistance calculation
+	logic 		signed 	[12:0]	deltaHR;
+	logic		signed  [12:0]	PitchAssist;
+	logic 		signed	[12:0] 	AssistanceCalc;
 
 	`ifdef DEBUG 
-	//AssistanceAlg i0 (.probe(deltaHR), .source(HRMultiplier));
-	//AssistanceAlg i1 (.probe (ResolvedPitch), .source(Inclanationdivisor));
-	//AssistanceAlg i2 (.probe (AssistanceRequirement));
+		AssistanceAlg i0 (.probe(deltaHR));
+		AssistanceAlg i2 (.probe(AssistanceRequirement));
 	`endif
 	
 	assign PitchAssist = (ResolvedPitch[9]!=1'b1)?ResolvedPitch:10'b0; //do not use pitch if it is negative
-	assign AssistanceRequirement = (AssistanceCalc[9] != 1'b1)?AssistanceCalc:13'b0; //output zero if assistance calc is negative
+	assign AssistanceRequirement = (AssistanceCalc[12] != 1'b1)?AssistanceCalc:13'b0; //output zero if assistance calc is negative
 
 	assign deltaHR = (signed'({1'b0,HeartRate}) - signed'({1'b0,HeartRateSetPoint}))*signed'({1'b0,HRMultiplier}); // maximum expected difference heart rate 50bpm, send full assistance
 
-	assign AssistanceCalc = deltaHR + signed'({1'b0,PitchAssist/Inclanationdivisor});
+	assign AssistanceCalc = (deltaHR-10) + signed'({1'b0,PitchAssist/Inclanationdivisor});
 
 endmodule

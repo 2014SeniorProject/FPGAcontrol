@@ -40,11 +40,11 @@ module AssistanceAlg (
 	probe,
 	source);
 
-	input	[7:0]  probe;
-	output	[7:0]  source;
+	input	[12:0]  probe;
+	output	  source;
 
-	wire [7:0] sub_wire0;
-	wire [7:0] source = sub_wire0[7:0];
+	wire  sub_wire0;
+	wire  source = sub_wire0;
 
 	altsource_probe	altsource_probe_component (
 				.probe (probe),
@@ -73,11 +73,11 @@ module AssistanceAlg (
 	defparam
 		altsource_probe_component.enable_metastability = "NO",
 		altsource_probe_component.instance_id = "HR",
-		altsource_probe_component.probe_width = 8,
+		altsource_probe_component.probe_width = 13,
 		altsource_probe_component.sld_auto_instance_index = "YES",
 		altsource_probe_component.sld_instance_index = 0,
 		altsource_probe_component.source_initial_value = " 0",
-		altsource_probe_component.source_width = 8;
+		altsource_probe_component.source_width = 0;
 
 
 endmodule
@@ -89,19 +89,19 @@ endmodule
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ENABLE_METASTABILITY STRING "NO"
 // Retrieval info: CONSTANT: INSTANCE_ID STRING "HR"
-// Retrieval info: CONSTANT: PROBE_WIDTH NUMERIC "8"
+// Retrieval info: CONSTANT: PROBE_WIDTH NUMERIC "13"
 // Retrieval info: CONSTANT: SLD_AUTO_INSTANCE_INDEX STRING "YES"
 // Retrieval info: CONSTANT: SLD_INSTANCE_INDEX NUMERIC "0"
 // Retrieval info: CONSTANT: SOURCE_INITIAL_VALUE STRING " 0"
-// Retrieval info: CONSTANT: SOURCE_WIDTH NUMERIC "8"
-// Retrieval info: USED_PORT: probe 0 0 8 0 INPUT NODEFVAL "probe[7..0]"
-// Retrieval info: USED_PORT: source 0 0 8 0 OUTPUT NODEFVAL "source[7..0]"
-// Retrieval info: CONNECT: @probe 0 0 8 0 probe 0 0 8 0
-// Retrieval info: CONNECT: source 0 0 8 0 @source 0 0 8 0
+// Retrieval info: CONSTANT: SOURCE_WIDTH NUMERIC "0"
+// Retrieval info: USED_PORT: probe 0 0 13 0 INPUT NODEFVAL "probe[12..0]"
+// Retrieval info: USED_PORT: source 0 0 0 0 OUTPUT NODEFVAL "source"
+// Retrieval info: CONNECT: @probe 0 0 13 0 probe 0 0 13 0
+// Retrieval info: CONNECT: source 0 0 0 0 @source 0 0 0 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL AssistanceAlg.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AssistanceAlg.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AssistanceAlg.cmp FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AssistanceAlg.bsf FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL AssistanceAlg_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL AssistanceAlg_bb.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL AssistanceAlg_bb.v FALSE
 // Retrieval info: LIB_FILE: altera_mf
