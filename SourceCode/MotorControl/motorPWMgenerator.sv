@@ -39,28 +39,28 @@
 
 module motorPWMgenerator(
 	input 					PWMClock, 		//| Clock of 50mhz from the De0-Nano Board
-	input 	wire 	[7:0] 	PWMinput,		//| 10 Bit input from the filter module. Depends on the accelerometer data.
-	output 	reg 			PWMout			//| The PWM output the the Motor Controller.
+	input 		 	[11:0] 	PWMinput,		//| 10 Bit input from the filter module. Depends on the accelerometer data.
+	output 	logic 			PWMout			//| The PWM output the the Motor Controller.
 );
 
 	//| pwm high time counter
-	logic [9:0]	COUNT;
+	logic 	[12:0]	COUNT;
 
 	//| This is an offset for the PWM output. The motor requires around 60% duty cycle to
 	//| start running smoothly. This will depend on the cycle time of the PWM.
-	parameter 		Offset = 94;
+	parameter 		Offset = 1514;
 
 	//| Output signal generator
 	always @(posedge PWMClock)
 		begin
 			//increment output generator
-			COUNT = COUNT + 16'd1;
+			COUNT = COUNT + 10'd1;
 
 			//| generate pwm signal
-			if(COUNT < PWMinput + Offset) PWMout=1;
-			else PWMout=0;
+			if(COUNT < PWMinput + Offset) PWMout=1'b1;
+			else PWMout=1'b0;
 
 			//| Reset counter at overflow
-			if(COUNT>=349)COUNT=0;
+			if(COUNT>=5610)COUNT=10'd0;
 		end
 endmodule

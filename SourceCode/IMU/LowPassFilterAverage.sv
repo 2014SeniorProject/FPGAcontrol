@@ -44,19 +44,19 @@ module LowPassFilterAverage(
 	input 				  			ReadDone,				//module runs off this as it's clock.
 
 	//| IMU inputs
-	input   wire   signed [9:0]    AccelX,
-	input   wire   signed [9:0]    AccelY,
-	input   wire   signed [9:0]    AccelZ,
+	input   		   	signed [9:0]    AccelX,
+	input   		   	signed [9:0]    AccelY,
+	input   		   	signed [9:0]    AccelZ,
 
   //| Filtered outputs
-	output  reg    signed [9:0]    AccelXOut,
-	output  reg    signed [9:0]    AccelYOut,
-	output  reg    signed [9:0]    AccelZOut,
+	output  logic    	signed [9:0]    AccelXOut,
+	output  logic    	signed [9:0]    AccelYOut,
+	output  logic    	signed [9:0]    AccelZOut,
 
-	output	reg										 DataReady
+	output	logic						DataReady
 );
 
-	
+
 	parameter FilterLength = 200;			//number of filter samples - works out to be 1s at our current data rate
 
 	`ifdef debug
@@ -67,15 +67,15 @@ module LowPassFilterAverage(
 	//|
 	//| Local register and wire declarations
 	//|---------------------------------------------------------------
-	reg   signed 	[9:0]    	AccelXreg[FilterLength-1:0];
-	reg		signed 	[9:0]   	AccelYreg[FilterLength-1:0];
-	reg		signed 	[9:0]    	AccelZreg[FilterLength-1:0];
+	logic   signed 	[9:0]    	AccelXreg[FilterLength-1:0];
+	logic	signed 	[9:0]   	AccelYreg[FilterLength-1:0];
+	logic	signed 	[9:0]    	AccelZreg[FilterLength-1:0];
 
-	reg 	signed 	[32:0]  	AccelXSum; //need to prove this register size is always valid
-	reg 	signed 	[32:0]  	AccelYSum;
-	reg 	signed 	[32:0]  	AccelZSum;
+	logic 	signed 	[32:0]  	AccelXSum; //need to prove this register size is always valid
+	logic 	signed 	[32:0]  	AccelYSum;
+	logic 	signed 	[32:0]  	AccelZSum;
 
-	reg		 	  		[9:0]			z = 0;
+	logic 	  		[9:0]		z = 0;
 
 
 

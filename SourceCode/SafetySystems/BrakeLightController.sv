@@ -32,10 +32,10 @@
 //|
 //| =========================================================================================
 module BrakeLightController(
-  input   wire    brakeActive,
-  input   wire    headLightActive,
-  input   wire    c50M,
-  output  wire    brakePWM
+  input           brakeActive,
+  input           headLightActive,
+  input           c50M,
+  output          brakePWM
 );
 
   //|
@@ -57,7 +57,7 @@ module BrakeLightController(
   //|
   //| Structual coding
   //|--------------------------------------------
-  always @(posedge c50M)
+  always @(*)
     begin
       casex({brakeActive, headLightActive})
         2'b1x: PWMinput <= 10'b1111111111;

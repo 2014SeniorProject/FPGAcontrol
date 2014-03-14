@@ -44,15 +44,15 @@ module IMUInterface(
 	inout                       I2C_SDA,
 
 
-	output  wire    [17:0]      AccelX,
-	output  wire    [17:0]      AccelY,
-	output  wire    [17:0]      AccelZ,
+	output  	    [17:0]      AccelX,
+	output  	    [17:0]      AccelY,
+	output  	    [17:0]      AccelZ,
 
-	output  wire    [17:0]      GyroX,
-	output  wire    [17:0]      GyroY,
-	output  wire    [17:0]      GyroZ,
+	output  	    [17:0]      GyroX,
+	output  	    [17:0]      GyroY,
+	output  	    [17:0]      GyroZ,
 
-	output  reg                 DataValid
+	output  logic               DataValid
 );
 
 	//| Altera in system probes for debugging
@@ -67,9 +67,9 @@ module IMUInterface(
 //		AccelProbeY  IMUAccelZProbe (AccelZ);
 //
 //		//| Debug readback data registers
-		reg         [7:0]       RW_RATE = 0;
-		reg         [7:0]       POWER_CTL = 0;
-		reg         [7:0]       DataFormat = 0;
+		logic        [7:0]       RW_RATE = 0;
+		logic        [7:0]       POWER_CTL = 0;
+		logic        [7:0]       DataFormat = 0;
 	`endif
 
 	//| Sensor module I2C bus addresses
@@ -120,49 +120,49 @@ module IMUInterface(
 	//|
 	//| Local register declarations
 	//|-------------------------------------------------------------------------------------------------
-	reg         [7:0]       StateControl = 1;           //Flag register. Starts at 0, then thing happen...
+	logic       [7:0]       StateControl = 1;           //Flag register. Starts at 0, then thing happen...
 
-	reg         [1:0]       SW = 1;                     //read or write flag, 1 for write, 0 for read...
+	logic       [1:0]       SW = 1;                     //read or write flag, 1 for write, 0 for read...
 
-	reg         [7:0]       DATAIN = 0;                 //This is where the data is stored when reading a byte
-	reg                     GO = 0;                     //This signals the operation to start
-	reg         [6:0]       SD_COUNTER = 0;             //This is used for the casses in the bitwise read and write states
+	logic       [7:0]       DATAIN = 0;                 //This is where the data is stored when reading a byte
+	logic                   GO = 0;                     //This signals the operation to start
+	logic       [6:0]       SD_COUNTER = 0;             //This is used for the casses in the bitwise read and write states
 
 	//| Bus control resiters
-	reg                     SDI = 0;                    //place holder for I2C_SDA
-	reg                     SCL = 0;                    //Place holder for I2C_SCL during start/stop
+	logic                     SDI = 0;                    //place holder for I2C_SDA
+	logic                     SCL = 0;                    //Place holder for I2C_SCL during start/stop
 
 	//| I2C control registers
-	reg         [9:0]       COUNT;                      //Keep track of clocks
-	reg         [7:0]       REGADDRESS = 0;             //Address of the register
-	reg         [6:0]       I2CADDRESS = 0;             //7 bit address of slave
-	reg                     RW_DIR = 0;                 //Read write direction. 0 - Write, 1- Read.
-	reg         [7:0]       DATAOUT = 0;                //Data to be sent to slave
-	reg                     FIRSTPASS =0;				//This ensures that out states are initialized once each
-	reg         [7:0]       IdleCount = 0;				//Keeps track of the time of the Idle state
-	reg                     intialWait = 1;
-	reg                     ReadDone = 0;				//Flag to tell when a read cycle has finished
-	reg                     WriteDone = 0;				//Flag to tell when a write cycle has finished
-	reg				        SCL_CTRL = 0;
+	logic       [9:0]       COUNT;                      //Keep track of clocks
+	logic       [7:0]       REGADDRESS = 0;             //Address of the register
+	logic       [6:0]       I2CADDRESS = 0;             //7 bit address of slave
+	logic                   RW_DIR = 0;                 //Read write direction. 0 - Write, 1- Read.
+	logic       [7:0]       DATAOUT = 0;                //Data to be sent to slave
+	logic                   FIRSTPASS =0;				//This ensures that out states are initialized once each
+	logic       [7:0]       IdleCount = 0;				//Keeps track of the time of the Idle state
+	logic                   intialWait = 1;
+	logic                   ReadDone = 0;				//Flag to tell when a read cycle has finished
+	logic                   WriteDone = 0;				//Flag to tell when a write cycle has finished
+	logic			        SCL_CTRL = 0;
 
 
 
 	//| Sensor data registers
-	reg         [7:0]       AccelYHB;
-	reg         [7:0]       AccelXHB;
-	reg         [7:0]       AccelZHB;
+	logic       [7:0]       AccelYHB;
+	logic       [7:0]       AccelXHB;
+	logic       [7:0]       AccelZHB;
 
-	reg         [7:0]       AccelYLB;
-	reg         [7:0]       AccelXLB;
-	reg         [7:0]       AccelZLB;
+	logic       [7:0]       AccelYLB;
+	logic       [7:0]       AccelXLB;
+	logic       [7:0]       AccelZLB;
 
-	reg         [7:0]       GyroYHB;
-	reg         [7:0]       GyroXHB;
-	reg         [7:0]       GyroZHB;
+	logic       [7:0]       GyroYHB;
+	logic       [7:0]       GyroXHB;
+	logic       [7:0]       GyroZHB;
 
-	reg         [7:0]       GyroYLB;
-	reg         [7:0]       GyroXLB;
-	reg         [7:0]       GyroZLB;
+	logic       [7:0]       GyroYLB;
+	logic       [7:0]       GyroXLB;
+	logic       [7:0]       GyroZLB;
 
 
 	//|

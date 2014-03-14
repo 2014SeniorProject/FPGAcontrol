@@ -1,13 +1,13 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="77b53a95a05272e40176"/>
+    <hash md5_digest_80b="8603ddb998de52872ea5"/>
   </project>
   <file_info>
     <file device="EP4CE22F17C6" path="I2C_MyNano.sof" usercode="0xFFFFFFFF"/>
   </file_info>
-  <hub_info hub_ir_width="6" ir_width="4" node_addr_width="3" node_count="7"/>
+  <hub_info hub_ir_width="7" ir_width="4" node_addr_width="4" node_count="13"/>
   <node_info>
-    <node hpath="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst0|altsource_probe:altsource_probe_component" instance_id="0" mfg_id="110" node_id="9" sld_node_info="0x486E00" version="0">
+    <node hpath="IMUCalculations:IMUCalc|ADCReadback:pitchProbe|altsource_probe:altsource_probe_component" instance_id="0" mfg_id="110" node_id="9" sld_node_info="0x486E00" version="0">
       <parameters>
         <parameter name="lpm_type" type="string" value="altsource_probe"/>
         <parameter name="lpm_hint" type="string" value="UNUSED"/>
@@ -22,41 +22,41 @@
         <parameter name="enable_metastability" type="string" value="NO"/>
       </parameters>
       <inputs>
-        <port name="probe[0]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst0|probe[0]"/>
-        <port name="probe[1]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst0|probe[1]"/>
-        <port name="probe[2]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst0|probe[2]"/>
-        <port name="probe[3]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst0|probe[3]"/>
-        <port name="probe[4]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst0|probe[4]"/>
-        <port name="probe[5]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst0|probe[5]"/>
-        <port name="probe[6]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst0|probe[6]"/>
-        <port name="probe[7]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst0|probe[7]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_raw_tck" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_tdi" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_usr1" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_clrn" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ena" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ena"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_in_3_"/>
+        <port name="probe[0]" source="IMUCalculations:IMUCalc|ADCReadback:pitchProbe|probe[0]"/>
+        <port name="probe[1]" source="IMUCalculations:IMUCalc|ADCReadback:pitchProbe|probe[1]"/>
+        <port name="probe[2]" source="IMUCalculations:IMUCalc|ADCReadback:pitchProbe|probe[2]"/>
+        <port name="probe[3]" source="IMUCalculations:IMUCalc|ADCReadback:pitchProbe|probe[3]"/>
+        <port name="probe[4]" source="IMUCalculations:IMUCalc|ADCReadback:pitchProbe|probe[4]"/>
+        <port name="probe[5]" source="IMUCalculations:IMUCalc|ADCReadback:pitchProbe|probe[5]"/>
+        <port name="probe[6]" source="IMUCalculations:IMUCalc|ADCReadback:pitchProbe|probe[6]"/>
+        <port name="probe[7]" source="IMUCalculations:IMUCalc|ADCReadback:pitchProbe|probe[7]"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_tdi" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_usr1" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_clrn" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ena" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ena"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_in_3_"/>
       </inputs>
       <outputs>
         <port name="source[0]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst0_altsource_probe_component_tdo"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.IMUCalc_pitchProbe_altsource_probe_component_tdo"/>
       </outputs>
     </node>
-    <node hpath="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst1|altsource_probe:altsource_probe_component" instance_id="1" mfg_id="110" node_id="9" sld_node_info="0x486E01" version="0">
+    <node hpath="IMUCalculations:IMUCalc|ADCReadback:rollProbe|altsource_probe:altsource_probe_component" instance_id="1" mfg_id="110" node_id="9" sld_node_info="0x486E01" version="0">
       <parameters>
         <parameter name="lpm_type" type="string" value="altsource_probe"/>
         <parameter name="lpm_hint" type="string" value="UNUSED"/>
@@ -71,41 +71,41 @@
         <parameter name="enable_metastability" type="string" value="NO"/>
       </parameters>
       <inputs>
-        <port name="probe[0]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst1|probe[0]"/>
-        <port name="probe[1]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst1|probe[1]"/>
-        <port name="probe[2]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst1|probe[2]"/>
-        <port name="probe[3]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst1|probe[3]"/>
-        <port name="probe[4]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst1|probe[4]"/>
-        <port name="probe[5]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst1|probe[5]"/>
-        <port name="probe[6]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst1|probe[6]"/>
-        <port name="probe[7]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst1|probe[7]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_raw_tck" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_tdi" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_usr1" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_clrn" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ena" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ena"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_in_3_"/>
+        <port name="probe[0]" source="IMUCalculations:IMUCalc|ADCReadback:rollProbe|probe[0]"/>
+        <port name="probe[1]" source="IMUCalculations:IMUCalc|ADCReadback:rollProbe|probe[1]"/>
+        <port name="probe[2]" source="IMUCalculations:IMUCalc|ADCReadback:rollProbe|probe[2]"/>
+        <port name="probe[3]" source="IMUCalculations:IMUCalc|ADCReadback:rollProbe|probe[3]"/>
+        <port name="probe[4]" source="IMUCalculations:IMUCalc|ADCReadback:rollProbe|probe[4]"/>
+        <port name="probe[5]" source="IMUCalculations:IMUCalc|ADCReadback:rollProbe|probe[5]"/>
+        <port name="probe[6]" source="IMUCalculations:IMUCalc|ADCReadback:rollProbe|probe[6]"/>
+        <port name="probe[7]" source="IMUCalculations:IMUCalc|ADCReadback:rollProbe|probe[7]"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_raw_tck" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_tdi" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_usr1" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_cdr" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_sdr" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_udr" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_cir" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_uir" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_tlr" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_clrn" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ena" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ena"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_in_0_" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_in_1_" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_in_2_" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_in_3_" source="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_in_3_"/>
       </inputs>
       <outputs>
         <port name="source[0]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst1_altsource_probe_component_tdo"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.IMUCalc_rollProbe_altsource_probe_component_tdo"/>
       </outputs>
     </node>
-    <node hpath="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst2|altsource_probe:altsource_probe_component" instance_id="2" mfg_id="110" node_id="9" sld_node_info="0x486E02" version="0">
+    <node hpath="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|altsource_probe:altsource_probe_component" instance_id="2" mfg_id="110" node_id="9" sld_node_info="0x486E02" version="0">
       <parameters>
         <parameter name="lpm_type" type="string" value="altsource_probe"/>
         <parameter name="lpm_hint" type="string" value="UNUSED"/>
@@ -113,48 +113,53 @@
         <parameter name="sld_instance_index" type="dec" value="0"/>
         <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
         <parameter name="sld_ir_width" type="dec" value="4"/>
-        <parameter name="instance_id" type="string" value="NONE"/>
-        <parameter name="probe_width" type="dec" value="8"/>
+        <parameter name="instance_id" type="string" value="HR"/>
+        <parameter name="probe_width" type="dec" value="13"/>
         <parameter name="source_width" type="dec" value="0"/>
         <parameter name="source_initial_value" type="string" value=" 0"/>
         <parameter name="enable_metastability" type="string" value="NO"/>
       </parameters>
       <inputs>
-        <port name="probe[0]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst2|probe[0]"/>
-        <port name="probe[1]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst2|probe[1]"/>
-        <port name="probe[2]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst2|probe[2]"/>
-        <port name="probe[3]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst2|probe[3]"/>
-        <port name="probe[4]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst2|probe[4]"/>
-        <port name="probe[5]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst2|probe[5]"/>
-        <port name="probe[6]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst2|probe[6]"/>
-        <port name="probe[7]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst2|probe[7]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_raw_tck" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_tdi" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_usr1" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_clrn" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ena" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ena"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_in_3_"/>
+        <port name="probe[0]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[0]"/>
+        <port name="probe[1]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[1]"/>
+        <port name="probe[2]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[2]"/>
+        <port name="probe[3]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[3]"/>
+        <port name="probe[4]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[4]"/>
+        <port name="probe[5]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[5]"/>
+        <port name="probe[6]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[6]"/>
+        <port name="probe[7]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[7]"/>
+        <port name="probe[8]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[8]"/>
+        <port name="probe[9]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[9]"/>
+        <port name="probe[10]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[10]"/>
+        <port name="probe[11]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[11]"/>
+        <port name="probe[12]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i0|probe[12]"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_raw_tck" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_tdi" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_usr1" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_clrn" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_ena" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_ena"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_in_3_"/>
       </inputs>
       <outputs>
         <port name="source[0]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst2_altsource_probe_component_tdo"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.MCA_Assist_i0_altsource_probe_component_tdo"/>
       </outputs>
     </node>
-    <node hpath="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst3|altsource_probe:altsource_probe_component" instance_id="3" mfg_id="110" node_id="9" sld_node_info="0x486E03" version="0">
+    <node hpath="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|altsource_probe:altsource_probe_component" instance_id="3" mfg_id="110" node_id="9" sld_node_info="0x486E03" version="0">
       <parameters>
         <parameter name="lpm_type" type="string" value="altsource_probe"/>
         <parameter name="lpm_hint" type="string" value="UNUSED"/>
@@ -162,48 +167,53 @@
         <parameter name="sld_instance_index" type="dec" value="0"/>
         <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
         <parameter name="sld_ir_width" type="dec" value="4"/>
-        <parameter name="instance_id" type="string" value="NONE"/>
-        <parameter name="probe_width" type="dec" value="8"/>
+        <parameter name="instance_id" type="string" value="HR"/>
+        <parameter name="probe_width" type="dec" value="13"/>
         <parameter name="source_width" type="dec" value="0"/>
         <parameter name="source_initial_value" type="string" value=" 0"/>
         <parameter name="enable_metastability" type="string" value="NO"/>
       </parameters>
       <inputs>
-        <port name="probe[0]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst3|probe[0]"/>
-        <port name="probe[1]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst3|probe[1]"/>
-        <port name="probe[2]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst3|probe[2]"/>
-        <port name="probe[3]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst3|probe[3]"/>
-        <port name="probe[4]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst3|probe[4]"/>
-        <port name="probe[5]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst3|probe[5]"/>
-        <port name="probe[6]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst3|probe[6]"/>
-        <port name="probe[7]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst3|probe[7]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_raw_tck" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_tdi" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_usr1" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_clrn" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ena" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ena"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_in_3_"/>
+        <port name="probe[0]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[0]"/>
+        <port name="probe[1]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[1]"/>
+        <port name="probe[2]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[2]"/>
+        <port name="probe[3]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[3]"/>
+        <port name="probe[4]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[4]"/>
+        <port name="probe[5]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[5]"/>
+        <port name="probe[6]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[6]"/>
+        <port name="probe[7]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[7]"/>
+        <port name="probe[8]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[8]"/>
+        <port name="probe[9]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[9]"/>
+        <port name="probe[10]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[10]"/>
+        <port name="probe[11]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[11]"/>
+        <port name="probe[12]" source="MotorControl:MCA|AssistanceAlgorithm:Assist|AssistanceAlg:i2|probe[12]"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_raw_tck" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_tdi" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_usr1" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_clrn" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_ena" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_ena"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_in_3_"/>
       </inputs>
       <outputs>
         <port name="source[0]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst3_altsource_probe_component_tdo"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.MCA_Assist_i2_altsource_probe_component_tdo"/>
       </outputs>
     </node>
-    <node hpath="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst4|altsource_probe:altsource_probe_component" instance_id="4" mfg_id="110" node_id="9" sld_node_info="0x486E04" version="0">
+    <node hpath="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|altsource_probe:altsource_probe_component" instance_id="4" mfg_id="110" node_id="9" sld_node_info="0x486E04" version="0">
       <parameters>
         <parameter name="lpm_type" type="string" value="altsource_probe"/>
         <parameter name="lpm_hint" type="string" value="UNUSED"/>
@@ -211,45 +221,372 @@
         <parameter name="sld_instance_index" type="dec" value="0"/>
         <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
         <parameter name="sld_ir_width" type="dec" value="4"/>
-        <parameter name="instance_id" type="string" value="NONE"/>
+        <parameter name="instance_id" type="string" value="CurC"/>
+        <parameter name="probe_width" type="dec" value="12"/>
+        <parameter name="source_width" type="dec" value="8"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[0]"/>
+        <port name="probe[1]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[1]"/>
+        <port name="probe[2]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[2]"/>
+        <port name="probe[3]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[3]"/>
+        <port name="probe[4]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[4]"/>
+        <port name="probe[5]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[5]"/>
+        <port name="probe[6]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[6]"/>
+        <port name="probe[7]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[7]"/>
+        <port name="probe[8]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[8]"/>
+        <port name="probe[9]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[9]"/>
+        <port name="probe[10]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[10]"/>
+        <port name="probe[11]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc1|probe[11]"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_raw_tck" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_tdi" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_usr1" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_clrn" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_ena" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_ena"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.MCA_CC_cc1_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|altsource_probe:altsource_probe_component" instance_id="5" mfg_id="110" node_id="9" sld_node_info="0x486E05" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="CurC"/>
+        <parameter name="probe_width" type="dec" value="12"/>
+        <parameter name="source_width" type="dec" value="8"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[0]"/>
+        <port name="probe[1]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[1]"/>
+        <port name="probe[2]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[2]"/>
+        <port name="probe[3]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[3]"/>
+        <port name="probe[4]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[4]"/>
+        <port name="probe[5]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[5]"/>
+        <port name="probe[6]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[6]"/>
+        <port name="probe[7]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[7]"/>
+        <port name="probe[8]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[8]"/>
+        <port name="probe[9]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[9]"/>
+        <port name="probe[10]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[10]"/>
+        <port name="probe[11]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc2|probe[11]"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_raw_tck" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_tdi" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_usr1" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_clrn" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_ena" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_ena"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.MCA_CC_cc2_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|altsource_probe:altsource_probe_component" instance_id="6" mfg_id="110" node_id="9" sld_node_info="0x486E06" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="CurC"/>
+        <parameter name="probe_width" type="dec" value="12"/>
+        <parameter name="source_width" type="dec" value="8"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[0]"/>
+        <port name="probe[1]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[1]"/>
+        <port name="probe[2]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[2]"/>
+        <port name="probe[3]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[3]"/>
+        <port name="probe[4]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[4]"/>
+        <port name="probe[5]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[5]"/>
+        <port name="probe[6]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[6]"/>
+        <port name="probe[7]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[7]"/>
+        <port name="probe[8]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[8]"/>
+        <port name="probe[9]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[9]"/>
+        <port name="probe[10]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[10]"/>
+        <port name="probe[11]" source="MotorControl:MCA|CurrentControl:CC|CurrentControlProbe:cc3|probe[11]"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_raw_tck" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_tdi" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_usr1" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_clrn" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_ena" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_ena"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="source[1]"/>
+        <port name="source[2]"/>
+        <port name="source[3]"/>
+        <port name="source[4]"/>
+        <port name="source[5]"/>
+        <port name="source[6]"/>
+        <port name="source[7]"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.MCA_CC_cc3_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="RPM:rpmCalc|RPMProbe:u1|altsource_probe:altsource_probe_component" instance_id="7" mfg_id="110" node_id="9" sld_node_info="0x486E07" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="RPM"/>
+        <parameter name="probe_width" type="dec" value="8"/>
+        <parameter name="source_width" type="dec" value="1"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="RPM:rpmCalc|RPMProbe:u1|probe[0]"/>
+        <port name="probe[1]" source="RPM:rpmCalc|RPMProbe:u1|probe[1]"/>
+        <port name="probe[2]" source="RPM:rpmCalc|RPMProbe:u1|probe[2]"/>
+        <port name="probe[3]" source="RPM:rpmCalc|RPMProbe:u1|probe[3]"/>
+        <port name="probe[4]" source="RPM:rpmCalc|RPMProbe:u1|probe[4]"/>
+        <port name="probe[5]" source="RPM:rpmCalc|RPMProbe:u1|probe[5]"/>
+        <port name="probe[6]" source="RPM:rpmCalc|RPMProbe:u1|probe[6]"/>
+        <port name="probe[7]" source="RPM:rpmCalc|RPMProbe:u1|probe[7]"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_raw_tck" source="jtag.bp.rpmCalc_u1_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_tdi" source="jtag.bp.rpmCalc_u1_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_usr1" source="jtag.bp.rpmCalc_u1_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_cdr" source="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_sdr" source="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_udr" source="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_cir" source="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_uir" source="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_tlr" source="jtag.bp.rpmCalc_u1_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_clrn" source="jtag.bp.rpmCalc_u1_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_ena" source="jtag.bp.rpmCalc_u1_altsource_probe_component_ena"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_in_0_" source="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_in_1_" source="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_in_2_" source="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_in_3_" source="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.rpmCalc_u1_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="RPM:rpmCalc|RPMProbe:u2|altsource_probe:altsource_probe_component" instance_id="8" mfg_id="110" node_id="9" sld_node_info="0x486E08" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="RPM"/>
+        <parameter name="probe_width" type="dec" value="8"/>
+        <parameter name="source_width" type="dec" value="1"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="RPM:rpmCalc|RPMProbe:u2|probe[0]"/>
+        <port name="probe[1]" source="RPM:rpmCalc|RPMProbe:u2|probe[1]"/>
+        <port name="probe[2]" source="RPM:rpmCalc|RPMProbe:u2|probe[2]"/>
+        <port name="probe[3]" source="RPM:rpmCalc|RPMProbe:u2|probe[3]"/>
+        <port name="probe[4]" source="RPM:rpmCalc|RPMProbe:u2|probe[4]"/>
+        <port name="probe[5]" source="RPM:rpmCalc|RPMProbe:u2|probe[5]"/>
+        <port name="probe[6]" source="RPM:rpmCalc|RPMProbe:u2|probe[6]"/>
+        <port name="probe[7]" source="RPM:rpmCalc|RPMProbe:u2|probe[7]"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_raw_tck" source="jtag.bp.rpmCalc_u2_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_tdi" source="jtag.bp.rpmCalc_u2_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_usr1" source="jtag.bp.rpmCalc_u2_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_cdr" source="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_sdr" source="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_udr" source="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_cir" source="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_uir" source="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_tlr" source="jtag.bp.rpmCalc_u2_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_clrn" source="jtag.bp.rpmCalc_u2_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_ena" source="jtag.bp.rpmCalc_u2_altsource_probe_component_ena"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_in_0_" source="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_in_1_" source="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_in_2_" source="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_in_3_" source="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.rpmCalc_u2_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="wireless:CellPhoneProtocol|CellPhoneProbe:i0|altsource_probe:altsource_probe_component" instance_id="9" mfg_id="110" node_id="9" sld_node_info="0x486E09" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="Cell"/>
         <parameter name="probe_width" type="dec" value="8"/>
         <parameter name="source_width" type="dec" value="0"/>
         <parameter name="source_initial_value" type="string" value=" 0"/>
         <parameter name="enable_metastability" type="string" value="NO"/>
       </parameters>
       <inputs>
-        <port name="probe[0]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst4|probe[0]"/>
-        <port name="probe[1]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst4|probe[1]"/>
-        <port name="probe[2]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst4|probe[2]"/>
-        <port name="probe[3]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst4|probe[3]"/>
-        <port name="probe[4]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst4|probe[4]"/>
-        <port name="probe[5]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst4|probe[5]"/>
-        <port name="probe[6]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst4|probe[6]"/>
-        <port name="probe[7]" source="MotorControl:MCA|CurrentControl:CC|ADCReadback:ADCReadback_inst4|probe[7]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_raw_tck" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_raw_tck"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_tdi" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_tdi"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_usr1" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_usr1"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_cdr" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_cdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_sdr" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_sdr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_e1dr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_udr" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_udr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_cir" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_cir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_uir" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_uir"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_tlr" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_jtag_state_tlr"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_clrn" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_clrn"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ena" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ena"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_in_0_" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_in_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_in_1_" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_in_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_in_2_" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_in_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_in_3_" source="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_in_3_"/>
+        <port name="probe[0]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i0|probe[0]"/>
+        <port name="probe[1]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i0|probe[1]"/>
+        <port name="probe[2]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i0|probe[2]"/>
+        <port name="probe[3]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i0|probe[3]"/>
+        <port name="probe[4]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i0|probe[4]"/>
+        <port name="probe[5]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i0|probe[5]"/>
+        <port name="probe[6]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i0|probe[6]"/>
+        <port name="probe[7]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i0|probe[7]"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_raw_tck" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_tdi" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_usr1" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_cdr" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_sdr" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_udr" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_cir" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_uir" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_tlr" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_clrn" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ena" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ena"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_in_0_" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_in_1_" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_in_2_" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_in_3_" source="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_in_3_"/>
       </inputs>
       <outputs>
         <port name="source[0]"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_out_0_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_out_1_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_out_2_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_ir_out_3_"/>
-        <port name="jtag.bp.MCA_CC_ADCReadback_inst4_altsource_probe_component_tdo"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i0_altsource_probe_component_tdo"/>
+      </outputs>
+    </node>
+    <node hpath="wireless:CellPhoneProtocol|CellPhoneProbe:i1|altsource_probe:altsource_probe_component" instance_id="10" mfg_id="110" node_id="9" sld_node_info="0x486E0A" version="0">
+      <parameters>
+        <parameter name="lpm_type" type="string" value="altsource_probe"/>
+        <parameter name="lpm_hint" type="string" value="UNUSED"/>
+        <parameter name="sld_auto_instance_index" type="string" value="YES"/>
+        <parameter name="sld_instance_index" type="dec" value="0"/>
+        <parameter name="SLD_NODE_INFO" type="dec" value="4746752"/>
+        <parameter name="sld_ir_width" type="dec" value="4"/>
+        <parameter name="instance_id" type="string" value="Cell"/>
+        <parameter name="probe_width" type="dec" value="8"/>
+        <parameter name="source_width" type="dec" value="0"/>
+        <parameter name="source_initial_value" type="string" value=" 0"/>
+        <parameter name="enable_metastability" type="string" value="NO"/>
+      </parameters>
+      <inputs>
+        <port name="probe[0]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i1|probe[0]"/>
+        <port name="probe[1]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i1|probe[1]"/>
+        <port name="probe[2]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i1|probe[2]"/>
+        <port name="probe[3]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i1|probe[3]"/>
+        <port name="probe[4]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i1|probe[4]"/>
+        <port name="probe[5]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i1|probe[5]"/>
+        <port name="probe[6]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i1|probe[6]"/>
+        <port name="probe[7]" source="wireless:CellPhoneProtocol|CellPhoneProbe:i1|probe[7]"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_raw_tck" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_raw_tck"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_tdi" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_tdi"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_usr1" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_usr1"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_cdr" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_cdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_sdr" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_sdr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_e1dr" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_e1dr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_udr" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_udr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_cir" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_cir"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_uir" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_uir"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_tlr" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_jtag_state_tlr"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_clrn" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_clrn"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ena" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ena"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_in_0_" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_in_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_in_1_" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_in_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_in_2_" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_in_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_in_3_" source="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_in_3_"/>
+      </inputs>
+      <outputs>
+        <port name="source[0]"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_out_0_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_out_1_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_out_2_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_ir_out_3_"/>
+        <port name="jtag.bp.CellPhoneProtocol_i1_altsource_probe_component_tdo"/>
       </outputs>
     </node>
     <node hpath="CPU:u0|CPU_nios2_qsys_0:nios2_qsys_0|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_jtag_debug_module_wrapper:the_CPU_nios2_qsys_0_jtag_debug_module_wrapper|sld_virtual_jtag_basic:CPU_nios2_qsys_0_jtag_debug_module_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst" instance_id="0" mfg_id="70" node_id="34" sld_node_info="0x19104600" version="3">
@@ -389,7 +726,7 @@
   <sld_infos>
     <sld_info hpath="CPU:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME CPU HAS_SOPCINFO 1 GENERATION_ID 1393954238"/>
+        <assignment_value text="QSYS_NAME CPU HAS_SOPCINFO 1 GENERATION_ID 1394839817"/>
       </assignment_values>
       <parameters/>
     </sld_info>

@@ -33,15 +33,15 @@
 //`include "timescale.sv"
 
 module SensorFusion(
-  input 	wire        			DataReady,	//Signals that there is new accel and gyro data ready
-  input 	wire signed [9:0] Accel1,			//The accelerometer axis that is used in resolving the angle
-  input		wire signed [9:0] Accel2,			//Might need to be used later for more control(perhaps to
-																				//check if the bike has fallen over on its side)
-  input 	wire signed [9:0] Gyro,				//Gyroscope data from its Y-axis used to resolve the angle
-  output 	reg  signed	[9:0] resolvedAngle		//The resolved angle from the raw data.
+  input 	 	       				DataReady,	//Signals that there is new accel and gyro data ready
+  input 	 		signed 	[9:0] 	Accel1,			//The accelerometer axis that is used in resolving the angle
+  input		 		signed 	[9:0] 	Accel2,			//Might need to be used later for more control(perhaps to
+																					//check if the bike has fallen over on its side)
+  input 	 		signed 	[9:0] 	Gyro,				//Gyroscope data from its Y-axis used to resolve the angle
+  output 	logic  	signed	[9:0] 	ResolvedAngle		//The resolved angle from the raw data.
 );
 
-	localparam 					SampleTime = 1;//multiplied by 100
+	localparam 			SampleTime = 1;//multiplied by 100
 	localparam signed 	GyroOffset = -7;	//This is the offset of GyroY
 	localparam signed 	AccelOffset = 8;	//This is the offest of AccelX
 	//|
@@ -58,8 +58,8 @@ module SensorFusion(
 	//|
 	//| Local registers and wires
 	//|--------------------------------------------
-	reg  signed [32:0]  Angle = 0;
-	assign resolvedAngle = Angle[9:0];
+	logic  signed [32:0]  Angle = 0;
+	assign ResolvedAngle = Angle[9:0];
 
 	//|
 	//| Main logic
