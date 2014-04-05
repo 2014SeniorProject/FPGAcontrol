@@ -47,7 +47,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
    }
@@ -68,7 +68,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
    }
@@ -127,11 +127,19 @@
          type = "boolean";
       }
    }
-   element timer_0.s1
+   element WDT.s1
    {
       datum baseAddress
       {
-         value = "33562688";
+         value = "33562816";
+         type = "String";
+      }
+   }
+   element HeartRateOut.s1
+   {
+      datum baseAddress
+      {
+         value = "33562896";
          type = "String";
       }
    }
@@ -151,19 +159,11 @@
          type = "String";
       }
    }
-   element HeartRateOut.s1
+   element timer_0.s1
    {
       datum baseAddress
       {
-         value = "33562896";
-         type = "String";
-      }
-   }
-   element WDT.s1
-   {
-      datum baseAddress
-      {
-         value = "33562816";
+         value = "33562688";
          type = "String";
       }
    }

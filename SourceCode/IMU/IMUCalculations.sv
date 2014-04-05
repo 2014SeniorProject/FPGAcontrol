@@ -129,7 +129,7 @@ module IMUCalculations (
         //| Inputs
         .DataReady(IMUDataReady),
         .Accel1(FAccelX),
-        .Gyro(GyroY),
+        .Gyro(GyroZ),
         //| Outputs
         .ResolvedAngle(ResolvedPitch)
     );
@@ -141,7 +141,7 @@ module IMUCalculations (
         SensorFusion RollCalculator(
         //| Inputs
         .DataReady(IMUDataReady),
-        .Accel1(FAccelY),
+        .Accel1(FAccelX),
         .Gyro(GyroX),
         //| Outputs
         .ResolvedAngle(ResolvedRoll)
