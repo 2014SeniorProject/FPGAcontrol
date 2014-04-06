@@ -37,7 +37,7 @@
 
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
 //| Uncomment the `include "timescale.sv" to run a simulation.
-//`include "debug.sv"
+`define debug
 //`include "timescale.sv"
 
 module LowPassFilterAverage(
@@ -56,77 +56,28 @@ module LowPassFilterAverage(
 	output	logic						DataReady
 );
 
-
-	parameter FilterLength = 200;			//number of filter samples - works out to be 1s at our current data rate
-
-	`ifdef debug
-//		AccelSettingtReadback  xaxis (.probe (AccelX));
-//		AccelSettingtReadback  fxaxis (.probe (AccelXOut));
-	`endif
-
 	//|
 	//| Local register and wire declarations
 	//|---------------------------------------------------------------
-	logic   signed 	[9:0]    	AccelXreg[FilterLength-1:0];
-	logic	signed 	[9:0]   	AccelYreg[FilterLength-1:0];
-	logic	signed 	[9:0]    	AccelZreg[FilterLength-1:0];
-
-	logic 	signed 	[32:0]  	AccelXSum; //need to prove this register size is always valid
-	logic 	signed 	[32:0]  	AccelYSum;
-	logic 	signed 	[32:0]  	AccelZSum;
-
-	logic 	  		[9:0]		z = 0;
-
-
+	logic	signed  [9:0]    	AccelX_D1;
+	logic	signed  [9:0]    	AccelY_D1;
+	logic	signed  [9:0]    	AccelZ_D1;
 
 	//|
 	//| Structual coding
 	//|---------------------------------------------------------------
-	always@ (posedge ReadDone)
+	always_ff @ (posedge ReadDone)
 		begin
-			DataReady = 0;
-			AccelXSum = 0;
-			AccelYSum = 0;
-			AccelZSum = 0;
+			//| calculate recursive moving average
+			AccelXOut <= AccelXOut + AccelX/2 - AccelX_D1/2;
+			AccelX_D1 <= AccelX;
 
-			AccelXreg[0] = AccelX;
-			AccelYreg[0] = AccelY;
-			AccelZreg[0] = AccelZ;
+			//| calculate recursive moving average
+			AccelYOut <= AccelYOut + AccelY/2 - AccelY_D1/2;
+			AccelY_D1 <= AccelY;
 
-			//| Sum all of the stored values for all sensors and axis
-			for(z = 0; z < FilterLength-1; z = z + 10'd1)
-				begin
-					AccelXSum += AccelXreg[z];
-					AccelYSum += AccelYreg[z];
-					AccelZSum += AccelZreg[z];
-				end
-
-			//| Average the summed values
-			AccelXSum /= FilterLength;
-			AccelYSum /= FilterLength;
-			AccelZSum /= FilterLength;
-
-			//| Set outputs once the operations are complete
-			AccelXOut = AccelXSum[9:0];
-			AccelYOut = AccelYSum[9:0];
-			AccelZOut = AccelZSum[9:0];
-			DataReady <= 1;
+			//| calculate recursive moving average
+			AccelZOut <= AccelZOut + AccelZ/2 - AccelZ_D1/2;
+			AccelZ_D1 <= AccelZ;
 		end
-
-	//| variable length shift register for sensor data
-	//|---------------------------------------------------------------
-	genvar i;
-
-	generate
-	for(i = 1; i < FilterLength; i = i+1)
-		begin: AccelerometerShiftRegister
-			always @ (negedge ReadDone)
-				begin
-					AccelXreg[i] <= AccelXreg[i-1];
-					AccelYreg[i] <= AccelYreg[i-1];
-					AccelZreg[i] <= AccelZreg[i-1];
-				end
-		end
-	endgenerate
-
 endmodule
