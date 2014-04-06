@@ -71,11 +71,11 @@ module LowPassFilterAverage(
 			//| calculate recursive moving average
 			AccelXOut <= AccelXOut + AccelX/2 - AccelX_D1/2;
 			AccelX_D1 <= AccelX;
-
+			
 			//| calculate recursive moving average
 			AccelYOut <= AccelYOut + AccelY/2 - AccelY_D1/2;
 			AccelY_D1 <= AccelY;
-
+			
 			//| calculate recursive moving average
 			AccelZOut <= AccelZOut + AccelZ/2 - AccelZ_D1/2;
 			AccelZ_D1 <= AccelZ;

@@ -39,9 +39,10 @@
 //`include "timescale.sv"
 
 module PWMGenerator(
-	input 						CLOCK_50, 	//| Clock of 50mhz from the De0-Nano Board
-	input 		 		[9:0] 	PWMinput,		//| 10 Bit input from the filter module. Depends on the accelerometer data.
-	output 	logic				PWMout			//| The PWM output the the Motor Controller.
+	input 						PWMclock, 	//| Clock of 50mhz from the De0-Nano Board
+	input 		 		[9:0] 	PWMinput,	//| 10 Bit input from the filter module. Depends on the accelerometer data.
+
+	output 	logic				PWMout		//| The PWM output the the Motor Controller.
 );
 
 	//| This is an offset for the PWM output. The motor requires around 60% duty cycle to
@@ -50,39 +51,29 @@ module PWMGenerator(
 	parameter		pNegEnable = 0; //allows the module to be used as LED indicators
 
 	//| These deal with the timing of the PWM output. CLOCKslow slows down
-	logic 			[7:0]		CLOCKslow =0;
-	logic 			[15:0] 		COUNT = 0;
-	logic			[9:0]		Setting = 0;
+	logic 			[15:0] 		COUNT, COUNTnext;
+	logic			[9:0]		Setting, Settingnext, PWMinputRegister;
+	logic						PWMnext;
 
-	//| Clock divider for output signal
-	always @ (posedge CLOCK_50)
-		begin
-				CLOCKslow= CLOCKslow + 8'd1;
-				if (CLOCKslow > 256) CLOCKslow = 0;
-		end
-
+	always_comb begin
+		//| Handle the negative case and option
+		casex({pNegEnable, PWMinput[9]})
+			2'b10:  Settingnext = PWMinputRegister;
+			2'b11:	Settingnext = ~PWMinputRegister + 10'd1;
+			default:  Settingnext = PWMinputRegister;
+		endcase
+		
+		COUNTnext = (COUNT > 16'd530) ? 16'b0: (COUNT + 16'd1);
+		
+		PWMnext = (COUNT < Setting + Offset)?1:0;
+	end
+	
 	//| Output signal generator
-	always @(posedge CLOCKslow[6])
-		begin
-			//increment output generator
-			COUNT = COUNT + 16'd1;
-
-			//|If negatives are enabled, invert two's complement input
-			casex({pNegEnable, PWMinput[9]})
-				2'b10:  Setting = PWMinput;
-				2'b11:	Setting = ~PWMinput + 10'd1;
-				default:  Setting = PWMinput;
-			endcase
-
-			//| Generate output signal
-			if(Setting > 12) //disable output if setting is low enough
-				begin
-					if(COUNT < Setting + Offset)PWMout=1;
-					else PWMout=0;
-				end
-			else PWMout = 0;
-
-			//| Reset counter at overflow
-			if(COUNT>=530)COUNT=0;
-		end
+	always_ff @(posedge PWMclock) begin
+		PWMinputRegister <= PWMinput;
+		COUNT <= COUNTnext;
+		Setting <= Settingnext;
+		
+		PWMout <= PWMnext;
+	end
 endmodule

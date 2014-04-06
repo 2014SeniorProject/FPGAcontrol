@@ -29,7 +29,7 @@
 //| =========================================================================================
 //| Revision History
 //| 1/2/14  BS  added MIT License.
-//|
+//| 3/24/14 BS  edited structure to assist with timing closure
 //| =========================================================================================
 
 //| Uncomment the `include "debug.sv" to enter debug mode on this module.
@@ -45,22 +45,32 @@ module motorPWMgenerator(
 
 	//| pwm high time counter
 	logic 	[12:0]	COUNT;
-
+	logic 	[12:0]	COUNTnext;
+	logic			PWM;
+	logic 			CountOver;
+	
 	//| This is an offset for the PWM output. The motor requires around 60% duty cycle to
 	//| start running smoothly. This will depend on the cycle time of the PWM.
-	parameter 		Offset = 1514;
+	parameter 		Offset = 2730;
 
 	//| Output signal generator
-	always @(posedge PWMClock)
+	always_ff @(posedge PWMClock)
 		begin
 			//increment output generator
-			COUNT = COUNT + 10'd1;
-
-			//| generate pwm signal
-			if(COUNT < PWMinput + Offset) PWMout=1'b1;
-			else PWMout=1'b0;
-
-			//| Reset counter at overflow
-			if(COUNT>=5610)COUNT=10'd0;
+			COUNT <= (CountOver)?10'b0:COUNTnext;
+			
+			//| clock PWM output
+			PWMout <= PWM;
 		end
+		
+	always_comb begin
+		//| generate pwm signal]
+		if(COUNT < PWMinput + Offset) PWM = 1'b1;
+			else PWM = 1'b0;
+			
+		CountOver = COUNTnext>=6826;
+		
+		//| Reset counter at overflow
+		COUNTnext = COUNT + 10'd1;
+	end
 endmodule

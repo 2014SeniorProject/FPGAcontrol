@@ -35,10 +35,10 @@
    <object class="org.jdesktop.application.SessionStorage$WindowState"> 
     <void property="bounds"> 
      <object class="java.awt.Rectangle"> 
-      <int>503</int> 
-      <int>162</int> 
-      <int>915</int> 
-      <int>751</int> 
+      <int>502</int> 
+      <int>200</int> 
+      <int>917</int> 
+      <int>753</int> 
      </object> 
     </void> 
     <void property="graphicsConfigurationBounds"> 
@@ -46,7 +46,7 @@
       <int>0</int> 
       <int>0</int> 
       <int>1920</int> 
-      <int>1122</int> 
+      <int>1200</int> 
      </object> 
     </void> 
     <void property="screenCount"> 

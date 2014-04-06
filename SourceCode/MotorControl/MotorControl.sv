@@ -33,7 +33,7 @@
 //| =========================================================================================
 module MotorControl(
     input               c50m,
-    input               c20k,
+    input               CurrentControlClock,
 
 	//| IMU inputs
     input       [11:0]  ResolvedRoll,
@@ -80,7 +80,7 @@ module MotorControl(
     //| It will require significant testing and modification. The primary idea is
     //| to measure current as voltage across a sense resistor.
     CurrentControl CC(
-        .c20k(c20k),
+        .CurrentControlClock(CurrentControlClock),
         .AssistanceRequirement(AssistanceRequirement),
         .PhaseWireVoltage(PhaseWireVoltage),
         .MotorSignal(MotorSignal)
@@ -93,7 +93,7 @@ module MotorControl(
     //| ESC's speed setting input. There are a few adjustments for the PWM -> setting
     //| transfer function
     motorPWMgenerator MotorPWMController(
-        .PWMClock(c50m),
+        .PWMClock(PWMClock),
         .PWMinput(MotorSignal),
         .PWMout(MotorControlPWM)
     );

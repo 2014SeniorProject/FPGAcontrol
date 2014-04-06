@@ -19,7 +19,7 @@
 ## PROGRAM "Quartus II"
 ## VERSION "Version 13.1.2 Build 173 01/15/2014 SJ Web Edition"
 
-## DATE    "Wed Mar 12 17:03:51 2014"
+## DATE    "Sat Mar 29 16:09:07 2014"
 
 ##
 ## DEVICE  "EP4CE22F17C6"
@@ -40,26 +40,21 @@ set_time_format -unit ns -decimal_places 3
 
 create_clock -name {altera_reserved_tck} -period 100.000 -waveform { 0.000 50.000 } [get_ports {altera_reserved_tck}]
 create_clock -name {CLOCK_50} -period 20.000 -waveform { 0.000 10.000 } [get_ports {CLOCK_50}]
-create_clock -name {IMUCalculations:IMUCalc|PWMGenerator:AccelAngleLED|CLOCKslow[6]} -period 1280.000 -waveform { 0.000 640.000 } 
-create_clock -name {IMUCalculations:IMUCalc|PWMGenerator:AccelXLED|CLOCKslow[6]} -period 1280.000 -waveform { 0.000 640.000 } 
-create_clock -name {IMUCalculations:IMUCalc|PWMGenerator:AccelYLED|CLOCKslow[6]} -period 1280.000 -waveform { 0.000 640.000 } 
-create_clock -name {IMUCalculations:IMUCalc|PWMGenerator:AccelZLED|CLOCKslow[6]} -period 1280.000 -waveform { 0.000 640.000 } 
-create_clock -name {IMUCalculations:IMUCalc|PWMGenerator:GyroXLED|CLOCKslow[6]} -period 1280.000 -waveform { 0.000 640.000 } 
-create_clock -name {IMUCalculations:IMUCalc|PWMGenerator:GyroYLED|CLOCKslow[6]} -period 1280.000 -waveform { 0.000 640.000 } 
-create_clock -name {IMUCalculations:IMUCalc|PWMGenerator:GyroZLED|CLOCKslow[6]} -period 1280.000 -waveform { 0.000 640.000 } 
-create_clock -name {MotorControl:MCA|CurrentControl:CC|clkCount[3]} -period 400000.000 -waveform { 0.000 200000.000 } 
-create_clock -name {SafetyControls:Safety|BrakeLightController:BrakeLightController|PWMGenerator:brakeOutPWM|CLOCKslow[6]} -period 1280.000 -waveform { 0.000 640.000 } 
-create_clock -name {SafetyControls:Safety|soundramp:HornOut|clkbuffer[7]} -period 2560.000 -waveform { 0.000 1280.000 } 
+create_clock -name {IMUCalculations:IMUCalc|IMUInterface:IMU|DataValid} -period 10000.000 -waveform { 0.000 5000.000 } [get_nets {IMUCalc|IMU|DataValid}]
+create_clock -name {RPM:rpmCalc|blips_d1} -period 20.000 -waveform { 0.000 10.000 } [get_registers {RPM:rpmCalc|blips_d2}]
 
 
 #**************************************************************
 # Create Generated Clock
 #**************************************************************
 
-create_generated_clock -name {PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]} -source [get_pins {PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {CLOCK_50} [get_pins {PLL_inst|altpll_component|auto_generated|pll1|clk[0]}] 
-create_generated_clock -name {PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[1]} -source [get_pins {PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -phase -54.000 -master_clock {CLOCK_50} [get_pins {PLL_inst|altpll_component|auto_generated|pll1|clk[1]}] 
-create_generated_clock -name {PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]} -source [get_pins {PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 50 -master_clock {CLOCK_50} [get_pins {PLL_inst|altpll_component|auto_generated|pll1|clk[2]}] 
-create_generated_clock -name {PLL2:PLL_inst2|altpll:altpll_component|PLL2_altpll:auto_generated|wire_pll1_clk[1]} -source [get_pins {PLL_inst2|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 2500 -master_clock {CLOCK_50} [get_pins {PLL_inst2|altpll_component|auto_generated|pll1|clk[1]}] 
+create_generated_clock -name {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]} -source [get_pins {PLLs|PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -master_clock {CLOCK_50} [get_pins {PLLs|PLL_inst|altpll_component|auto_generated|pll1|clk[0]}] 
+create_generated_clock -name {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[1]} -source [get_pins {PLLs|PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -phase -54.000 -master_clock {CLOCK_50} [get_pins {PLLs|PLL_inst|altpll_component|auto_generated|pll1|clk[1]}] 
+create_generated_clock -name {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]} -source [get_pins {PLLs|PLL_inst|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 1000 -phase -0.054 -master_clock {CLOCK_50} [get_pins {PLLs|PLL_inst|altpll_component|auto_generated|pll1|clk[2]}] 
+create_generated_clock -name {PLLs|PLL_inst3|altpll_component|auto_generated|pll1|clk[0]} -source [get_pins {PLLs|PLL_inst3|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 128 -master_clock {CLOCK_50} [get_pins {PLLs|PLL_inst3|altpll_component|auto_generated|pll1|clk[0]}] 
+create_generated_clock -name {ClockManagement:PLLs|PLL2:PLL_inst2|altpll:altpll_component|PLL2_altpll:auto_generated|wire_pll1_clk[0]} -source [get_pins {PLLs|PLL_inst2|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 26 -master_clock {CLOCK_50} [get_pins {PLLs|PLL_inst2|altpll_component|auto_generated|pll1|clk[0]}] 
+create_generated_clock -name {ClockManagement:PLLs|PLL2:PLL_inst2|altpll:altpll_component|PLL2_altpll:auto_generated|wire_pll1_clk[1]} -source [get_pins {PLLs|PLL_inst2|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 2500 -master_clock {CLOCK_50} [get_pins {PLLs|PLL_inst2|altpll_component|auto_generated|pll1|clk[1]}] 
+create_generated_clock -name {ClockManagement:PLLs|PLL2:PLL_inst2|altpll:altpll_component|PLL2_altpll:auto_generated|wire_pll1_clk[2]} -source [get_pins {PLLs|PLL_inst2|altpll_component|auto_generated|pll1|inclk[0]}] -duty_cycle 50.000 -multiply_by 1 -divide_by 128 -master_clock {CLOCK_50} [get_pins {PLLs|PLL_inst2|altpll_component|auto_generated|pll1|clk[2]}] 
 
 
 #**************************************************************
@@ -72,14 +67,22 @@ create_generated_clock -name {PLL2:PLL_inst2|altpll:altpll_component|PLL2_altpll
 # Set Clock Uncertainty
 #**************************************************************
 
-set_clock_uncertainty -rise_from [get_clocks {CLOCK_50}] -rise_to [get_clocks {CLOCK_50}]  0.100  
-set_clock_uncertainty -rise_from [get_clocks {CLOCK_50}] -fall_to [get_clocks {CLOCK_50}]  0.100  
-set_clock_uncertainty -fall_from [get_clocks {CLOCK_50}] -rise_to [get_clocks {CLOCK_50}]  0.100  
-set_clock_uncertainty -fall_from [get_clocks {CLOCK_50}] -fall_to [get_clocks {CLOCK_50}]  0.100  
-set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.020  
-set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.020  
-set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.020  
-set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]}] -rise_to [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]}] -fall_to [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]}] -rise_to [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]}] -fall_to [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[2]}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]}] -rise_to [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]}] -fall_to [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]}] -rise_to [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]}]  0.020  
+set_clock_uncertainty -fall_from [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]}] -fall_to [get_clocks {ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0]}]  0.020  
+set_clock_uncertainty -rise_from [get_clocks {CLOCK_50}] -rise_to [get_clocks {CLOCK_50}]  0.120  
+set_clock_uncertainty -rise_from [get_clocks {CLOCK_50}] -fall_to [get_clocks {CLOCK_50}]  0.120  
+set_clock_uncertainty -fall_from [get_clocks {CLOCK_50}] -rise_to [get_clocks {CLOCK_50}]  0.120  
+set_clock_uncertainty -fall_from [get_clocks {CLOCK_50}] -fall_to [get_clocks {CLOCK_50}]  0.120  
+set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.060  
+set_clock_uncertainty -rise_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.060  
+set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -rise_to [get_clocks {altera_reserved_tck}]  0.060  
+set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -fall_to [get_clocks {altera_reserved_tck}]  0.060  
 
 
 #**************************************************************
@@ -98,6 +101,18 @@ set_clock_uncertainty -fall_from [get_clocks {altera_reserved_tck}] -fall_to [ge
 # Set Clock Groups
 #**************************************************************
 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
+set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
 set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
 set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
 set_clock_groups -asynchronous -group [get_clocks {altera_reserved_tck}] 
@@ -141,6 +156,11 @@ set_false_path -to [get_pins -nocase -compatibility_mode {*|alt_rst_sync_uq1|alt
 # Set Multicycle Path
 #**************************************************************
 
+set_multicycle_path -setup -end -from  [get_clocks {CLOCK_50}]  -to  [get_clocks {IMUCalculations:IMUCalc|IMUInterface:IMU|DataValid}] 2
+set_multicycle_path -setup -end -from [get_keepers {SafetyControls:Safety|debounced_button:LeftBlinker|ButtonOut}] -to [get_keepers {SafetyControls:Safety|blinker:blinkerControls|leftBlinkerOut}] 2
+set_multicycle_path -setup -end -from [get_keepers {SafetyControls:Safety|debounced_button:RightBlinker|ButtonOut}] -to [get_keepers {SafetyControls:Safety|blinker:blinkerControls|rightBlinkerOut}] 2
+set_multicycle_path -hold -end -from [get_keepers {SafetyControls:Safety|debounced_button:LeftBlinker|ButtonOut}] -to [get_keepers {SafetyControls:Safety|blinker:blinkerControls|leftBlinkerOut}] 2
+set_multicycle_path -hold -end -from [get_keepers {SafetyControls:Safety|debounced_button:RightBlinker|ButtonOut}] -to [get_keepers {SafetyControls:Safety|blinker:blinkerControls|rightBlinkerOut}] 2
 
 
 #**************************************************************

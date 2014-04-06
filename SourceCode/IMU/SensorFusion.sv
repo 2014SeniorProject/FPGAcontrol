@@ -34,9 +34,8 @@
 
 module SensorFusion(
   input 	 	       				DataReady,	//Signals that there is new accel and gyro data ready
-  input 	 		signed 	[9:0] 	Accel1,			//The accelerometer axis that is used in resolving the angle
-  input		 		signed 	[9:0] 	Accel2,			//Might need to be used later for more control(perhaps to
-																					//check if the bike has fallen over on its side)
+  
+  input 	 		signed 	[9:0] 	Accel,			//The accelerometer axis that is used in resolving the angle																					//check if the bike has fallen over on its side)
   input 	 		signed 	[9:0] 	Gyro,				//Gyroscope data from its Y-axis used to resolve the angle
   output 	logic  	signed	[9:0] 	ResolvedAngle		//The resolved angle from the raw data.
 );
@@ -51,25 +50,27 @@ module SensorFusion(
 //		AccelSettingtReadback  angle1 (.probe (Accel1));
 //		AccelSettingtReadback  gyro (.probe (Gyro));
 //		AccelSettingtReadback	IMUFusionReadback (.probe(Angle));
-//		reg  signed [9:0]		gyroCoef;
 	`endif
 
 
 	//|
 	//| Local registers and wires
 	//|--------------------------------------------
-	logic  signed [32:0]  Angle = 0;
-	assign ResolvedAngle = Angle[9:0];
+	logic  signed [9:0]  AngleNext = 0;
+	logic  signed [9:0]  SampledAccel = 0;
+	logic  signed [9:0]  SampledGyro = 0;
 
 	//|
 	//| Main logic
 	//|--------------------------------------------
-	always@ (posedge DataReady)
-		begin: AngleCalculation
-			//| Complimentary filter used to adjust gyro drift and smooth data.
-			//| angle = (0.98)*(angle + gyro * dt) + (0.02)*(x_acc);
-			Angle = (94*((Angle*99 - (Gyro+GyroOffset)/3)/100)+(Accel1+AccelOffset)*(100-94))/100;
-
-		end
-
+	always_ff@ (posedge DataReady) begin
+		ResolvedAngle <= AngleNext;
+		
+		SampledAccel <= Accel;
+		SampledGyro <= Gyro;
+	end
+	
+	always_comb begin
+		AngleNext = (94*((ResolvedAngle*99 - (SampledGyro+GyroOffset)/3)/100)+(SampledAccel+AccelOffset)*(100-94))/100;
+	end
 endmodule

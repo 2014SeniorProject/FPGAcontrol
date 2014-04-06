@@ -113,9 +113,7 @@ module SmartBike_TOP(
 	output 						epcs_dclk,
 	output 						epcs_sce,
 	output 						epcs_sdo,
-    input 						epcs_data0,
-	
-	input 						MotorModeSelectSwitch
+    input 						epcs_data0
 );
 
 	//|
@@ -147,7 +145,15 @@ module SmartBike_TOP(
 	//| IMU data
 	wire 		[9:0]			ResolvedPitch;
 	wire 		[9:0]			ResolvedRoll;
-
+	
+	wire						PWMClock;
+	wire						ADC_CLK;
+	wire						CurrentControlClock;
+	wire						PWMLightClock;
+	wire						c50m;
+	wire						IMUI2CClock;
+	wire						UARTclk;
+	
 	//|
   	//| ANT device assignments
 	//|--------------------------------------------
@@ -161,14 +167,30 @@ module SmartBike_TOP(
     assign ANT_Reserved2 	= 1'b0;
 
 	assign waveFormsPin = PWMout;
-
+	
+	//|
+	//|	Instanciates PLLs and produces system clocks
+	//|---------------------------------------------
+	ClockManagement PLLs(
+		.CLOCK_50(CLOCK_50),
+		
+		.c50m(c50m),
+		.DRAM_CLK(DRAM_CLK),
+		.ADC_CLK(ADC_CLK),
+		.PWMClock(PWMClock),
+		.CurrentControlClock(CurrentControlClock),
+		.PWMLightClock(PWMLightClock),
+		.IMUI2CClock(IMUI2CClock)
+	);
+	
 	//|
 	//|	Obtain accelerometer data and output resolved angles
 	//|---------------------------------------------
 	IMUCalculations IMUCalc(
-	//| Inputs
-		.CLOCK_50(CLOCK_50),           //Input clock
-
+		//| Inputs
+		.PWMLightClock(PWMLightClock),
+		.IMUI2CClock(IMUI2CClock),
+		
     	.I2C_SCL(IMU_SCL),            //I2C Clock Signal
     	.I2C_SDA(IMU_SDA),            //I2C Data Signal
 
@@ -182,12 +204,14 @@ module SmartBike_TOP(
 	//|---------------------------------------------
 	SafetyControls Safety(
 		//| Inputs
-		.CLOCK_50(CLOCK_50),
+		.CLOCK_50(c50m),
+		.PWMLightClock(PWMLightClock),
 		.leftBlinker(leftBlinker),
 		.rightBlinker(rightBlinker),
 		.headLight(headLight),
 		.horn(horn),
 		.brakes(brakes),
+		
 		//| Outputs
 		.leftBlinkerOut(leftBlinkerOut),
 		.rightBlinkerOut(rightBlinkerOut),
@@ -202,8 +226,8 @@ module SmartBike_TOP(
 	//|--------------------------------------------
 	MotorControl MCA(
 		//| Inputs
-		.c50m(CLOCK_50),
-		.c20k(c20k),
+		.c50m(c50m),
+		.CurrentControlClock(CurrentControlClock),
 		.ResolvedRoll(ResolvedRoll),
 		.ResolvedPitch(ResolvedPitch),
 		.HeartRate(HeartRate),
@@ -212,6 +236,7 @@ module SmartBike_TOP(
 		.PWMClock(PWMClock),
 		.PhaseWireVoltage(adc_data[0]),
 		.MotorModeSelect(MotorModeSelectSwitch),
+		
 		//| Outputs
 		.MotorControlPWM(PWMout)
 		);
@@ -221,7 +246,7 @@ module SmartBike_TOP(
 	//|--------------------------------------------
 	RPM rpmCalc (
 		.rpm(RPMnumber),
-		.clk50M(CLOCK_50),
+		.clk50M(c50m),
 		.blips(blips)
 	);
 
@@ -268,32 +293,25 @@ module SmartBike_TOP(
         .sdram_ras_n  (DRAM_RAS_N),  //      .ras_n
         .sdram_we_n   (DRAM_WE_N),   //      .we_n
 
+		//| UART communication to ANT module
 		.antuart_rxd  (ANT_rx),  	 // antuart.rxd
         .antuart_txd  (ANT_tx),   	 //        .txds
-
+	
+		//| Heart rate data from ANT device
 		.heartrateoutput_export (HeartRate),
-				 
+		
+		//| Connections to EPCS for nonvolitile storage
 		.epcsio_dclk  (epcs_dclk),            //          epcsio.dclk
         .epcsio_sce   (epcs_sce),             //                .sce
-        .epcsio_sdo   (epcs_sdo),             //                .sdo
-        .epcsio_data0 (epcs_data0)
-    );
-	
-	PLL	PLL_inst (
-		.areset ( ),
-		.inclk0 (CLOCK_50),
-		.c0 (c50m),
-		.c1 (DRAM_CLK),
-		.c2 (ADC_CLK),
-	);
-
-	PLL2 PLL_inst2 (
-		.areset ( ),
-		.inclk0 (CLOCK_50),
-		.c0 (PWMClock),
-		.c1 (c20k),
-	);
-	
+        .epcsio_sdo   (epcs_sdo),             //                .sdoB
+        .epcsio_data0 (epcs_data0),
+		
+		//|SD Card for data logging
+		//.sdcard_b_SD_cmd        (SD_CMD),        //          sdcard.b_SD_cmd 	GPIO20
+        //.sdcard_b_SD_dat        (SD_DAT),        //                .b_SD_dat 	GPOP21
+        //.sdcard_b_SD_dat3       (SD_DAT3),       //                .b_SD_dat3	GPIO22
+        //.sdcard_o_SD_clock      (SD_clock)       //                .o_SD_clock	GPIO23
+    );	
 endmodule
 
 

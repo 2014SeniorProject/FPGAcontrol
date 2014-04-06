@@ -31,30 +31,28 @@
 //|
 //| =========================================================================================
 module debounced_button(
-    input              c50M,
+    input              clock,
     input              Button,
     output logic       ButtonOut =0
     );
 
-		//| Local reg/wire declarations
-		//|--------------------------------------------
+	//| Local reg/wire declarations
+	//|--------------------------------------------
     logic   [16:0] Clkbuffer = 0;
 
-		//| Debounce logic
-		//|--------------------------------------------
-    always @(posedge c50M)
+	//| Debounce logic
+	//|--------------------------------------------
+    always @(posedge clock)
         begin
-            if (Button)
-                Clkbuffer = Clkbuffer + 1;
-            else
-            begin
-                Clkbuffer = 17'b0;
-                ButtonOut = 0;
+            if (Button) Clkbuffer <= Clkbuffer + 1;
+            else begin
+                Clkbuffer <= 17'b0;
+                ButtonOut <= 0;
             end
-            if (Clkbuffer == 17'b1)
-            begin
-                Clkbuffer = 17'b1;
-                ButtonOut = 1;
+			
+            if (Clkbuffer == 17'b1) begin
+                Clkbuffer <= 17'b1;
+                ButtonOut <= 1;
             end
         end
 endmodule

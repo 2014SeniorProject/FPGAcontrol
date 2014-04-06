@@ -53,6 +53,7 @@ module AssistanceAlgorithm(
 );
 	//| tuning parameters
 	localparam HRMultiplier	=12'd40;
+	localparam Inclanationdivisor = 7'd2;
 	
 	//| Assistance calculation
 	logic 		signed 	[12:0]	deltaHR;
@@ -69,6 +70,6 @@ module AssistanceAlgorithm(
 
 	assign deltaHR = (signed'({1'b0,HeartRate}) - signed'({1'b0,HeartRateSetPoint}))*signed'({1'b0,HRMultiplier}); // maximum expected difference heart rate 50bpm, send full assistance
 
-	assign AssistanceCalc = (deltaHR-10) + signed'({1'b0,PitchAssist << 2});
+	assign AssistanceCalc = (deltaHR-10) + signed'({1'b0,PitchAssist/Inclanationdivisor});
 
 endmodule

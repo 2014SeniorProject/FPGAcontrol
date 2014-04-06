@@ -33,6 +33,7 @@
 //| =========================================================================================
 module BrakeLightController(
   input           brakeActive,
+  input 		  PWMLightClock,
   input           headLightActive,
   input           c50M,
   output          brakePWM
@@ -44,7 +45,7 @@ module BrakeLightController(
   PWMGenerator #(
       .Offset(0)
     )brakeOutPWM(
-      .CLOCK_50(c50M),
+	  .PWMclock(PWMLightClock),
       .PWMinput(PWMinput),
       .PWMout(brakePWM)
     );

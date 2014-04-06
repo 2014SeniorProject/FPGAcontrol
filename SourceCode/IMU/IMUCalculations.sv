@@ -40,7 +40,8 @@
 
 
 module IMUCalculations (
-    input                       CLOCK_50,           //Input clock
+	input                       PWMLightClock,		//PLL generated clock for
+	input						IMUI2CClock,
 
     inout                       I2C_SCL,            //I2C Clock Signal
     inout                       I2C_SDA,            //I2C Data Signal
@@ -76,11 +77,9 @@ module IMUCalculations (
     //| Low pass filter data ready flag
     wire                        LowPassDataReady;
 
-
-
-    ADCReadback pitchProbe (.probe (ResolvedPitch));
-    ADCReadback rollProbe (.probe (ResolvedRoll));
-
+    ADCReadback i1 (.probe (FAccelX));
+    ADCReadback i2 (.probe (FAccelY));
+	ADCReadback i3 (.probe (FAccelZ));
 
     //|
     //| Main interface to the Accelerometer and Gyroscope. Requires a 50mhz clock input
@@ -88,7 +87,7 @@ module IMUCalculations (
     //|---------------------------------------------
     IMUInterface IMU(
         //| Inputs
-        .CLOCK_50(CLOCK_50),
+        .IMUI2CClock(IMUI2CClock),
         .I2C_SCL(I2C_SCL),
         .I2C_SDA(I2C_SDA),
         //| Outputs
@@ -101,15 +100,11 @@ module IMUCalculations (
         .DataValid(IMUDataReady)
     );
 
-
-
     //|
     //| This instanciation takes in the raw unfiltered accelerometer data from all axis and
     //| Passes them through a digital low pass filter to remove unwanted noise.
     //|---------------------------------------------
-        LowPassFilterAverage #(
-        .FilterLength(100)
-    )AccelerometerFilter(
+        LowPassFilterAverage AccelerometerFilter(
         //| Inputs
         .ReadDone(IMUDataReady),
         .AccelX(AccelX),
@@ -128,8 +123,8 @@ module IMUCalculations (
     SensorFusion InclanationCalculator(
         //| Inputs
         .DataReady(IMUDataReady),
-        .Accel1(FAccelX),
-        .Gyro(GyroZ),
+        .Accel(FAccelX),
+        .Gyro(GyroY),
         //| Outputs
         .ResolvedAngle(ResolvedPitch)
     );
@@ -141,7 +136,7 @@ module IMUCalculations (
         SensorFusion RollCalculator(
         //| Inputs
         .DataReady(IMUDataReady),
-        .Accel1(FAccelX),
+        .Accel(FAccelY),
         .Gyro(GyroX),
         //| Outputs
         .ResolvedAngle(ResolvedRoll)
@@ -155,7 +150,7 @@ module IMUCalculations (
 		.Offset(0),
 		.pNegEnable(1)
 	)AccelAngleLED(
-		.CLOCK_50(CLOCK_50),
+		.PWMclock(PWMLightClock),
 		.PWMinput(ResolvedRoll),
 		.PWMout(LED[7])
 	);
@@ -164,7 +159,7 @@ module IMUCalculations (
 		.Offset(0),
 		.pNegEnable(1)
 	)AccelXLED(
-		.CLOCK_50(CLOCK_50),
+		.PWMclock(PWMLightClock),
 		.PWMinput(FAccelX),
 		.PWMout(LED[0])
 	);
@@ -173,7 +168,7 @@ module IMUCalculations (
 		.Offset(0),
 		.pNegEnable(1)
 	)AccelYLED(
-		.CLOCK_50(CLOCK_50),
+		.PWMclock(PWMLightClock),
 		.PWMinput(FAccelY),
 		.PWMout(LED[1])
 	);
@@ -182,7 +177,7 @@ module IMUCalculations (
 		.Offset(0),
 		.pNegEnable(1)
 	)AccelZLED(
-		.CLOCK_50(CLOCK_50),
+		.PWMclock(PWMLightClock),
 		.PWMinput(FAccelZ),
 		.PWMout(LED[2])
 	);
@@ -191,7 +186,7 @@ module IMUCalculations (
 		.Offset(0),
 		.pNegEnable(1)
 	)GyroXLED(
-		.CLOCK_50(CLOCK_50),
+		.PWMclock(PWMLightClock),
 		.PWMinput(GyroX),
 		.PWMout(LED[3])
 	);
@@ -200,7 +195,7 @@ module IMUCalculations (
 		.Offset(0),
 		.pNegEnable(1)
 	)GyroYLED(
-		.CLOCK_50(CLOCK_50),
+		.PWMclock(PWMLightClock),
 		.PWMinput(GyroY),
 		.PWMout(LED[4])
 	);
@@ -209,7 +204,7 @@ module IMUCalculations (
 		.Offset(0),
 		.pNegEnable(1)
 	)GyroZLED(
-		.CLOCK_50(CLOCK_50),
+		.PWMclock(PWMLightClock),
 		.PWMinput(GyroZ),
 		.PWMout(LED[5])
 	);

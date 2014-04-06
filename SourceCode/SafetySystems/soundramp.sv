@@ -32,24 +32,14 @@
 //|
 //| =========================================================================================
 module soundramp(
-        input 	 				c50M,
+        input 	 				clock,
         input 	 				Button,
         output 	logic   [7:0] 	OutputToDAC=0
     );
 
-	//| Local reg/wire declarations
-	//|--------------------------------------------
-    logic   [7:0]   clkbuffer = 0;
-
-	//| Clock divider
-	//|--------------------------------------------
-    always @(posedge c50M)
-		clkbuffer = clkbuffer  + 1;
-
-
 	//| Structual coding
 	//|--------------------------------------------
-    always @(posedge clkbuffer[7])
+    always @(posedge clock)
 		begin
 			if(Button)
 				begin

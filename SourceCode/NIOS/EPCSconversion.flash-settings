@@ -100,7 +100,7 @@
    </void> 
    <void method="put"> 
     <string>runFromResetEnabled</string> 
-    <string>false</string> 
+    <string>true</string> 
    </void> 
    <void method="put"> 
     <string>acceptBadSysId</string> 

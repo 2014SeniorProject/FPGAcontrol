@@ -40,6 +40,7 @@
 
 module SafetyControls(
     input                   CLOCK_50,
+	input 					PWMLightClock,
     input                   leftBlinker,        //buttons in
     input                   rightBlinker,       //buttons in
     input                   headLight,          //buttons in
@@ -77,6 +78,7 @@ module SafetyControls(
     BrakeLightController BrakeLightController(
         //| Inputs
         .c50M(CLOCK_50),
+		.PWMLightClock(PWMLightClock),
         .brakeActive(brakes),
         .headLightActive(headLightOut),
         //| Outputs
@@ -88,7 +90,7 @@ module SafetyControls(
     //|--------------------------------------------
     soundramp   HornOut (
         //| Inputs
-        .c50M(CLOCK_50),
+        .clock(PWMLightClock),
         .Button(DBhorn),
         //| Outputs
         .OutputToDAC(DACout)
@@ -99,7 +101,7 @@ module SafetyControls(
     //|---------------------------------------------
     debounced_button RightBlinker(
         //| Inputs
-        .c50M(CLOCK_50),
+        .clock(PWMLightClock),
         .Button(rightBlinker),
         //| Outputs
         .ButtonOut(DBrightBlinker)
@@ -107,7 +109,7 @@ module SafetyControls(
 
     debounced_button LeftBlinker(
         //| Inputs
-        .c50M(CLOCK_50),
+        .clock(PWMLightClock),
         .Button(leftBlinker),
         //| Outputs
         .ButtonOut(DBleftBlinker)
@@ -115,7 +117,7 @@ module SafetyControls(
 
     debounced_button HeadLight(
         //| Inputs
-        .c50M(CLOCK_50),
+        .clock(PWMLightClock),
         .Button(headLight),
         //| Outputs
         .ButtonOut(DBheadLight)
@@ -123,7 +125,7 @@ module SafetyControls(
 
     debounced_button Horn(
         //| Inputs
-        .c50M(CLOCK_50),
+        .clock(PWMLightClock),
         .Button(horn),
         //| Outputs
         .ButtonOut(DBhorn)

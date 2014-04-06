@@ -74,13 +74,8 @@ module RPM(
 	end
 	
 	always@(posedge PosedgeBlip, posedge ResetBlipCounter) begin
-		if(ResetBlipCounter == 1)begin
-			//rpm = (BlipCoutner*3)/8;
-			BlipCoutner = 0;
-		end
-		else begin
-			BlipCoutner++;
-		end
+		if(ResetBlipCounter == 1) BlipCoutner = 0;
+		else BlipCoutner++;
 	end
 	
 		

@@ -42,11 +42,12 @@ module ADC_CTRL (
     output  logic   [11:0]    adc_data[6:0]
     );
 
-	logic   [3:0]       cont;
-	logic   [3:0]       m_cont;
-	logic   [2:0]       ADC_channel;
-	logic   [11:0]      adc_dataIN;
-
+	logic   		[3:0]     cont;
+	logic   		[3:0]     m_cont;
+	logic   		[2:0]     ADC_channel;
+	logic   		[11:0]    adc_dataIN;
+	logic   		[11:0]    adc_data_D1[6:0];
+	
 	assign  CS_n        = 1'b0;
 	assign  SCLK_OUT    = c1m;
 
@@ -75,8 +76,12 @@ module ADC_CTRL (
 	always@(posedge c1m)
 	    begin
 	        case(m_cont)
-	        4'd01: adc_data[ADC_channel] <= adc_dataIN[11:0];//(78*adc_data[ADC_channel] + 22*adc_dataIN[11:0])/100;
-	        // shift data in
+	        4'd01: begin
+				adc_data[ADC_channel] <= adc_data[ADC_channel] + adc_dataIN[11:0]/2 - adc_data_D1[ADC_channel]/2;
+				adc_data_D1[ADC_channel] <= adc_dataIN;
+	        end
+			
+			// shift data in
 	        4'd03: adc_dataIN[11]   <=  SPI_IN;
 	        4'd04: adc_dataIN[10]   <=  SPI_IN;
 	        4'd05: adc_dataIN[9]    <=  SPI_IN;

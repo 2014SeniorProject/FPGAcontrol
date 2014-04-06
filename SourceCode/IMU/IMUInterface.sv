@@ -38,7 +38,7 @@
 //`include "timescale.sv"
 
 module IMUInterface(
-	input                       CLOCK_50,           //Input clock
+	input                       IMUI2CClock,           //Input clock
 
 	inout                       I2C_SCL,            //
 	inout                       I2C_SDA,
@@ -129,11 +129,10 @@ module IMUInterface(
 	logic       [6:0]       SD_COUNTER = 0;             //This is used for the casses in the bitwise read and write states
 
 	//| Bus control resiters
-	logic                     SDI = 0;                    //place holder for I2C_SDA
-	logic                     SCL = 0;                    //Place holder for I2C_SCL during start/stop
+	logic                   SDI = 0;                    //place holder for I2C_SDA
+	logic                   SCL = 0;                    //Place holder for I2C_SCL during start/stop
 
 	//| I2C control registers
-	logic       [9:0]       COUNT;                      //Keep track of clocks
 	logic       [7:0]       REGADDRESS = 0;             //Address of the register
 	logic       [6:0]       I2CADDRESS = 0;             //7 bit address of slave
 	logic                   RW_DIR = 0;                 //Read write direction. 0 - Write, 1- Read.
@@ -168,7 +167,7 @@ module IMUInterface(
 	//|
 	//| Assignments
 	//|-------------------------------------------------------------------------------------------------
-	assign I2C_SCL = (SCL_CTRL)? ~COUNT[6] : SCL;
+	assign I2C_SCL = (SCL_CTRL)? ~IMUI2CClock : SCL;
 	assign I2C_SDA = (SCL_CTRL)?((SDI)? 1'bz : 1'b0):SDI;
 
 	assign AccelX = {AccelXHB, AccelXLB};
@@ -210,10 +209,8 @@ module IMUInterface(
 	//|
 	//| Structural coding
 	//|-------------------------------------------------------------------------------------------------
-	always @ (posedge CLOCK_50) COUNT = COUNT + 8'd1;
-
 	//I2C Operation, Write
-	always @ (posedge COUNT[6])
+	always @ (posedge IMUI2CClock)
 		begin
 
 			//counter for I2C byte level transmitter
