@@ -32,7 +32,7 @@
 //|
 //| =========================================================================================
 
-`define debug
+//`define debug
 
 module AssistanceAlgorithm(
 	input  	                	clk,
@@ -66,10 +66,11 @@ module AssistanceAlgorithm(
 	`endif
 	
 	assign PitchAssist = (ResolvedPitch[9]!=1'b1)?ResolvedPitch:10'b0; //do not use pitch if it is negative
-	assign AssistanceRequirement = (AssistanceCalc[12] != 1'b1)?AssistanceCalc:13'b0; //output zero if assistance calc is negative
+	
+	assign AssistanceRequirement = (!AssistanceCalc[12] && !brake)?AssistanceCalc:13'b0; //output zero if assistance calc is negative
 
 	assign deltaHR = (signed'({1'b0,HeartRate}) - signed'({1'b0,HeartRateSetPoint}))*signed'({1'b0,HRMultiplier}); // maximum expected difference heart rate 50bpm, send full assistance
 
-	assign AssistanceCalc = (deltaHR-10) + signed'({1'b0,PitchAssist/Inclanationdivisor});
+	assign AssistanceCalc = (deltaHR-15) + signed'({1'b0,PitchAssist/Inclanationdivisor});
 
 endmodule

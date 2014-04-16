@@ -53,7 +53,9 @@ module MotorControl(
     input       [11:0]  PhaseWireVoltage,
 
     //| motor control outputs
-    output             	MotorControlPWM
+    output             	MotorControlPWM,
+	
+	input 				BrakeApplied
 );
 
     wire        [11:0]  MotorSignal;
@@ -71,7 +73,7 @@ module MotorControl(
         .HeartRateSetPoint(HeartRateSetPoint),
         .cadence(cadence),
         .AssistanceRequirement(AssistanceRequirement),
-        .brake()
+        .brake(BrakeApplied)
     );
 
 	//assign MotorCurrentSetting = (MotorModeSelect)?AssistanceRequirement:ThrottleTest; //allows override of assistance algorthmn to use twist throttle

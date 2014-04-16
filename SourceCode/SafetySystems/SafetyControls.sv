@@ -54,21 +54,15 @@ module SafetyControls(
     output      [7:0]       DACout             //DAC output
 );
 
-    wire                    DBleftBlinker;
-    wire                    DBrightBlinker;
-    wire                    DBhorn;
-    wire                    DBheadLight;
-
-    assign headLightOut = DBheadLight;
-
+	assign headLightOut = headLight;
     //|
     //| Light controls
     //|--------------------------------------------
     blinker blinkerControls(
         //| Inputs
         .c50M(CLOCK_50),
-        .leftBlink(DBleftBlinker),
-        .rightBlink(DBrightBlinker),
+        .leftBlink(leftBlinker),
+        .rightBlink(rightBlinker),
         //| Outputs
         .rightBlinkerOut(rightBlinkerOut),
         .leftBlinkerOut(leftBlinkerOut)
@@ -79,8 +73,8 @@ module SafetyControls(
         //| Inputs
         .c50M(CLOCK_50),
 		.PWMLightClock(PWMLightClock),
-        .brakeActive(brakes),
-        .headLightActive(headLightOut),
+        .brakeActive(!brakes),
+        .headLightActive(headLight),
         //| Outputs
         .brakePWM(brakeLightOut)
     );
@@ -91,44 +85,9 @@ module SafetyControls(
     soundramp   HornOut (
         //| Inputs
         .clock(PWMLightClock),
-        .Button(DBhorn),
-        //| Outputs
-        .OutputToDAC(DACout)
-    );
-
-    //|
-    //| Debounce all of the inputs from the buttons
-    //|---------------------------------------------
-    debounced_button RightBlinker(
-        //| Inputs
-        .clock(PWMLightClock),
-        .Button(rightBlinker),
-        //| Outputs
-        .ButtonOut(DBrightBlinker)
-    );
-
-    debounced_button LeftBlinker(
-        //| Inputs
-        .clock(PWMLightClock),
-        .Button(leftBlinker),
-        //| Outputs
-        .ButtonOut(DBleftBlinker)
-    );
-
-    debounced_button HeadLight(
-        //| Inputs
-        .clock(PWMLightClock),
-        .Button(headLight),
-        //| Outputs
-        .ButtonOut(DBheadLight)
-    );
-
-    debounced_button Horn(
-        //| Inputs
-        .clock(PWMLightClock),
         .Button(horn),
         //| Outputs
-        .ButtonOut(DBhorn)
+        .OutputToDAC(DACout)
     );
 
 	endmodule

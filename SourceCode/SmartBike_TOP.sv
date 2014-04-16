@@ -74,7 +74,8 @@ module SmartBike_TOP(
 	input						cadence,
 
 	//DAC output
-	output			[7:0]		DACout,
+	output			[0:7]		DACout,
+	output						EnableAmplifier,
 
 	//SDRAM
 	output		    [12:0]		DRAM_ADDR,
@@ -219,7 +220,8 @@ module SmartBike_TOP(
 		.brakeLightOut(brakeLightOut),
 		.DACout(DACout)
 	);
-
+	
+	assign EnableAmplifier = horn;
 
 	//|
 	//| Assistance calculation
@@ -236,7 +238,7 @@ module SmartBike_TOP(
 		.PWMClock(PWMClock),
 		.PhaseWireVoltage(adc_data[0]),
 		.MotorModeSelect(MotorModeSelectSwitch),
-		
+		.BrakeApplied(!brakes),
 		//| Outputs
 		.MotorControlPWM(PWMout)
 		);
