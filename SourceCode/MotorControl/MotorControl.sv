@@ -62,6 +62,7 @@ module MotorControl(
 	wire        [11:0]  MotorSignalSafety;
     wire        [11:0]  AssistanceRequirement;
 	wire        [11:0]  MotorCurrentSetting;
+	wire								CadenceCheck;
 
     //| This module takes in information about the user's current biometric state
     //| and prefrences. It then calculates an amount of assistance that they should
@@ -71,7 +72,7 @@ module MotorControl(
         .ResolvedPitch(ResolvedPitch),
         .ResolvedRoll(ResolvedRoll),
         .HeartRateSetPoint(HeartRateSetPoint),
-        .cadence(cadence),
+        .cadence(CadenceCheck),
         .AssistanceRequirement(AssistanceRequirement),
         .brake(BrakeApplied)
     );
@@ -88,6 +89,12 @@ module MotorControl(
         .MotorSignal(MotorSignal)
     );
 	
+	
+		CadenceCalc CAD(
+				.clk50M(c50m),
+				.blips(cadence),
+				.CadenceOut(CadenceCheck)
+		);
 	//assign MotorSignalSafety = (ResolvedPitch > 45 degrees && ResolvedRoll > 45degrees) ? MotorSignal : 1'b0; //turns motor signal off is roll or pitch is too large.
 	
     //| This is a pretty simple module that will convert the requested duty cycle
