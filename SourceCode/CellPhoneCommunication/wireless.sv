@@ -101,7 +101,7 @@ module wireless(
 	//| Sources and Probes used specifically for debugging the wireless protocol
 	//|--------------------------------------------------------------------------
 	CellPhoneProbe i0(rx_byte);
-	CellPhoneProbe i1(tx_byte);
+	
 	
 	always@(posedge clk)
 		begin

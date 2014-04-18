@@ -239,6 +239,7 @@ module SmartBike_TOP(
 		.PhaseWireVoltage(adc_data[0]),
 		.MotorModeSelect(MotorModeSelectSwitch),
 		.BrakeApplied(!brakes),
+		.cadence(cadence),
 		//| Outputs
 		.MotorControlPWM(PWMout)
 		);
