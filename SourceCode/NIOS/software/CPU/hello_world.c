@@ -1,3 +1,5 @@
+// This code was originally written for Arduino by Keith Wakeham at http://keithhack.blogspot.com/2012/08/ant-for-embedded.html
+// It has been modified by Ben Smith to work with the NIOSII softprocssor
 #include <stdio.h>
 #include <string.h>
 #include <system.h>
@@ -207,9 +209,9 @@ void setup() {
   ANTUART = fopen("/dev/uart_0", "r+");
   //ANTUART = open("/dev/uart_0" ,O_NONBLOCK | O_RDWR);
   if(ANTUART){;}else{
-#ifdef DEBUG
+    #ifdef DEBUG
     printf("Cannot open ANTUART");
-#endif
+    #endif
   }
 
 
@@ -217,9 +219,9 @@ void setup() {
 //    printf("Timestamp init no working \n");
 //  }
 
-#ifdef DEBUG
+  #ifdef DEBUG
   printf("Ticks Per Second: %i \n", alt_timestamp_freq());
-#endif
+  #endif
 
   //alt_avalon_timer_sc_init (0x04011040, 2, 2, 1);
 
@@ -271,9 +273,9 @@ void setup() {
   sendPacket(MESG_OPEN_CHANNEL_ID, 1, ANT_CHAN);
   if (checkReturn() == 0) errorHandler(errDefault);
 
-#ifdef DEBUG
+  #ifdef DEBUG
   printf("Config Done");
-#endif
+  #endif
 }
 
 void printHeader(const char * title) {
@@ -308,10 +310,10 @@ void readANT(){
           case MESG_BROADCAST_DATA_ID:
             if (oldHeartRate != msgData[msgSize-1]) {
               oldHeartRate = msgData[msgSize-1];
-#ifdef DEBUG
+              #ifdef DEBUG
               printHeader("New Heart Rate: ");
               printf("%i \n", oldHeartRate);
-#endif
+              #endif
               IOWR(HEARTRATEOUT_BASE, 0, oldHeartRate); //write to parallel out
               IOWR(WDT_BASE, 2, 0xFF); //reset watchdog timer
             }

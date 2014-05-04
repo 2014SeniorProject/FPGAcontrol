@@ -48,32 +48,37 @@ module AssistanceAlgorithm(
 	//| Motor output
 	output 	   		 	[12:0]  AssistanceRequirement,	//signal to current control module, kinda like torque
 
-	input 					cadence,
+	input 						cadence,
 	input						brake
 );
 	//| tuning parameters
-	localparam HRMultiplier	=12'd40;
-	localparam Inclanationdivisor = 7'd2;
-	
+	localparam HRMultiplier	=12'd50;
+	localparam InclanationMultiplier = 12'd50;
+
 	//| Assistance calculation
 	logic 		signed 	[12:0]	deltaHR;
-	logic			signed  [12:0]	PitchAssist;
+	logic		signed  [12:0]	PitchAssist;
 	logic 		signed	[12:0] 	AssistanceCalc;
 
-	`ifdef DEBUG 
+	logic 				[9:0]   absPitch, absRoll;
+	`ifdef DEBUG
 		AssistanceAlg i0 (.probe(cadence));
 		AssistanceAlg i2 (.probe(AssistanceRequirement));
 	`endif
-	
+
 	CellPhoneProbe i4(ResolvedRoll);
 	CellPhoneProbe i5(ResolvedPitch);
-	
-	assign PitchAssist = (ResolvedPitch[9]!=1'b1)?ResolvedPitch:10'b0; //do not use pitch if it is negative
-	
-	assign AssistanceRequirement = (!AssistanceCalc[12] && !brake && cadence)?AssistanceCalc:13'b0; //output zero if assistance calc is negative
+
+	assign IMUCheck = (ResolvedRoll < 45) && (ResolvedPitch < 45);
+	assign absPitch = (ResolvedPitch[9]!=1'b1)?ResolvedPitch:0-ResolvedPitch[8:0];
+	assign absRoll =  ( ResolvedRoll[9]!=1'b1)?ResolvedRoll :0-ResolvedRoll[8:0];
+
+	assign PitchAssist = (ResolvedPitch[9]!=1'b1)?ResolvedPitch:10'b0; //not use pitch if it is negative
+
+	assign AssistanceRequirement = (!AssistanceCalc[12] && !brake && cadence && IMUCheck)?AssistanceCalc:13'b0; //output zero if assistance calc is negative
 
 	assign deltaHR = (signed'({1'b0,HeartRate}) - signed'({1'b0,HeartRateSetPoint}))*signed'({1'b0,HRMultiplier}); // maximum expected difference heart rate 50bpm, send full assistance
 
-	assign AssistanceCalc = (deltaHR-15) + signed'({1'b0,PitchAssist*8});
+	assign AssistanceCalc = (deltaHR) + (signed'({1'b0,PitchAssist})*signed'({1'b0,InclanationMultiplier}));
 
 endmodule

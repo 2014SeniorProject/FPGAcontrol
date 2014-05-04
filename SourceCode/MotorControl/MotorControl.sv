@@ -55,7 +55,9 @@ module MotorControl(
     //| motor control outputs
     output             	MotorControlPWM,
 	
-	input 				BrakeApplied
+	input 				BrakeApplied,
+	//| Cellphone assistance output
+	output 		[7:0]	CellAssist
 );
 
     wire        [11:0]  MotorSignal;
@@ -63,7 +65,8 @@ module MotorControl(
     wire        [11:0]  AssistanceRequirement;
 	wire        [11:0]  MotorCurrentSetting;
 	wire								CadenceCheck;
-
+	assign CellAssist = AssistanceRequirement[7:0];	
+	
     //| This module takes in information about the user's current biometric state
     //| and prefrences. It then calculates an amount of assistance that they should
     //| receive and presents that number to the current control module
@@ -92,7 +95,7 @@ module MotorControl(
 	
 		CadenceCalc CAD(
 				.clk50M(c50m),
-				.blips(cadence),
+				.blips(!cadence),
 				.CadenceOut(CadenceCheck)
 		);
 	//assign MotorSignalSafety = (ResolvedPitch > 45 degrees && ResolvedRoll > 45degrees) ? MotorSignal : 1'b0; //turns motor signal off is roll or pitch is too large.

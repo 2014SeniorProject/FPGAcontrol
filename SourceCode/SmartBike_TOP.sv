@@ -154,6 +154,7 @@ module SmartBike_TOP(
 	wire						c50m;
 	wire						IMUI2CClock;
 	wire						UARTclk;
+	wire		[7:0]			CellAssist;
 	
 	//|
   	//| ANT device assignments
@@ -231,7 +232,7 @@ module SmartBike_TOP(
 		.c50m(c50m),
 		.CurrentControlClock(CurrentControlClock),
 		.ResolvedRoll(ResolvedRoll),
-		.ResolvedPitch(ResolvedPitch),
+		.ResolvedPitch(ResolvedPitch-28),
 		.HeartRate(HeartRate),
 		.HeartRateSetPoint(heartRateCap),
 		.ThrottleTest(adc_data[1]),
@@ -241,7 +242,8 @@ module SmartBike_TOP(
 		.BrakeApplied(!brakes),
 		.cadence(cadence),
 		//| Outputs
-		.MotorControlPWM(PWMout)
+		.MotorControlPWM(PWMout),
+		.CellAssist(CellAssist)
 		);
 
 	//|
@@ -277,6 +279,7 @@ module SmartBike_TOP(
 		.UARTclk(UARTclk),
 		.heartCap(heartRateCap),
 		.ResolvedAngle(ResolvedPitch),
+		.Assist(CellAssist),
 		.speed(RPMnumber),
 		.ADC(adc_data[0])
 	);

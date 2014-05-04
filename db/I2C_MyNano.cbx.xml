@@ -2,9 +2,11 @@
 <LOG_ROOT>
 	<PROJECT NAME="I2C_MyNano">
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:RollCalculator|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_s0p.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|MotorControl:MCA|AssistanceAlgorithm:Assist|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|ADC_CTRL:ADC|altsyncram:adc_data_D1_rtl_0|altsyncram_lbe1:auto_generated|altsyncram:ram_block1a0" CBX_FILE_NAME="altsyncram_uoj3.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|CPU:u0|CPU_jtag_uart:jtag_uart|CPU_jtag_uart_scfifo_w:the_CPU_jtag_uart_scfifo_w|scfifo:wfifo" CBX_FILE_NAME="scfifo_jr21.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|CPU:u0|altera_reset_controller:rst_controller_001|altsyncram:WideOr0_rtl_0" CBX_FILE_NAME="altsyncram_9c01.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|MotorControl:MCA|AssistanceAlgorithm:Assist|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|CPU:u0|CPU_epcs_flash_controller_0:epcs_flash_controller_0|altsyncram:the_boot_copier_rom" CBX_FILE_NAME="altsyncram_sr51.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|CPU:u0|CPU_jtag_uart:jtag_uart|CPU_jtag_uart_scfifo_r:the_CPU_jtag_uart_scfifo_r|scfifo:rfifo" CBX_FILE_NAME="scfifo_jr21.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|CPU:u0|CPU_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sdram_s1_translator_avalon_universal_slave_0_agent_rdata_fifo|altsyncram:mem_rtl_0" CBX_FILE_NAME="altsyncram_mmg1.tdf"/>
@@ -17,22 +19,24 @@
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:RollCalculator|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_i9h.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:RollCalculator|lpm_mult:Mult1" CBX_FILE_NAME="mult_58t.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:InclanationCalculator|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_gkh.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram" CBX_FILE_NAME="altsyncram_6124.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram" CBX_FILE_NAME="altsyncram_e124.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|CPU:u0|CPU_nios2_qsys_0:nios2_qsys_0|CPU_nios2_qsys_0_register_bank_a_module:CPU_nios2_qsys_0_register_bank_a|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_ajg1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|ClockManagement:PLLs|PLL3:PLL_inst3|altpll:altpll_component" CBX_FILE_NAME="PLL3_altpll.v"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:InclanationCalculator|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_n0p.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:RollCalculator|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_gkh.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux" CBX_FILE_NAME="mux_vsc.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:\adv_point_3_and_more:advance_pointer_counter" CBX_FILE_NAME="cntr_ggi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux" CBX_FILE_NAME="mux_tsc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:\adv_point_3_and_more:advance_pointer_counter" CBX_FILE_NAME="cntr_mgi.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|CPU:u0|CPU_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sdram_s1_translator_avalon_universal_slave_0_agent_rdata_fifo|altsyncram:mem_rtl_0|altsyncram_mmg1:auto_generated|altsyncram:ram_block1a0" CBX_FILE_NAME="altsyncram_fgh3.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:InclanationCalculator|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_s0p.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:RollCalculator|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_n0p.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|MotorControl:MCA|AssistanceAlgorithm:Assist|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_h9h.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|CPU:u0|CPU_nios2_qsys_0:nios2_qsys_0|CPU_nios2_qsys_0_nios2_oci:the_CPU_nios2_qsys_0_nios2_oci|CPU_nios2_qsys_0_nios2_ocimem:the_CPU_nios2_qsys_0_nios2_ocimem|CPU_nios2_qsys_0_ociram_sp_ram_module:CPU_nios2_qsys_0_ociram_sp_ram|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_tp81.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|CPU:u0|CPU_nios2_qsys_0:nios2_qsys_0|CPU_nios2_qsys_0_register_bank_b_module:CPU_nios2_qsys_0_register_bank_b|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_bjg1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|ClockManagement:PLLs|PLL:PLL_inst|altpll:altpll_component" CBX_FILE_NAME="PLL_altpll.v"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:InclanationCalculator|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_s0p.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|IMUCalculations:IMUCalc|SensorFusion:RollCalculator|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_s0p.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:read_pointer_counter" CBX_FILE_NAME="cntr_o9j.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:status_advance_pointer_counter" CBX_FILE_NAME="cntr_igi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|MotorControl:MCA|AssistanceAlgorithm:Assist|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_h9h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:read_pointer_counter" CBX_FILE_NAME="cntr_m9j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|SmartBike_TOP|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:status_advance_pointer_counter" CBX_FILE_NAME="cntr_hgi.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

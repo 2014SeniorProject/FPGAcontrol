@@ -40,15 +40,16 @@
 
 //`include "timescale.sv"
 module wireless(
-  	input 							clk, 	// The master clock for this module
-	input									UARTclk,
-	input 			 					rx,		//Cell phone receiving
-	output 	 							tx,		//Cell phone transmiting
+  	input 						clk, 	// The master clock for this module
+	input						UARTclk,
+	input 			 			rx,		//Cell phone receiving
+	output 	 					tx,		//Cell phone transmiting
 
-	input 				[7:0]		heartRate,
-	input					[9:0]		ResolvedAngle,
-	input					[7:0]		speed,
-	input					[11:0]	ADC,
+	input 			[7:0]		heartRate,
+	input			[9:0]		ResolvedAngle,
+	input			[7:0]		speed,
+	input			[11:0]		ADC,
+	input			[7:0]		Assist,
 
 	output 	logic	[7:0]		wheelSize,
 	output  logic	[7:0]		heartCap = 200
@@ -66,6 +67,8 @@ module wireless(
 
 	localparam INIT_HEART = 10'd5;
 	localparam INIT_WHEEL = 10'd6;
+	
+	localparam ASSIST = 10'd9;
 
 	localparam SET_HEART = 10'b10xxxxxxxx;
 	localparam SET_WHEEL = 10'b01xxxxxxxx;
@@ -78,22 +81,23 @@ module wireless(
 	//|--------------------------------------------
 
 	wire					received; 		// Indicated that a byte has been received.
-	wire 	[7:0] 	rx_byte; 		// Byte received
+	wire 	[7:0] 			rx_byte; 		// Byte received
 	wire					is_receiving;	// Low when receive line is idle.
 	wire					is_transmitting;// Low when transmit line is idle.
 	wire					recv_error; 	// Indicates error in receiving packet.
-
+	
+	logic 	[7:0]			HeartFlop, AssistFlop;
 	logic					initialize_heart = 1'b0;
 	logic					initialize_wheel = 1'b0;
 
-	logic 				transmit; 		// Signal to transmit
-	logic 	[7:0] tx_byte; 		// Byte to transmit
+	logic 					transmit; 		// Signal to transmit
+	logic 	[7:0]			tx_byte; 		// Byte to transmit
 	
 	
 	//We want half second average of the current through the motor
 	//The ADC data 
-	logic 	[12:0]	counter;
-	logic 	[19:0]	ADCsum;
+	logic 		[12:0]	counter;
+	logic 		[19:0]	ADCsum;
 	logic		[11:0]	ADCCellPhone = 0;
 	
 	
@@ -105,6 +109,8 @@ module wireless(
 	
 	always@(posedge clk)
 		begin
+			HeartFlop <= heartRate;
+			AssistFlop <= Assist; 
 			//| Once a byte has been received from the cell phone, the received bit will be high for one
 			//| clock cycle. The Android application will be sending requests for specific data by
 			//| sending a specific byte of data to the FPGA.
@@ -116,59 +122,60 @@ module wireless(
 					casex({initialize_heart,initialize_wheel,rx_byte})
 						SEND_HR:						//Send heart rate to cell phone.
 							begin
-								tx_byte = heartRate;
+								tx_byte <= HeartFlop;
 							end
 						SEND_ANGLE_SIGN:				//Send just the top two bits of the resolved angle so the cell
 							begin						//phone can interpret the sign.
-								tx_byte = 8'd0;
-								tx_byte[1:0] = ResolvedAngle[9:8];
+								tx_byte <= 8'd0;
+								tx_byte[1:0] <= ResolvedAngle[9:8];
 							end
 						SEND_ANGLE_VALUE:				//Send the bottoms 8 bits of the resolved angle. The Android app is in
 							begin						//charge of interpreting it correctly with the previous byte.
-								tx_byte = ResolvedAngle[7:0];
+								tx_byte <= ResolvedAngle[7:0];
 							end
 						SEND_SPEED:						//Send the speed data to the cell phone.
 							begin
-								tx_byte = speed;
+								tx_byte <= speed;
 							end
 						INIT_HEART:
 							begin
-								initialize_heart = 1'b1;
-								tx_byte = 8'd1;
+								initialize_heart <= 1'b1;
+								tx_byte <= 8'd1;
 							end
 						INIT_WHEEL:
 							begin
-								initialize_wheel = 1'b1;
-								tx_byte = 8'd1;
+								initialize_wheel <= 1'b1;
+								tx_byte <= 8'd1;
 							end
 						SET_HEART:
 							begin
-								heartCap = rx_byte;
-								initialize_heart = 1'b0;
-								tx_byte = 8'd1;
+								heartCap <= rx_byte;
+								initialize_heart <= 1'b0;
+								tx_byte <= 8'd1;
 							end
 						SET_WHEEL:
 							begin
-							  	wheelSize = rx_byte;
-								initialize_wheel = 1'b0;
-								tx_byte = 8'd1;
+							  	wheelSize <= rx_byte;
+								initialize_wheel <= 1'b0;
+								tx_byte <= 8'd1;
 							end
 						SEND_ADCL:
 							begin
-								tx_byte = ADCCellPhone[7:0];
+								tx_byte <= ADC[7:0];
 							end
-						SEND_ADCH:
+						ASSIST:
 							begin
-							  	tx_byte = {4'd0, ADCCellPhone[11:8]};
+							  	tx_byte <= AssistFlop;
 							end
+							
 						default: 		//If there is an error in the bluetooth transmission, just send back a 0.
-								tx_byte = 8'd0;
+								tx_byte <= 8'd0;
 					endcase
 
-					transmit = 1;		//This must be high for one clock cycle to send the data in the tx register
+					transmit <= 1;		//This must be high for one clock cycle to send the data in the tx register
 										//to the cell phone.
 				 end
-			else transmit = 0;			//This must remain low until a byte is loaded into tx register and is ready
+			else transmit <= 0;			//This must remain low until a byte is loaded into tx register and is ready
 		end								//to be sent.
 
 

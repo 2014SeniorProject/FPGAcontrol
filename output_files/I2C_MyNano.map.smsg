@@ -1,4 +1,5 @@
 Warning (10268): Verilog HDL information at RPM.sv(61): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at wireless.sv(52): object "Assist" differs only in case from object "ASSIST" in the same scope
 Warning (10268): Verilog HDL information at CadenceCalc.sv(64): always construct contains both blocking and non-blocking assignments
 Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_addr_router.sv(48): object "DEFAULT_WR_CHANNEL" differs only in case from object "default_wr_channel" in the same scope
 Info (10281): Verilog HDL Declaration information at cpu_mm_interconnect_0_addr_router.sv(49): object "DEFAULT_RD_CHANNEL" differs only in case from object "default_rd_channel" in the same scope

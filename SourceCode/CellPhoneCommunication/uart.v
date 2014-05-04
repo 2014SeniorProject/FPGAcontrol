@@ -181,7 +181,7 @@ module uart(
 				// cycle while in this state.
 				recv_state = RX_IDLE;
 			end
-			default: recv_state = RX_ERROR;
+			default: recv_state = RX_IDLE;
 		endcase
 
 		// Transmit state machine
@@ -223,7 +223,7 @@ module uart(
 				// "stop bit" delay.
 				tx_state = tx_countdown ? TX_DELAY_RESTART : TX_IDLE;
 			end
-			default: tx_state = TX_DELAY_RESTART;
+			default: tx_state = TX_IDLE;
 		endcase
 	end
 

@@ -38,7 +38,7 @@
 module CadenceCalc(
 	input 	 					clk50M,
 	input 	 					blips,
-	output 	logic 		CadenceOut
+	output 	logic 				CadenceOut
 );
 
 CellPhoneProbe i2(CadenceOut);
@@ -65,7 +65,7 @@ CellPhoneProbe i3(blips);
 		blips_d1 <= blips;
 		blips_d2 <= blips_d1;
 
-		if(BlipTimer < 100_000_000) begin
+		if(BlipTimer < 50_000_000) begin
 			BlipTimer++;
 			ResetBlipCounter <= 0;
 		end
@@ -80,7 +80,4 @@ CellPhoneProbe i3(blips);
 		if(ResetBlipCounter == 1) BlipCoutner = 0;
 		else BlipCoutner++;
 	end
-
-
-
 endmodule

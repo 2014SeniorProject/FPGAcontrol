@@ -2,7 +2,7 @@ set_global_assignment -entity "CPU" -library "CPU" -name IP_TOOL_NAME "Qsys"
 set_global_assignment -entity "CPU" -library "CPU" -name IP_TOOL_VERSION "13.1"
 set_global_assignment -entity "CPU" -library "CPU" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "CPU" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../../CPU.sopcinfo"]
-set_global_assignment -entity "CPU" -library "CPU" -name SLD_INFO "QSYS_NAME CPU HAS_SOPCINFO 1 GENERATION_ID 1397772475"
+set_global_assignment -entity "CPU" -library "CPU" -name SLD_INFO "QSYS_NAME CPU HAS_SOPCINFO 1 GENERATION_ID 1398114063"
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "CPU" -name MISC_FILE [file join $::quartus(qip_path) "../../../SourceCode/NIOS/CPU.qsys"]
 
