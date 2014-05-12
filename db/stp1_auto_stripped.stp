@@ -1,4 +1,4 @@
-<session jtag_chain="" jtag_device="" sof_file="../output_files/I2C_MyNano.sof">
+<session jtag_chain="USB-Blaster [USB-0]" jtag_device="@1: EP3C25/EP4CE22 (0x020F30DD)" sof_file="../output_files/I2C_MyNano.sof">
   <display_tree gui_logging_enabled="0">
     <display_branch instance="auto_signaltap_0" log="USE_GLOBAL_TEMP" signal_set="USE_GLOBAL_TEMP" trigger="USE_GLOBAL_TEMP"/>
   </display_tree>

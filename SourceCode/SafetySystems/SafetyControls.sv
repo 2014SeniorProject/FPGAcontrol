@@ -41,6 +41,7 @@
 module SafetyControls(
     input                   CLOCK_50,
 	input 					PWMLightClock,
+	input					HornClock,
     input                   leftBlinker,        //buttons in
     input                   rightBlinker,       //buttons in
     input                   headLight,          //buttons in
@@ -84,7 +85,7 @@ module SafetyControls(
     //|--------------------------------------------
     soundramp   HornOut (
         //| Inputs
-        .clock(PWMLightClock),
+        .clock(HornClock),
         .Button(horn),
         //| Outputs
         .OutputToDAC(DACout)

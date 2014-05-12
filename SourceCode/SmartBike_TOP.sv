@@ -74,7 +74,7 @@ module SmartBike_TOP(
 	input						cadence,
 
 	//DAC output
-	output			[0:7]		DACout,
+	output			[7:0]		DACout,
 	output						EnableAmplifier,
 
 	//SDRAM
@@ -154,6 +154,7 @@ module SmartBike_TOP(
 	wire						c50m;
 	wire						IMUI2CClock;
 	wire						UARTclk;
+	wire 						HornClock;
 	wire		[7:0]			CellAssist;
 	
 	//|
@@ -180,6 +181,7 @@ module SmartBike_TOP(
 		.DRAM_CLK(DRAM_CLK),
 		.ADC_CLK(ADC_CLK),
 		.PWMClock(PWMClock),
+		.HornClock(HornClock),
 		.CurrentControlClock(CurrentControlClock),
 		.PWMLightClock(PWMLightClock),
 		.IMUI2CClock(IMUI2CClock)
@@ -208,6 +210,7 @@ module SmartBike_TOP(
 		//| Inputs
 		.CLOCK_50(c50m),
 		.PWMLightClock(PWMLightClock),
+		.HornClock(HornClock),
 		.leftBlinker(leftBlinker),
 		.rightBlinker(rightBlinker),
 		.headLight(headLight),

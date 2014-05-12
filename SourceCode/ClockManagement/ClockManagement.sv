@@ -7,7 +7,8 @@ module ClockManagement(
 	output 	PWMClock,
 	output 	CurrentControlClock,
 	output 	PWMLightClock,
-	output  IMUI2CClock
+	output  IMUI2CClock,
+	output  HornClock
 );
 
 	PLL	PLL_inst (
@@ -31,7 +32,7 @@ module ClockManagement(
 		.areset ( ),
 		.inclk0 (CLOCK_50),
 		.c0 (IMUI2CClock),
-		.c1 (),
+		.c1 (HornClock),
 		.c2 (),
 		.c3 ()
 	);
